@@ -9,3 +9,9 @@
     background-color: black;
     right: 0;
 }
+
+@media (max-width: 1440px) {
+    .sidebarleft{
+        width: 16.67%;
+    }
+}

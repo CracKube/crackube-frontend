@@ -5,7 +5,8 @@
 }
 
 .mainbar{
-    display:grid;
+    display:flex;
+    flex-direction: column;
     width: 66.67%;
     margin: auto;
     justify-content: center;
