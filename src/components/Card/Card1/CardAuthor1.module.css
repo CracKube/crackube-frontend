@@ -1,0 +1,35 @@
+.authorContainer{
+    font-weight: 300;
+    font-size: 0.5rem;
+    padding: 0 0.906rem 0 0.75rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image{
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image > img{
+    border-radius: 3.125rem;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.title{
+    flex: 5;
+    padding: 0.313rem;
+    line-height: 0.581rem;
+}
+
+.bookmark{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}

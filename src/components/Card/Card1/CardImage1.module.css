@@ -1,0 +1,13 @@
+.cardImage{
+    width: 100%;
+}
+
+.cardImage > img{
+    display: block;
+    margin: auto;
+    width: 96.29%;
+    height: 58.504%;
+    min-width: 0;
+    border-radius: 1.25rem;
+}   
+

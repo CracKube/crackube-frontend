@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.blogpart{
+    width: 896px;
+    margin: auto;
+}
+
+.heading{
+    font-family: 'Seriguela';
+    font-size: 102px;
+    line-height: 91.8px;
+}

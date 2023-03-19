@@ -1,0 +1,10 @@
+.blogcontent{
+    width: 100%;   
+    margin-top: 23px;
+}
+
+.blogcontent p{
+    line-height: 24.96px;
+    font-weight: 100;
+    letter-spacing: -0.02rem;
+}

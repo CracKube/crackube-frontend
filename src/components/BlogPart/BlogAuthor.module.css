@@ -1,0 +1,63 @@
+.authorContainer{
+    font-weight: 300;
+    padding: 0 0.906rem 0 0.75rem;
+    margin-top: 1rem;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image img{
+    border-radius: 3.125rem;
+    width: 64px;
+    min-width: 0;
+}
+
+.title{
+    flex: 5;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.313rem;
+    line-height: 24.96px;
+}
+
+.title > div{
+    display: flex;
+}
+
+.title > div:nth-child(1){
+    font-size: 1.5rem;
+    display: flex;
+}
+
+.title > div:nth-child(1) > button{
+    border-radius: 1.5rem;
+    width: 65px;
+    background-color: black;
+    border: 0;
+    margin-left: 0.5rem;
+    font-weight: 150;
+    color: white;
+} 
+
+.title > div:nth-child(2){
+    font-size: 1rem;
+}
+
+.bookmark{
+    flex: 5;
+    display: flex;
+
+}
+
+.title button{
+    cursor: pointer;
+}
