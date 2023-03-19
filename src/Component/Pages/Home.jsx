@@ -30,7 +30,6 @@ function Home() {
             <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>CK Originals</p></Link>
             <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Bookmarks</p></Link>
             <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Your Content</p></Link>
-
           </div>
         </MenuBar>
         <div className="home-container">
