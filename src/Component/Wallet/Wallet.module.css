@@ -1,0 +1,44 @@
+.wallet{
+    width: 12.375rem;
+    height: 2.25rem;
+    position: absolute;
+    top: 1.25rem;
+    right: 16.5rem;
+    display: flex;
+    background: #118C4F;
+    border-radius: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 200;
+    box-sizing: unset;
+}
+
+.walletAmount{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #118C4F;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    padding: 0.375rem 0 0.375rem 0.375rem;
+    border: none;
+    height: 100%;
+}
+
+.walletTitle{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.75rem;
+    background-color: #BFF3BA;
+    border-radius: 1.5rem;
+    border: 1px solid #43BD58;
+    height: 100%;
+
+}
+
+.wallterAmount img{
+    height: 1.5rem;
+    width: 1.5rem;
+}

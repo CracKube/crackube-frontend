@@ -1,0 +1,13 @@
+.banner{
+    width: 896px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.banner > img{
+    display: block;
+    margin: auto;
+    box-shadow: unset;
+    border-radius: 24px;
+}
