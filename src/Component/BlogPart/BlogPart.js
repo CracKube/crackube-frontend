@@ -1,7 +1,5 @@
 import styles from './BlogPart.module.css';
-import BannerImage from './BannerImage'; 
-import BlogAuthor from './BlogAuthor';
-import BlogContent from './BlogContent';
+import {BlogContent, BlogAuthor, BannerImage} from '../Constants'
 import url from '../../styles/Rectangle 120.svg'
 import url1 from '../../styles/Sample-Author 2.svg'
 

@@ -1,5 +1,5 @@
 import styles from './CardAuthor1.module.css';
-import bookmarkUrl from '../../../styles/Icon feather-bookmark.svg';
+import { bookmarkUrl } from '../../Constants';
 
 export default function CardAuthor1(props){
     return(

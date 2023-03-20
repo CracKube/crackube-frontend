@@ -1,9 +1,5 @@
-import Card1 from '../Card/Card1/Card1'
-import Card2 from '../Card/Card2/Card2'
+import { Card1, Card2, thumbnailUrl, authorUrl, authorUrl2  } from '../Constants'
 import styles from './Dashboard.module.css'
-import thumbnailUrl from '../../styles/Sample-Blog-Thumbnail.svg'
-import authorUrl from '../../styles/Sample-Author.svg'
-import authorUrl2 from '../../styles/Sample-Author 2.svg'
 import { useState } from 'react';
 
 export default function Dashboard(props){
