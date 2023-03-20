@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import uploadIcon from '../Assets/uploadIcon.svg'
 import bellIconBlue from '../Assets/bellIconBlue.svg'
 import ProfileSmall from '../Assets/ProfileSmall.svg'
+import SideBarFooter from './SideBarFooter'
+import TrendTagList from './TrendTagList'
+import PeopleList from './Peoplelist'
 function SideBar({children}) {
   return (
     <div className="side-bar">
@@ -16,18 +19,16 @@ function SideBar({children}) {
             </div>
           </div>
 
-          <div className="box-1"></div>
-          <div className="ad-box-1"></div>
-          <div className="side-bar-footer">
-            <div className="side-bar-footer-container-1">
-              <Link className='side-bar-footer-link'>About</Link>
-              <Link className='side-bar-footer-link'>Terms and Condition</Link>
-              <Link className='side-bar-footer-link'>Privacy Policy</Link>
-              <Link className='side-bar-footer-link'>Cookie Policy</Link>
-            </div>
-            <div className="side-bar-footer-container-2">	&#169; 2023 CracKube</div>
-
+          <div className="box-1">
+            <h4>Trending</h4>
+            <TrendTagList/>
+            <h4>Top People to Follow</h4>
+            <PeopleList/>
           </div>
+          <div className="ad-box-1">
+            
+          </div>
+          <SideBarFooter/>
     </div>
   )
 }
