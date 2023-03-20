@@ -81,7 +81,7 @@ a{
 }
  
 
-/* .topmenu > div:first-child{
+.topmenu > div:first-child{
     border-radius: 24px;
     background-color: white;
     margin: 0.25rem 0.313rem;
@@ -90,4 +90,4 @@ a{
 .topmenu > div:first-child > a{
     color: black;
     text-decoration: none;
-} */
+}
