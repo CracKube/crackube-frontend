@@ -1,8 +1,6 @@
 import styles from './Card2.module.css'
-import CardFlex from './CardFlex';
-import CardTitle1 from '../Card1/CardTitle1';
-import CardAuthor1 from '../Card1/CardAuthor1';
-import url from '../../../styles/Sample-Author 2.svg';
+import {CardFlex, CardTitle1, CardAuthor1} from '../../Constants';
+
 
 export default function Card2(props){
     const title = 'Assume the random variable X has a binomial distribution with the given probability of obtaining a success. Find the following probability of the...';

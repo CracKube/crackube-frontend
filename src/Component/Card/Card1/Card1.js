@@ -1,7 +1,5 @@
-import styles from './Card1.module.css'
-import CardImage1 from './CardImage1';
-import CardTitle1 from './CardTitle1';
-import CardAuthor1 from './CardAuthor1';
+import styles from './Card1.module.css';
+import {CardImage1, CardAuthor1, CardTitle1} from '../../Constants'
 
 
 function Card1(props){
