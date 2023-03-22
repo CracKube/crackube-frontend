@@ -230,6 +230,7 @@ a:hover{
 .home{
   display: flex;
   flex-direction: row;
+  width: 100vw;
 }
 .home-logo{
   background-color: #8E00FF;
@@ -275,8 +276,7 @@ a:hover{
   margin: 0.125rem 0;
 }
 .home-container{
-  display: flex;
-  flex-direction: column;
+  margin: auto;
   padding-top: 1rem;
   min-height: 100vh;
  }

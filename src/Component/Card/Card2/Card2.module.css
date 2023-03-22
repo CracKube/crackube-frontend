@@ -1,6 +1,6 @@
 .card2{
-    width: 46.67%;
-    height: 10.41%;
+    max-width: 448px;
+    max-height: 100px;
     background-color: white;
     border-radius: 1.5rem;
     padding: 0.25rem 0;

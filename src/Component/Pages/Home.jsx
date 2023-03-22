@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import SideBar from '../SideBar'
 import homeIcon from '../../Assets/homeIcon.svg'
-import { MainBar } from '../Constants'
+import { MainBar, TopNavBar } from '../Constants'
 
 function Home() {
   return (
@@ -20,6 +20,7 @@ function Home() {
           </div>
         </MenuBar>
         <div className="home-container">
+        <TopNavBar />
           <MainBar />
         </div>
         <SideBar>
