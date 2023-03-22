@@ -1,0 +1,86 @@
+.answerscard{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+    border-radius: 1.5rem;
+    box-shadow:  0px 0px 20px rgba(31, 38, 57, 0.2);
+    padding: 12px 12px;
+    margin: 17px auto;
+}
+
+.image{
+    height: 0;
+}
+
+.feedback{
+    display: flex;
+    align-items: center;
+}
+
+.feedback > div{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.like{
+    justify-content: flex-start;
+    flex: 1;
+    align-items: center;
+}
+
+.like > div{
+    width: 130px;
+    height: 40px;
+    background: #F1F1F1;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px 0 16px;
+    font-weight: 150;
+}
+
+.like > div > div{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.like > div > div > img{
+    width: 24px;
+    height: 24px;
+}
+
+.like > div > div:first-child{
+    border-right: 1px solid #AAA;
+}
+
+.reply{
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.reply > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reply > div:first-child{
+    width: 74px;
+    height: 32px;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+    font-weight: 150;
+}
+
+
+.reply > div > img{
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+}

@@ -56,11 +56,13 @@ body {
 a{
   color: black;
   text-decoration: none;
+  display: inline;
 }
 
 a:hover{
   text-decoration: underline;
 }
+
 
 .nav-bar{
   display: flex;

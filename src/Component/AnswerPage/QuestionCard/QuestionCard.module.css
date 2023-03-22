@@ -1,0 +1,25 @@
+.questioncard{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+}
+
+.headerpoints{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    padding: 0.5rem 0;
+}
+
+.questionpart{
+    line-height: 25px;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.questionauthor{
+
+}
