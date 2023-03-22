@@ -62,3 +62,443 @@ a:hover{
   text-decoration: underline;
 }
 
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 9.8rem 0rem 9.8rem;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+  font-size: 0.75rem;
+  /* position: fixed;
+  z-index: 1; */
+}
+
+/* Start - Logo's CSS */
+.logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+}
+.logo img{
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #8E00FF;
+  border-radius: 0.75rem;
+}
+.logo h1{
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+/* End - Logo's CSS */
+
+
+/* Start - navbar CSS */
+.nav-bar ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000;
+  list-style-type: none;
+  width: 15.6rem;
+}
+.nav-link{
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+.nav-buttons{
+  display: flex;
+  gap: 1.25rem;
+}
+.sign-up-btn,.login-in-btn{
+  padding: 0.625rem 1.56rem 0.625rem 1.56rem ;
+  border-radius: 1.5rem;
+  font-weight: 600;
+}
+.sign-up-btn:hover,.login-in-btn:hover{
+  cursor: pointer;
+}
+.sign-up-btn{
+  background: transparent;
+  border:  1px solid #8E00FF;
+}
+.login-in-btn{
+  border: none;
+  background: linear-gradient(99.94deg, #8E00FF 0%, #7B00DD 100%);
+  box-shadow: 0rem 0rem 1.25rem rgba(142, 0, 255, 0.5);
+}
+@media screen and (max-width: 62.5rem) {
+  .nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem 2rem 0rem 2rem;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+    font-size: 0.75rem;
+  }
+}
+/* End - navbar CSS */
+
+
+/* Start - Login css */
+.log-in{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56.25rem;
+  height: 44.313rem;
+  box-shadow: 0rem 0rem 50px rgba(0, 0, 0, 0.1);
+  border-radius: 48px;
+  padding: 2.625rem 0rem 2.625rem 0rem;
+  background-color: aqua;
+}
+.login-container h1{
+  font-weight: 900;
+  font-size: 64px;
+}
+.text-input-container{
+  display: flex;
+  flex-direction: column;
+}
+.text-input-container input{
+  width: 28rem;
+  padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  border: none;
+  background: rgba(142, 0, 255, 0.05);
+}
+.text-input-container input:focus{
+  outline: none;
+  background: rgba(142, 0, 255, 0.05);
+}
+.submit-btn{
+  width: 28rem;
+  padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  background: #8E00FF;
+  color: #ffffff;
+  box-shadow: 0rem 0rem 1.25rem rgba(142, 0, 255, 0.25);
+  border: none;
+}
+.firebase-logins{
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+.continue-with{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.line{
+  width: 10.938rem;
+  height: 0rem;
+  border: 1px solid #555555;
+}
+.firebase-logins-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.firebase-logins-btn button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75rem 1.875rem 0.75rem 1.875rem;
+  border-radius: 24px;
+  background-color: transparent;  
+}
+/* End - Login css */
+
+
+/* Start - Homepage CSS */
+.home{
+  display: flex;
+  flex-direction: row;
+}
+.home-logo{
+  background-color: #8E00FF;
+}
+.menu-bar,.side-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* min-height: 100vh; */
+  width: min(29vw,15rem);
+  /* width: 240px; */
+  padding-top: 1rem;
+}
+
+.menu-bar{
+  /* align-self: flex-start; */
+  border-right: 0.125rem solid black ;
+  position: sticky;
+  max-height: 100vh;
+  top: 0;
+  left: 0;
+}
+.menu-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hamburger{
+  display: flex;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  gap: 0.25rem;
+}
+.bar-1,.bar-2,.bar-3{
+  width: 1rem;
+  height: 0.125rem;
+  background-color: #000;
+  border-radius: 4px;
+  margin: 0.125rem 0;
+}
+.home-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  min-height: 100vh;
+ }
+.modes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0.125rem;
+  border-radius: 24px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  margin: auto 0rem 0.5rem 0rem;
+}
+.modes button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  width: 4.75rem;
+  height: 2rem;
+  border-radius: 24px;
+  border: none;
+}
+.light-mode{
+  color: #ffffff;
+  background-color: #000;
+}
+.dark-mode{
+  color:#555555;
+  background-color: #ffffff;
+
+}
+.log-out-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  width: 11rem;
+  height: 2.6rem;
+  border-radius: 1.5rem;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.side-bar{
+  border-left: 0.125rem solid black ;
+  padding: 1rem;
+  max-height: 100vh;
+  margin-left: auto;
+  position: sticky;
+  overflow: hidden;
+  overflow-y: scroll;
+  gap: 24px;
+  /* top: 0;
+  right: 0; */
+}
+.side-bar::-webkit-scrollbar{
+  max-width: 10px;
+}
+.side-bar-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+.upload-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 5.56rem;
+  height: 2.25rem;
+  font-weight: 500;
+  font-size: 10px;
+  color: #ffffff;
+  border: none;
+  background-color: #8E00FF;
+  border-radius: 24px;
+}
+.upload-btn img{
+  margin-right: 0.25rem;
+}
+.arrow {
+  border: solid #ffffff;
+  border-width: 0px 1px 1px 0px;
+  width: 4px;
+  height: 4px;
+  margin-left: 0.188rem;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.notification{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: transparent;
+  border: 1px solid #F5F5F5;
+  border-radius: 50%;
+}
+.notification-dot{
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #8E00FF;
+  border-radius: 50%;
+  position: relative;
+  top: -11px;
+  right: -19px;
+}
+.notification img{
+  position: relative;
+  right: 4px;
+}
+.setting{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 4.688rem;
+  height: 2.25rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+.profile-sm{
+  width: 2rem;
+  height: 2rem;
+  margin: 0.125rem 0.125rem 0.125rem auto;
+}
+.box-1{
+  width: 13rem;
+  min-height: 15.875rem;
+  background: #F5F5F5;
+  border-radius: 24px;
+  padding: 0.5rem 0.75rem;
+}
+.box-1 h4{
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.trend-tag-list{
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  grid-auto-flow: row;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  gap: 4px;
+}
+.trend-tag{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: auto;
+  padding: 0.25rem 0.438rem;
+  background-color: #000000;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  width: max-content;
+}
+.ad-box-1{
+  width: 13rem;
+  min-height: 34.313rem;
+  background: #F5F5F5;
+  border-radius: 24px;
+}
+.side-bar-footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  gap: 20px;
+  padding: 10px 0px 0px 0px;
+}
+.side-bar-footer-container-1{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
+}
+.side-bar-footer-link{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;  
+}
+.side-bar-footer-container-2{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;  
+  text-align: center;
+}
+.menu-bar-link{
+  display: flex;
+  flex-direction: column;
+  margin: 22px;
+  align-self: flex-start;
+  gap: 10px;
+}
+.menu-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+  gap: 0.688rem;
+  padding: 8px 24px 8px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+.menu-btn:hover{
+  background-color: #202020;
+  color: #ffffff;
+}
