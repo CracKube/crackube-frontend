@@ -1,5 +1,6 @@
 
 import {MainBar, AddButton, BlogPart, TopNavBar, AnswerPage, AnswersCard} from './Component/Constants'
+import SideBar from './Component/Sidebar/SideBar';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <AddButton />
       <TopNavBar />
       <AnswerPage /> 
+      <SideBar />
     </div>
   );
 }

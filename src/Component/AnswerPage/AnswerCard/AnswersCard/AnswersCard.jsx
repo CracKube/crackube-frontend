@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './AnswersCard.module.css'
 import { AnswersAuthor, authorUrl, Like, Dislike, Flag} from '../../../Constants';
 
-const AnswersCard = () => {
+const AnswersCard = (props) => {
     return (
         <div className={styles.answerscard}>
             <div className={styles.answerauthor}>
@@ -14,7 +14,7 @@ const AnswersCard = () => {
             <div className={styles.answersheading}>
                 <div style={{
                     fontWeight: '250'
-                }}>Possible Data Inconsistencies:</div>
+                }}>{props.heading}</div>
             </div>
             <div className={styles.answerscontent}>
                 <div style={{fontWeight: '100', lineHeight: '25px'}}>
@@ -31,11 +31,11 @@ const AnswersCard = () => {
                     <div>
                         <div>
                             <img src={Like} alt="" />
-                            <div>4k</div>
+                            <div>{props.likes}</div>
                         </div>
                         <div>
                             <img src={Dislike} alt="" />
-                            <div>1k</div>
+                            <div>{props.dislikes}</div>
                         </div>
                     </div>
                 </div>

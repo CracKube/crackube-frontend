@@ -6,8 +6,8 @@ const AnswerPage = () => {
   return (
     <div className={styles.answercard}>
         <Heading text="2 Answers"/>
-        <AnswersCard />
-        <AnswersCard />
+        <AnswersCard heading="Possible Data Inconsistencies:" likes="4k" dislikes="1k"/>
+        <AnswersCard heading="Possible Data Inconsistencies:" likes="4k" dislikes="1k" />
     </div>
   )
 }
