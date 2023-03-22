@@ -5,7 +5,7 @@ import bellIconBlue from '../Assets/bellIconBlue.svg'
 import ProfileSmall from '../Assets/ProfileSmall.svg'
 import SideBarFooter from './SideBarFooter'
 import TrendTagList from './TrendTagList'
-import PeopleList from './Peoplelist'
+import PeopleList from './PeopleList'
 function SideBar({children}) {
   return (
     <div className="side-bar">
@@ -26,7 +26,7 @@ function SideBar({children}) {
             <PeopleList/>
           </div>
           <div className="ad-box-1">
-            
+            ad box
           </div>
           <SideBarFooter/>
     </div>

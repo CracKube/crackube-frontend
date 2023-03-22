@@ -4,7 +4,7 @@ import TrendTag from './TrendTag'
 function TrendTagList() {
   return (
     <>
-        <div className="trend-tag-list">
+        <ul className="trend-tag-list">
             <TrendTag tagName={'IPL'}/>
             <TrendTag tagName={'MS Dhoni'}/>
             <TrendTag tagName={'RD Sharma'}/>
@@ -12,8 +12,8 @@ function TrendTagList() {
             <TrendTag tagName={'Ariana Grande'}/>
             <TrendTag tagName={'Physics'}/>
             <TrendTag tagName={'Python'}/>
-            <TrendTag tagName={'JS'}/>
-        </div>
+            {/* <TrendTag tagName={'JS'}/> */}
+        </ul>
     </>
   )
 }

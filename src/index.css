@@ -2,7 +2,7 @@
 
 
 *{
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0rem;
   margin: 0rem;
   font-family: 'VisbyCF';
@@ -18,6 +18,7 @@
 
 /* Start - navbar CSS */
 .nav-bar{
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,6 +33,7 @@
 
 /* Start - Logo's CSS */
 .logo{
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -89,6 +91,7 @@
 }
 @media screen and (max-width: 62.5rem) {
   .nav-bar{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -192,16 +195,18 @@
   flex-direction: column;
   align-items: center;
   /* min-height: 100vh; */
-  width: min(29vw,15rem);
+  width: min(29vw,15.625rem);
   /* width: 240px; */
   padding-top: 1rem;
 }
 
 .menu-bar{
+  box-sizing: border-box;
   /* align-self: flex-start; */
   border-right: 0.125rem solid black ;
   position: sticky;
   max-height: 100vh;
+  width: min(29vw,15rem);
   top: 0;
   left: 0;
 }
@@ -228,6 +233,7 @@
   margin: 0.125rem 0;
 }
 .home-container{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
@@ -282,6 +288,7 @@
 }
 
 .side-bar{
+  box-sizing: border-box;
   border-left: 0.125rem solid black ;
   padding: 1rem;
   max-height: 100vh;
@@ -290,8 +297,8 @@
   overflow: hidden;
   overflow-y: scroll;
   gap: 24px;
-  /* top: 0;
-  right: 0; */
+  top: 0;
+  right: 0;
 }
 .side-bar::-webkit-scrollbar{
   max-width: 10px;
@@ -372,7 +379,8 @@
   margin: 0.125rem 0.125rem 0.125rem auto;
 }
 .box-1{
-  width: 13rem;
+  box-sizing: border-box;
+  max-width: 13rem;
   min-height: 15.875rem;
   background: #F5F5F5;
   border-radius: 24px;
@@ -383,17 +391,17 @@
   font-size: 0.75rem;
 }
 .trend-tag-list{
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
-  grid-auto-flow: row;
   padding: 0.5rem 0rem 0.5rem 0rem;
-  gap: 4px;
+}
+.trend-tag-list > li{
+  display: inline-block;
+  list-style: none;
+  margin-left: 0.25rem;
 }
 .trend-tag{
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  grid-column-start: auto;
   padding: 0.25rem 0.438rem;
   background-color: #000000;
   border-radius: 24px;
@@ -404,7 +412,8 @@
   width: max-content;
 }
 .ad-box-1{
-  width: 13rem;
+  box-sizing: border-box;
+  width: 13rem; /*it should be max-width for now let it be normal width */
   min-height: 34.313rem;
   background: #F5F5F5;
   border-radius: 24px;
@@ -420,8 +429,19 @@
 .side-bar-footer-container-1{
   display: grid;
   grid-template-columns: auto auto;
+  /* display: flex;
+  justify-content: center; */
   column-gap: 10px;
 }
+/* .side-bar-footer-container-1 ul{
+  margin: auto;
+  list-style: none; 
+}
+.side-bar-footer-container-1 ul li{
+  display: inline;
+  margin-right: 10px;
+
+} */
 .side-bar-footer-link{
   text-decoration: none;
   font-weight: 500;

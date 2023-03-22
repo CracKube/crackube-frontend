@@ -1,11 +1,12 @@
 import React from 'react'
+import TopPeople from './TopPeople'
 
-function PeopleList() {
+function Peoplelist() {
   return (
     <>
-        
+      <TopPeople/>
     </>
   )
 }
 
-export default PeopleList
+export default Peoplelist

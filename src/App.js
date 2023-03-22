@@ -7,7 +7,7 @@ import Home from "./Component/Pages/Home";
 function App() {
   return (
     <>
-      <div className="body">
+
         <Router>
             <Routes>
               <Route path="/" element={<LandingPage/>}></Route>
@@ -16,7 +16,7 @@ function App() {
               <Route path="/home" element={<Home/>}></Route>
             </Routes>
         </Router>
-      </div>
+
     </>
   );
 }
