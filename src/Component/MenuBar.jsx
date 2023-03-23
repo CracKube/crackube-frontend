@@ -6,6 +6,7 @@ import Logo from './Logo'
 import logoutIcon from '../Assets/Logout icon.svg'
 import lightIcon from '../Assets/lightIcon.svg'
 import DarkIcon from '../Assets/darkIcon.svg'
+import Profile from './Profile/Profile'
 
 function MenuBar({children}) {
   return (
@@ -19,6 +20,9 @@ function MenuBar({children}) {
             <Logo/>
         </div>
         {children}
+        <div className='profile'>
+          <Profile />
+        </div>
         <div className="modes">
             <button className="light-mode"><img src={lightIcon} alt=""/>Light</button>
             <button className="dark-mode"><img src={DarkIcon} alt=""/>Dark</button>

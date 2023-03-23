@@ -31,6 +31,7 @@ export {default as Flag} from '../styles/Icons/Flag.svg'
 export {default as BestAnswer} from '../styles/BestAnswer.svg'
 export {default as Like} from '../styles/like.svg'
 export {default as Dislike} from '../styles/dislike.svg'
+export {default as Diamond} from '../styles/Icons/Diamond Logo 1.svg'
 
 export {default as TopNavBar} from './NavBar/TopNavBar';
 export {default as Dashboard} from './Dashboard/Dashboard';
