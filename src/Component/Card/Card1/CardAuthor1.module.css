@@ -25,7 +25,10 @@
 .title{
     flex: 5;
     padding: 0.313rem;
-    line-height: 0.581rem;
+    font-size: 0.5rem;
+    line-height: 0.75rem;
+    font-weight: 800;
+
 }
 
 .bookmark{

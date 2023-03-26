@@ -4,12 +4,12 @@ import MenuBar from '../MenuBar'
 import SideBar from '../SideBar'
 import homeIcon from '../../Assets/homeIcon.svg'
 import { MainBar, TopNavBar } from '../Constants'
+import AddButton from '../Constants'
 
 function Home() {
   return (
     <>
       <div className="home">
-   
         <MenuBar>
           <div className="menu-bar-link">
             <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Home</p></Link>
@@ -23,9 +23,7 @@ function Home() {
         <TopNavBar />
           <MainBar />
         </div>
-        <SideBar>
-          
-        </SideBar>
+        
       </div>
     </>
   )

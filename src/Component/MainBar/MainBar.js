@@ -3,6 +3,8 @@ import TopNavBar from '../NavBar/TopNavBar';
 import Dashboard from '../Dashboard/Dashboard';
 import Heading from './Heading/Heading';
 import BlogPart from '../BlogPart/BlogPart';
+import Infinite from '../InfinitePart/Infinite';
+import { Card1 } from '../Constants';
 
 export default function MainBar(){
     return (
@@ -11,7 +13,8 @@ export default function MainBar(){
             <Dashboard type='card1'/>
             <Heading text='Answer it! Earn it!💰'/>
             <Dashboard type='card2' />
-            <Heading text='Code Hard, Make Money, Have Fun!🧑‍💻' />
+            <Infinite/>
+            <Dashboard type = 'card1'/>
             {/* <BlogPart /> */}
         </div>
     );

@@ -1,20 +1,42 @@
-import React from 'react'
-import Navbar from '../Navbar'
-import { useState } from 'react';
+import React, { useState } from 'react'
 import {Helmet} from 'react-helmet';
+import ProgressPassword from '../Indicators/ProgressPassword';
+import LoginDesign from '../../Assets/LoginDesign.svg';
 
 function Login() {
     const [message, setMessage] = useState("");
     const [userMsg, setUserMsg] = useState("");
+    const [CPass, setCPass] = useState("");
     const [prompt, setPrompt] = useState("");
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
     const [focus, setFocus] = useState(false);
     const [focus1, setFocus1] = useState(false);
     const [focus2, setFocus2] = useState(false);
-    const [focus3, setFocus3] = useState(false);
+    const [focus3, setFocus3] = useState();
     const [focus4, setFocus4] = useState(false);
-
+    const [focus5, setFocus5] = useState(false);
+    const [checks, setChecks] = useState({
+        letterCheck: false,
+        mailCheck: false,
+        smallCheck: false,
+        CapsCheck: false,
+        SpecialChar: false,
+        lengthCheck : false,
+        numCheck: false,
+        letChk: false,
+        
+    })
+    // Confirm password method
+    const passwordInput = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    function verifyPassword() {
+        if(passwordInput.value !== confirmPassword.value) {
+            setCPass("*Passwords do not match");
+        }else{
+            setCPass("");
+        }
+    }
     // handle Focus on inputs
     const handleOnFocus = () => {
         setFocus(true);
@@ -37,14 +59,18 @@ function Login() {
     const handleOnFocus3 = () => {
         setFocus3(true);
     }
-    const handleOnBlur3 = () => {
-        setFocus3(false);
-    }
+    
     const handleOnFocus4 = () => {
         setFocus4(true);
     }
     const handleOnBlur4 = () => {
         setFocus4(false);
+    }
+    const handleOnFocus5 = () => {
+        setFocus5(true);
+    }
+    const handleOnBlur5 = () => {
+        setFocus5(false);
     }
     //other Implementation
     // FirstName
@@ -54,37 +80,38 @@ function Login() {
             var currentValue = e.target.value;
             const regEx = /^[a-zA-Z]{1,10}$/
             if(regEx.test(currentValue)) {
-                setFirstName("Strong First name");
+                setLastName("");
             }else if (!regEx.test(currentValue) ){
-                setFirstName("Invalid")
-            }else {
-                setFirstName("");
-            }
-        })
-    }
-    var lastName = document.getElementById("lastname");
-    if(lastName) {
-        lastName.addEventListener('input' , function(e) {
-            var currentValue = e.target.value;
-            const regEx = /^[a-zA-Z]{1,10}$/
-            if(regEx.test(currentValue)) {
-                setLastName("Strong Last Name");
-            }else if (!regEx.test(currentValue) ){
-                setLastName("Invalid")
+                setLastName("*This is not the first name")
             }else {
                 setLastName("");
             }
         })
     }
+    var firstName = document.getElementById("lastname");
+    if(firstName) {
+        firstName.addEventListener('input' , function(e) {
+            var currentValue = e.target.value;
+            const regEx = /^[a-zA-Z]{1,10}$/
+            if(regEx.test(currentValue)) {
+                setFirstName("");
+            }else if (!regEx.test(currentValue) ){
+                setFirstName("*This is not the last name")
+            }else {
+                setFirstName("");
+            }
+        })
+    }
+
     var userName = document.getElementById("username");
      if(userName){
      userName.addEventListener('input' , function(e) {
         var currentValue = e.target.value;
         const regEx = /^[a-zA-Z]{1,10}$/
         if(regEx.test(currentValue)) {
-            setUserMsg("Strong User Name");
+            setUserMsg("");
         }else if (!regEx.test(currentValue) ){
-            setUserMsg("Invalid")
+            setUserMsg("*Invalid User Name")
         }else {
             setUserMsg("");
         }
@@ -96,30 +123,43 @@ function Login() {
             var currentValue = e.target.value;
             const regEx = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/
             if(regEx.test(currentValue)){
-                setMessage("Email is valid");
+                setMessage("");
             }else if(!regEx.test(currentValue))  {
-                setMessage("Email is not valid");
+                setMessage("*Email is not valid");
             } else {
                 setMessage("");
             }
         })
     }
-    var password = document.getElementById("password")
-    if(password) {
-        password.addEventListener('input', function(e) {
-            var currentValue = e.target.value;
-            const regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_222]).{8,}$/
-            if(regEx.test(currentValue)) {
-                setPrompt("Strong password");
-            }else if (!regEx.test(currentValue) ){
-                setPrompt("Password is weak")
-            }else {
-                setPrompt("");
-            }
+    const handleEmail = (e) => {
+        const {value} = e.target;
+        const mailCheck = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/.test(value);
+        setChecks({
+            mailCheck,
+        });
+    }
+    const handleOnBlur3 = () => {
+        setFocus3(false);
+        
+    }
+    const handlePassword = (e) => {
+        const {value} = e.target;
+        const smallCheck = /[a-z]/.test(value);
+        const CapsCheck = /[A-Z]/.test(value);
+        const SpecialChar = /[^\w\s]/.test(value);
+        const numCheck = /\d/.test(value);
+        const lengthCheck =/.{8,}$/.test(value);
+        setChecks({
+            smallCheck,
+            CapsCheck,
+            SpecialChar,
+            numCheck,
+            lengthCheck,
         })
     }
+
   return (
-    
+    <div className='Outer'>
     <div className='out'>
         <Helmet>
         <meta 
@@ -131,57 +171,117 @@ function Login() {
             <p>Create a Account<span className='dot'>.</span></p>
         </div>
         <div className='box'>
-            <p>Already have an account? <a href='' className='log'>Log in</a></p>
+            <p>Already have an account? <a href='/' className='log'>Log in</a></p>
         </div>
         <div className='name'>
             <div className='first'>
                 <div><h5>First Name*</h5></div>
-                <div><form action=""><input type="text" id = "firstname" onFocus={handleOnFocus3}
-                onBlur = {handleOnBlur3} placeholder='Enter first name'/></form></div>
+                <div>
+                <form action="firstname"><input type="text" 
+                id = "firstname" 
+                onFocus={handleOnFocus3}
+                onBlur = {handleOnBlur3}
+                placeholder='Enter first name'
+                /></form>
+                {focus3 ? null  : <p style={{
+                color: "#ff0000",
+                fontSize: "10px",
+                paddingLeft: "70px",
+            }}>{LastName}</p> }
+                </div>
             </div>
             
             <div className='last'>
                 <div><h5>Last Name*</h5></div>
-                <div><form action=""><input id = "lastname" onFocus={handleOnFocus4}
-                onBlur = {handleOnBlur4} type="text" placeholder='Enter last name' /></form></div>
+                <div><form action="lastname"><input id = "lastname" 
+                onFocus={handleOnFocus4}
+                onBlur = {handleOnBlur4}
+                type="text" 
+                placeholder='Enter last name'
+                 /></form>
+                {/* {focus4 ?( <ProgressBar letterFlag = {checks.letterCheck ? true : false} />): null} */}
+                {focus4 ? null :  <p style={{
+                color: "#ff0000",
+                fontSize: "10px",
+                paddingLeft: "70px",
+            }}>{FirstName}</p> }
+                </div>
             </div>
             
         </div>
         <div >
-        <div className='first'>{focus3 ? FirstName : null}</div>
-        <div className='last'>{focus4 ? LastName : null}</div>
         </div>
         
         <div className='email'>
             <div><h5>Email*</h5></div>
-            <div><form action="" ><input id = "email1" onFocus={handleOnFocus} 
-            onBlur = {handleOnBlur} type="text" placeholder='Enter your email address' on
-            /></form></div>
-            {focus ? message: null}
+            <div><form action="" ><input id = "email1" 
+            onFocus={handleOnFocus} 
+            onBlur = {handleOnBlur}
+             type="text" placeholder='Enter your email address' onKeyUp={handleEmail}
+            /></form>
+            {focus ? null : <p style={{
+                color: "#ff0000",
+                fontSize: "10px",
+                paddingLeft: "10px",
+            }}>{message}</p>  }
+            </div>
+            
         </div>
         <div className='email'>
             <div><h5>Username*</h5></div>
-            <div><form action="" ><input id = "username" onFocus={handleOnFocus1} 
-            onBlur = {handleOnBlur1} type="text" placeholder='Enter your Username' 
+            <div><form action="" ><input id = "username" 
+            onFocus={handleOnFocus1} 
+            onBlur = {handleOnBlur1} 
+            type="text" 
+            placeholder='Enter your Username' 
             />
             </form>
             </div>
         </div>
-        {focus1 ? userMsg : ""}
+        {focus1 ? null : <p style={{
+                color: "#ff0000",
+                fontSize: "10px",
+                paddingLeft: "10px",
+            }}> {userMsg}</p> }
         <div className='name'>
             <div className='first'>
                 <div><h5>Password*</h5></div>
-                <div><form action=""><input id = "password" onFocus={handleOnFocus2}
-                onBlur = {handleOnBlur2} type="text" placeholder='Enter your password'
-                /></form></div>
+                <div><form action=""><input type = "text" 
+                id = "password" 
+                onFocus={handleOnFocus2}
+                onBlur = {handleOnBlur2}
+                placeholder='Enter your password'
+                onKeyUp={handlePassword}
+                /></form>
+                {focus2 ? <ProgressPassword  
+                smallCheckFlag = {checks.smallCheck ? true : false}
+                CapsCheckFlag = {checks.CapsCheck ? true : false}
+                SpecialCharFlag = {checks.SpecialChar? true : false}
+                numCheckFlag = {checks.numCheck ? true : false}
+                lengthCheckFlag = {checks.lengthCheck ? true : false}
+                />: null}
+                
+                </div>
             </div>
             
             <div className='last'>
                 <div><h5>Confirm Password*</h5></div>
-                <div><form action=""><input type="text" placeholder='Re-Enter your password' /></form></div>
+                <div><form action=""><input 
+                type="password" 
+                onFocus={handleOnFocus5}
+                onBlur = {handleOnBlur5}
+                placeholder='Re-Enter your password'
+                id='confirmPassword'
+                onKeyUp={verifyPassword}
+                /></form>
+                 {focus5 ? null : <p style={{
+                color: "#ff0000",
+                fontSize: "10px",
+                paddingLeft: "70px",
+            }}>{CPass}</p> }
+                </div>
             </div>
         </div>
-        {focus2 ? prompt : null}
         <div className='info'>
             <h5>By Signing Up, you agree to <a href=''>terms of use</a> and<br></br> <a href=""> privacy statements.</a></h5>
         </div>
@@ -202,17 +302,23 @@ function Login() {
         <div className='sign-button'>
             <div className='sign-in'>
                 <div className='common'>
-                <button className='facebook'>FaceBook</button>
+                <button className='facebook'>Sign up with FaceBook</button>
                 </div>
                 <div className='common'>
-                <button className='google'>Google</button>
+                <button className='google'>Sign up with Google</button>
                 </div>
                 <div className='common'>
-                <button className='apple'>Apple</button>
+                <button className='apple'>Sign up with Apple</button>
                 </div>
             </div>
     </div>
     </div>
+    </div>
+    
+    <div className='img-container'>
+        <img src= {LoginDesign}/>
+    </div>
+        
     </div>
   )
 }

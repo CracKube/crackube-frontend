@@ -3,9 +3,11 @@ import styles from './Heading.module.css';
 export default function Heading(props){
     return(
         <>
-            <h1 className={styles.heading}>
+        <div>
+            <p  className={styles.heading}>
                 <a href="">{props.text}</a>
-            </h1>
+            </p>
+        </div>
         </>
     );
 }
