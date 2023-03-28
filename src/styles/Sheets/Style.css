@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    font-family: 'VisbyCH';
  }
 
  @font-face {
@@ -21,10 +22,12 @@
      font-weight: 900;
  }
  .req{
+    font-family: 'VisbyCH';
      font-size: 1rem;
      font-weight: 600;
  }
  .req a{
+    font-family: 'VisbyCH';
      color: #EA4335;
  }
  .Welcome{
@@ -51,7 +54,7 @@
      padding-top: 1.5rem;
  }
  .Patxt{
-    font-family: 'VisbyCFH';
+    font-family: 'VisbyCH';
      padding-top: 1.5rem;
  }
  .Email{
@@ -64,7 +67,6 @@
  }
  .Password{
      border: 1px solid #D2D2D2;
-     font-family: 'VisbyCH';
      padding-left: 1rem;
      min-width: 468px;
      height: 48px;
@@ -137,7 +139,7 @@
      background-image: url('../../Assets/Google.png');
      background-repeat: no-repeat;
      
-     background-position: 16px ;
+     background-position: 12px ;
  } 
  .Facebook{
      margin-right: 1rem;
@@ -148,7 +150,7 @@
      background-image: url('../../Assets/Facebook.png');
      background-repeat: no-repeat;
      background-color:  #1877F2;
-     background-position: 17px ;
+     background-position: 12px ;
  }
  .Apple{
      height: 48px;
