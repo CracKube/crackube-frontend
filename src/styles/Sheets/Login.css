@@ -1,0 +1,344 @@
+*{
+    padding: 0px;
+    margin: 0px;
+  }
+  @font-face {
+    font-family: 'VisbyCF';
+    src: url('../../../src/styles/Fonts/VisbyCF-Bold.otf');
+  }
+  @font-face {
+    font-family: 'VisbyCFH';
+    src: url('../../../src/styles/Fonts/VisbyCF-Heavy.otf');
+  }
+  .main p , .main h5, .main input, .main button{
+    font-family: 'VisbyCF'
+  }
+  .main p , .main h5{
+    padding-bottom: 4px;
+  }
+  .Outer{
+    display: flex;
+    justify-content: start;
+    padding-left: 6rem;
+    
+    width: 100%;
+  }
+  .out{
+    width: 100%;
+    margin-top: 7.5rem;
+    margin-bottom: 158px;
+   
+  }
+  .title p{
+    font-family: 'VisbyCFH';
+    font-style: bold;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 100px;
+  }
+  .dot, .log{
+    text-decoration: none;
+    color: #8E00FF;
+  }
+  .main{
+    width: 50%;
+    padding: 42px;
+    max-height: 800px;
+    max-width: 709px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .name{
+    padding-top: 12px;
+    max-width: fit-content;
+    display: flex;
+    justify-content: space-around;
+  }
+  .name div {
+    padding-left: 7px;
+  }
+  .name input {
+    padding-left: 24px;
+    width: 220px;
+    height: 48px;
+    background: rgba(142, 0, 255, 0.05);
+    border-radius: 24px;
+    border: none;
+  }
+  .email{
+    padding-top: 12px;
+    padding-left: 4px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  .email input{
+    padding-left: 24px;
+    width: 480px;
+    height: 48px;
+    background: rgba(142, 0, 255, 0.05);
+    border-radius: 24px;
+    border: none;
+  }
+  .info{
+    padding-top: 26px;
+  }
+  .create-button{
+    background: #8E00FF;
+    box-shadow: 0px 0px 20px rgba(142, 0, 255, 0.25);
+    border-radius: 24px;
+    border: none;
+    height: 48px;
+    width: 487px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  .info a {
+    text-decoration: none;
+    color: #8E00FF;
+  }
+  .button-div{
+    padding-top: 16px;
+  }
+  .separator{
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+  }
+  .separator div {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .left{
+    width: 175px;
+    height: 0px;
+    border: 1px solid black;
+  }
+  .sign-button{
+    max-width: 487px;
+    padding-left: 10px;
+    padding-top: 22px;
+  }
+  .sign-in{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sign-in div {
+    padding-right: 18px;
+    padding-bottom: 0.5rem;
+  }
+  .sign-in button {
+    width: 29.25rem;
+    height: 48px;
+   
+    border-radius: 24px;
+    cursor: pointer;
+  }
+  .facebook{
+    border: 1px solid #D2D2D2;
+    padding-left: 20px;  
+    background-color: #FFFFFF;
+    color: #232127;
+    background-image: url('../../../src/Assets/Facebook.png');
+    background-position: 140px 10px;
+      background-repeat: no-repeat;
+  }
+  .google {
+    border: 1px solid #D2D2D2;
+    background-color: #FFFFFF;
+    color: #232127;
+    background-image: url('../../../src/Assets/Google.png');
+    background-position: 140px;
+    background-repeat: no-repeat;
+  }
+  .apple{
+    padding-right: 10px ;
+    border: 1px solid #D2D2D2;
+    color: #232127;
+    background-color: #FFFFFF;
+    background-image: url('../../../src/Assets/Apple.png');
+    background-position: 140px 9px;
+      background-repeat: no-repeat;
+  }
+  .name div, .email div, .email{
+    padding-bottom: 5px;
+  }
+  .SearchPage{
+    font-family: 'VisbyCFH';
+    margin-top: 5.875rem;
+  }
+  .Comp-Name{
+    font-family: 'VisbyCFH';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 6.375rem ;
+    line-height: 7.75rem;
+    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+  
+  }
+  .Search{
+    display: flex;
+    justify-content: center;
+    padding-left: 60px;
+  }
+  .Search img{
+    position: relative;
+    left: 1.875rem;
+    top: 0.063rem;
+    
+  }
+  .search-bar{
+    font-family: 'VisbyCF';
+    border: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05), 0px 255px 102px rgba(0, 0, 0, 0.01), 0px 143px 86px rgba(0, 0, 0, 0.05), 0px 64px 64px rgba(0, 0, 0, 0.09), 0px 16px 35px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    width: 36.25rem;
+    height: 2.5rem;
+    border-radius: 6.25rem;
+    padding-left: 2.563rem;
+  }
+  input:focus{
+    outline: none;
+  }
+  .Search button{
+    cursor: pointer;
+    font-family: 'VisbyCF';
+    color: #FFFFFF;
+    border: none;
+    border-radius: 2rem;
+    position: relative;
+    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    height: 32px;
+    width: 72px;
+    left: -80px;
+    top: 5px;
+  }
+  .Discover{
+    display: flex;
+    padding-left: 1rem;
+    flex-wrap: wrap;
+  }
+  .Dbox{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    height: 8rem;
+    width: 8rem;
+    background-color: #FFFFFF;
+    box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01), 0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+  }
+  .coverUp{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .coverUp p{
+    font-family: 'VisbyCF';
+    font-size: 2rem;
+    line-height: 3.125rem;
+  }
+  .Prod{
+    display: flex;
+    justify-content: center;
+    padding-right: 100px;
+  }
+  .img-container{
+    flex: 1;
+    width: 50%;
+  }
+  .image{
+    
+    max-width: 50%;
+    max-height: 100%;
+    
+  }
+  
+  @media only screen and (max-width: 480px) {
+    
+    .out{
+      margin-right: 100px;
+      display: flex;
+      justify-items: center;
+      justify-content: start;
+    }
+    .name{
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 220px;
+      justify-content: space-around;
+    }
+    .main{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      min-width: 300px;
+      min-height: 1000px;
+    }
+    .title p{
+      font-family: 'VisbyCFH';
+      font-style: bold;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 60px;
+    }
+    .prog{
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      height: 35px;
+      border-radius: 15px;
+      background-color: red;
+    }
+    .img{
+      width: 50%;
+     height: 100vh;
+    }
+    .img-c{
+      width: 50%;
+      position: absolute;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+  
+  
+    .email{
+      display: flex;
+      padding-left: 15px;
+      min-width: 220px;
+      justify-content: space-around;
+    }
+    .email input{
+      background-color: #FFFFFF;
+      width: 220px;
+    }
+    .create-button{
+      width: 200px;
+    }
+    .left{
+      width: 20px;
+    }
+    .separator{
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+    }
+    .name div, .email div, .email{
+      padding-bottom: 10px;
+    }
+    
+  }
+  

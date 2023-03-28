@@ -1,10 +1,9 @@
+import '../../styles/Sheets/login.css'
 import React, { useState } from 'react'
 import {Helmet} from 'react-helmet';
 import ProgressPassword from '../Indicators/ProgressPassword';
 import LoginDesign from '../../Assets/LoginDesign.svg';
-import "../../styles/Sheets/Login.css"
-import Navbar from '../Navbar'
-function Login() {
+export default function Login() {
     const [message, setMessage] = useState("");
     const [userMsg, setUserMsg] = useState("");
     const [CPass, setCPass] = useState("");
@@ -160,9 +159,7 @@ function Login() {
     }
 
   return (
-    <div>
     <div className='Outer'>
-        
     <div className='out'>
         <Helmet>
         <meta 
@@ -319,13 +316,9 @@ function Login() {
     </div>
     
     <div className='img-container'>
-        <img className='img-c' src= {LoginDesign}/>
+        <img src= {LoginDesign}/>
     </div>
         
     </div>
-    </div>
   )
 }
-
-
-export default Login;

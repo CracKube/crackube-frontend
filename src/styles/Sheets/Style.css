@@ -1,0 +1,313 @@
+*{
+    padding: 0px;
+    margin: 0px;
+ }
+
+ @font-face {
+     font-family: 'VisbyCH';
+     src: url('../../../src/styles/Fonts/VisbyCF-Bold.otf');
+ }
+ @font-face {
+     font-family: 'VisbyCFH';
+     src: url('../../../src/styles/Fonts/VisbyCF-Heavy.otf');
+ }
+ .main1{
+    font-family: 'VisbyCH';
+    display: flex;
+}
+ .txt{
+    font-family: 'VisbyCH';
+     font-size: 4rem;
+     font-weight: 900;
+ }
+ .req{
+     font-size: 1rem;
+     font-weight: 600;
+ }
+ .req a{
+     color: #EA4335;
+ }
+ .Welcome{
+     font-family: 'VisbyCH';
+     font-weight: 900;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 50%;
+     height: 100vh;
+ }
+ .Design{
+     width: 50%;
+     height: 100vh;
+ }
+ .img{
+     width: 50%;
+     position: absolute;
+     height: 100%;
+     object-fit: cover;
+ }
+ .Emtxt{
+     padding-top: 1.5rem;
+ }
+ .Patxt{
+    font-family: 'VisbyCFH';
+     padding-top: 1.5rem;
+ }
+ .Email{
+     border: 1px solid #D2D2D2;
+     font-family: 'VisbyCH';
+     padding-left: 1rem;
+     min-width: 468px;
+     height: 48px;
+     border-radius: 1.5rem;
+ }
+ .Password{
+     border: 1px solid #D2D2D2;
+     font-family: 'VisbyCH';
+     padding-left: 1rem;
+     min-width: 468px;
+     height: 48px;
+     border-radius: 1.5rem;
+ }
+ .sep{
+     padding-top: 1.5rem;
+     display: flex;
+ }
+ .rem{
+    font-family: 'VisbyCH';
+     font-weight: 600;
+     padding-right: 217px;
+ }
+ .Button{
+     border: none;
+     outline: none;
+     padding-top: 1rem;
+ }
+ .Button button{
+     border: none;
+     font-family: 'VisbyCH';
+     min-width: 468px;
+     background: #8E00FF;
+     border-radius: 1.5rem;
+     height: 3rem;
+     color: #FFFFFF;
+ 
+ }
+ .Button1{
+     border: none;
+     padding-top: 1rem;
+ }
+ .Button1 button{
+     border: none;
+     font-family: 'VisbyCH';
+     min-width: 468px;
+     background: #EA4335;
+     border-radius: 1.5rem;
+     height: 3rem;
+     color: #FFFFFF;
+ 
+ }
+ .for{
+     color: #EA4335;
+ }
+ .separator div {
+     padding-left: 3px;
+     padding-right: 3px;
+   }
+ .separator{
+     padding-top: 22px;
+     display: flex;
+     align-items: center;
+   }
+ 
+   .left{
+     width: 175px;
+     height: 0px;
+     border: 1px solid #555555;;
+   }  
+ 
+ 
+ .Google{
+     margin-right: 1rem;
+     height: 48px;
+     width: 48px;
+     border: 1px solid #D2D2D2;
+     border-radius: 24px;
+     background-image: url('../../Assets/Google.png');
+     background-repeat: no-repeat;
+     
+     background-position: 16px ;
+ } 
+ .Facebook{
+     margin-right: 1rem;
+     height: 48px;
+     width: 48px;
+     border: 1px solid #D2D2D2;
+     border-radius: 24px;
+     background-image: url('../../Assets/Facebook.png');
+     background-repeat: no-repeat;
+     background-color:  #1877F2;
+     background-position: 17px ;
+ }
+ .Apple{
+     height: 48px;
+     width: 48px;
+     border: 1px solid #D2D2D2;
+     border-radius: 24px;
+     background: #000000;
+     background-image: url('../../Assets/Apple.png');
+     background-repeat: no-repeat;
+     background-position: 16px ;
+ }
+ .Align{
+     padding-top: 1rem;
+     display: flex;
+ }
+ .checkBox{
+     height: 12px;
+     width: 12px;
+     border: 1px solid #D2D2D2;
+     border-radius: 4px;
+     margin-right: 4px;
+ }
+ .txt1{
+    font-family: 'VisbyCH';
+     font-size: 4rem;
+ }
+ .req1{
+    font-family: 'VisbyCFH';
+     font-size: 1rem;
+ }
+ .BackButton{
+     position: absolute;
+     margin-bottom: 304px;
+     top: 136px;
+     left: 64px;
+ }
+ .BackButton button{
+     width: 64px;
+     height: 64px;
+     border: none;
+     border-radius: 24px;
+     box-shadow: 0px 28px 11px rgba(234, 67, 53, 0.01), 0px 16px 10px rgba(234, 67, 53, 0.05), 0px 7px 7px rgba(234, 67, 53, 0.09), 0px 2px 4px rgba(234, 67, 53, 0.1), 0px 0px 0px rgba(234, 67, 53, 0.1);
+     background: #EA4335;
+    
+ }
+ .codeBox{
+     display: flex;
+     padding-top: 24px;
+ }
+ .codeBox div{
+     padding-right: 1rem;
+     color: #5A5A5A;
+ 
+ }
+ 
+ .codeBox input{
+     font-family: 'VisbyCH';
+     font-size: 48px;
+     max-width: 100px;
+     text-align: center;
+     min-height: 100px;
+     /* Light */
+     background: #FFFFFF;
+     /* Light Gray */
+     color:  #5A5A5A;
+     border: 1px solid #D2D2D2;
+     box-shadow: 0px 44px 18px rgba(0, 0, 0, 0.01), 0px 25px 15px rgba(0, 0, 0, 0.05), 0px 11px 11px rgba(0, 0, 0, 0.09), 0px 3px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+     border-radius: 36px;
+ }
+ 
+ .VerifyButton button{
+     font-family: 'VisbyCH';
+     color: #FFFFFF;
+     padding-top: 0.5rem;
+     border: none;
+     min-width: 468px;
+     min-height: 48px;
+     background: #EA4335;
+     border-radius: 24px;
+ }
+ .req2{
+    font-family: 'VisbyCH';
+     font-size: 1rem;
+     display: flex;
+     justify-content: flex-start ;
+     flex-direction: column;
+     align-items: center;
+ }
+ .req2 p{
+     flex: 1;
+ }
+ .random{
+     flex: 1;
+ }
+ .Code{
+    
+     padding-top: 24px;
+     color: #5A5A5A;
+ }
+ .mailId{
+    font-family: 'VisbyCFH';
+     flex: 1;
+     color: #8E00FF;
+ }
+ @media only screen and (max-width: 1035px) {
+     .Email{
+         min-width: 148px;
+     }
+     .Password{
+         min-width: 148px;
+     }
+     .rem{
+         padding-right: 50px;
+     }
+     .Button button{
+         border: none;
+         min-width: 148px;
+     
+     }
+     .Button1 button{
+         border: none;
+         min-width: 148px;
+     
+     }
+     .txt{
+         font-size: 2rem;
+     }
+     .txt1{
+         font-size: 1.8rem;
+     }
+     .req1{
+         font-size: 0.8rem;
+     }
+     .sep{
+         font-size: 0.75rem;
+     }
+     .left{
+         max-width: 60px;
+       }
+ 
+       .codeBox input{
+         font-family: 'VisbyCH';
+         font-size: 24px;
+         max-width: 50px;
+         min-height: 50px;
+         /* Light */
+         background: #FFFFFF;
+         /* Light Gray */
+         border-radius: 24px;
+         border: 1px solid #D2D2D2;
+         box-shadow: 0px 44px 18px rgba(0, 0, 0, 0.01), 0px 25px 15px rgba(0, 0, 0, 0.05), 0px 11px 11px rgba(0, 0, 0, 0.09), 0px 3px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+       }  
+       .VerifyButton button{
+         font-family: 'VisbyCH';
+         color: #FFFFFF;
+         border: none;
+         min-width: 268px;
+         min-height: 48px;
+         background: #EA4335;
+         border-radius: 24px;
+     }  
+ }
