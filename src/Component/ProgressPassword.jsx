@@ -34,32 +34,32 @@ const ProgressPassword = ({
                         count1 = count1 + 1;
                     }
                 }
-                if(count1 == 0) {
+                if(count1 === 0) {
                     setProgress(0);
                     setColor("#ff0000");
                     setComments("Very Weak");
                 }
-                if(count1 == 1){
+                if(count1 === 1){
                     setProgress(20);
                     setColor("#ff0000");
                     setComments("Very Weak");
                 }
-                if(count1 == 2){
+                if(count1 === 2){
                     setProgress(40);
                     setColor("#ff6600")
                     setComments("weak");
                 }
-                if(count1 == 3){
+                if(count1 === 3){
                     setProgress(60);
                     setColor("#ff6600");
                     setComments("Average")
                 }
-                if(count1 == 4){
+                if(count1 === 4){
                     setProgress(80);
                     setColor("#ff6600");
                     setComments("Good")
                 }
-                if(count1 == 5){
+                if(count1 === 5){
                     setProgress(100);
                     setColor("#34b233");
                     setComments("Great!")
