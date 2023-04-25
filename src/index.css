@@ -8,7 +8,11 @@
   font-family: 'VisbyCF';
   font-weight: 400;
   /* font-size: 16px; */
-
+}
+@font-face {
+  font-family: 'Visby CF';
+  src: url(./styles/Fonts/VisbyCF-Regular.otf);
+  font-weight: 100;
 }
 .body{
   box-sizing: border-box;
@@ -17,7 +21,6 @@
 }
 
 
-/* Start - navbar CSS */
 .nav-bar{
   box-sizing: border-box;
   display: flex;
@@ -187,11 +190,12 @@
 .home{
   display: flex;
   flex-direction: row;
+  width: 100vw;
 }
 .home-logo{
   background-color: #8E00FF;
 }
-.menu-bar,.side-bar{
+.menu-bar{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -204,7 +208,6 @@
 .menu-bar{
   box-sizing: border-box;
   /* align-self: flex-start; */
-  border-right: 0.125rem solid black ;
   position: sticky;
   max-height: 100vh;
   width: min(29vw,15rem);
@@ -234,6 +237,7 @@
   margin: 0.125rem 0;
 }
 .home-container{
+  width: 100vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -250,6 +254,11 @@
   border-radius: 24px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   margin: auto 0rem 0.5rem 0rem;
+}
+
+.profile{
+  position: relative;
+  top: 120px;
 }
 .modes button{
   display: flex;
@@ -478,11 +487,9 @@
   background-color: #202020;
   color: #ffffff;
 }
-
-/* End - Homepage CSS */
-
-
 /* Login Page CSS */
+
+
 *{
   padding: 0px;
   margin: 0px;
@@ -502,38 +509,64 @@
   padding-bottom: 4px;
 }
 
-.out{
-  display: flex;
-  justify-content: center;
-  margin-top: 158px;
-  margin-bottom: 158px;
- 
+/* Recommmendation in Home Page */
+
+.Recommend{
+    padding-top: 1.75rem;
+    display: flex;
+    align-items: center;
 }
-.title p{
-  font-family: 'VisbyCFH';
-  font-style: bold;
-  font-weight: 900;
-  font-size: 64px;
-  line-height: 100px;
+.ans, .blog{
+  font-weight: 300;
+  font-size: 0.75rem;
 }
-.dot, .log{
-  text-decoration: none;
-  color: #8E00FF;
+.toggle{
+  width: 4.5rem;
+  height: 2rem;
+  margin-right:0.5rem ;
+  margin-left: 0.5rem;
+  background: linear-gradient(99.09deg, #8E00FF 0%, #EA4335 100%);
+  border-radius: 12px;;
 }
-.main{
-  padding: 42px;
-  max-height: 800px;
-  max-width: 709px;
-  padding-left: 100px;
-  padding-right: 100px;
+.toggler{
+  position: relative;
+  top: 0.23rem;
+  left: 2.70rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: #FFFFFF;
+  box-shadow: 0px 11px 4px rgba(0, 0, 0, 0.01), 0px 6px 4px rgba(0, 0, 0, 0.05), 0px 3px 3px rgba(0, 0, 0, 0.09), 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.reco{
+    padding-right: 1rem;
+    margin-left: 1.75rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+.priority{
+  margin-left: 1.75rem;
+  padding-top: 1rem;
+  padding-bottom: 3.5rem;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
   border-radius: 48px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 2rem;
+}
+.priority div{
+  margin-right: 0.25rem;
+  
+}
+.priority button{
+  background-color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 200;
+  padding: 10px 16px 10px 16px;
+  border-radius: 24px;
+}
 
+.foru{
+  height: 2.5rem;
 }
 .name{
   padding-top: 12px;
@@ -578,78 +611,14 @@
   height: 48px;
   width: 487px;
   color: #FFFFFF;
-  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  background: linear-gradient(99.09deg, #8E00FF 0%, #EA4335 100%);
 }
-.info a {
-  text-decoration: none;
-  color: #8E00FF;
+.prob{
+  border: 2px solid #000000;
 }
-.button-div{
-  padding-top: 16px;
-}
-.separator{
-  padding-top: 22px;
-  display: flex;
-  align-items: center;
-}
-.separator div {
-  padding-left: 3px;
-  padding-right: 3px;
-}
-.left{
-  width: 175px;
-  height: 0px;
-  border: 1px solid black;
-}
-.sign-button{
-  max-width: 487px;
-  padding-left: 10px;
-  padding-top: 22px;
-}
-.sign-in{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.sign-in div {
-  padding-right: 18px;
-}
-.sign-in button {
-  width: 146px;
-  height: 48px;
-  border-radius: 24px;
-  cursor: pointer;
-}
-.facebook{
-  border: 1px solid #1877F2;
-  padding-left: 20px;  
-  background-color: #FFFFFF;
-  color: #1877F2;
-  background-image: url('../src/Assets/Facebook.png');
-  background-position: 20px 10px;
-    background-repeat: no-repeat;
-}
-.google {
-  border: 1px solid #EA4335;
-  padding-left: 20px;
-  background-color: #FFFFFF;
-  color:  #EA4335;
-  background-image: url('../src/Assets/Google.png');
-  background-position: 20px;
-  background-repeat: no-repeat;
-}
-.apple{
-  padding-left: 20px ;
-  border: 1px solid #000000;
-  color: #000000;
-  background-color: #FFFFFF;
-  background-image: url('../src/Assets/Apple.png');
-  background-position: 30px 9px;
-    background-repeat: no-repeat;
-}
-.name div, .email div, .email{
-  padding-bottom: 5px;
+.news{
+  border: 2px solid #000000;
 }
 @media only screen and (max-width: 717px) {
   .out{
