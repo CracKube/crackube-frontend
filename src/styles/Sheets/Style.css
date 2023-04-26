@@ -64,7 +64,11 @@
      min-width: 468px;
      height: 48px;
      border-radius: 1.5rem;
+     
  }
+.emailForm{
+    padding-bottom: 1.5rem;
+}
  .Password{
      border: 1px solid #D2D2D2;
      padding-left: 1rem;
@@ -111,6 +115,7 @@
  
  }
  .for{
+    cursor: pointer;
      color: #EA4335;
  }
  .separator div {
@@ -182,10 +187,11 @@
      font-size: 1rem;
  }
  .BackButton{
-     position: absolute;
-     margin-bottom: 304px;
-     top: 136px;
-     left: 64px;
+     position: fixed;
+     top: 20px;
+
+     left: 20px;
+
  }
  .BackButton button{
      width: 64px;

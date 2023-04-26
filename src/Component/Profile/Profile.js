@@ -1,8 +1,8 @@
 import styles from './Profile.module.css';
-import {authorUrl as url, Diamond as url1 } from '../Constants'
+import { authorUrl as url, Diamond as url1 } from '../Constants'
 
-export default function Profile(){
-    return(
+export default function Profile() {
+    return (
         <div className={styles.profile}>
             <div className={styles.pfp}>
                 <img src={url} alt="" className={styles.pfpimage} />
@@ -12,7 +12,7 @@ export default function Profile(){
                     <div className={styles.name}>Sophia Margrete</div>
                     <div className={styles.id}>@sophiamargrete7</div>
                     <div className={styles.league}>
-                        <img src={url1} alt="" className={styles.leagueimage}/>
+                        <img src={url1} alt="" className={styles.leagueimage} />
                         <div className={styles.leaguetitle}>Diamond</div>
                     </div>
                     <div className={styles.peoplecount}>
@@ -27,7 +27,7 @@ export default function Profile(){
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 }
