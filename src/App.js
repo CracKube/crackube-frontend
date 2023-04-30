@@ -6,6 +6,7 @@ import Login from "./Component/Pages/Login";
 import Signup from "./Component/Pages/Signup.jsx";
 import Home from "./Component/Pages/Home";
 import OTP  from "../src/Component/ForgotPassword/ForgotPassword.js"
+import Search from "../src/Component/SearchPage/SearchPage.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/login" element={<Login/>}></Route>
               <Route path="/home" element={<Home/>}></Route>
               <Route path = "/otp" element= {<OTP/>}> </Route>
+              <Route path = "/search" element = {<Search/>} ></Route>
             </Routes>
         </Router>
         {/* <MainBar /> */}
