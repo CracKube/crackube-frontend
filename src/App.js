@@ -7,6 +7,7 @@ import Signup from "./Component/Pages/Signup.jsx";
 import Home from "./Component/Pages/Home";
 import OTP  from "../src/Component/ForgotPassword/ForgotPassword.js"
 import Search from "../src/Component/SearchPage/SearchPage.jsx";
+import AnswerPage from './Component/Pages/AnswerPage';
 
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
               <Route path="/home" element={<Home/>}></Route>
               <Route path = "/otp" element= {<OTP/>}> </Route>
               <Route path = "/search" element = {<Search/>} ></Route>
-            </Routes>
+              <Route path = '/Answer' element = {<AnswerPage/>}></Route>
+            </Routes> 
         </Router>
         {/* <MainBar /> */}
       </div>

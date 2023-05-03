@@ -15,8 +15,8 @@ function Infinite() {
     </div>
       <div className='priority'>
         <div><button className='foru'>For You</button></div>
-        <div><button className='prob'>Probability</button></div>
-        <div><button className='news'>Latest News</button></div>
+        <div><button className='priority-btn'>Probability</button></div>
+        <div><button className='priority-btn'>Latest News</button></div>
       </div>
     </div>
   )

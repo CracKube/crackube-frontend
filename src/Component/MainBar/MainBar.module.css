@@ -7,7 +7,7 @@
 .mainbar{
     display:flex;
     flex-direction: column;
-    width: 100%;
+    width: calc(100vw-15rem);
     margin: auto;
     justify-content: center;
 }
