@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.answer-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-gap: 1.125rem; */
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    height: 30%;
+}

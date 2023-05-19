@@ -1,6 +1,7 @@
 import styles from '../NavBar/TopNavBar.module.css'
 import searchicon from '../../styles/Icons/Search 1.svg';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom'
 
 export default function TopNavBar(){
 
@@ -15,9 +16,9 @@ export default function TopNavBar(){
                 { hoverMe ? 
                     <input type="search" name="search" id="search" className={styles.search}/> :
                     <div className={styles.topmenu}>
-                        <div><a href="">Answer</a></div>
-                        <div><a href="">Blog</a></div>
-                        <div><a href="">Code</a></div>
+                        <div><NavLink to= '/Answer'>Answer</NavLink></div>
+                        <div><NavLink>Blog</NavLink></div>
+                        <div><NavLink>Code</NavLink></div>
                     </div>
                 }
                 <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className={styles.searchButton}>
