@@ -1,0 +1,67 @@
+.authorContainer{
+    font-weight: 300;
+    font-size: 0.5rem;
+    padding: 0 0.906rem 0 0.75rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image{
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+.img{
+    border-radius: 3.125rem;
+    width: 63.97px;
+    height: 64px;
+}
+
+
+.cover{
+    flex: 5;
+    padding: 0.313rem;
+    padding-left: 3rem;
+    font-weight: 800;
+    /* font-size: 24px;
+    line-height: 37px; */
+     
+}
+.title{
+    flex: 5;
+    padding: 0.313rem;
+    font-size: 24px;
+    font-weight: 800;
+
+}
+.modified{
+    
+font-family: 'Visby CF';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 25px;
+display: flex;
+align-items: center;
+color: #5F5F5F;
+padding-left: 10px;
+
+}
+.followbtn{
+    flex: 19;
+    padding: 4px 12px 4px 12px;
+    border-radius: 24px;
+    padding-bottom: 30px;
+}
+
+.follow{
+    padding: 4px 12px 4px 12px;
+    border-radius: 24px;
+    color: white;
+    background: #000000;
+
+}

@@ -12,6 +12,57 @@
      font-family: 'VisbyCFH';
      src: url('../../../src/styles/Fonts/VisbyCF-Heavy.otf');
  }
+
+.blog-pic{
+    position: absolute;
+    max-width: 832px;
+    max-height: 468px;
+    left: 424px;
+    top: 84px;
+
+    background: url('../../Assets/blogPic.svg');
+    box-shadow: 0px 4px 50px 10px rgba(161, 159, 173, 0.25);
+    border-radius: 24px;
+}
+.blog-container{
+    display: flex;
+    justify-content: center;
+}
+.blog-cover{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+.blog-title{
+    min-height: 300px;
+    font-family: 'VisbyCFH';
+    font-style: normal;
+    font-size: 102px;
+    line-height: 92px;
+    display: flex;
+    align-items: center;
+    color: #232127;
+    padding-bottom: 2rem;
+}
+.blog-content{
+    width: 90%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+
+}
+.prof{
+    height: 10%;
+    padding-bottom: 3rem;
+}
+
  .main1{
     font-family: 'VisbyCH';
     display: flex;
@@ -261,6 +312,221 @@
      flex: 1;
      color: #8E00FF;
  }
+ /*SETTINGS*/
+.settings-cover{
+    margin-top: 4rem;
+    
+}
+.settings-cover > p{
+    font-family: 'Visby CF';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 3.125rem;
+    align-items: center;
+    margin-left: 2.25rem;
+    color: #000000;
+}
+
+.list > ul >  a{
+    font-family: 'Visby CF';
+    font-style: normal ;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.563rem;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    padding-left: 4rem;
+
+/* Dark Gray */
+
+color: #5A5A5A;
+}
+.list > ul >  a > span {
+    font-family: 'Visby CF';
+    font-style: normal ;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.563rem;
+    color: #FF0000;
+    ;
+}
+.list>ul> a:hover{
+    color: #8E00FF;
+    text-decoration: none;
+}
+.list > ul {
+    margin-top: 4rem;
+}
+.bar{
+    position: absolute;
+    top: 490px;
+    width: 450px;
+    height: 0px;
+/* Light Gray */
+
+border: 1px solid #D2D2D2;
+transform: rotate(-90deg);
+}
+.social-profile{
+    position: relative;
+    min-width: 880px;
+    min-height: 324px;
+    margin-left: 5.813rem;
+
+    /* Light Gray */
+
+    border: 1px solid #D2D2D2;
+    border-radius: 32px;
+}
+.social-profile-sec{
+    position: relative;
+    min-width: 880px;
+    margin-left: 5.813rem;
+
+    /* Light Gray */
+
+    border: 1px solid #D2D2D2;
+    border-radius: 32px;
+    min-height: 172px;
+}
+.set-cover {
+    display: flex;
+}
+.cover-details{
+    display: flex;
+}
+.my-details{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 7.5rem;
+}
+.my-details  > p{
+    font-family: 'Visby CF';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    margin-left: 5.813rem;
+    font-family: 'Visby CF';
+}
+.img-div{
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+.img-div p {
+    padding-left: 0.5rem;
+        font-family: 'Visby CF';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+
+/* Dark Gray */
+
+color: #5A5A5A;
+}
+.my-det{
+    display: flex;
+}
+.prof-cover{
+    position: relative;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.prof-desc {
+    padding: 3.5rem 3.5rem 3.5rem 2rem;
+}
+.prof-desc-sec h1{
+    font-family: 'Visby CF';
+font-style: bold;
+font-weight: 600;
+font-size: 1.25rem;
+line-height: 1.938rem;
+display: flex;
+align-items: center;
+padding-top: 1.5rem;
+padding-left: 1.5rem;
+}
+.prof-desc-sec > div{
+    font-family: 'Visby CF';
+font-style: normal;
+font-weight: 600;
+font-size: 1rem;
+line-height: 1.5rem;
+align-items: center;
+padding-top: 1rem;
+padding-left: 1.5rem;
+}
+.prof-desc-sec > p{
+    padding-top: 0.5rem;
+}
+.about-you{
+    width: 880px;
+    height: 172px;
+    margin-left: 5.813rem;
+    margin-top: 2rem;
+
+/* Light Gray */
+
+border: 1px solid #D2D2D2;
+border-radius: 2rem;
+}
+.square{
+
+width: 12px;
+height: 12px;
+
+/* Dark */
+
+border: 2px solid #232127;
+border-radius: 0.25rem;
+margin-right: 0.5rem;
+margin-bottom: 0.15rem;
+}
+.square-wrap{
+    display: flex;
+    align-items: center;
+}
+.about-you > p{
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+}
+.about-sep{
+    
+    display: flex;
+    flex-direction: column;
+   
+}
+.personal-details{
+    position: relative;
+    display: flex;
+    flex: 5;
+    padding-left: 1.5rem;
+    padding-top: 1rem ;
+}
+.personal-details p{
+    font-size: 0.75rem;
+}
+.personal-details h2{
+    font-size: 1rem;
+}
+.last-det{
+    flex: 5;
+    padding-left: 19.688rem;
+}
+.person-name{
+    padding-bottom: 1rem;
+}
  @media only screen and (max-width: 1035px) {
      .Email{
          min-width: 148px;
