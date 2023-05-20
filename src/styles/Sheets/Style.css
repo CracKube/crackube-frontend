@@ -379,6 +379,44 @@ transform: rotate(-90deg);
     border: 1px solid #D2D2D2;
     border-radius: 32px;
 }
+.email-prof{
+        position: relative;
+        min-width: 880px;
+        margin-left: 5.813rem;
+        height: 422px;
+        /* Light Gray */
+    
+        border: 1px solid #D2D2D2;
+        border-radius: 32px;
+    }
+.email-prof p{
+    padding-top: 1rem;
+}
+.email-prof form{
+    padding-top: 0.5rem;
+    
+}
+.email-prof input{
+    width: 374px;
+    height: 44px;
+
+    background: #D2D2D2;
+    border-radius: 32px;
+    border: none;
+    padding-left: 1.5rem;
+    font-family: 'Visby CF';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 31px;
+display: flex;
+align-items: center;
+
+/* Dark */
+
+color: #232127;
+
+}
 .del-profile{
     position: relative;
     min-width: 880px;
@@ -401,6 +439,9 @@ transform: rotate(-90deg);
     border-radius: 32px;
     min-height: 172px;
 }
+.email-desc{
+    padding-left: 1.5rem;
+}
 .social-del-profile{
     position: relative;
     min-width: 880px;
@@ -422,6 +463,18 @@ transform: rotate(-90deg);
 .social-profile-sec button{
 width: 148px;
 height: 2rem;
+
+/* Electric Indigo */
+color: white;
+background: #8E00FF;
+border-radius: 2rem;
+border: none;
+}
+.update-btn button{
+    width: 88px;
+height: 32px;
+margin-top: 1rem;
+margin-left: 1.25rem;
 
 /* Electric Indigo */
 color: white;
