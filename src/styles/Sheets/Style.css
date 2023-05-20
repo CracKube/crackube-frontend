@@ -379,6 +379,17 @@ transform: rotate(-90deg);
     border: 1px solid #D2D2D2;
     border-radius: 32px;
 }
+.del-profile{
+    position: relative;
+    min-width: 880px;
+    height: 600px;
+    margin-left: 5.813rem;
+
+    /* Light Gray */
+
+    border: 1px solid #D2D2D2;
+    border-radius: 32px;
+}
 .social-profile-sec{
     position: relative;
     min-width: 880px;
@@ -390,6 +401,85 @@ transform: rotate(-90deg);
     border-radius: 32px;
     min-height: 172px;
 }
+.social-del-profile{
+    position: relative;
+    min-width: 880px;
+    margin-left: 5.813rem;
+    
+    height: 300px;
+
+    /* Light Gray */
+
+    border: 1px solid #D2D2D2;
+    border-radius: 32px;
+
+}
+.prof-desc-sec > p{
+    padding-left: 1.5rem;
+    margin-top: 1.75rem;
+    padding-right: 1.5rem;
+}
+.social-profile-sec button{
+width: 148px;
+height: 2rem;
+
+/* Electric Indigo */
+color: white;
+background: #8E00FF;
+border-radius: 2rem;
+border: none;
+}
+.prof-desc-del > div > p{
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    padding-right: 1.5rem;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 25px;
+display: flex;
+align-items: center;
+
+/* Dark */
+
+color: #232127;
+}
+.prof-desc-del > h1{
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 1.25rem;
+}
+.de-acc  button {
+    width: 148px;
+height: 2rem;
+
+/* Electric Indigo */
+color: white;
+background: #232127;
+border-radius: 2rem;
+border: none;
+margin-left: 1.25rem;
+margin-top: 0.5rem;
+}
+.del-manage h1{
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 1.25rem;
+}
+.del-acc button  {
+    width: 148px;
+    height: 2rem;
+    
+    /* Electric Indigo */
+    color: white;
+    background: #FF0000;
+    border-radius: 2rem;
+    border: none;
+    margin-left: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+
 .set-cover {
     display: flex;
 }
@@ -410,7 +500,7 @@ transform: rotate(-90deg);
     line-height: 37px;
     display: flex;
     align-items: center;
-    margin-left: 5.813rem;
+    padding-left: 5.813rem;
     font-family: 'Visby CF';
 }
 .img-div{

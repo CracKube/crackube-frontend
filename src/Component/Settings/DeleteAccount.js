@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
+import myDetails from '../../Assets/my-details.png'
 
-function Password() {
+function DeleteAccount() {
   return (
     <div>
     <div className='home'>
@@ -45,30 +46,37 @@ function Password() {
        </div>
    </div>
    
+   
 </div>
 <div className='about-sep'>
-   <div className='my-details'><p>Password</p></div>
-   <div className='social-profile-sec'>
+   <div className='my-details'><p>Delete Account</p></div>
+   <div className='social-del-profile'>
        
-       <div className='prof-desc-sec'>
-       <div>
-        <p>We will send a verification link to danielcooper@gmail.com. This update will not take place until you follow the <br /> instructions listed in that email. <br />
-If you do not have access to danielcooper@gmail.com, please contact support for assistance.</p>
-        </div>
-        <div><button>Reset Password</button></div>
+       <div className='prof-desc-del'>
+       <h1>Deactivate Account</h1>
+       
+       <div className='del-manage'>
+       <p>Deactivating your account will cause your profile and listings to disappear, and you will not receive any <br /> notifications from us. This can be undone later.</p>
+       <div className='de-acc'><button>Deactivate Account</button></div> 
+       <h1>Delete Account</h1>
+       <p>Deleting your account is permanent. When you delete your account, you won't be able to retrieve your content.</p>
+       <div className='del-acc'><button>Delete Account</button></div> 
         
-       </div>
+        </div>
+        
+           </div>
+           
     </div>
     </div>
 
 </div>
 
+
+
 </div>
-
-
 </div>
 </div>
   )
 }
 
-export default Password
+export default DeleteAccount
