@@ -12,7 +12,7 @@ import AnswerPage from './Component/Pages/AnswerPage';
 
 function App() {
   return (
-    <>
+    <contextProvider>
       <div className="body">
         <AddButton />
         <Router>
@@ -28,7 +28,7 @@ function App() {
         </Router>
         {/* <MainBar /> */}
       </div>
-    </>
+    </contextProvider>
   );
 }
 
