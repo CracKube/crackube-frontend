@@ -6,15 +6,15 @@ import BlogPart from '../BlogPart/BlogPart';
 import Infinite from '../InfinitePart/Infinite';
 import { Card1 } from '../Constants';
 
-export default function MainBar(){
+export default function MainBar() {
     return (
         <div className={styles.mainbar}>
             <Heading text='Top Blogs to Read📚' />
-            <Dashboard type='card1'/>
-            <Heading text='Answer it! Earn it!💰'/>
+            <Dashboard type='card1' />
+            <Heading text='Answer it! Earn it!💰' />
             <Dashboard type='card2' />
-            <Infinite/>
-            <Dashboard type = 'card1'/>
+            <Infinite />
+            <Dashboard type='card1' />
             {/* <BlogPart /> */}
         </div>
     );

@@ -159,6 +159,24 @@ function Login() {
         })
     }
 
+    const handleSignUP = async () => {
+        // https://crackube-backend-test.onrender.com/users/createUser
+        // http://localhost:5000/users/createUser
+        //url encoded
+
+        const response = await fetch('https://crackube-backend-test.onrender.com/users/createUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `email=${document.getElementById("email1").value}&password=${document.getElementById("password").value}&username=${document.getElementById("username").value}&firstname=${document.getElementById("firstname").value}&lastname=${document.getElementById("lastname").value}`
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+    }
+
     return (
         <div className='Outer'>
 
@@ -288,7 +306,10 @@ function Login() {
                         <h5>By Signing Up, you agree to <a href=''>terms of use</a> and<br></br> <a href=""> privacy statements.</a></h5>
                     </div>
                     <div className='button-div'>
-                        <button className='create-button'>Create Account</button>
+                        <button
+                            className='create-button'
+                            onClick={e => { handleSignUP() }}
+                        >Create Account</button>
                     </div>
                     <div className='separator'>
                         <div className='left'>
