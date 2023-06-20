@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Search from '../../Assets/search.svg'
 import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
-function SearchPage() {
+function SearchPage  () {
+  const [input, setInput ] = useState("");
   return (
+
     <div className='home'>
       <MenuBar>
           <div className="menu-bar-link">
