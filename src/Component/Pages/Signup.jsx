@@ -8,7 +8,7 @@ function Signup() {
         <div className='main1'>
             <div className='Welcome'>
                 <p className='txt'>Welcome back!</p>
-                <p className='req'>Dont have an account? <a>SignUp</a> </p>
+                <p className='req'>Dont have an account? <a href = "/login">SignUp</a> </p>
                 <form action=""><p className='Emtxt'>Email*</p><input
                     placeholder='Enter your email address'
                     className='Email' type="text" /></form>

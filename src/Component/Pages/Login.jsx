@@ -173,7 +173,7 @@ function Login() {
                         <p>Create a Account<span className='dot'>.</span></p>
                     </div>
                     <div className='box'>
-                        <p>Already have an account? <a href='/' className='log'>Log in</a></p>
+                        <p>Already have an account? <a href='/signup' className='log'>Log in</a></p>
                     </div>
                     <div className='name'>
                         <div className='first'>
