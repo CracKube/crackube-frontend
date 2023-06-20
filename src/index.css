@@ -309,9 +309,8 @@ a:hover {
 }
 
 .home-container {
-  width: calc(100vw-15rem);
+  width: 100vw;
   padding-top: 1rem;
-  min-height: 100vh;
 }
 
 .modes {
