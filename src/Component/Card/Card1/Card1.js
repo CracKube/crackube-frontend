@@ -1,13 +1,18 @@
 import styles from './Card1.module.css';
-import {CardImage1, CardAuthor1, CardTitle1} from '../../Constants'
+import { CardImage1, CardAuthor1, CardTitle1 } from '../../Constants'
+import moment from 'moment/moment';
 
 
-function Card1(props){
+function Card1(props) {
+
     return (
-        <div className={styles.card1}>
-            <CardImage1 image={props.thumbnail}/>
-            <CardTitle1 classname='titleContainer' title='Airpods Pro 2 vs Airpods Pro 2 of the world?'/>
-            <CardAuthor1 author='Jennifer Margarette' modified='posted 8 hours ago' url={props.authorImage}/>
+        <div
+            className={styles.card1}
+            onClick={() => { window.location.href = `/blog/${props.id}`; }}
+        >
+            <CardImage1 image={props.thumbnail} />
+            <CardTitle1 classname='titleContainer' title={props.title} />
+            <CardAuthor1 author={props.author} modified={moment(props.modified).fromNow()} url={props.authorImage} />
         </div>
     )
 }

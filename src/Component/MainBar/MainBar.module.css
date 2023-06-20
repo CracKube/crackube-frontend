@@ -1,13 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.mainbar{
-    display:flex;
+.mainbar {
+    display: flex;
+    padding: 10px;
     flex-direction: column;
-    width: calc(100vw-15rem);
-    margin: auto;
+    width: 80vw;
     justify-content: center;
+    /* border: 1px solid red; */
 }

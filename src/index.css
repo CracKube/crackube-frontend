@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Visby CF';
   src: url(./styles/Fonts/VisbyCF-Regular.otf);
@@ -52,18 +51,18 @@ body {
   height: 100%;
 }
 
-a{
+a {
   color: black;
   text-decoration: none;
   display: inline;
 }
 
-a:hover{
+a:hover {
   text-decoration: underline;
 }
 
 
-.nav-bar{
+.nav-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -77,27 +76,30 @@ a:hover{
 }
 
 /* Start - Logo's CSS */
-.logo{
+.logo {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.625rem;
 }
-.logo img{
+
+.logo img {
   height: 2.5rem;
   width: 2.5rem;
   background-color: #8E00FF;
   border-radius: 0.75rem;
 }
-.logo h1{
+
+.logo h1 {
   font-size: 1.5rem;
   font-weight: 900;
 }
+
 /* End - Logo's CSS */
 
 
 /* Start - navbar CSS */
-.nav-bar ul{
+.nav-bar ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -106,35 +108,44 @@ a:hover{
   list-style-type: none;
   width: 15.6rem;
 }
-.nav-link{
+
+.nav-link {
   text-decoration: none;
   color: #000;
   font-weight: 600;
   font-size: 0.75rem;
 }
-.nav-buttons{
+
+.nav-buttons {
   display: flex;
   gap: 1.25rem;
 }
-.sign-up-btn,.login-in-btn{
-  padding: 0.625rem 1.56rem 0.625rem 1.56rem ;
+
+.sign-up-btn,
+.login-in-btn {
+  padding: 0.625rem 1.56rem 0.625rem 1.56rem;
   border-radius: 1.5rem;
   font-weight: 600;
 }
-.sign-up-btn:hover,.login-in-btn:hover{
+
+.sign-up-btn:hover,
+.login-in-btn:hover {
   cursor: pointer;
 }
-.sign-up-btn{
+
+.sign-up-btn {
   background: transparent;
-  border:  1px solid #8E00FF;
+  border: 1px solid #8E00FF;
 }
-.login-in-btn{
+
+.login-in-btn {
   border: none;
   background: linear-gradient(99.94deg, #8E00FF 0%, #7B00DD 100%);
   box-shadow: 0rem 0rem 1.25rem rgba(142, 0, 255, 0.5);
 }
+
 @media screen and (max-width: 62.5rem) {
-  .nav-bar{
+  .nav-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -145,17 +156,19 @@ a:hover{
     font-size: 0.75rem;
   }
 }
+
 /* End - navbar CSS */
 
 
 /* Start - Login css */
-.log-in{
+.log-in {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.login-container{
+
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,26 +179,31 @@ a:hover{
   padding: 2.625rem 0rem 2.625rem 0rem;
   background-color: aqua;
 }
-.login-container h1{
+
+.login-container h1 {
   font-weight: 900;
   font-size: 64px;
 }
-.text-input-container{
+
+.text-input-container {
   display: flex;
   flex-direction: column;
 }
-.text-input-container input{
+
+.text-input-container input {
   width: 28rem;
   padding: 0.75rem 1.5rem 0.75rem 1.5rem;
   border-radius: 1.5rem;
   border: none;
   background: rgba(142, 0, 255, 0.05);
 }
-.text-input-container input:focus{
+
+.text-input-container input:focus {
   outline: none;
   background: rgba(142, 0, 255, 0.05);
 }
-.submit-btn{
+
+.submit-btn {
   width: 28rem;
   padding: 0.75rem 1.5rem 0.75rem 1.5rem;
   border-radius: 1.5rem;
@@ -194,47 +212,54 @@ a:hover{
   box-shadow: 0rem 0rem 1.25rem rgba(142, 0, 255, 0.25);
   border: none;
 }
-.firebase-logins{
+
+.firebase-logins {
   display: flex;
   flex-direction: column;
   margin-top: auto;
 }
-.continue-with{
+
+.continue-with {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.line{
+
+.line {
   width: 10.938rem;
   height: 0rem;
   border: 1px solid #555555;
 }
-.firebase-logins-btn{
+
+.firebase-logins-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.firebase-logins-btn button{
+
+.firebase-logins-btn button {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0.75rem 1.875rem 0.75rem 1.875rem;
   border-radius: 24px;
-  background-color: transparent;  
+  background-color: transparent;
 }
+
 /* End - Login css */
 
 
 /* Start - Homepage CSS */
-.home{
+.home {
   display: flex;
   flex-direction: row;
-  width: 100vw;
 }
-.home-logo{
+
+.home-logo {
   background-color: #8E00FF;
 }
-.menu-bar{
+
+.menu-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,19 +272,23 @@ a:hover{
   max-height: 100vh;
   border-right: 2px solid rgb(191, 191, 191);
 }
-.menu-bar-half-1{
+
+.menu-bar-half-1 {
   height: 50vh;
 }
-.menu-bar-half-2{
+
+.menu-bar-half-2 {
   height: 50vh;
 }
-.menu-header{
+
+.menu-header {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
 }
-.hamburger{
+
+.hamburger {
   display: flex;
   background: transparent;
   border: none;
@@ -268,19 +297,24 @@ a:hover{
   cursor: pointer;
   gap: 0.25rem;
 }
-.bar-1,.bar-2,.bar-3{
+
+.bar-1,
+.bar-2,
+.bar-3 {
   width: 1rem;
   height: 0.125rem;
   background-color: #000;
   border-radius: 4px;
   margin: 0.125rem 0;
 }
-.home-container{
+
+.home-container {
   width: calc(100vw-15rem);
   padding-top: 1rem;
   min-height: 100vh;
- }
-.modes{
+}
+
+.modes {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -292,11 +326,12 @@ a:hover{
   margin: auto 0rem 0.5rem 0rem;
 }
 
-.profile{
+.profile {
   /* position: relative; */
   /* top: 120px; */
 }
-.modes button{
+
+.modes button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -307,16 +342,19 @@ a:hover{
   border-radius: 24px;
   border: none;
 }
-.light-mode{
+
+.light-mode {
   color: #ffffff;
   background-color: #000;
 }
-.dark-mode{
-  color:#555555;
+
+.dark-mode {
+  color: #555555;
   background-color: #ffffff;
 
 }
-.log-out-btn{
+
+.log-out-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -332,14 +370,16 @@ a:hover{
   font-size: 0.75rem;
   cursor: pointer;
 }
-.menu-bar-link{
+
+.menu-bar-link {
   display: flex;
   flex-direction: column;
   margin: 22px;
   align-self: flex-start;
   gap: 10px;
 }
-.menu-btn{
+
+.menu-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -352,34 +392,41 @@ a:hover{
   font-size: 16px;
   color: #000;
 }
-.menu-btn:hover{
+
+.menu-btn:hover {
   background-color: #202020;
   color: #ffffff;
   text-decoration: none;
 }
+
 /* Login Page CSS */
 
 
 
 /* Recommmendation in Home Page */
-.Recommend{
-    padding-top: 1.75rem;
-    display: flex;
-    align-items: center;
+.Recommend {
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: center;
 }
-.ans, .blog{
+
+.ans,
+.blog {
   font-weight: 300;
   font-size: 0.75rem;
 }
-.toggle{
+
+.toggle {
   width: 4.5rem;
   height: 2rem;
-  margin-right:0.5rem ;
+  margin-right: 0.5rem;
   margin-left: 0.5rem;
   background: linear-gradient(99.09deg, #8E00FF 0%, #EA4335 100%);
-  border-radius: 12px;;
+  border-radius: 12px;
+  ;
 }
-.toggler{
+
+.toggler {
   position: relative;
   top: 0.23rem;
   left: 2.70rem;
@@ -389,24 +436,28 @@ a:hover{
   box-shadow: 0px 11px 4px rgba(0, 0, 0, 0.01), 0px 6px 4px rgba(0, 0, 0, 0.05), 0px 3px 3px rgba(0, 0, 0, 0.09), 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-.reco{
-    padding-right: 1rem;
-    margin-left: 1.75rem;
-    font-weight: 300;
-    font-size: 1.5rem;
+
+.reco {
+  padding-right: 1rem;
+  margin-left: 1.75rem;
+  font-weight: 300;
+  font-size: 1.5rem;
 }
-.priority{
+
+.priority {
   margin-left: 1.75rem;
   padding-top: 1rem;
   padding-bottom: 3.5rem;
   display: flex;
   height: 2rem;
 }
-.priority div{
+
+.priority div {
   margin-right: 0.25rem;
-  
+
 }
-.priority button{
+
+.priority button {
   background-color: #FFFFFF;
   font-size: 0.75rem;
   font-weight: 200;
@@ -414,7 +465,7 @@ a:hover{
   border-radius: 24px;
 }
 
-.foru{
+.foru {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -423,44 +474,52 @@ a:hover{
   border: 2px solid #FFFFFF;
   background: linear-gradient(99.09deg, #8E00FF 0%, #EA4335 100%);
 }
-.priority-btn{
+
+.priority-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #000000;
 }
-.prob{
+
+.prob {
   border: 2px solid #000000;
 }
-.news{
+
+.news {
   border: 2px solid #000000;
 }
+
 @media only screen and (max-width: 717px) {
-  .out{
+  .out {
     display: flex;
     justify-items: center;
     justify-content: start;
   }
-  .name{
+
+  .name {
     display: flex;
     flex-wrap: wrap;
     min-width: 220px;
     justify-content: space-around;
   }
-  .main{
+
+  .main {
     display: flex;
     justify-content: center;
     min-width: 300px;
     min-height: 1000px;
   }
-  .title p{
+
+  .title p {
     font-family: 'VisbyCFH';
     font-style: bold;
     font-weight: 900;
     font-size: 30px;
     line-height: 60px;
   }
-  .prog{
+
+  .prog {
     position: relative;
     overflow: hidden;
     width: 150px;
@@ -471,46 +530,55 @@ a:hover{
 
 
 
-  .email{
+  .email {
     display: flex;
     padding-left: 15px;
     min-width: 220px;
     justify-content: space-around;
   }
-  .email input{
+
+  .email input {
     width: 220px;
   }
-  .create-button{
+
+  .create-button {
     width: 200px;
   }
-  .left{
+
+  .left {
     width: 20px;
   }
-  .separator{
+
+  .separator {
     padding-top: 22px;
     display: flex;
     align-items: center;
   }
-  .name div, .email div, .email{
+
+  .name div,
+  .email div,
+  .email {
     padding-bottom: 10px;
   }
-  
+
 }
 
 
 
 /* Start - Answer page  */
-.answer{
+.answer {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
 }
-.answer-container{
+
+.answer-container {
   min-height: 100vh;
   width: 100vw;
   max-width: calc(100vw - 15rem);
 }
-.answer-heading{
+
+.answer-heading {
   font-weight: 300;
   font-size: 24px;
   margin-left: 1.75rem;
