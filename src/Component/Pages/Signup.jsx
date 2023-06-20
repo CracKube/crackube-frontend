@@ -4,11 +4,32 @@ import LoginDesign from '../../Assets/LoginDesign.svg';
 import { NavLink } from "react-router-dom";
 import OTP from "../../Component/OTP Page/OTP.js"
 function Signup() {
+    const handleLogin = async () => {
+        //https://crackube-backend-test.onrender.com/users/signIn
+        //url encoded
+        const email = document.querySelector(".Email").value;
+        const password = document.querySelector(".Password").value;
+
+        const respose = await fetch("https://crackube-backend-test.onrender.com/users/signIn", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `email=${email}&password=${password}`
+        });
+        const data = await respose.text();
+        if (data == "login success") {
+            window.location.href = "/home";
+        }
+        else {
+            alert("Invalid Credentials");
+        }
+    }
     return (
         <div className='main1'>
             <div className='Welcome'>
                 <p className='txt'>Welcome back!</p>
-                <p className='req'>Dont have an account? <a href = "/login">SignUp</a> </p>
+                <p className='req'>Dont have an account? <a href="/login">SignUp</a> </p>
                 <form action=""><p className='Emtxt'>Email*</p><input
                     placeholder='Enter your email address'
                     className='Email' type="text" /></form>
@@ -18,10 +39,12 @@ function Signup() {
                 <div className='sep'>
                     <div className='checkBox'></div>
                     <p className='rem'>  Remember me</p>
-                    <NavLink className='for'to="/otp"> Forgot password </NavLink>
+                    <NavLink className='for' to="/otp"> Forgot password </NavLink>
                 </div>
                 <div className='Button'>
-                    <button>Login</button>
+                    <button
+                        onClick={() => handleLogin()}
+                    >Login</button>
                 </div>
                 <div className='separator'>
                     <div className='left'>
