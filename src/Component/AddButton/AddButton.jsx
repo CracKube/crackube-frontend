@@ -1,4 +1,4 @@
-import styles from './AddButton.module.css';
+
 import { addbutton } from '../Constants';
 import { useState } from 'react';
 
@@ -8,9 +8,10 @@ import { useState } from 'react';
 
 export default function AddButton(){
     const [showPopup, setShowPopup] = useState(false);
-    const listItems = ['Item 1', 'Item 2', 'Item 3'];
-    const button = document.querySelector(".addbutton");
+    const listItems = ['Answer a question', 'Post a blog', 'Write a code'];
+   
     const buttonHandler  = ('click', () => {
+      const button = document.querySelector(".addbutton");
         button.classList.add('rotate-animation');
         setShowPopup(!showPopup);
         setTimeout(() => {
@@ -27,11 +28,10 @@ export default function AddButton(){
             {showPopup && (
             <div className="popup">
             <ul>
-              <div>
                 {listItems.map((item, index) => (
-                <div className='icon-style' key={index}>{item}</div>
+                <div className='icon-style' key={index}> <div className='pad'>{item}</div></div>
                 ))}
-              </div>
+              
             </ul>
             </div>
       )}

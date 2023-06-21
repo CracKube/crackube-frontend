@@ -379,8 +379,11 @@
   }
   .popup {
     position: absolute;
-    right: 55px;
+    right: 20px;
     bottom: 130px
+  }
+  .pad{
+    padding-top: 10px;
   }
   .list-view {
     list-style: none;
@@ -399,7 +402,6 @@
   }
   
   .list-view li::before {
-    content: "\2022";
     color: #4CAF50;
     font-weight: bold;
     margin-right: 10px;
@@ -412,8 +414,9 @@
 .icon-style{
   padding-top: 10px;
   text-align: center;
-  min-height: 40px;
-  min-width: 80px;
+  min-height: 60px;
+  min-width: 100px;
+  padding: 10px ;
   color: white;
   background-color: #8E00FF;
   border-radius: 20px;

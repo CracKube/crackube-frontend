@@ -8,7 +8,7 @@ function Navbar() {
             <div className="nav-bar">
                 <Logo/>
                 <ul>
-                    <li><NavLink to = '/home' className={'nav-link'}>Home</NavLink></li>
+                    <li><NavLink to = '/' className={'nav-link'}>Home</NavLink></li>
                     <li><NavLink className={'nav-link'}>Search</NavLink></li>
                     <li><NavLink className={'nav-link'}>Features</NavLink></li>
                     <li><NavLink className={'nav-link'}>About Us</NavLink></li>
