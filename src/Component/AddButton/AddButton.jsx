@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function AddButton(){
     const [showPopup, setShowPopup] = useState(false);
-    var listItems = ['Item 1', 'Item 2', 'Item 3'];
+    const listItems = ['Item 1', 'Item 2', 'Item 3'];
     const button = document.querySelector(".addbutton");
     const buttonHandler  = ('click', () => {
         button.classList.add('rotate-animation');
@@ -27,9 +27,11 @@ export default function AddButton(){
             {showPopup && (
             <div className="popup">
             <ul>
+              <div>
                 {listItems.map((item, index) => (
                 <div className='icon-style' key={index}>{item}</div>
                 ))}
+              </div>
             </ul>
             </div>
       )}
