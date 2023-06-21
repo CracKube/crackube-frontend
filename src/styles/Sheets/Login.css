@@ -335,4 +335,113 @@
     }
     
   }
+.addbutton{
+    height: 4rem;
+    width: 4rem;
+    background: #8E00FF;
+    position: fixed;
+    right: 4rem;
+    bottom: 4rem;
+    box-shadow: none;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Button Rotate*/
+.rotate-animation {
+    /* Apply the animation to the button */
+    /* animation: rotate 2s; */
+    animation:  bop 0.5s ease-in-out;
+    animation: rotate 0.5s ease-in-out;
+  }
+
+  @keyframes rotate {
+    /* Define the rotation animation */
+    /* from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(300deg);
+    } */
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(90) scale(1.1);
+    }
+    100% {
+      transform: rotate(180deg) scale(1);
+    }
+  }
+  .popup {
+    position: absolute;
+    right: 55px;
+    bottom: 130px
+  }
+  .list-view {
+    list-style: none;
+    padding: 0;
+  }
   
+  .list-view li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .list-view li:last-child {
+    border-bottom: none;
+  }
+  
+  .list-view li::before {
+    content: "\2022";
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 10px;
+  } 
+.wrap{
+  display: flex;
+  flex-direction: column;
+}
+  
+.icon-style{
+  padding-top: 10px;
+  text-align: center;
+  min-height: 40px;
+  min-width: 80px;
+  
+  background-color: #8E00FF;
+  border-radius: 20px;
+  animation:  bop 0.5s ease-in-out;
+}
+.pop-ul {
+  padding-top: 10px;
+}
+@keyframes bop {
+  /* Define the rotation animation */
+  /* from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(300deg);
+  } */
+  0% {
+    transform:  scale(1);
+  }
+  50% {
+    transform: scale(1.23);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pop-ul{
+  padding-top: 10px;
+}
+
+

@@ -12,4 +12,27 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    animation: rotate 1s 1 linear;
 }
+.rotate-animation {
+    /* Apply the animation to the button */
+    animation: rotate 2s;
+  }
+
+  @keyframes rotate {
+    /* Define the rotation animation */
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(300deg);
+    }
+  }
+
+  
+  
+  
+  
+  
+  
+  
