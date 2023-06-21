@@ -169,11 +169,18 @@ function Login() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `email=${document.getElementById("email1").value}&password=${document.getElementById("password").value}&username=${document.getElementById("username").value}&firstname=${document.getElementById("firstname").value}&lastname=${document.getElementById("lastname").value}`
+            body: `email=${document.getElementById("email1").value}&password=${document.getElementById("password").value}&firstName=${document.getElementById("firstname").value}&lastName=${document.getElementById("lastname").value}`
         });
 
         const data = await response.json();
-        console.log(data);
+        if (data == "User already exists") {
+            window.alert("User already exists");
+        }
+        else {
+            window.alert("User created successfully");
+            window.location.href = "/home";
+
+        }
 
     }
 
