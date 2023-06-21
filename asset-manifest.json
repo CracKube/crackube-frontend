@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/crackube-frontend/static/css/main.d5fb2480.css",
+    "main.js": "/crackube-frontend/static/js/main.3d91b2f6.js",
+    "static/js/787.afcd5385.chunk.js": "/crackube-frontend/static/js/787.afcd5385.chunk.js",
+    "static/media/Sample-Blog-Thumbnail.svg": "/crackube-frontend/static/media/Sample-Blog-Thumbnail.8fcbb1b137d1445f9a0a0bf5d8f9cef9.svg",
+    "static/media/blogPic.svg": "/crackube-frontend/static/media/blogPic.cc6f778e596faf63e9a84ff2d1f405bb.svg",
+    "static/media/Sample-Author.svg": "/crackube-frontend/static/media/Sample-Author.469c6e2e2ca45bf4e7a304e18471b053.svg",
+    "static/media/LoginDesign.svg": "/crackube-frontend/static/media/LoginDesign.3bab51df763e1a3b87d6839c89714ec7.svg",
+    "static/media/Sample-Author 2.svg": "/crackube-frontend/static/media/Sample-Author 2.e255023e861b9952d0eecc1c239a8150.svg",
+    "static/media/Rectangle 120.svg": "/crackube-frontend/static/media/Rectangle 120.7e2fefe57c7de14e3ef167d25c7746a9.svg",
+    "static/media/Seriguela-Black.otf": "/crackube-frontend/static/media/Seriguela-Black.eb27a740a2fc6c8a8f58.otf",
+    "static/media/VisbyCF-Heavy.otf": "/crackube-frontend/static/media/VisbyCF-Heavy.a5e3166a7bba60e673fa.otf",
+    "static/media/VisbyCF-ExtraBold.otf": "/crackube-frontend/static/media/VisbyCF-ExtraBold.51dd8c110490661aaec5.otf",
+    "static/media/VisbyCF-Bold.otf": "/crackube-frontend/static/media/VisbyCF-Bold.c09f12b6ca448e39dafb.otf",
+    "static/media/VisbyCF-Light.otf": "/crackube-frontend/static/media/VisbyCF-Light.886f885dc07abee067d3.otf",
+    "static/media/VisbyCF-Regular.otf": "/crackube-frontend/static/media/VisbyCF-Regular.90fa0184fe76d08f53b6.otf",
+    "static/media/VisbyCF-Medium.otf": "/crackube-frontend/static/media/VisbyCF-Medium.03ab2ebed9bb39b5e40c.otf",
+    "static/media/VisbyCF-Thin.otf": "/crackube-frontend/static/media/VisbyCF-Thin.3666141da8b744fdfb76.otf",
+    "static/media/BestAnswer.svg": "/crackube-frontend/static/media/BestAnswer.38a352593452ded4fd828035f56efd82.svg",
+    "static/media/dollar coin green custom 1.svg": "/crackube-frontend/static/media/dollar coin green custom 1.e89740e034a6f886d2b696bbf016f29d.svg",
+    "static/media/Diamond Logo 1.svg": "/crackube-frontend/static/media/Diamond Logo 1.f30e7a1326a27e3845d34c5c45fa9ec7.svg",
+    "static/media/Logout icon.svg": "/crackube-frontend/static/media/Logout icon.324ac53e885383250da969acbb2490ba.svg",
+    "static/media/PlusIcon 1.svg": "/crackube-frontend/static/media/PlusIcon 1.7d287c9cd5d1f61e12b1248ef5b27557.svg",
+    "static/media/lightIcon.svg": "/crackube-frontend/static/media/lightIcon.74e716ceab925c892e9ac207eb74332e.svg",
+    "static/media/dislike.svg": "/crackube-frontend/static/media/dislike.f0ddfd6400a14d9481a38b542f8369a3.svg",
+    "static/media/like.svg": "/crackube-frontend/static/media/like.92ab50215d9b0f1ec6b947a3a3f598cc.svg",
+    "static/media/homeIcon.svg": "/crackube-frontend/static/media/homeIcon.b6de9c67640208ec3fd22707cc9f8e58.svg",
+    "static/media/darkIcon.svg": "/crackube-frontend/static/media/darkIcon.5213ac3f2c08ee874bd3cdf2f1acca12.svg",
+    "static/media/Search 1.svg": "/crackube-frontend/static/media/Search 1.2705cff1d1ca3728e31ae3b2a18a728d.svg",
+    "static/media/Flag.svg": "/crackube-frontend/static/media/Flag.1467b62a0b184b6b25375f6d0acc1ae9.svg",
+    "static/media/search.svg": "/crackube-frontend/static/media/search.532b49494e618e6efb8e67b91e6f58e3.svg",
+    "index.html": "/crackube-frontend/index.html",
+    "static/media/Icon feather-bookmark.svg": "/crackube-frontend/static/media/Icon feather-bookmark.3bb34d02d364360212e4a81656a5eff3.svg",
+    "main.d5fb2480.css.map": "/crackube-frontend/static/css/main.d5fb2480.css.map",
+    "main.3d91b2f6.js.map": "/crackube-frontend/static/js/main.3d91b2f6.js.map",
+    "787.afcd5385.chunk.js.map": "/crackube-frontend/static/js/787.afcd5385.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5fb2480.css",
+    "static/js/main.3d91b2f6.js"
+  ]
+}
