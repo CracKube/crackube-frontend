@@ -492,14 +492,7 @@ input:focus {
     font-weight: 900;
 
   }
-<<<<<<< HEAD
 
-  .search-change {
-    padding-right: 120px;
-  }
-
-  .Search {
-=======
   /* Search list dropdown */
   .results-list {
     width: 100%;
@@ -515,11 +508,11 @@ input:focus {
 
 
 
-.search-change{
-  padding-right: 120px;
-}
-  .Search{
->>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
+  .search-change {
+    padding-right: 120px;
+  }
+
+  .Search {
     display: flex;
     justify-content: center;
     padding-left: 60px;
