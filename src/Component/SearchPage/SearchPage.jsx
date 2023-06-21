@@ -4,6 +4,61 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
+<<<<<<< HEAD
+=======
+
+const SearchBar = ({setResults})=>{
+  const [input, setInput ] = useState("");
+  
+  
+    const fecthData = (value) => {
+      fetch("https://jsonplaceholder.typicode.com/users").then((response) => response.json()).then(json =>{
+        // console.log(json);
+        const results = json.filter((user) => {
+          return value && user && user.name && user.name.toLowerCase().includes(value)
+        });
+        setResults(results);
+        
+      } )
+    }
+    const handleChange = (value) => {
+      setInput(value)
+      fecthData(value)
+    }
+  return (
+    <div className='Search'>
+    <img src= {Search} alt="img" />    
+    <input className='search-bar' 
+    type="text" value={input} onChange={(e) => handleChange(e.target.value)}
+    placeholder='Search for anything'/>
+    <button className='search-button'>Search</button>
+
+    </div>
+  )
+}
+
+const SearchResultsList =({results}) => {
+  return(
+    <div className='results-list'>
+      {
+        results.map((result,id)=>{
+          return <div key={id}>{result.name}</div>
+        })
+      }
+    </div>
+  )
+}
+
+
+
+
+function SearchPage () {
+  
+  const [results, setResults] = useState([]);
+ 
+  
+  return (
+>>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
 
 function SearchPage() {
   return (
@@ -47,9 +102,30 @@ function SearchPage() {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
 
 
       </div>
+=======
+       {/* SearchBar */}
+       <SearchBar setResults={setResults}/>
+       <SearchResultsList results={results}/>
+        <div className='coverUp'>
+        <div ><p>Discover</p></div>
+        <div className='Discover'>
+            <div className='Dbox'></div>
+            <div className='Dbox'></div>
+            <div className='Dbox'></div>
+            <div className='Dbox'></div>
+            <div className='Dbox'></div>
+            <div className='Dbox'></div>
+        </div>
+        </div>
+        </div>
+        
+       
+    </div>
+>>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
     </div>
   )
 }

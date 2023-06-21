@@ -492,12 +492,34 @@ input:focus {
     font-weight: 900;
 
   }
+<<<<<<< HEAD
 
   .search-change {
     padding-right: 120px;
   }
 
   .Search {
+=======
+  /* Search list dropdown */
+  .results-list {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 10px;
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+
+
+.search-change{
+  padding-right: 120px;
+}
+  .Search{
+>>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
     display: flex;
     justify-content: center;
     padding-left: 60px;
