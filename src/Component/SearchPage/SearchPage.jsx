@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
-<<<<<<< HEAD
-=======
-
+import { useState } from 'react'
 const SearchBar = ({setResults})=>{
   const [input, setInput ] = useState("");
   
@@ -57,9 +55,7 @@ function SearchPage () {
   const [results, setResults] = useState([]);
  
   
-  return (
->>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
-
+ 
 function SearchPage() {
   return (
     <div className='home'>
@@ -102,11 +98,6 @@ function SearchPage() {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-
-
-      </div>
-=======
        {/* SearchBar */}
        <SearchBar setResults={setResults}/>
        <SearchResultsList results={results}/>
@@ -125,9 +116,7 @@ function SearchPage() {
         
        
     </div>
->>>>>>> 8d7bb07a0a48580cb60a81f3e45f4793f1445aec
-    </div>
   )
 }
-
+}
 export default SearchPage

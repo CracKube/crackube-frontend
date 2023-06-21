@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function AddButton() {
   const [showPopup, setShowPopup] = useState(false);
-  const listItems = ['Item 1', 'Item 2', 'Item 3'];
+  const listItems = ['Answer a Question', 'Post a Blog', 'Write a Code'];
   const buttonHandler = ('click', () => {
     const button = document.querySelector(".addbutton");
     if (!button) return;
@@ -28,10 +28,12 @@ export default function AddButton() {
       {showPopup && (
         <div className="popup">
           <ul>
-            <div>
-              {listItems.map((item, index) => (
-                <div className='icon-style' key={index}>{item}</div>
-              ))}
+            <div className='pad'>
+             
+                <div className='icon-style'>Answer a Question</div>
+                <div className='icon-style'>Post a Blog</div>
+                <div className='icon-style'>Write a Code</div>
+              
             </div>
           </ul>
         </div>

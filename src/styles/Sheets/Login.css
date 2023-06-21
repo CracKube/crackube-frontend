@@ -720,7 +720,7 @@ input:focus {
   }
   .popup {
     position: absolute;
-    right: 55px;
+    right: 25px;
     bottom: 130px
   }
   .list-view {
@@ -751,7 +751,6 @@ input:focus {
 }
 
 .icon-style {
-  padding-top: 10px;
   text-align: center;
   min-height: 60px;
   min-width: 100px;
@@ -790,4 +789,7 @@ input:focus {
   100% {
     transform: scale(1);
   }
+}
+.pad > div{
+  padding-top: 10px;
 }
