@@ -414,7 +414,7 @@
   text-align: center;
   min-height: 40px;
   min-width: 80px;
-  
+  color: white;
   background-color: #8E00FF;
   border-radius: 20px;
   animation:  bop 0.5s ease-in-out;
@@ -422,6 +422,10 @@
 .pop-ul {
   padding-top: 10px;
 }
+.for-pad{
+  padding-top: 10px;
+}
+
 @keyframes bop {
   /* Define the rotation animation */
   /* from {
@@ -440,8 +444,4 @@
     transform: scale(1);
   }
 }
-.pop-ul{
-  padding-top: 10px;
-}
-
 

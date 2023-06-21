@@ -13,4 +13,4 @@ function Logo({cssClass}) {
 Logo.defaultProps = {
     cssClass: 'logo',
 }
-export default Logo
+export default Logo;
