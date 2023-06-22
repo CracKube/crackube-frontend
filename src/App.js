@@ -12,6 +12,7 @@ import Security from '../src/Component/Settings/Security.js';
 import Email from '../src/Component/Settings/Email.js';
 import Password from '../src/Component/Settings/Password.js';
 import DeleteAccount from './Component/Settings/DeleteAccount';
+import UploadPage from './Component/UploadPage/UploadPage';
 import BlogPage from './Component/BlogPage/BlogPage.js';
 import ProfilePage from './Component/profile_page/ProfilePage.jsx'
 import AnsweringPage from './Component/AnsweringPage/AnsweringPage';

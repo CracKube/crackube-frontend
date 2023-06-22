@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Search from '../../Assets/search.svg'
 import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
@@ -25,28 +25,29 @@ const SearchBar = ({setResults})=>{
     }
   return (
     <div className='Search'>
-    <img src= {Search} alt="img" />    
-    <input className='search-bar' 
-    type="text" value={input} onChange={(e) => handleChange(e.target.value)}
-    placeholder='Search for anything'/>
-    <button className='search-button'>Search</button>
+      <img src={Search} alt="img" />
+      <input className='search-bar'
+        type="text" value={input} onChange={(e) => { setInput(e.target.value); handleChange(e.target.value) }}
+        placeholder='Search for anything' />
+      <button className='search-button'>Search</button>
 
     </div>
   )
 }
 
-const SearchResultsList =({results}) => {
-  return(
+const SearchResultsList = ({ results }) => {
+  return (
     <div className='results-list'>
       {
-        results.map((result,id)=>{
-          return <div key={id}>{result.name}</div>
+        results.map((result, id) => {
+          return <SearchResult result={result} key={id} />
         })
       }
     </div>
   )
 }
 
+<<<<<<< HEAD
 
 
 
@@ -56,8 +57,78 @@ function SearchPage () {
  
   
  
-function SearchPage() {
+=======
+const SearchResult = ({ result }) => {
   return (
+    <div className='search-result'>
+
+      <img className='search-list-icon' src={Search} alt="img" />
+      {result}</div>
+  )
+
+}
+
+
+
+>>>>>>> bf40c45a27e478831da52a363ea042be840625cd
+function SearchPage() {
+  const [input, setInput] = useState('')
+  const [results, setResults] = useState([])
+  const [blogs, setBlogs] = useState([])
+  const [questions, setQuestions] = useState([])
+  const [users, setUsers] = useState([])
+
+
+  const getData = async () => {
+    const response1 = await fetch('https://crackube-backend-test.onrender.com/blogs/getAll');
+    const data1 = await response1.json();
+    setBlogs(data1)
+
+    const response2 = await fetch('https://crackube-backend-test.onrender.com/questions/get');
+    const data2 = await response2.json();
+    setQuestions(data2)
+
+    const response3 = await fetch('https://crackube-backend-test.onrender.com/users/getUsers');
+    const data3 = await response3.json();
+    setUsers(data3)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const handleChange = (value) => {
+    setInput(value)
+    if (value == "") {
+      setResults([])
+      return
+    }
+
+    let newResult = []
+
+    blogs.forEach(blog => {
+      if (blog.blogTitle.toLowerCase().includes(value.toLowerCase())) {
+        newResult.push(blog.blogTitle)
+      }
+    })
+
+    questions.forEach(question => {
+      if (question.questionBody.toLowerCase().includes(value.toLowerCase())) {
+        newResult.push(question.questionBody)
+      }
+    })
+
+    // users.forEach(user => {
+    //   if (user.firstName.toLowerCase().includes(value.toLowerCase())) {
+    //     newResult.push(user.firstName)
+    //   }
+    // })
+
+    setResults(newResult)
+  }
+
+  return (
+
     <div className='home'>
       <MenuBar>
         <div className="menu-bar-link">
@@ -78,14 +149,9 @@ function SearchPage() {
             <p>CracKube</p>
 
           </div>
-          <div className='Search'>
-            <img src={Search} alt="img" />
-            <input className='search-bar'
-              type="text"
-              placeholder='Search for anything' />
-            <button className='search-button'>Search</button>
-
-          </div>
+          {/* SearchBar */}
+          <SearchBar handleChange={handleChange} />
+          <SearchResultsList results={results} />
           <div className='coverUp'>
             <div ><p>Discover</p></div>
             <div className='Discover'>
@@ -98,6 +164,7 @@ function SearchPage() {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
        {/* SearchBar */}
        <SearchBar setResults={setResults}/>
        <SearchResultsList results={results}/>
@@ -115,6 +182,11 @@ function SearchPage() {
         </div>
         
        
+=======
+
+
+      </div>
+>>>>>>> bf40c45a27e478831da52a363ea042be840625cd
     </div>
   )
 }

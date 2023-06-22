@@ -1,0 +1,20 @@
+.upload-navbar {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-navbar>div {
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 10px 20%;
+    border-bottom: 2px solid transparent;
+}
+
+.active {
+    font-weight: bold;
+    color: purple;
+    border-bottom: 2px solid purple !important;
+}

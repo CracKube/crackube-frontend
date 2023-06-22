@@ -33,7 +33,7 @@ export default function Dashboard(props) {
                         key={blog._id}
                         id={blog._id}
                         thumbnail={thumbnailUrl}
-                        authorImage={authorUrl}
+                        authorImage={blog.blogImage}
                         title={blog.blogTitle}
                         author={blog.userPosted}
                         modified={blog.postedOn}
@@ -47,7 +47,7 @@ export default function Dashboard(props) {
                         key={question._id}
                         thumbnail={thumbnailUrl}
                         authorImage={authorUrl2}
-                        title={question.questionTitle}
+                        title={question.questionBody}
                         author={question.userPosted}
                         modified={question.askedOn}
                         tags={question.questionTags}

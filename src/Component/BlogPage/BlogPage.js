@@ -46,7 +46,7 @@ function BlogPage() {
         <div className='blog-cover'>
           <div className='blog-container'>
 
-            <img src={blogPic} alt="" />
+            <img src={blog && `data:image/png;base64,${blog.blogImage}` || blogPic} alt="" />
           </div>
           <div className='blog-title'>
             <p>{blog && blog.blogTitle} </p>

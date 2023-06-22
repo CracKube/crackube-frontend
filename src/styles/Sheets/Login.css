@@ -534,8 +534,8 @@ input:focus {
     background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
     height: 32px;
     width: 72px;
-    left: -80px;
-    top: 5px;
+
+    top: 4px;
   }
 
   .Discover {
