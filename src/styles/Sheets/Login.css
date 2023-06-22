@@ -719,8 +719,8 @@ input:focus {
     }
   }
   .popup {
-    position: absolute;
-    right: 25px;
+    position: fixed;
+    right: 15px;
     bottom: 130px
   }
   .list-view {
