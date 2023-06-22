@@ -586,3 +586,207 @@ a:hover {
 /* End - Answer page */
 
 /* Answering Page */
+.ans-line {
+  width: 72rem;
+  height: 0.0625rem;
+  background: #000;
+}
+.ans-line-1 {
+  padding-left: 1.5rem;
+}
+.ans-line-1 button {
+  align-items: center;
+}
+.ans-line-1 p {
+  display: flex;
+  width: 72rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ans-line-1 h1 {
+  padding-top: 1rem;
+  
+}
+.ans-user {
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.ans-user > div {
+  padding-right: 1rem;
+  
+}
+.ans-user > div > button {
+  color: white;
+  width: 3.8125rem;
+height: 1.5rem;
+flex-shrink: 0;
+border-radius: 100px;
+background: #000;
+}
+.ans-users {
+  width: 72rem;
+  min-height: 10rem;
+  flex-shrink: 0;
+  border-radius: 32px;
+  background: #FFF;
+  padding-top: 1.81;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
+}
+.user-ans-id {
+  color: #5F5F5F;
+  font-size: 0.75rem;
+  font-family: Visby CF;
+  font-weight: 600;
+}
+.ans-tags {
+  padding-top: 0.88rem;
+  display: flex;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+}
+.ans-tags > div {
+  margin-right: 0.25rem;
+  border: 1px solid #000;
+  display: flex;
+  padding: 0.19rem 0.75rem 0.19rem 0.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+.ans-container{
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.ans-container p {
+  padding-top: 0.65rem;
+  color: #000;
+  font-size: 1rem;
+  font-family: Visby CF;
+  font-weight: 700;
+  display: flex;
+  width: 70rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.likes-cover{
+  position: relative;
+  width: 8.125rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #F1F1F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.likes-cover > div {
+  padding-right: 0.25rem;
+}
+.likes-sep {
+  width: 0.0625rem;
+height: 1.5rem;
+background: #AAA;
+}
+.whole-cover{
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.whole-cover button {
+  color: #FFF;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Visby CF;
+  font-weight: 600;
+  width: 4.625rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #000;
+
+  padding: 0.25rem 1rem 0.25rem 1rem;
+}
+.flag-wrap{
+  display: flex;
+  align-items: center;
+  
+}
+.rep-but{
+  padding-right: 0.25rem;
+}
+.ans-holder{
+  padding-top: 1rem;
+}
+.ans-container > div > img{
+  align-items: center;
+  max-width: 48.1875rem;
+  max-height: 10.25rem;
+flex-shrink: 0;
+display: flex;
+justify-content: center;
+    background-image: cover;
+}
+.img-handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ans-whole-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ans-line-wrap{
+  width: 72rem;
+
+}
+.bk-btn-wrap{
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+}
+.bk-btn-wrap > div{
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+}
+.btn-rep{
+  border-radius: 100px;
+  width: 4.625rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.btn-rep button{
+  background-color: #FFF;
+  padding: 0.31rem 0.75rem 0.31rem 0.75rem;
+  color: #F00;
+  border-radius: 100px;
+  border: 1px solid #F00;
+  text-align: center;
+  font-size: 0.75rem;
+  font-family: Visby CF;
+  font-weight: 600;
+  line-height: 120%;
+}
+.red-flag{
+  display: flex;
+  align-items: center;
+}
+.red-flag > img{
+  padding-right: 0.25rem;
+}

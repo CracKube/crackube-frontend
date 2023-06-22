@@ -13,6 +13,8 @@ import Email from '../src/Component/Settings/Email.js';
 import Password from '../src/Component/Settings/Password.js';
 import DeleteAccount from './Component/Settings/DeleteAccount';
 import BlogPage from './Component/BlogPage/BlogPage.js';
+import ProfilePage from './Component/profile_page/ProfilePage.jsx'
+import AnsweringPage from './Component/AnsweringPage/AnsweringPage';
 function App() {
     return (
         <>
@@ -33,6 +35,8 @@ function App() {
                         <Route path="/password" element={<Password />}></Route>
                         <Route path="/blog/:id" element={<BlogPage />}></Route>
                         <Route path="/delete-account" element={<DeleteAccount />}></Route>
+                        <Route path='/profile' element= {<ProfilePage/>}></Route>
+                        <Route path= '/answer' element = {<AnsweringPage/>}></Route>
                     </Routes>
 
                 </Router>
