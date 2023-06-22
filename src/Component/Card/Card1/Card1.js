@@ -8,6 +8,7 @@ function Card1(props) {
     return (
         <div
             className={styles.card1}
+            style={{ cursor: 'pointer' }}
             onClick={() => { window.location.href = `/blog/${props.id}`; }}
         >
             <CardImage1 image={props.thumbnail} />

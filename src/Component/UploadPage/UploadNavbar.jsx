@@ -1,21 +1,20 @@
 import "./UploadNavbar.css"
 
-export default function UploadNavbar({type,setType}) {
+export default function UploadNavbar({ type, setType }) {
   return (
- <>
-    <button onClick={e => setType("Question")}
-        // Change class name based on type
-        >
-        This is Question
-    </button>
+    <div className="upload-navbar">
+      <div onClick={e => setType("Question")}
+        className={type === "Question" ? "active" : ""}
+      >
+        Ask Question
+      </div>
 
-    <button 
-    onClick={e=>setType("Blog")}
-    // Change class name based on type
-    
-    >
-    This is Blog
-    </button>
- </>
-)
+      <div
+        onClick={e => setType("Blog")}
+        className={type === "Blog" ? "active" : ""}
+      >
+        Write a Blog
+      </div>
+    </div>
+  )
 }

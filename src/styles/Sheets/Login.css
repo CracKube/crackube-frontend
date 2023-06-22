@@ -509,15 +509,16 @@ input:focus {
   }
 
   /* Search Result */
-.search-result {
+  .search-result {
 
-padding: 1rem 1rem;
-padding-right: 0;
-}
-.search-list-icon{
-  padding-right: 0.5rem;
-  
-}
+    padding: 1rem 1rem;
+    padding-right: 0;
+  }
+
+  .search-list-icon {
+    padding-right: 0.5rem;
+
+  }
 
 
   .search-change {
@@ -561,7 +562,7 @@ padding-right: 0;
     background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
     height: 32px;
     width: 72px;
-    
+
     top: 4px;
   }
 
