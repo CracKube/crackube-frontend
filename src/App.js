@@ -12,6 +12,7 @@ import Security from '../src/Component/Settings/Security.js';
 import Email from '../src/Component/Settings/Email.js';
 import Password from '../src/Component/Settings/Password.js';
 import DeleteAccount from './Component/Settings/DeleteAccount';
+import UploadPage from './Component/UploadPage/UploadPage';
 import BlogPage from './Component/BlogPage/BlogPage.js';
 function App() {
     return (
@@ -33,6 +34,8 @@ function App() {
                         <Route path="/password" element={<Password />}></Route>
                         <Route path="/blog/:id" element={<BlogPage />}></Route>
                         <Route path="/delete-account" element={<DeleteAccount />}></Route>
+                        <Route path="/upload" element={<UploadPage />}></Route>
+
                     </Routes>
 
                 </Router>
