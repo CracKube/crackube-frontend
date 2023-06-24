@@ -3,6 +3,8 @@
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
+    padding-bottom: 8rem;
+    z-index: 8;
 }
 
 .comp_cardDiv {
@@ -14,10 +16,15 @@
     
 }
 .img_div {
+    display: flex;
+    justify-content: center;
+
+}
+.card_img {
+    width: 96.29%;
+    height: 100%;
+    border-radius: 32px; 
     padding: 2rem 2rem 1rem 2rem;
-    width: 20rem;
-    height: 11.25rem;
-    border-radius: 32px;
 }
 .card_title {
     padding: 0 2rem 0.5rem;

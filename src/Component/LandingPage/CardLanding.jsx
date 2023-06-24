@@ -1,5 +1,6 @@
 import React from 'react'
 import './cardLanding.css';
+import blockDummy from '../../Assets/blockDummy.png'
 
 const CardLanding = () => {
   return (
@@ -7,8 +8,7 @@ const CardLanding = () => {
     <div className='main_cardDiv'>
       <div className='comp_cardDiv'>
         <div className='img_div'>
-          {/* image div */}
-          <p>hi</p>
+          <img className='card_img' src={blockDummy} alt='dummgimg' />
 
         </div>
         <div>
@@ -18,7 +18,7 @@ const CardLanding = () => {
       </div>
       <div className='comp_cardDiv'>
         <div className='img_div'>
-          {/* image div */}
+        <img className='card_img' src={blockDummy} alt='dummgimg' />
 
         </div>
         <div>
@@ -28,7 +28,7 @@ const CardLanding = () => {
       </div>
       <div className='comp_cardDiv'>
         <div className='img_div'>
-          {/* image div */}
+        <img className='card_img' src={blockDummy} alt='dummgimg' />
 
         </div>
         <div>

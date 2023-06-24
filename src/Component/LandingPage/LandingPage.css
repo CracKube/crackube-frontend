@@ -1,3 +1,13 @@
+.landing_main_div {
+    background-color: black;
+    z-index: 0;
+}
+
+
+.page_2{
+    background-color: white;
+
+}
 .features{
     text-align: center;
     font-size: 92px;
