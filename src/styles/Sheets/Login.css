@@ -228,9 +228,9 @@
 
 .Search {
   display: flex;
-  padding-right: 360px;
+  /* padding-right: 360px; */
   justify-content: center;
-  padding-left: 60px;
+  /* padding-left: 60px; */
 }
 
 .Search img {
@@ -493,33 +493,7 @@ input:focus {
 
   }
 
-  .search-change {
-    padding-right: 120px;
-  }
-
-  .Search {
-    display: flex;
-    justify-content: center;
-    padding-left: 60px;
-  }
-
-  .Search img {
-    position: relative;
-    left: 1.875rem;
-    top: 0.063rem;
-
-  }
-
-  .search-bar {
-    font-family: 'VisbyCF';
-    border: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05), 0px 255px 102px rgba(0, 0, 0, 0.01), 0px 143px 86px rgba(0, 0, 0, 0.05), 0px 64px 64px rgba(0, 0, 0, 0.09), 0px 16px 35px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-    width: 36.25rem;
-    height: 2.5rem;
-    border-radius: 6.25rem;
-    padding-left: 2.563rem;
-  }
-
+  
   input:focus {
     outline: none;
   }
