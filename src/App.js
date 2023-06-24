@@ -16,7 +16,11 @@ import UploadPage from './Component/UploadPage/UploadPage';
 import BlogPage from './Component/BlogPage/BlogPage.js';
 import ProfilePage from './Component/profile_page/ProfilePage.jsx'
 import AnsweringPage from './Component/AnsweringPage/AnsweringPage';
+import {useAuth0} from '@auth0/auth0-react';
+
+
 function App() {
+    
     return (
         <>
             <div className="body">
@@ -38,6 +42,8 @@ function App() {
                         <Route path="/delete-account" element={<DeleteAccount />}></Route>
                         <Route path='/profile' element= {<ProfilePage/>}></Route>
                         <Route path= '/answer' element = {<AnsweringPage/>}></Route>
+                        <Route path= '/upload' element = {<UploadPage/>}></Route>
+                        
                     </Routes>
 
                 </Router>

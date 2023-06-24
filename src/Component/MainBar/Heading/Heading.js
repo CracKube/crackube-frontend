@@ -6,7 +6,7 @@ export default function Heading(props){
         <>
         <div>
             <p  className={styles.heading}>
-                <Link to="">{props.text}</Link>
+                <Link to=""><p>{props.text}</p></Link>
             </p>
         </div>
         </>

@@ -5,6 +5,7 @@ import Heading from './Heading/Heading';
 import BlogPart from '../BlogPart/BlogPart';
 import Infinite from '../InfinitePart/Infinite';
 import { Card1 } from '../Constants';
+import { ThemeContext } from '../Pages/Home';
 
 export default function MainBar() {
     return (

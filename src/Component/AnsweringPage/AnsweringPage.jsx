@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { TopNavBar } from '../Constants'
@@ -10,6 +10,7 @@ import QuestionUser from './QuestionUser'
 import QuesUser from './QuesUser'
 
 function AnsweringPage() {
+  
   return (
     <div className='home'>
 

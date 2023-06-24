@@ -8,7 +8,7 @@ const Title = ({ setTitle }) => {
       <h3>Write ur title.250 words max</h3>
       <input
         type="text"
-        placeholder="Add a Title that decribes your belongs"
+        placeholder="Add a Title that describes your belongs"
         className="input"
         onChange={(e) => setTitle(e.target.value)}
       />

@@ -3,7 +3,31 @@ import "../../styles/Sheets/Style.css"
 import LoginDesign from '../../Assets/LoginDesign.svg';
 import { NavLink } from "react-router-dom";
 import OTP from "../../Component/OTP Page/OTP.js"
+import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+
 function Signup() {
+    const {
+        loginWithPopup,
+        loginWithRedirect,
+        user,
+        logout,
+        isAuthenciated,
+        getAccessTokenSilently
+    } = useAuth0();
+    async function  callProtectApi() {
+        try{
+            const token = await getAccessTokenSilently();
+            const response = await axios.get("http://localhost:5000/protect", {
+                headers : {
+                    authorization: `Bearer ${token}`
+                }
+            });
+        }catch(error) {
+            console.log(error)
+        }
+       
+    }
     const handleLogin = async () => {
         //https://crackube-backend-test.onrender.com/users/signIn
         //url encoded
@@ -17,13 +41,17 @@ function Signup() {
             },
             body: `email=${email}&password=${password}`
         });
-        const data = await respose.text();
-        if (data == "login success") {
+        const data = await respose.json();
+        console.log(data.message)
+        if (data.message === "Successfully logged in...") {
             window.location.href = "/home";
         }
         else {
             alert("Invalid Credentials");
         }
+
+         
+
     }
     return (
         <div className='main1'>

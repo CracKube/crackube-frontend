@@ -345,12 +345,13 @@ a:hover {
 .light-mode {
   color: #ffffff;
   background-color: #000;
+  cursor: pointer;
 }
 
 .dark-mode {
   color: #555555;
   background-color: #ffffff;
-
+  cursor: pointer;
 }
 
 .log-out-btn {
@@ -693,6 +694,7 @@ background: #000;
 .likes-cover > div {
   padding-right: 0.25rem;
 }
+
 .likes-sep {
   width: 0.0625rem;
 height: 1.5rem;
@@ -789,4 +791,10 @@ justify-content: center;
 }
 .red-flag > img{
   padding-right: 0.25rem;
+}
+#light{
+  background-color: #ffffff;
+}
+#dark{
+  background-color: #000000;
 }
