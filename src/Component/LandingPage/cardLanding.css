@@ -1,0 +1,31 @@
+.main_cardDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.comp_cardDiv {
+    background-color: black;
+    color: white;
+    width: 24rem;
+    height: 25rem;
+    border-radius:64px ;
+    
+}
+.img_div {
+    padding: 2rem 2rem 1rem 2rem;
+    width: 20rem;
+    height: 11.25rem;
+    border-radius: 32px;
+}
+.card_title {
+    padding: 0 2rem 0.5rem;
+    text-align: center;
+    
+}
+
+.card_content {
+    padding: 0 2rem 4.5rem;
+    text-align: center;
+}
