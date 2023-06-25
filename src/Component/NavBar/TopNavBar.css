@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: auto;
+    width: 66.67%;
+    height: 3.75rem;
+    margin-top: 1rem;
+}
+
+.topnavbar {
+    width: 17.5rem;
+    height: 2.25rem;
+    margin: 0 auto;
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: 150;
+    /* border: 1px solid red; */
+    width: 100%;
+    justify-content: center;
+}
+
+.topmenu {
+    background-color: black;
+    border-radius: 24px;
+}
+
+.searchButton {
+    border: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topmenu {
+    width: 14.75rem;
+    height: 100%;
+    border-radius: 24px;
+    margin-right: 0.5rem;
+    display: flex;
+
+}
+
+.topmenu hr {
+    height: 80%;
+    width: 25%;
+    margin: -96px 0;
+    background-color: white;
+}
+
+.searchButton {
+    width: 2.25rem;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8E00FF 0%, #9F38DB 22.92%, #AC25DC 52.6%, #B521DA 76.04%, #D906DD 100%);
+}
+
+.nav-link {
+    align-items: center;
+    color: white;
+    margin: auto;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav-active {
+    background-color: white;
+    color: black;
+}
+
+.nav-link:not(.nav-active):hover {
+    background-color: gray;
+    color: white;
+}
+
+.searchButton>img {
+    width: 0.951rem;
+}
+
+a {
+    display: flex;
+    align-items: center;
+
+}
+
+.search {
+    width: 14.75rem;
+    height: 100%;
+    border-radius: 24px;
+    margin-right: 0.5rem;
+    display: flex;
+    padding: 0 1rem;
+}
+
+
+/* .topmenu>div:first-child {
+    border-radius: 24px;
+    background-color: white;
+    margin: 0.25rem 0.313rem;
+}
+
+.topmenu>div:first-child>a {
+    color: black;
+    text-decoration: none;
+} */
+
+.nav-link-btn {
+    /* border: 1px solid red; */
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 10px;
+    transform: translateX(200px);
+    color: white;
+    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    cursor: pointer;
+}
+
+.nav-link-cog {
+    /* border: 1px solid red; */
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    border-radius: 50%;
+    transform: translateX(250px);
+    color: white;
+    /* background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%); */
+    border: 1px solid purple;
+    cursor: pointer;
+}
+
+
+.island {
+    display: flex;
+    align-items: center;
+}
