@@ -1,4 +1,4 @@
-import styles from  '../NavBar/TopNavBar.css'
+import '../NavBar/TopNavBar.css'
 import searchicon from '../../styles/Icons/Search 1.svg';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
@@ -19,10 +19,14 @@ export default function TopNavBar({theme}){
                         <div><NavLink>Code</NavLink></div>
                     </div>
                 }
-                <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className={styles.searchButton}>
+                <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className='searchButton'>
                     <a href=""><img src={searchicon} alt="" /></a>
                 </button>
-            </div>
+                </div>
+                <div >
+              
+                </div>
+            
         </div>
     );
 }
