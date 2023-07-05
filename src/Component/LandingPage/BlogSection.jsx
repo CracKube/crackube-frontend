@@ -6,9 +6,9 @@ const BlogSection = () => {
   return (
     <div className='blog_main_div'>
       <div className='blog_animation_div blog_div_comm'>
-        <img src={blogimg} alt='blogimg blogimg_top'/>
-        <img src={blogimg} alt='blogimg blogimg_left'/>
-        <img src={blogimg} alt='blogimg blogimg_right'/>
+        <img className='blogimg_left leftBlog' src={blogimg} alt='blogimg'/>
+        <img className='blogimg_top topBlog' src={blogimg} alt='blogimg'/>
+        <img className='blogimg_right rightBlog' src={blogimg} alt='blogimg'/>
       </div>
       <div className='blog_head_div blog_div_comm'>
         <h1 className='blog_head '>Blogs</h1>

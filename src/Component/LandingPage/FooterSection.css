@@ -1,0 +1,76 @@
+.footer_main_div {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.footer_head {
+    display: flex;
+    justify-content: center;
+    padding-top: 8rem;
+    font-size:102px;
+    font-family: 'Clash Display';
+    font-weight: 700;
+}
+
+.footer_contact_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact_text-prompt {
+    font-family: 'Clash Display';
+    font-weight: 500;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    color: #5A5A5A;
+    font-size: 1.5rem;
+}
+
+.contact_bar_div{
+    display: flex;
+  justify-content: center;
+}
+.contact-bar {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 16px 35px 0px rgba(0, 0, 0, 0.10), 0px 64px 64px 0px rgba(0, 0, 0, 0.09), 0px 143px 86px 0px rgba(0, 0, 0, 0.05), 0px 255px 102px 0px rgba(0, 0, 0, 0.01), 0px 398px 111px 0px rgba(0, 0, 0, 0.00), 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 6.25rem;
+    border: #FFFFFF;
+    width: 36.25rem;
+    height: 2.5rem;
+    margin-bottom:1.5rem ;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    font-family: 'Visby CF';
+}
+
+.contact-arrow-button{
+    border-radius: 100%;
+    border: none;
+    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    width: 2rem;
+    height: 2rem;
+    margin-left: -2.35rem;
+    
+}
+.contact_bar_div button {
+    margin-top: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.contact-arrow-button img {
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem;
+    
+}
+.support_text-email {
+    font-family: 'Visby CF';
+    font-weight: 400;
+}
+.footer_nav_div{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer_nav_content {
+    text-decoration: none;
+}
