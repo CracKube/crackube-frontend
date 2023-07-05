@@ -5,7 +5,8 @@ import Heading from './Heading/Heading';
 import BlogPart from '../BlogPart/BlogPart';
 import Infinite from '../InfinitePart/Infinite';
 import { Card1 } from '../Constants';
-
+import { createContext } from 'react'
+export const ThemeContext = createContext(null)
 export default function MainBar({theme}) {
     return (
         <ThemeContext.Provider >
