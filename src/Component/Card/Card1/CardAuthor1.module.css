@@ -20,6 +20,7 @@
     border-radius: 3.125rem;
     max-width: 100%;
     min-width: 0;
+    object-fit: cover;
 }
 
 .title{

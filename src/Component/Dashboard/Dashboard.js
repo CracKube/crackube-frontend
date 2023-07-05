@@ -8,6 +8,7 @@ export default function Dashboard(props) {
     const [blogs, setBlogs] = useState([]);
     const [questions, setQuestions] = useState([]);
 
+
     const getAllBlogs = async () => {
         const response = await fetch('https://crackube-backend-test.onrender.com/blogs/getAll');
         const data = await response.json();
@@ -24,7 +25,7 @@ export default function Dashboard(props) {
         getAllBlogs();
         getAllQuestions();
     }, []);
-
+    console.log(blogs);
     return (
         <div className={`${styles[props.type == "card1" ? "dashboard1" : "dashboard2"]}`}>
             {
@@ -32,7 +33,7 @@ export default function Dashboard(props) {
                     <Card1
                         key={blog._id}
                         id={blog._id}
-                        thumbnail={thumbnailUrl}
+                        thumbnail={blog.blogImage}
                         authorImage={blog.blogImage}
                         title={blog.blogTitle}
                         author={blog.userPosted}

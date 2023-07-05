@@ -5,25 +5,16 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
-function Email() {
+function Email({theme, setTheme}) {
   return (
     <div>
-    <div className='home'>
-
-<MenuBar>
-<div className="menu-bar-link">
- <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Home</p></Link>
- <Link to='/search' className="menu-btn"><img src={homeIcon} alt=""/><p>Explore</p></Link>
- <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>CK Originals</p></Link>
- <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Bookmarks</p></Link>
- <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Your Content</p></Link>
-</div>
-</MenuBar>
+    <div className='home' id = {theme}>
+    <MenuBar theme = {theme} setTheme = {setTheme}/> 
 
 
 
 <div className='home-container'>
-<TopNavBar></TopNavBar>
+<TopNavBar theme = {theme}/>
 <div className='set-cover'>
 <div className='settings-cover'>
    <p>Settings</p>

@@ -14,42 +14,44 @@ import Password from '../src/Component/Settings/Password.js';
 import DeleteAccount from './Component/Settings/DeleteAccount';
 import UploadPage from './Component/UploadPage/UploadPage';
 import BlogPage from './Component/BlogPage/BlogPage.js';
-import ProfilePage from './Component/profile_page/ProfilePage.jsx'
 import AnsweringPage from './Component/AnsweringPage/AnsweringPage';
 import {useAuth0} from '@auth0/auth0-react';
-
+import { useState } from 'react';
+import { createContext } from 'react'
+import ProfilePage from './Component/profile_page/ProfilePage';
+export const ThemeContext = createContext(null)
 
 function App() {
+    const [theme, setTheme] = useState("light")
     
     return (
-        <>
             <div className="body">
                 <AddButton />
                 <Router>
+                <ThemeContext.Provider >
                     <Routes>
                         <Route path="/" element={<LandingPage />}></Route>
                         <Route path="/signup" element={<Signup />}></Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/home" element={<Home />}></Route>
                         <Route path="/otp" element={<OTP />}> </Route>
-                        <Route path="/search" element={<Search />} ></Route>
-                        <Route path="/settings" element={<Settings />}></Route>
-                        <Route path="/my-details" element={<MyDetails />}></Route>
-                        <Route path="/security" element={<Security />}></Route>
-                        <Route path="/email" element={<Email />}></Route>
-                        <Route path="/password" element={<Password />}></Route>
+                        <Route path="/search" element={<Search theme = {theme} setTheme = {setTheme}/>} ></Route>
+                        <Route path="/settings" element={<Settings  theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path="/my-details" element={<MyDetails theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path="/security" element={<Security theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path="/email" element={<Email theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path = "/profile" element = {<ProfilePage theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/blog/:id" element={<BlogPage />}></Route>
-                        <Route path="/delete-account" element={<DeleteAccount />}></Route>
-                        <Route path='/profile' element= {<ProfilePage/>}></Route>
-                        <Route path= '/answer' element = {<AnsweringPage/>}></Route>
+                        <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>
+                        <Route path= '/answer' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
                         
                     </Routes>
-
+                    </ThemeContext.Provider>
                 </Router>
                 {/* <MainBar /> */}
             </div>
-        </>
     );
 }
 

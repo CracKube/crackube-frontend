@@ -2,12 +2,13 @@ import React from 'react'
 import Profile from '../../Assets/background.png';
 import League from '../../Assets/league.png';
 import DP from '../../Assets/dp.png';
-function ProfileComponent() {
+function ProfileComponent({theme}) {
+    console.log(theme)
   return (
-    <div className='flex-prof'>
+    <div className='flex-prof' id = {theme}>
         <div className='imgs'>
             <img  className='img-wrap' src={Profile} />
-            <div className='sub-prof'>
+            <div className='sub-prof' id = {theme}>
             <img  className='img-wrap1' src={League}/>
             <h1>Diamond</h1>
             <p>1,244 CK</p>

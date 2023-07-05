@@ -57,7 +57,7 @@ const SearchResult =({result})=> {
 
 
 
-function SearchPage () {
+function SearchPage ({theme, setTheme}) {
   const [input, setInput] = useState('')
   const [results, setResults] = useState([])
   const [blogs, setBlogs] = useState([])
@@ -115,25 +115,13 @@ function SearchPage () {
   
   return (
 
-    <div className='home'>
-      <MenuBar>
-          <div className="menu-bar-link">
-            <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Home</p></Link>
-            <Link to='/search' className="menu-btn"><img src={homeIcon} alt=""/><p>Explore</p></Link>
-            <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>CK Originals</p></Link>
-            <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Bookmarks</p></Link>
-            <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Your Content</p></Link>
-          </div>
-        </MenuBar>
-   
-        
-       
+    <div className='home' id = {theme}>
+      <MenuBar theme = {theme} setTheme = {setTheme}/> 
         <div className='home-container'>
-        <TopNavBar className= "search-change" ></TopNavBar>
+          <TopNavBar theme = {theme}/>
         <div className='SearchPage'>
         <div className='Comp-Name' >
             <p>CracKube</p>      
-            
         </div>
        {/* SearchBar */}
        <SearchBar handleChange={handleChange}/>

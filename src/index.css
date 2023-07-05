@@ -46,11 +46,12 @@
   font-style: normal;
 }
 
-body {
+.body {
   margin: 0;
   width: 100%;
   height: 100%;
 }
+
 
 a {
   color: black;
@@ -91,9 +92,15 @@ a:hover {
   border-radius: 0.75rem;
 }
 
-.logo h1 {
+#dark .logo h1 {
   font-size: 1.5rem;
   font-weight: 900;
+  color: #fff;
+}
+#light .logo h1 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
 }
 
 /* End - Logo's CSS */
@@ -380,8 +387,21 @@ a:hover {
   gap: 10px;
 }
 
-.menu-btn {
+#dark .menu-btn {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+  gap: 0.688rem;
+  padding: 8px 24px 8px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+#light .menu-btn {
+  isplay: flex;
   flex-direction: row;
   align-items: center;
   border: none;
@@ -394,9 +414,14 @@ a:hover {
   color: #000;
 }
 
-.menu-btn:hover {
+#light .menu-btn:hover {
   background-color: #202020;
   color: #ffffff;
+  text-decoration: none;
+}
+#dark .menu-btn:hover {
+  background-color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
@@ -410,7 +435,12 @@ a:hover {
   display: flex;
   align-items: center;
 }
-
+#dark .Recommend p {
+  color: #fff;
+}
+#light .Recommend p {
+  color: #000;
+}
 .ans,
 .blog {
   font-weight: 300;
@@ -588,14 +618,21 @@ a:hover {
 /* End - Answer page */
 
 /* Answering Page */
-.ans-line {
+#light .ans-line {
   width: 72rem;
   height: 0.0625rem;
   background: #000;
 }
+#dark .ans-line {
+  width: 72rem;
+  height: 0.0625rem;
+  background: #FFFFFF;
+}
+
 .ans-line-1 {
   padding-left: 1.5rem;
 }
+
 .ans-line-1 button {
   align-items: center;
 }
@@ -611,9 +648,13 @@ a:hover {
   flex-shrink: 0;
 }
 
-.ans-line-1 h1 {
+#light .ans-line-1 h1 {
   padding-top: 1rem;
-  
+  color: #000000;
+}
+#dark .ans-line-1 h1 {
+  padding-top: 1rem;
+  color: #FFFFFF;
 }
 .ans-user {
   padding-top: 0.5rem;
@@ -653,9 +694,20 @@ background: #000;
   padding-bottom: 0.5rem;
   padding-right: 0.5rem;
 }
-.ans-tags > div {
+#light .ans-tags > div {
   margin-right: 0.25rem;
   border: 1px solid #000;
+  display: flex;
+  padding: 0.19rem 0.75rem 0.19rem 0.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+#dark .ans-tags > div {
+  color: #FFFFFF;
+  margin-right: 0.25rem;
+  border: 1px solid #FFFFFF;
   display: flex;
   padding: 0.19rem 0.75rem 0.19rem 0.75rem;
   flex-shrink: 0;
@@ -752,9 +804,35 @@ justify-content: center;
   align-items: center;
   justify-content: space-between;
 }
-.ans-line-wrap{
-  width: 72rem;
+#light .ans-whole-wrap div {
+  color: #000000;
+}
+#dark .ans-whole-wrap div {
+  color: #FFFFFF;
+}
+.ans-whole-wrap-1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ans-whole-wrap-1 div {
+  color: #000000;
+}
 
+.ans-line-wrap {
+  width: 72rem;
+}
+#light .ans-line-wrap p {
+  color: #000000;
+}
+#dark .ans-line-wrap p {
+  color: #FFFFFF;
+}
+#light .ans-line-wrap h1 {
+  color: #000000;
+}
+#dark .ans-line-wrap h1 {
+  color: #FFFFFF;
 }
 .bk-btn-wrap{
   display: flex;
@@ -793,9 +871,140 @@ justify-content: center;
 .red-flag > img{
   padding-right: 0.25rem;
 }
-#light{
-  background-color: #ffffff;
+
+#light {
+  background-color: #FFF;
 }
-#dark{
-  background-color: #000000;
+#dark {
+  background-color: #000;
+}
+.heading {
+  color: #ffffff;
+  padding-top: 1.125rem;
+  width: 95%;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+/* TOP NAV BAR */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  margin: auto;
+  width: 66.67%;
+  height: 3.75rem;
+  margin-top: 1rem;
+}
+
+.topnavbar{
+  width: 17.5rem;
+  height: 2.25rem;
+  margin: 0 auto;
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 150;
+}
+#light .topnavbar > div {
+  background-color: #000;
+}
+#dark .topnavbar > div {
+  background-color: #fff;
+}
+
+
+
+.searchButton{
+  border: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.topmenuBar{
+  width: 14.75rem;
+  height: 100%;
+  border-radius: 24px;
+  margin-right: 0.5rem;
+  display: flex;
+}
+
+.searchButton{
+  width: 2.25rem;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8E00FF 0%, #9F38DB 22.92%, #AC25DC 52.6%, #B521DA 76.04%, #D906DD 100%);
+}
+
+.topmenuBar > div{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: auto;
+}
+
+#light .topmenuBar > div > a{
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+#dark .topmenuBar > div > a{
+  text-align: center;
+  color: #000;
+  margin: auto;
+}
+.searchButton > img{
+  width: 0.951rem;
+}
+
+a{
+  display: flex;
+  align-items: center;
+  
+}
+
+.searchnav{
+  width: 14.75rem;
+  height: 100%;
+  border-radius: 24px;
+  margin-right: 0.5rem;
+  display: flex;
+  padding: 0 1rem;
+}
+
+
+#light .topmenuBar > div:first-child{
+  border-radius: 24px;
+  background-color: white;
+  margin: 0.25rem 0.313rem;
+}
+#dark .topmenuBar > div:first-child{
+  border-radius: 24px;
+  background-color: #000;
+  margin: 0.25rem 0.313rem;
+}
+#light .topmenuBar > div:first-child > a{
+  color: black;
+  text-decoration: none;
+}
+#dark .topmenuBar > div:first-child > a{
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Min Bar heading*/
+#light .heading {
+  color: #000;
+}
+#dark .heading {
+  color: #fff;
 }

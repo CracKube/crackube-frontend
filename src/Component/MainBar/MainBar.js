@@ -7,16 +7,18 @@ import Infinite from '../InfinitePart/Infinite';
 import { Card1 } from '../Constants';
 import { ThemeContext } from '../Pages/Home';
 
-export default function MainBar() {
+export default function MainBar({theme}) {
     return (
+        <ThemeContext.Provider >
         <div className={styles.mainbar}>
-            <Heading text='Top Blogs to Read📚' />
+            <Heading text='Top Blogs to Read📚' theme = {theme} />
             <Dashboard type='card1' />
-            <Heading text='Answer it! Earn it!💰' />
+            <Heading text='Answer it! Earn it!💰'  theme = {theme}/>
             <Dashboard type='card2' />
             <Infinite />
             <Dashboard type='card1' />
             {/* <BlogPart /> */}
         </div>
+        </ThemeContext.Provider>
     );
 }

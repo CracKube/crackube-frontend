@@ -2,7 +2,7 @@ import React from 'react'
 import User from '../../Assets/ans-user.png';
 import BookMark from '../../Assets/bookmark.png'
 import RedFlag from '../../Assets/red-flag.png';
-function AnsUser() {
+function AnsUser({theme}) {
   return (
     <div className='ans-whole-wrap'> 
     <div className='ans-user'>

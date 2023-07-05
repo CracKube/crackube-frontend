@@ -3,9 +3,6 @@ import { addbutton } from '../Constants';
 import { useState } from 'react';
 
 
-// add two numbers
-
-
 export default function AddButton() {
   const [showPopup, setShowPopup] = useState(false);
   const listItems = ['Answer a Question', 'Post a Blog', 'Write a Code'];

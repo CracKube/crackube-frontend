@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Tags() {
+function Tags({theme}) {
   return (
-    <div className='ans-tags'>
+    <div className='ans-tags' id = {theme}>
         <div>Math</div>
         <div >Probability</div>
         <div>Statistics</div>

@@ -6,17 +6,15 @@ import { createContext } from 'react'
 export const ThemeContext = createContext(null)
 function Home() {
   const [theme, setTheme] = useState("light")
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light"?"dark":"light"));
-  }
+ 
   return (
     
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={{theme}}>
       <div className="home" id = {theme}>
-        <MenuBar/> 
-        <div className="home-container" id = {theme}>
-          <TopNavBar />
-          <MainBar />
+        <MenuBar theme = {theme} setTheme = {setTheme}/> 
+        <div className="home-container" >
+          <TopNavBar theme = {theme}/>
+          <MainBar  theme = {theme}/>
         </div>
         
       </div>

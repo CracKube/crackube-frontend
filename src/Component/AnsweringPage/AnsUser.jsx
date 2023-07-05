@@ -5,7 +5,7 @@ import BookMark from '../../Assets/bookmark.png'
 import RedFlag from '../../Assets/red-flag.png';
 function AnsUser() {
   return (
-    <div className='ans-whole-wrap'> 
+    <div className='ans-whole-wrap-1'> 
     <div className='ans-user'>
                 <div>
                     <img src= {User}/>

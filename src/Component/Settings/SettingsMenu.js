@@ -6,29 +6,21 @@ import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
 import MyDetails from '../../Assets/my-details.png'
-function SettingsMenu() {
+function SettingsMenu({theme, setTheme}) {
   return (
     <div>
-         <div className='home'>
+         <div className='home' id = {theme}>
 
-<MenuBar>
-    <div className="menu-bar-link">
-      <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Home</p></Link>
-      <Link to='/search' className="menu-btn"><img src={homeIcon} alt=""/><p>Explore</p></Link>
-      <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>CK Originals</p></Link>
-      <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Bookmarks</p></Link>
-      <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Your Content</p></Link>
-    </div>
-  </MenuBar>
+         <MenuBar theme = {theme} setTheme = {setTheme}/> 
 
 
 
     <div className='home-container'>
-    <TopNavBar></TopNavBar>
+    <TopNavBar theme = {theme}/>
     <div className='set-cover'>
     <div className='settings-cover'>
         <p>Settings</p>
-        <div className='list'>
+        <div className='list' id = {theme}>
             <ul>
                 <Link to="/my-details">My Details</Link>
                 <Link to="/security">Security</Link>

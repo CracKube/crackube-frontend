@@ -10,7 +10,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
 
 
-function MenuBar() {
+function MenuBar({theme, setTheme}) {
   const [lightBtn, setLightBtn] = useState('#000');
   const [darkBtn, setDarkBtn] = useState('#ffffff');
   const {
@@ -18,6 +18,7 @@ function MenuBar() {
     isAuthenticated
 } = useAuth0();
 const buttonHandler = ('click', () => {
+  setTheme("light")
   const button = document.querySelector(".light-mode");
   const dark_button = document.querySelector(".dark-mode");
   button.classList.add("dark-mode");
@@ -25,9 +26,9 @@ const buttonHandler = ('click', () => {
   dark_button.classList.add("light-mode")
   dark_button.classList.remove("dark-mode")
 
-  // Remove the class after the animation duration (1 seconds)
 });
 const buttonHandlerDark = ('click', () => {
+  setTheme("dark")
   const button = document.querySelector(".light-mode");
   const dark_button = document.querySelector(".dark-mode");
   button.classList.add("dark-mode");
@@ -35,7 +36,6 @@ const buttonHandlerDark = ('click', () => {
   dark_button.classList.add("light-mode")
   dark_button.classList.remove("dark-mode")
 
-  // Remove the class after the animation duration (1 seconds)
 });
   return (
     <div className="menu-bar">
