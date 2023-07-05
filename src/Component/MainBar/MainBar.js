@@ -17,6 +17,7 @@ export default function MainBar({theme}) {
             <Dashboard type='card2' />
             <Infinite />
             <Dashboard type='card1' />
+            <BlogPart />
             {/* <BlogPart /> */}
         </div>
         </ThemeContext.Provider>
