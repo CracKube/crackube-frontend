@@ -8,7 +8,7 @@ const Hero = () => {
       <div>
 
         <h1 className='HeadTagline'>GO BEYOND</h1>
-        <h3 className='SubheadTagline'>Space is the limit. Let's Rock It!</h3>
+        <h3 className='SubheadTagline'>Space is the limit.</h3>
       </div>
       <div className='SearchBarDiv'>
       <SearchBar />

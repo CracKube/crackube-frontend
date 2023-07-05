@@ -80,5 +80,5 @@
 }
 
 .fallIn {
-    animation: fallIn 1s ease-in;
+    animation: fallIn 1s ease-in 3s;
 }

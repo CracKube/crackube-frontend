@@ -6,6 +6,7 @@ import './LandingPage.css'
 import InfoBar from './InfoBar'
 import AnswerSection from './AnswerSection'
 import BlogSection from './BlogSection'
+import FooterSection from './FooterSection'
 
 
 
@@ -23,6 +24,7 @@ function LandingPage() {
             <InfoBar/>
             <AnswerSection/>
             <BlogSection/>
+            <FooterSection/>
             
         </div>
     )
