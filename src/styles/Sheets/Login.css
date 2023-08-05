@@ -480,9 +480,9 @@ input:focus {
   .Comp-Name {
     font-family: 'VisbyCFH';
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: space-around;
     font-size: 6.375rem;
     line-height: 7.75rem;
     background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
@@ -490,6 +490,8 @@ input:focus {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 900;
+    margin-left: 10%;
+    border: solid 1px red;
 
   }
 

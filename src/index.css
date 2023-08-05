@@ -357,6 +357,7 @@ a:hover {
 .home-container {
   width: 100vw;
   padding-top: 1rem;
+  /* border: solid 2px green; */
 }
 
 .modes {
@@ -835,4 +836,59 @@ justify-content: center;
 }
 .red-flag > img{
   padding-right: 0.25rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  padding:30px;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #f1f1f1;
+  gap:20px;
+  border-radius: 25px;
+  margin-top:20px
+}
+
+.search-result {
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.search-result:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.Comp-Name {
+  font-family: 'VisbyCFH';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 6.375rem;
+  line-height: 7.75rem;
+  background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  /* border: solid 1px red;  */
+
+}
+
+.Comp-Name p {
+  /* border: solid 1px blue; */
+  text-align: center;
+  /* position: relative; */
+  left: 10%;
+  width: 100%;
+}
+
+.SearchPage {
+  width: 100%;
+  /* border: solid 2px blue; */
 }
