@@ -5,8 +5,11 @@
 }
 
 .card1{
-    max-width: 100%;
-    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 17.0625rem;
+    height: 15.0625rem;
     background-color: white;
     border-radius: 1.5rem;
     padding: 0.25rem 0;

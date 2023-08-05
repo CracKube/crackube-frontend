@@ -20,11 +20,9 @@ export default function TopNavBar({theme}){
                     </div>
                 }
                 <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className={styles.searchButton}>
-                <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className={styles.searchButton}>
                     <a href=""><img src={searchicon} alt="" /></a>
                 </button>
             </div>
             </div>
-        </div>
     );
 }

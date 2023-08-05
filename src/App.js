@@ -19,6 +19,7 @@ import {useAuth0} from '@auth0/auth0-react';
 import { useState } from 'react';
 import { createContext } from 'react'
 import ProfilePage from './Component/profile_page/ProfilePage';
+import SearchResults from './Component/SearchResults/SearchResults';
 export const ThemeContext = createContext(null)
 
 function App() {
@@ -42,10 +43,11 @@ function App() {
                         <Route path="/email" element={<Email theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path = "/profile" element = {<ProfilePage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/blog/:id" element={<BlogPage />}></Route>
+                        <Route path="/blog/:id" element={<BlogPage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/answer' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
+                        <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
                         
                     </Routes>
                     </ThemeContext.Provider>

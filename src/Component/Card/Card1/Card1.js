@@ -13,7 +13,7 @@ function Card1(props) {
         >
             <CardImage1 image={props.thumbnail} />
             <CardTitle1 classname='titleContainer' title={props.title} />
-            <CardAuthor1 author={props.author} modified={moment(props.modified).fromNow()} />
+            <CardAuthor1 authorImage = {props.authorImage} author={props.author} modified={moment(props.modified).fromNow()} />
         </div>
     )
 }
