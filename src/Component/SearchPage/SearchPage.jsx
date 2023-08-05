@@ -34,15 +34,21 @@ const SearchBar = ({handleChange})=>{
 }
 
 const SearchResultsList =({results}) => {
-  return(
-    <div className='results-list'>
-      {
-        results.map((result,id)=>{
-          return <SearchResult result={result} key={id}/>
-        })
-      }
-    </div>
-  )
+  // console.log(results.length)
+  if (results.length !== 0) {
+    console.log("Hello");
+    return(
+      
+      <div className='results-list'>
+        {
+          results.map((result,id)=>{
+            return <SearchResult result={result} key={id}/>
+          })
+        }
+      </div>
+    )
+  }
+  
 }
 
 const SearchResult =({result})=> {
@@ -127,7 +133,7 @@ function SearchPage ({theme, setTheme}) {
        <SearchBar handleChange={handleChange}/>
        <SearchResultsList results={results}/>
         <div className='coverUp'>
-        <div ><p>Discover</p></div>
+        <div><p>Discover</p></div>
         <div className='Discover'>
             <div className='Dbox'></div>
             <div className='Dbox'></div>

@@ -842,12 +842,22 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   padding:30px;
-  margin-left: 20%;
-  margin-right: 20%;
+  position: absolute;
   background-color: #f1f1f1;
   gap:20px;
   border-radius: 25px;
-  margin-top:20px
+  margin-top:20px;
+  z-index: 1;
+  width: 36.25rem;
+  margin-right:3rem;
+  align-items: center;
+  justify-content: center;
+  top: 22rem;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .search-result {
@@ -856,6 +866,7 @@ justify-content: center;
   gap:10px;
   padding: 5px;
   width: 100%;
+  
 }
 
 .search-result:hover {
@@ -865,10 +876,14 @@ justify-content: center;
 
 .Comp-Name {
   font-family: 'VisbyCFH';
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+   display: inline-block;
+  
+  /* border: solid 1px red;  */
+  text-align: center;
+
+}
+
+.Comp-Name p {
   font-size: 6.375rem;
   line-height: 7.75rem;
   background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
@@ -876,19 +891,15 @@ justify-content: center;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 900;
-  /* border: solid 1px red;  */
-
-}
-
-.Comp-Name p {
   /* border: solid 1px blue; */
-  text-align: center;
-  /* position: relative; */
-  left: 10%;
-  width: 100%;
+  position: relative;
+  left: 10rem;
 }
 
 .SearchPage {
   width: 100%;
   /* border: solid 2px blue; */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }

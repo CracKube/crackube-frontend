@@ -272,6 +272,8 @@ input:focus {
   display: flex;
   padding-left: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  /* border: solid 2px red; */
 }
 
 .Dbox {
