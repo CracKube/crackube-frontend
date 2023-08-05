@@ -61,3 +61,76 @@
 .menu {
     margin-right: 1rem;
 }
+.container {
+
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.searchcontainer {
+    border-radius: 2rem;
+background: #FFF;
+box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.10);
+    width: 70%;
+    height: 46px;
+    background-color: #ffffff36;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 10px;
+    outline: 1px solid;
+    margin-bottom: 20px;
+}
+
+.input {
+    flex: 1;
+    gap: 0.25rem;
+    padding: 10px 15px;
+    font-size: 20px;
+    border: none;
+}
+
+.searchicon {
+    padding-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 50px 50px 0;
+    width: 25px;
+}
+
+.filters {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20rem;
+}
+
+.leftfilters {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    background: #FFF;
+    border-radius: 20px;
+    outline: #020202 solid 1px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 28px;
+    opacity: 1;
+    padding: 3px 15px;
+    width: fit-content;
+}
+
+.button:hover {
+    color: #bf00ff;
+    cursor: pointer;
+    border: 0px;
+}
