@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import OTP from "../../Component/OTP Page/OTP.js"
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import { LoginSocialFacebook } from 'reactjs-social-login';
 
 function Signup() {
     const {
@@ -90,9 +91,19 @@ function Signup() {
                     <div className='Google'>
 
                     </div>
-                    <div className='Facebook'>
-
-                    </div>
+                    
+                        <LoginSocialFacebook 
+                        appId = "834219138096228"
+                        onResolve={ (response) => {
+                            console.log(response);
+                        }}
+                        onReject={(error) => {
+                            console.log(error)
+                        }}>
+                        <div className='Facebook'>
+                        </div>
+                        </LoginSocialFacebook>
+                    
                     <div className='Apple'>
 
                     </div>
