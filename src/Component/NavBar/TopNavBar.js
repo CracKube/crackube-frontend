@@ -11,17 +11,17 @@ export default function TopNavBar({theme}){
     }
     const setCookieBlog = () => {
         Cookies.set("state", "blogs", {
-            expires: 7
+            expires: 30
         });
     };
     const setCookieAnswer = () => {
         Cookies.set("state", "answer", {
-            expires: 7
+            expires: 30
         });
     };
     const setCookieCode = () => {
         Cookies.set("state", "code", {
-            expires: 7
+            expires: 30
         });
     };
 
@@ -39,11 +39,10 @@ export default function TopNavBar({theme}){
                         <div onClick={setCookieCode}><NavLink>Code</NavLink></div>
                     </div>
                 }
-                <button onClick={getCookie}></button>
                 <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className={styles.searchButton}>
                     <a href=""><img src={searchicon} alt="" /></a>
                 </button>
             </div>
-            </div>
+        </div>
     );
 }

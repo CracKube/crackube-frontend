@@ -19,22 +19,10 @@ function MenuBar({theme, setTheme}) {
 } = useAuth0();
 const buttonHandler = ('click', () => {
   setTheme("light")
-  const button = document.querySelector(".light-mode");
-  const dark_button = document.querySelector(".dark-mode");
-  button.classList.add("dark-mode");
-  button.classList.remove("light-mode")
-  dark_button.classList.add("light-mode")
-  dark_button.classList.remove("dark-mode")
-
 });
+
 const buttonHandlerDark = ('click', () => {
   setTheme("dark")
-  const button = document.querySelector(".light-mode");
-  const dark_button = document.querySelector(".dark-mode");
-  button.classList.add("dark-mode");
-  button.classList.remove("light-mode")
-  dark_button.classList.add("light-mode")
-  dark_button.classList.remove("dark-mode")
 
 });
   return (
@@ -62,11 +50,11 @@ const buttonHandlerDark = ('click', () => {
         <div className='profile'>
           <Profile />
         </div>
-        <div className="modes">
-            <button className="light-mode"
+        <div className="modes" id = {theme}>
+            <button className="light-mode" 
             onClick={() => buttonHandler()}
             ><img src={lightIcon} alt=""/>Light</button>
-            <button className="dark-mode"
+            <button className="dark-mode" 
             onClick={() => buttonHandlerDark()}
             ><img src={DarkIcon} alt=""/>Dark</button>
         </div>

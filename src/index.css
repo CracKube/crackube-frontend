@@ -350,13 +350,22 @@ a:hover {
   border: none;
 }
 
-.light-mode {
+#light .light-mode {
   color: #ffffff;
   background-color: #000;
   cursor: pointer;
 }
-
-.dark-mode {
+#dark .light-mode {
+  color: #ffffff;
+  background-color: #000;
+  cursor: pointer;
+}
+#light .mode {
+  color: #ffffff;
+  background-color: #000;
+  cursor: pointer;
+}
+#dark .mode {
   color: #555555;
   background-color: #ffffff;
   cursor: pointer;
