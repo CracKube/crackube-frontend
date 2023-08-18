@@ -20,13 +20,16 @@ import { useState } from 'react';
 import { createContext } from 'react'
 import ProfilePage from './Component/profile_page/ProfilePage';
 import SearchResults from './Component/SearchResults/SearchResults';
-export const ThemeContext = createContext(null)
+import {CookiesProvider} from 'react-cookie'
+export const ThemeContext = createContext(null);
+
 
 function App() {
     const [theme, setTheme] = useState("light")
     
     return (
             <div className="body">
+                <CookiesProvider>
                 <AddButton />
                 <Router>
                 <ThemeContext.Provider >
@@ -52,7 +55,7 @@ function App() {
                     </Routes>
                     </ThemeContext.Provider>
                 </Router>
-                {/* <MainBar /> */}
+                </CookiesProvider>
             </div>
     );
 }

@@ -3,10 +3,12 @@ import MenuBar from '../MenuBar'
 
 import { MainBar, TopNavBar } from '../Constants'
 import { createContext } from 'react'
+import { useCookies } from 'react-cookie';
+
 export const ThemeContext = createContext(null)
 function Home() {
   const [theme, setTheme] = useState("light")
- 
+ const [cookies, setCookie] = useCookies(['state']);
   return (
     
     <ThemeContext.Provider value={{theme}}>
@@ -16,7 +18,6 @@ function Home() {
           <TopNavBar theme = {theme}/>
           <MainBar  theme = {theme}/>
         </div>
-        
       </div>
       </ThemeContext.Provider>
   )
