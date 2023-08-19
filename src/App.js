@@ -4,7 +4,7 @@ import LandingPage from "./Component/LandingPage/LandingPage";
 import Login from "./Component/Pages/Login";
 import Signup from "./Component/Pages/Signup.jsx";
 import Home from "./Component/Pages/Home";
-import OTP from "../src/Component/ForgotPassword/ForgotPassword.js"
+
 import Search from "../src/Component/SearchPage/SearchPage.jsx";
 import Settings from '../src/Component/Settings/SettingsMenu';
 import MyDetails from '../src/Component/Settings/MyDetails.js';
@@ -21,6 +21,7 @@ import { createContext } from 'react'
 import ProfilePage from './Component/profile_page/ProfilePage';
 import SearchResults from './Component/SearchResults/SearchResults';
 import {CookiesProvider} from 'react-cookie'
+import OTP from './Component/OTP Page/OTP';
 export const ThemeContext = createContext(null);
 
 
