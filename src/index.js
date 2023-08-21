@@ -3,20 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.js';
 import reportWebVitals from './reportWebVitals';
-import {Auth0Provider} from '@auth0/auth0-react'
+import { AuthProvider } from 'react-auth-kit';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Auth0Provider 
-    domain = ""
-    clientId = ""
-    redirectUri = {window.location.origin}
-    audience = ""  // unique identifier
-    scope = "openid profile email"
+    <AuthProvider
+      authType='cookie'
+      authName='__auth'
+      cookieDomain={window.location.hostname}
+      cookieSecure={window.location.protocol === 'https:'}
     >
-    <App />
-    </Auth0Provider>
-    
+      <App />
+    </AuthProvider>
+
   </React.StrictMode>
 );
 

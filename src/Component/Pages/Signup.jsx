@@ -5,8 +5,11 @@ import { NavLink } from "react-router-dom";
 import OTP from "../../Component/OTP Page/OTP.js"
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import { useSignIn } from 'react-auth-kit';
 
 function Signup() {
+    const signIn = useSignIn();
+
     const {
         loginWithPopup,
         loginWithRedirect,
@@ -29,6 +32,7 @@ function Signup() {
 
     }
     const handleLogin = async () => {
+
         //https://crackube-backend-test.onrender.com/auth/signIn
         console.log("login")
         //url encoded
@@ -47,6 +51,14 @@ function Signup() {
         });
         const data = await respose.json();
         console.log(data.token)
+        signIn({
+            token: data.token,
+            tokenType: "Bearer",
+            expiresIn: 3600, // 1 hour
+            authState: { email }
+        })
+
+
         if (data.message === "Successfully logged in...") {
             window.location.href = "/home";
         }

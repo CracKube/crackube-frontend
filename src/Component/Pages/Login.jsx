@@ -4,7 +4,10 @@ import ProgressPassword from '../Indicators/ProgressPassword';
 import LoginDesign from '../../Assets/LoginDesign.svg';
 import "../../styles/Sheets/Login.css"
 import Navbar from '../Navbar'
+import { useSignIn } from 'react-auth-kit';
 function Login() {
+    const signIn = useSignIn();
+
     const [message, setMessage] = useState("");
     const [userMsg, setUserMsg] = useState("");
     const [CPass, setCPass] = useState("");
@@ -178,11 +181,19 @@ function Login() {
         });
 
         const data = await response.json();
+        // console.log(data.token);
         if (data === "User already exists") {
             window.alert("User already exists");
+            window.location.href = "/signup";
         }
         else {
             window.alert("User created successfully");
+            signIn({
+                token: data.token,
+                tokenType: "Bearer",
+                expiresIn: 3600, // 1 hour
+                authState: { email: document.getElementById("email1").value }
+            })
             window.location.href = "/home";
 
         }
