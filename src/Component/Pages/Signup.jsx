@@ -15,34 +15,38 @@ function Signup() {
         isAuthenciated,
         getAccessTokenSilently
     } = useAuth0();
-    async function  callProtectApi() {
-        try{
+    async function callProtectApi() {
+        try {
             const token = await getAccessTokenSilently();
             const response = await axios.get("http://localhost:5000/protect", {
-                headers : {
+                headers: {
                     authorization: `Bearer ${token}`
                 }
             });
-        }catch(error) {
+        } catch (error) {
             console.log(error)
         }
-       
+
     }
     const handleLogin = async () => {
-        //https://crackube-backend-test.onrender.com/users/signIn
+        //https://crackube-backend-test.onrender.com/auth/signIn
+        console.log("login")
         //url encoded
         const email = document.querySelector(".Email").value;
         const password = document.querySelector(".Password").value;
 
-        const respose = await fetch("https://crackube-backend-test.onrender.com/users/signIn", {
+        const respose = await fetch("https://crackube-backend-test.onrender.com/auth/signIn", {
             method: "POST",
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
             },
-            body: `email=${email}&password=${password}`
+            body: JSON.stringify({
+                email,
+                password
+            })
         });
         const data = await respose.json();
-        console.log(data.message)
+        console.log(data.token)
         if (data.message === "Successfully logged in...") {
             window.location.href = "/home";
         }
@@ -50,7 +54,7 @@ function Signup() {
             alert("Invalid Credentials");
         }
 
-         
+
 
     }
     return (
@@ -87,13 +91,22 @@ function Signup() {
 
                 </div>
                 <div className='Align'>
-                    <div className='Google'>
+                    <div
+                        onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/google" }}
+                        className='Google'
+                    >
 
                     </div>
-                    <div className='Facebook'>
+                    <div
+                        className='Facebook'
+                        onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/facebook" }}
+                    >
 
                     </div>
-                    <div className='Apple'>
+                    <div
+                        className='Apple'
+                        onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/apple" }}
+                    >
 
                     </div>
                 </div>

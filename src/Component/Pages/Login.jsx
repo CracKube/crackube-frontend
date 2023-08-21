@@ -164,16 +164,21 @@ function Login() {
         // http://localhost:5000/users/createUser
         //url encoded
 
-        const response = await fetch('https://crackube-backend-test.onrender.com/users/createUser', {
+        const response = await fetch('https://crackube-backend-test.onrender.com/auth/createUser', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json'
             },
-            body: `email=${document.getElementById("email1").value}&password=${document.getElementById("password").value}&firstName=${document.getElementById("firstname").value}&lastName=${document.getElementById("lastname").value}`
+            body: JSON.stringify({
+                firstName: document.getElementById("firstname").value,
+                lastName: document.getElementById("lastname").value,
+                email: document.getElementById("email1").value,
+                password: document.getElementById("password").value,
+            })
         });
 
         const data = await response.json();
-        if (data == "User already exists") {
+        if (data === "User already exists") {
             window.alert("User already exists");
         }
         else {
@@ -332,12 +337,21 @@ function Login() {
                     <div className='sign-button'>
                         <div className='sign-in'>
                             <div className='common'>
-                                <button className='facebook'>Sign up with FaceBook</button>
+                                <button
+                                    className='facebook'
+                                    onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/facebook" }}
+                                >Sign up with FaceBook</button>
                             </div>
                             <div className='common'>
-                                <button className='google'>Sign up with Google</button>
+                                <button
+                                    className='google'
+                                    onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/google" }}
+                                >Sign up with Google</button>
                             </div>
-                            <div className='common'>
+                            <div
+                                className='common'
+                                onClick={e => { window.location.href = "https://crackube-backend-test.onrender.com/auth/apple" }}
+                            >
                                 <button className='apple'>Sign up with Apple</button>
                             </div>
                         </div>
