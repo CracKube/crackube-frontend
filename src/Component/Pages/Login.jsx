@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet';
 import ProgressPassword from '../Indicators/ProgressPassword';
 import LoginDesign from '../../Assets/LoginDesign.svg';
 import "../../styles/Sheets/Login.css"
+import axios from 'axios'
+import {useEffect} from 'react';
 import Navbar from '../Navbar'
 function Login() {
     const [message, setMessage] = useState("");
@@ -159,26 +161,49 @@ function Login() {
         })
     }
 
+    const handleGoogleOAuth = async () =>{
+        window.location.href = 'http://localhost:5000/auth/google';
+
+        
+    }
+
+    const handleMicrosoftOAuth = async () =>{
+        window.location.href = 'http://localhost:5000/auth/microsoft'
+    }
+
+    const handleFacebookOAuth = async () =>{
+        window.location.href = 'http://localhost:5000/auth/facebook'
+    }
+    
+
     const handleSignUP = async () => {
         // https://crackube-backend-test.onrender.com/users/createUser
         // http://localhost:5000/users/createUser
         //url encoded
 
-        const response = await fetch('https://crackube-backend-test.onrender.com/users/createUser', {
+        const response = await fetch('http://localhost:5000/users/createUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: `email=${document.getElementById("email1").value}&password=${document.getElementById("password").value}&firstName=${document.getElementById("firstname").value}&lastName=${document.getElementById("lastname").value}`
         });
+        
 
         const data = await response.json();
+        console.log(data)
         if (data == "User already exists") {
             window.alert("User already exists");
         }
         else {
             window.alert("User created successfully");
-            window.location.href = "/home";
+            // token will be sent in json form.. use it
+            // code
+            // ..
+            // ..
+
+
+            window.location.href = "/otp?message=normal";
 
         }
 
@@ -332,13 +357,13 @@ function Login() {
                     <div className='sign-button'>
                         <div className='sign-in'>
                             <div className='common'>
-                                <button className='facebook'>Sign up with FaceBook</button>
+                                <button className='facebook' onClick={e=>{handleFacebookOAuth()}}>Sign up with FaceBook</button>
                             </div>
                             <div className='common'>
-                                <button className='google'>Sign up with Google</button>
+                                <button className='google' onClick={e=> {handleGoogleOAuth()}}>Sign up with Google</button>
                             </div>
                             <div className='common'>
-                                <button className='apple'>Sign up with Apple</button>
+                                <button className='apple' onClick={e=>{handleMicrosoftOAuth()}}>Sign up with Microsoft</button>
                             </div>
                         </div>
                     </div>
