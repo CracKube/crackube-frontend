@@ -665,7 +665,21 @@ input:focus {
   justify-content: center;
   cursor: pointer;
 }
-
+.dropDown {
+  height: 4rem;
+  width: 4rem;
+  background: #8E00FF;
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  box-shadow: none;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 /* Button Rotate*/
 .rotate-animation {
   /* Apply the animation to the button */
@@ -692,6 +706,15 @@ input:focus {
     100% {
       transform: rotate(180deg) scale(1);
     }
+  }
+  .drop-flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .dropDown {
+    position: fixed;
+    top: 125px;
+    left: 1450px;
   }
   .popup {
     position: fixed;

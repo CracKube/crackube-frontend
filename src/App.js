@@ -22,6 +22,7 @@ import ProfilePage from './Component/profile_page/ProfilePage';
 import SearchResults from './Component/SearchResults/SearchResults';
 import {CookiesProvider} from 'react-cookie'
 import OTP from './Component/OTP Page/OTP';
+import Cropper from './Component/UploadPage/Cropper';
 export const ThemeContext = createContext(null);
 
 
@@ -52,7 +53,7 @@ function App() {
                         <Route path= '/answer' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
                         <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
-                        
+                        <Route path = '/cropper' element = {<Cropper/>}></Route>
                     </Routes>
                     </ThemeContext.Provider>
                 </Router>

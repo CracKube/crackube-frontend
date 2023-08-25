@@ -6,28 +6,23 @@
 
 .header {
     margin: auto;
-    width: 66.67%;
     height: 3.75rem;
     margin-top: 1rem;
 }
 
 .topnavbar {
-    width: 17.5rem;
     height: 2.25rem;
-    margin: 0 auto;
     display: flex;
     font-size: 0.75rem;
     font-weight: 150;
-    /* border: 1px solid red; */
     width: 100%;
     justify-content: center;
 }
 
-.topmenu {
+.topmenuBar {
     background-color: black;
     border-radius: 24px;
 }
-
 .searchButton {
     border: none;
     box-shadow: none;
@@ -37,21 +32,27 @@
     cursor: pointer;
 }
 
-.topmenu {
-    width: 14.75rem;
+.topmenuBar {
     height: 100%;
     border-radius: 24px;
-    margin-right: 0.5rem;
-    display: flex;
 
 }
 
-.topmenu hr {
-    height: 80%;
-    width: 25%;
-    margin: -96px 0;
-    background-color: white;
+.topmenuBar > div > a {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
+
+
+
 
 .searchButton {
     width: 2.25rem;
@@ -62,7 +63,6 @@
 
 .nav-link {
     align-items: center;
-    color: white;
     margin: auto;
     text-decoration: none;
     padding: 5px 10px;
@@ -71,15 +71,7 @@
     cursor: pointer;
 }
 
-.nav-active {
-    background-color: white;
-    color: black;
-}
 
-.nav-link:not(.nav-active):hover {
-    background-color: gray;
-    color: white;
-}
 
 .searchButton>img {
     width: 0.951rem;
@@ -100,45 +92,42 @@ a {
     padding: 0 1rem;
 }
 
-
-/* .topmenu>div:first-child {
-    border-radius: 24px;
-    background-color: white;
-    margin: 0.25rem 0.313rem;
-}
-
-.topmenu>div:first-child>a {
-    color: black;
-    text-decoration: none;
-} */
-
-.nav-link-btn {
-    /* border: 1px solid red; */
-    font-size: 1rem;
-    border-radius: 20px;
-    padding: 10px;
-    transform: translateX(200px);
-    color: white;
-    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
-    cursor: pointer;
-}
-
-.nav-link-cog {
-    /* border: 1px solid red; */
-    font-size: 1.5rem;
+.nav-btn {
     display: flex;
     align-items: center;
-    height: fit-content;
-    border-radius: 50%;
-    transform: translateX(250px);
-    color: white;
-    /* background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%); */
-    border: 1px solid purple;
-    cursor: pointer;
 }
-
-
-.island {
+.nav-btn button {
+    width: 6.5rem;
+    height: 2.25rem;
+    outline: none;
+    border-radius: 4rem;
+    background: var(--crac-kube-purple, #8F00FF);
+    box-shadow: 0px 0px 0px 0px rgba(143, 0, 255, 0.10), 0px 3px 6px 0px rgba(143, 0, 255, 0.10), 0px 11px 11px 0px rgba(143, 0, 255, 0.09), 0px 26px 15px 0px rgba(143, 0, 255, 0.05), 0px 46px 18px 0px rgba(143, 0, 255, 0.01), 0px 72px 20px 0px rgba(143, 0, 255, 0.00);
+}
+.nav-btn > img {
+    padding-right: 0.65rem;
+}
+.nav-btn > div>button {
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
     display: flex;
+    gap: 0.13rem;
+    justify-content: center;
     align-items: center;
+}
+.prof-pic-nav {
+    padding-right: 0.5rem;
+}
+@media (max-width:500px) {
+  
+    .searchButton {
+        display: none;
+    }
+    .nav-btn > img {
+        display: none;
+    }
+    .upload-nav-btn {
+        display: none;
+    }
+    
 }

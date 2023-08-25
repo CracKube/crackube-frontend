@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import homeIcon from '../Assets/homeIcon.svg'
+import Explore from '../Assets/Explore.svg'
+import Ck from '../Assets/CK.svg'
+import Den from '../Assets/Den.svg'
 import React from 'react'
 import Logo from './Logo'
 import logoutIcon from '../Assets/Logout icon.svg'
@@ -25,30 +28,44 @@ const buttonHandlerDark = ('click', () => {
   setTheme("dark")
 
 });
-  return (
-    <div className="menu-bar">
+const clickHandler = () => {
+  const toggle = document.getElementById('toggle');
+  const sidebar = document.getElementById('crack-logo');
+  toggle.onClick = function() {
+    toggle.classList.toggle('active');
+    sidebar.classList.toggle('active');
 
-      <div className="menu-bar-half-1">
-        <div className="menu-header">
-          <button className="hamburger">
-            <div className='bar-1'></div>
-            <div className='bar-2'></div>
-            <div className='bar-3'></div>
-          </button>
+  }
+  
+}
+  return (
+    <div className='crack-logo'>
+      <div className="menu-header">
           <Logo/>
         </div>
+        
+    <div className='menu-wrapper'>
+    <div className="menu-bar">
+      <div className="menu-bar-half-1">  
+        <div className='cover-link'>
         <div className="menu-bar-link">
           <Link to='/home' className="menu-btn"><img src={homeIcon} alt=""/><p>Home</p></Link>
-          <Link to='/search' className="menu-btn"><img src={homeIcon} alt=""/><p>Explore</p></Link>
-          <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>CK Originals</p></Link>
-          <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Bookmarks</p></Link>
-          <Link to='/' className="menu-btn"><img src={homeIcon} alt=""/><p>Your Content</p></Link>
+          <Link to='/search' className="menu-btn"><img src={Explore} alt=""/><p>Explore</p></Link>
+          <Link to='/' className="menu-btn"><img src={Ck} alt=""/><p>CK Originals</p></Link>
+          <Link to='/' className="menu-btn"><img src={Ck} alt=""/><p>CK Experts</p></Link>
+          <Link to='/' className="menu-btn"><img src={Den} alt=""/><p>Your Den</p></Link>
         </div>
+        </div>
+        
       </div>
 
-      <div className="menu-bar-half-2">
+      
+
+    </div>
+    <div className="menu-bar-half-2">
         <div className='profile'>
-          <Profile />
+          <Link to = '/profile'><Profile /></Link>
+          
         </div>
         <div className="modes" id = {theme}>
             <button className="light-mode" 
@@ -57,14 +74,13 @@ const buttonHandlerDark = ('click', () => {
             <button className="dark-mode" 
             onClick={() => buttonHandlerDark()}
             ><img src={DarkIcon} alt=""/>Dark</button>
+           
         </div>
-        <button className='log-out-btn'
-        ><img src={logoutIcon}
-        onClick={() => logout()}
-        alt=""/> logout</button>
+        
       </div>
-
+      </div>
     </div>
+
   )
 }
 

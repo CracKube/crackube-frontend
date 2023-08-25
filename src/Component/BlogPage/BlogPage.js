@@ -18,6 +18,7 @@ function BlogPage({theme, setTheme}) {
   const getBlog = async () => {
     const response = await fetch(`https://crackube-backend-test.onrender.com/blogs/get/${id}`)
     const data = await response.json();
+    console.log(data);
     setBlog(data);
   }
   useEffect(() => {
@@ -37,8 +38,9 @@ else{
       <TopNavBar theme = {theme}/>
         <div className='blog-cover'>
         
-          <div className='blog-container'>
-          <img src={blog.blogImage} alt="" />
+          <div className='blog-container'
+          style={{backgroundColor : `${blog.blogImageColor}`}}>
+          <img src={blog.blogImageUrl} alt="" />
             
           </div>
           <div className='blog-title'>

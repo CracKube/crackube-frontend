@@ -1,18 +1,13 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+
 
 .card1{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 17.0625rem;
-    height: 15.0625rem;
+    width: 17.062rem;
+    height: 15.062rem;
     background-color: white;
     border-radius: 1.5rem;
-    padding: 0.25rem 0;
-    box-shadow:  0px 0px 20px rgba(31, 38, 57, 0.2);
+    border: 1px solid #E6E6E6;
 }
 

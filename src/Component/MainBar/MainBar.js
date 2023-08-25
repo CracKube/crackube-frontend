@@ -13,11 +13,6 @@ export default function MainBar({theme}) {
         <div className={styles.mainbar}>
             <Heading text='Top Blogs to Read📚' theme = {theme} />
             <Dashboard type='card1' />
-            <Heading text='Answer it! Earn it!💰'  theme = {theme}/>
-            <Dashboard type='card2' />
-            <Infinite />
-            <Dashboard type='card1' />
-            {/* <BlogPart /> */}
         </div>
         </ThemeContext.Provider>
     );

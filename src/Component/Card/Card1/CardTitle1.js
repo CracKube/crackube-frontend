@@ -17,8 +17,7 @@ export default function CardTitle1(props) {
                 <div>{val}...</div>
                 </>
             )
-        }
-               
+        }         
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./Upload.css"
-
+import Cropper from "./Cropper"
 const Title = ({ setTitle }) => {
   return (
     <div className="title">
@@ -42,26 +42,9 @@ const UploadThumbanil = ({ image, setImage }) => {
   return (
     <div className="thumbnail">
       <h2>Upload Thumbnail</h2>
-      <h3>Upload ur image</h3>
+      <h3>Upload your image</h3>
       <label htmlFor="file" className="file-upload">
-        <input
-          type="file"
-          id="file"
-          style={{ display: "none" }}
-          onChange={(e) => {
-            // console.log(e.target.files[0])
-            //Turn image to base64 string
-            if (!e.target.files[0]) return;
-            let reader = new FileReader();
-            reader.readAsDataURL(e.target.files[0])
-            reader.onload = () => {
-              var dataURL = reader.result;
-              // console.log(dataURL)
-              setImage(dataURL.split(",")[1])
-            }
-          }
-          }
-        />
+        <Cropper/>
         {image && (
           <div className="upload-image">
             <img src={`data:image/png;base64,${image}`} alt="image" />
@@ -71,20 +54,7 @@ const UploadThumbanil = ({ image, setImage }) => {
             >X</button>
           </div>
         )}
-        {
-          !image && (
-
-            <div className="file-input">
-
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-              </svg>
-              Upload
-            </div>
-          )
-
-        }
+        
       </label>
 
     </div>
@@ -173,8 +143,9 @@ export default function Upload({ type }) {
               <div><h1>Write Whatever Comes to your mind💫</h1></div>
               <div>
                 <button className="btn btn-draft">Save Draft</button>
-                <button className="btn btn-upload" onClick={handleSubmit}>Publish</button>
+                <button className="btn btn-upload" onClick={handleSubmit} >Publish</button>
               </div>
+              
             </>
           )
             :

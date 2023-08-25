@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Card1, Card2, thumbnailUrl, authorUrl, authorUrl2 } from '../Constants'
 import styles from './Dashboard.module.css'
 import { useState } from 'react';
-
+import Card from './Card';
 export default function Dashboard(props) {
 
     const [blogs, setBlogs] = useState([]);
@@ -12,6 +12,7 @@ export default function Dashboard(props) {
     const getAllBlogs = async () => {
         const response = await fetch('https://crackube-backend-test.onrender.com/blogs/getAll');
         const data = await response.json();
+        console.log(data);
         setBlogs(data);
     }
 
@@ -30,11 +31,20 @@ export default function Dashboard(props) {
         <div className={`${styles[props.type == "card1" ? "dashboard1" : "dashboard2"]}`}>
             {
                 props.type === 'card1' && blogs && blogs.map((blog, index) => (
-                    <Card1
-                        key={blog._id}
+                    // <Card1
+                    //     key={blog._id}
+                    //     id={blog._id}
+                    //     thumbnail={blog.blogImageUrl}
+                    //     authorImage={blog.blogImageUrl}
+                    //     title={blog.blogTitle}
+                    //     author={blog.userPosted}
+                    //     modified={blog.postedOn}
+                    // />
+                    <Card
+                    key={blog._id}
                         id={blog._id}
-                        thumbnail={blog.blogImage}
-                        authorImage={blog.blogImage}
+                        thumbnail={blog.blogImageUrl}
+                        authorImage={blog.blogImageUrl}
                         title={blog.blogTitle}
                         author={blog.userPosted}
                         modified={blog.postedOn}
@@ -42,21 +52,7 @@ export default function Dashboard(props) {
 
                 ))
             }
-            {
-                props.type === 'card2' && questions && questions.map((question, index) => (
-                    <Card2
-                        key={question._id}
-                        thumbnail={thumbnailUrl}
-                        authorImage={authorUrl2}
-                        title={question.questionBody}
-                        author={question.userPosted}
-                        modified={question.askedOn}
-                        tags={question.questionTags}
-                        likes={question.likes}
-                        dislikes={question.dislikes}
-                    />
-                ))
-            }
+            
         </div>
     );
 }

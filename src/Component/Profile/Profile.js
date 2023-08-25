@@ -20,6 +20,7 @@ export default function Profile() {
                             <div className={styles.followingcount}>55,000</div>
                             <div>FOLLOWING</div>
                         </div>
+                        <div className='prof-card-line'></div>
                         <div className={styles.followers}>
                             <div className={styles.followerscount}>55,000</div>
                             <div>FOLLOWERS</div>
