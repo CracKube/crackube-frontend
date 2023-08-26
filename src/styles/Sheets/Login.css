@@ -791,3 +791,8 @@ input:focus {
 .pad > div{
   padding-top: 10px;
 }
+@media (max-width:700px) {
+  .addbutton {
+    display: none;
+  }
+}

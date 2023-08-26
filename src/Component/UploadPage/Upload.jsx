@@ -39,27 +39,73 @@ const InputArea = ({ setBody }) => {
 }
 
 const UploadThumbanil = ({ image, setImage }) => {
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+      if (allowedTypes.includes(file.type)) {
+        setErrorMessage('');
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          var dataURL = reader.result;
+          setImage(dataURL.split(',')[1]);
+        };
+      } else {
+        setImage('');
+        setErrorMessage('Please select a valid JPG, JPEG, or PNG image.');
+      }
+    }
+  };
+
   return (
     <div className="thumbnail">
       <h2>Upload Thumbnail</h2>
       <h3>Upload your image</h3>
       <label htmlFor="file" className="file-upload">
-        <Cropper/>
+        <input
+          type="file"
+          id="file"
+          style={{ display: 'none' }}
+          onChange={handleImageChange}
+          accept=".jpg, .jpeg, .png"
+        />
         {image && (
           <div className="upload-image">
             <img src={`data:image/png;base64,${image}`} alt="image" />
-            <button
-              className="btn-remove"
-              onClick={() => setImage("")}
-            >X</button>
+            <button className="btn-remove" onClick={() => setImage('')}>
+              X
+            </button>
           </div>
         )}
-        
+        {!image && (
+          <div className="file-input">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+              />
+            </svg>
+            Upload
+          </div>
+        )}
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       </label>
-
-    </div>
-  )
-}
+    </div>
+  );
+};
 
 const Category = ({ category, setCategory }) => {
   return (

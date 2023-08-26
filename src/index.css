@@ -1090,17 +1090,52 @@ a{
   
   }
 }
+@media (min-width:700px) {
+  .bottom-nav {
+    display: none;
+  }
+
+}
 @media (max-width:700px) {
   .dashboard1 {
       grid-template-columns: repeat(2, 1fr);
   }
+  .bottom-nav {
+    padding-top: 1rem;
+    border-radius: 32px 32px 0px 0px;
+    background: #FFF;
+    box-shadow: 0px -4px 20px 0px rgba(142, 0, 255, 0.10);
+    height: 5vh;
+  }
+  .bot-nav-cover {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .bot-nav-cover > div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .bot-nav-cover > div > img {
+    max-height: 1.5rem;
+    max-width: 1.5rem;
+  }
+
   .crack-logo {
     display: none;
   }
   .home{
+    height: 92vh;
     display: flex;
     overflow-x: hidden;
     overflow-y: hidden;
+  }
+
+}
+@media (max-width:430px) { 
+  .bot-nav-cover > div > p {
+    font-size: 12px;
   }
 
 }
