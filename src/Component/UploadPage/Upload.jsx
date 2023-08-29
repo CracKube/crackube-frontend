@@ -1,6 +1,11 @@
-import { useState } from "react"
-import "./Upload.css"
-import Cropper from "./Cropper"
+import { useState, useRef } from "react";
+import "./Upload.css";
+import axios from "axios";
+import React from "react";
+import "../UnSplash/unsplash.css";
+import useAxios from "../hooks/useAxios";
+import DropDownSplash from "./DropDownSplash";
+
 const Title = ({ setTitle }) => {
   return (
     <div className="title">
@@ -13,98 +18,49 @@ const Title = ({ setTitle }) => {
         onChange={(e) => setTitle(e.target.value)}
       />
     </div>
-  )
-}
+  );
+};
 
 const InputArea = ({ setBody }) => {
   return (
     <div className="description">
       <h2>Description</h2>
       <h3>Write whatever</h3>
-      <textarea
-        placeholder="Write whatever you want..."
-        name="description"
-        id="description"
-        cols="30"
-        rows="10"
-        onChange={(e) => setBody(e.target.value)}
-      />
-      <div className="btns">
+      <div>
+        <textarea
+          placeholder="Write whatever you want..."
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          onChange={(e) => setBody(e.target.value)}
+        />
+      </div>
 
+      <div className="btns">
         <button className="btn cancel">cancel</button>
         <button className="btn add">Add</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const UploadThumbanil = ({ image, setImage }) => {
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-
-      if (allowedTypes.includes(file.type)) {
-        setErrorMessage('');
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          var dataURL = reader.result;
-          setImage(dataURL.split(',')[1]);
-        };
-      } else {
-        setImage('');
-        setErrorMessage('Please select a valid JPG, JPEG, or PNG image.');
-      }
-    }
-  };
-
+const UploadThumbanil = ({ image, setImage, setFile, unimage, setUnImage }) => {
+  const options = [{ value: "Upload" }, { value: "UnSplash" }];
   return (
     <div className="thumbnail">
       <h2>Upload Thumbnail</h2>
+
       <h3>Upload your image</h3>
-      <label htmlFor="file" className="file-upload">
-        <input
-          type="file"
-          id="file"
-          style={{ display: 'none' }}
-          onChange={handleImageChange}
-          accept=".jpg, .jpeg, .png"
-        />
-        {image && (
-          <div className="upload-image">
-            <img src={`data:image/png;base64,${image}`} alt="image" />
-            <button className="btn-remove" onClick={() => setImage('')}>
-              X
-            </button>
-          </div>
-        )}
-        {!image && (
-          <div className="file-input">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-              />
-            </svg>
-            Upload
-          </div>
-        )}
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      </label>
-    </div>
-  );
+
+      <DropDownSplash
+        options={options}
+        image={image}
+        setImage={setImage}
+        setFile={setFile}
+      />
+    </div>
+  );
 };
 
 const Category = ({ category, setCategory }) => {
@@ -116,103 +72,121 @@ const Category = ({ category, setCategory }) => {
         type="text"
         className="input"
         placeholder="Enter category seperated by comma"
-        onChange={
-          (e) => {
-            if (e.target.value.split(",").length > 3) {
-              alert("You can only choose 3 categories")
-              setCategory([])
-            }
-            if (e.target.value.split(",").length > 0) {
-              setCategory(e.target.value.split(","))
-            }
+        onChange={(e) => {
+          if (e.target.value.split(",").length > 3) {
+            alert("You can only choose 3 categories");
+            setCategory([]);
           }
-        } />
+          if (e.target.value.split(",").length > 0) {
+            setCategory(e.target.value.split(","));
+          }
+        }}
+      />
     </div>
-  )
-}
-
-
+  );
+};
 
 export default function Upload({ type }) {
-  const [title, setTitle] = useState("")
-  const [body, setBody] = useState("")
-  const [image, setImage] = useState("")
-  const [category, setCategory] = useState([])
-  const userPosted = "test22"
-  const userId = "test123456788"
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [image, setImage] = useState("");
+  const [unimage, setUnImage] = useState("");
+  const [category, setCategory] = useState([]);
+  const [file, setFile] = useState("");
+  const userPosted = "test22";
+  const userId = "test123456788";
+  const formData = new FormData();
+  formData.append("image", file);
+  formData.append("userId", userId);
+  formData.append("userPosted", userPosted);
+  formData.append("blogTitle", title);
+  formData.append("blogBody", body);
+  formData.append("blogTags", category);
+  console.log(formData);
+  console.log(image)
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let data, res;
-    if (type == "Blog") {
-      data = `blogTitle=${title}&blogBody=${body}&blogImage=${image}&userPosted=${userPosted}&userId=${userId}&blogTags=${category}`
-      res = await fetch("https://crackube-backend-test.onrender.com/blogs/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: data
-      }
-      )
+    if (type === "Blog") {
+      data = await axios.post(
+        "https://crackube-backend-test.onrender.com/blogs/post/",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+
+      window.location.href = "/";
+    } else {
+      data = `questionBody=${body}&questionTags=${category}&userPosted=${userPosted}`;
+      res = await fetch(
+        "https://crackube-backend-test.onrender.com/questions/ask",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: data,
+        }
+      );
     }
-    else {
-      data = `questionBody=${body}&questionTags=${category}&userPosted=${userPosted}`
-      res = await fetch("https://crackube-backend-test.onrender.com/questions/ask", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: data
-      }
-      )
-    }
-    console.log(await res.json())
+    console.log(await res.json());
 
     if (res.status == 200) {
-      alert("Successfully Posted")
+      alert("Successfully Posted");
+    } else {
+      alert("Something went wrong");
+      return;
     }
-    else {
-      alert("Something went wrong")
-      return
-    }
-    setBody("")
-    setTitle("")
-    setImage("")
-    setCategory([])
-    window.location.href = "/"
-  }
+    setBody("");
+    setTitle("");
+    setImage("");
+    setCategory([]);
+    window.location.href = "/";
+  };
   return (
     <div className="uploadForm">
       <div className="banner">
-        {
-          type == "Blog" ? (
-            <>
-              <div><h1>Write Whatever Comes to your mind💫</h1></div>
-              <div>
-                <button className="btn btn-draft">Save Draft</button>
-                <button className="btn btn-upload" onClick={handleSubmit} >Publish</button>
-              </div>
-              
-            </>
-          )
-            :
-            (
-              <>
-                <div><h1>Ask for anything</h1></div>
-                <div>
-                  <button className="btn btn-cancel">Cancel</button>
-                  <button className="btn btn-upload" onClick={handleSubmit}>Upload</button>
-                </div>
-              </>
-            )
-        }
+        {type == "Blog" ? (
+          <>
+            <div>
+              <h1>Write Whatever Comes to your mind💫</h1>
+            </div>
+            <div>
+              <button className="btn btn-draft">Save Draft</button>
+              <button className="btn btn-upload" onClick={handleSubmit}>
+                Publish
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <h1>Ask for anything</h1>
+            </div>
+            <div>
+              <button className="btn btn-cancel">Cancel</button>
+              <button className="btn btn-upload" onClick={handleSubmit}>
+                Upload
+              </button>
+            </div>
+          </>
+        )}
       </div>
       {type == "Blog" && <Title setTitle={setTitle} />}
 
       <InputArea setBody={setBody} />
 
-      <UploadThumbanil setImage={setImage} image={image} />
+      <UploadThumbanil
+        setImage={setImage}
+        image={image}
+        setFile={setFile}
+        unimage={unimage}
+        setUnImage={setUnImage}
+      />
 
       <Category category={category} setCategory={setCategory} />
     </div>
-  )
+  );
 }

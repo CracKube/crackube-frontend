@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Visby CF';
   src: url(./styles/Fonts/VisbyCF-Regular.otf);
@@ -1090,13 +1091,12 @@ a{
   
   }
 }
-@media (min-width:700px) {
+@media (min-width:750px)  {
   .bottom-nav {
     display: none;
   }
-
 }
-@media (max-width:700px) {
+@media (max-width:750px) {
   .dashboard1 {
       grid-template-columns: repeat(2, 1fr);
   }
@@ -1105,7 +1105,7 @@ a{
     border-radius: 32px 32px 0px 0px;
     background: #FFF;
     box-shadow: 0px -4px 20px 0px rgba(142, 0, 255, 0.10);
-    height: 5vh;
+    height: 3vh;
   }
   .bot-nav-cover {
     display: flex;
@@ -1135,7 +1135,7 @@ a{
 }
 @media (max-width:430px) { 
   .bot-nav-cover > div > p {
-    font-size: 12px;
+    font-size: 10px;
   }
 
 }

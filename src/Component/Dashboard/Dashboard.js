@@ -41,7 +41,7 @@ export default function Dashboard(props) {
                     //     modified={blog.postedOn}
                     // />
                     <Card
-                    key={blog._id}
+                        key={index}
                         id={blog._id}
                         thumbnail={blog.blogImageUrl}
                         authorImage={blog.blogImageUrl}

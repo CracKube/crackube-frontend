@@ -71,7 +71,9 @@
     cursor: pointer;
 }
 
-
+.upload-nav-btn {
+   padding-right: 0.5rem;
+}
 
 .searchButton>img {
     width: 0.951rem;
@@ -108,8 +110,6 @@ a {
     padding-right: 0.65rem;
 }
 .nav-btn > div>button {
-    margin-right: 0.5rem;
-    padding-right: 0.5rem;
     display: flex;
     gap: 0.13rem;
     justify-content: center;
@@ -118,8 +118,7 @@ a {
 .prof-pic-nav {
     padding-right: 0.5rem;
 }
-@media (max-width:500px) {
-  
+@media (max-width:500px) { 
     .searchButton {
         display: none;
     }

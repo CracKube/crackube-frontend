@@ -24,6 +24,7 @@ import {CookiesProvider} from 'react-cookie'
 import OTP from './Component/OTP Page/OTP';
 import Cropper from './Component/UploadPage/Cropper';
 import UnSplash from './Component/UnSplash/UnSplash';
+import UploadFollow from './Component/UploadFollow/UploadFollow';
 export const ThemeContext = createContext(null);
 
 
@@ -32,6 +33,7 @@ function App() {
     
     return (
             <div className="body">
+               
                 <CookiesProvider>
                 <AddButton />
                 <Router>
@@ -55,6 +57,7 @@ function App() {
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
                         <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path = '/unsplash' element = {<UnSplash/>}></Route>
+                        <Route path = '/track' element = {<UploadFollow/>}></Route>
                     </Routes>
                     </ThemeContext.Provider>
                 </Router>
