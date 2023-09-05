@@ -48,9 +48,9 @@ export default function TopNavBar({theme}){
         { value: 'option3', label: 'Logout' },
       ];
     const uploadOption = [
-        { value: 'option1', label: 'write a blog' },
-        { value: 'option2', label: 'Answer a question' },
-        { value: 'option3', label: 'Code' },
+        { value: 'option1', label: 'write a blog', route : '/uploadblogs'},
+        { value: 'option2', label: 'Answer a question', route : '/uploadanswer' },
+        { value: 'option3', label: 'Code', route : '/uploadcode' },
       ];
         
     return(
@@ -59,9 +59,9 @@ export default function TopNavBar({theme}){
                 { hoverMe ? 
                     <input type="search" name="search"  className='searchnav'/> :
                     <div className= 'topmenuBar' id = {theme}>
-                        <div onClick={setCookieAnswer} className={`btn-${section}`} ><NavLink to= '/Answer'>Answer</NavLink></div>
-                        <div onClick={setCookieBlog} className={`btn-${section}`}><NavLink to = '/home'>Blog</NavLink></div>
-                        <div onClick={setCookieCode} className={`btn-${section}`}><NavLink to = '/home'>Code</NavLink></div>
+                        <div onClick={setCookieAnswer} className= 'button-nav'><NavLink to= '/answer'>Answer</NavLink></div>
+                        <div onClick={setCookieBlog} className= 'button-nav'><NavLink to = '/home'>Blog</NavLink></div>
+                        <div onClick={setCookieCode} className= 'button-nav'><NavLink to = '/code'>Code</NavLink></div>
                     </div>
                 }
                 <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className='searchButton'>

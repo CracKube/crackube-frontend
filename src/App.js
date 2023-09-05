@@ -4,7 +4,7 @@ import LandingPage from "./Component/LandingPage/LandingPage";
 import Login from "./Component/Pages/Login";
 import Signup from "./Component/Pages/Signup.jsx";
 import Home from "./Component/Pages/Home";
-
+import Answer from './Component/Answer/Answer';
 import Search from "../src/Component/SearchPage/SearchPage.jsx";
 import Settings from '../src/Component/Settings/SettingsMenu';
 import MyDetails from '../src/Component/Settings/MyDetails.js';
@@ -21,12 +21,19 @@ import { createContext } from 'react'
 import ProfilePage from './Component/profile_page/ProfilePage';
 import SearchResults from './Component/SearchResults/SearchResults';
 import {CookiesProvider} from 'react-cookie'
-import OTP from './Component/OTP Page/OTP';
+import OTP from './Component/OTP/OTP.jsx';
 import Cropper from './Component/UploadPage/Cropper';
+import Code from './Code/Code';
 import UnSplash from './Component/UnSplash/UnSplash';
 import UploadFollow from './Component/UploadFollow/UploadFollow';
+import UploadBlog from './Component/UploadBlog/UploadBlog';
+import UploadSection from './Component/UploadBlog/UploadSection';
+import LoginPage from './Component/LoginPage/LoginPage';
+import SignUp from './Component/SignUp/SignUp';
+import ForgetPswd from './Component/ForgetPassword/ForgetPassword';
 export const ThemeContext = createContext(null);
 
+          
 
 function App() {
     const [theme, setTheme] = useState("light")
@@ -35,13 +42,13 @@ function App() {
             <div className="body">
                
                 <CookiesProvider>
-                <AddButton />
                 <Router>
                 <ThemeContext.Provider >
                     <Routes>
                         <Route path="/" element={<LandingPage />}></Route>
-                        <Route path="/signup" element={<Signup />}></Route>
-                        <Route path="/login" element={<Login />}></Route>
+                        <Route path="/signup" element={<SignUp />}></Route>
+                        <Route path="/login" element={<Signup />}></Route>
+                        <Route path='/forgetpassword' element = {<ForgetPswd/>}></Route>
                         <Route path="/home" element={<Home />}></Route>
                         <Route path="/otp" element={<OTP />}> </Route>
                         <Route path="/search" element={<Search theme = {theme} setTheme = {setTheme}/>} ></Route>
@@ -53,11 +60,16 @@ function App() {
                         <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/blog/:id" element={<BlogPage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>
-                        <Route path= '/answer' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
+                        <Route path= '/answering' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
                         <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path = '/unsplash' element = {<UnSplash/>}></Route>
                         <Route path = '/track' element = {<UploadFollow/>}></Route>
+                        <Route path='/answer' element = {<Answer/>}></Route>
+                        <Route path = '/code' element = {<Code />}></Route>
+                        <Route path='/uploadBlogs' element = {<UploadBlog/>}></Route>
+                        <Route path='/uploadSec' element = {<UploadSection/>}></Route>
+                        <Route path = '/cropper' element = {<Cropper/>}></Route>
                     </Routes>
                     </ThemeContext.Provider>
                 </Router>

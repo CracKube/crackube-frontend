@@ -1,0 +1,219 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .left-container {
+    flex: 1;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px; */
+    padding: 10px;
+  }
+  
+  .left-image {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-container {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: transparent;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+  
+  .crackube-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-content {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+    padding: 0 9rem;
+  }
+  
+  .login-content-top {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-account {
+    color: var(--Black, #000);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.08rem;
+  }
+  
+  .text-para {
+    color: var(--Gray, #737373);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.05rem;
+  }
+  
+  .signup-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--Black, #000);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid var(--Med-Gray, #c8c8c8);
+    color: var(--Gray, #737373);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .above-login-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .above-login-text p {
+    color: var(--Black, #000);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .above-login-text span {
+    color: var(--CracKube-Red, #f42271);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .login-button {
+      width: 100%;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 2rem;
+    background: var(--CracKube-Purple, #8f00ff);
+    border: none;
+    padding: 10px 20px;
+    margin: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: var(--White, #fff);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .para {
+      text-align: center;
+  }
+  
+  .span-signup {
+      color: var(--CracKube-Red, #F42271);
+  }
+  
+  .text-or {
+      text-align: center;
+      margin: 1.5rem;
+    }
+  
+  .login-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6.5rem;
+    height: 4rem;
+    flex-shrink: 0;
+    border-radius: 1.5rem;
+  }
+  
+  .apple-oauth-wrapper {
+    background: var(--Black, #000);
+  }
+  .facebook-oauth-wrapper {
+    background: #0079fb;
+  }
+  .twitter-oauth-wrapper {
+    background: #1b9df0;
+  }
+  .google-oauth-wrapper {
+    border: 1px solid var(--Med-Gray, #c8c8c8);
+  }
+  
+  

@@ -7,7 +7,7 @@ import useAxios from "../hooks/useAxios";
 //Create context
 export const ImageContext = createContext();
 
-const UnSplash = ({setFile, setState, setImage}) => {
+const UnSplash = ({setFile, setState, setImage, setBlogImageUrl , setBlogImageProvider}) => {
   const { response, isLoading, error, fetchData } = useAxios(
     `search/photos?page=1&query=pussy&client_id=DvYlTKQ_ADiGY_WeuKA5qsmvz3UndBXspjxkEh9LL6I`
   );
@@ -25,10 +25,8 @@ const UnSplash = ({setFile, setState, setImage}) => {
   return (
     <>
       <ImageContext.Provider value={value}>
-        <Jumbutron>
           <SearchField></SearchField>
-        </Jumbutron>
-        <Images setFile = {setFile} setState = {setState} setImage = {setImage}/>
+        <Images setFile = {setFile} setState = {setState} setImage = {setImage} setBlogImageUrl = {setBlogImageUrl} setBlogImageProvider = {setBlogImageProvider} />
       </ImageContext.Provider>
     </>
   );

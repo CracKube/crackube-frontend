@@ -1,0 +1,163 @@
+
+
+
+
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .left-container {
+    flex: 1;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .left-image {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-container {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: transparent;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+  
+  .signup-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    flex: 0.3;
+  }
+  
+  .signupotp-content {
+    width: 100%;
+    flex: 0.7;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .signupotp-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text-heading {
+    color: var(--Black, #000);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.08rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .text-para {
+    color: var(--Gray, #737373);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.05rem;
+    margin-bottom: 2rem;
+  }
+  
+  .signup-otp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .signup-otp input {
+    align-items: center;
+    text-align: center;
+  }
+  .opt-input {
+    width: 6.5rem;
+    height: 6.5rem;
+    text-align: center;
+    border-radius: 2rem;
+    border: 1px solid var(--CracKube-Purple, #8f00ff);
+    background: var(--CK-Light-Purple, #f5e5ff);
+  }
+  
+  .signupotp-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signupotp-bottom p {
+    color: var(--Gray, #737373);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  
+  .span {
+    color: var(--CracKube-Red, #f42271);
+  }
+  
+  .verifyotp-button {
+    margin-top: 0.5rem;
+    width: 29rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 2rem;
+    background: var(--CracKube-Purple, #8f00ff);
+    color: var(--White, #fff);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .verifyotp-button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../../styles/Sheets/Style.css"
 import LoginDesign from '../../Assets/LoginDesign.svg';
 import { NavLink } from "react-router-dom";
@@ -8,6 +8,7 @@ import axios from 'axios';
 import { LoginSocialFacebook } from 'reactjs-social-login';
 
 function Signup() {
+    const [loginStatus, setLoginStatus] = useState(false);
     const {
         loginWithPopup,
         loginWithRedirect,
@@ -29,30 +30,33 @@ function Signup() {
         }
        
     }
+
+
     const handleLogin = async () => {
         //https://crackube-backend-test.onrender.com/users/signIn
         //url encoded
+        console.log("Login clicked:");
         const email = document.querySelector(".Email").value;
         const password = document.querySelector(".Password").value;
 
-        const respose = await fetch("https://crackube-backend-test.onrender.com/users/signIn", {
+
+
+        const response = await fetch("https://crackube-backend-test.onrender.com/auth/signIn", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: `email=${email}&password=${password}`
-        });
-        const data = await respose.json();
-        console.log(data.message)
+        })
+        const data = await response.json();
+        console.log(data);
         if (data.message === "Successfully logged in...") {
-            window.location.href = "/home";
-        }
-        else {
-            alert("Invalid Credentials");
-        }
 
-         
-
+            setLoginStatus(true);
+            window.location.href = '/home';
+        }else {
+            alert("Invalid email or password")
+        }
     }
     return (
         <div className='main1'>

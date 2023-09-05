@@ -12,9 +12,3 @@
     padding: 10px 20%;
     border-bottom: 2px solid transparent;
 }
-
-.active {
-    font-weight: bold;
-    color: purple;
-    border-bottom: 2px solid purple !important;
-}

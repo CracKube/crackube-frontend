@@ -3,7 +3,7 @@ import homeIcon from '../Assets/homeIcon.svg'
 import Explore from '../Assets/Explore.svg'
 import Ck from '../Assets/CK.svg'
 import Den from '../Assets/Den.svg'
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo from './Logo'
 import logoutIcon from '../Assets/Logout icon.svg'
 import lightIcon from '../Assets/lightIcon.svg'
@@ -11,9 +11,11 @@ import DarkIcon from '../Assets/darkIcon.svg'
 import Profile from './Profile/Profile'
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react'
+import { ThemeContext } from '../App'
 
 
 function MenuBar({theme, setTheme}) {
+
   const [lightBtn, setLightBtn] = useState('#000');
   const [darkBtn, setDarkBtn] = useState('#ffffff');
   const {

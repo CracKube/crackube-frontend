@@ -1,12 +1,13 @@
 import React from 'react'
 import logo from '../../src/Assets/CK_LOGO.svg'
 
-function Logo({cssClass}) {
+function Logo({cssClass}) {                                              
     return (
         <div className= {cssClass}>
             <img src={logo} alt="logo" />
             <h1>CracKube</h1>
         </div>
+        // method to sum of two numbers                 
     )
 }
 

@@ -8,7 +8,16 @@
     padding-right: 1.5rem;
     padding-left: 1rem;
 }
-
+@media (max-width:3000px) {
+    .dashboard1 {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+@media (max-width:2400px) {
+    .dashboard1 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
 @media (max-width:2000px) {
     .dashboard1 {
         grid-template-columns: repeat(5, 1fr);
@@ -37,7 +46,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width:400px) {
+@media (max-width:583px) {
     .dashboard1 {
         grid-template-columns: repeat(1, 1fr);
     }

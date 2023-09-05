@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import './UploadDropdown.css'; // Import the CSS file
 import Upload from '../../Assets/uploadBtn.svg'
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 const UploadDropdown = ({ options }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptionClick = (option) => {
+    console.log(option.route)
+    window.location.href = `${option.route}`
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -14,19 +17,17 @@ const UploadDropdown = ({ options }) => {
   return (
     <div className="horizontal-dropdown-container">
       <button className="horizontal-dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption ? selectedOption.label : <Link ><img src= {Upload} alt="" />Upload</Link>}
+       <img src= {Upload} alt="" />Upload
       </button>
       {isOpen && (
         <div className="horizontal-dropdown-list">
           {options.map((option) => (
-            <a
+            <NavLink to={option.route}
               key={option.value}
-              href="#"
               className="horizontal-dropdown-option"
-              onClick={() => handleOptionClick(option)}
             >
               {option.label}
-            </a>
+            </NavLink>
           ))}
         </div>
       )}

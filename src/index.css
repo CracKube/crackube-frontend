@@ -466,7 +466,7 @@ flex-shrink: 0;
   display: flex;
   width: 12rem;
   height: 2.5rem;
-  padding: 0.5rem 2.625rem 0.5rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 1rem;
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
@@ -985,9 +985,9 @@ justify-content: center;
 }
 
 .topmenuBar{
-  width: 13.25rem;
+  width: fit-content;
   height: 100%;
-  border-radius: 24px;
+  border-radius: 2rem; 
   margin-right: 0.5rem;
   display: flex;
 }
@@ -1017,11 +1017,6 @@ justify-content: center;
   width: 0.951rem;
 }
 
-a{
-  display: flex;
-  align-items: center;
-  
-}
 
 .searchnav{
   width: 14.75rem;
@@ -1033,7 +1028,7 @@ a{
 }
 
 
-#light .topmenuBar > div:first-child{
+/* #light .topmenuBar > div:first-child{
   border-radius: 24px;
   background-color: white;
   margin: 0.25rem;
@@ -1050,7 +1045,7 @@ a{
 #dark .topmenuBar > div:first-child > a{
   color: #fff;
   text-decoration: none;
-}
+} */
 
 /* Min Bar heading*/
 #light .heading {

@@ -93,6 +93,7 @@ export default function Upload({ type }) {
   const [unimage, setUnImage] = useState("");
   const [category, setCategory] = useState([]);
   const [file, setFile] = useState("");
+  const [blogImageProvider, setBlogImageProvider] = useState("");
   const userPosted = "test22";
   const userId = "test123456788";
   const formData = new FormData();
@@ -102,9 +103,8 @@ export default function Upload({ type }) {
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
+  formData.append("blogImageProvider", blogImageProvider )
   console.log(formData);
-  console.log(image)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     let data, res;
@@ -117,7 +117,7 @@ export default function Upload({ type }) {
         }
       );
 
-      window.location.href = "/";
+      window.location.href = "/home";
     } else {
       data = `questionBody=${body}&questionTags=${category}&userPosted=${userPosted}`;
       res = await fetch(
@@ -175,9 +175,7 @@ export default function Upload({ type }) {
         )}
       </div>
       {type == "Blog" && <Title setTitle={setTitle} />}
-
       <InputArea setBody={setBody} />
-
       <UploadThumbanil
         setImage={setImage}
         image={image}
@@ -185,7 +183,6 @@ export default function Upload({ type }) {
         unimage={unimage}
         setUnImage={setUnImage}
       />
-
       <Category category={category} setCategory={setCategory} />
     </div>
   );

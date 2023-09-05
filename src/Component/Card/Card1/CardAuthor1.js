@@ -2,6 +2,7 @@ import styles from './CardAuthor1.module.css';
 import { bookmarkUrl } from '../../Constants';
 
 export default function CardAuthor1(props){
+
     return(
         <div className={styles.authorContainer}>
             <div className={styles.image}>

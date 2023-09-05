@@ -4,7 +4,31 @@ import ReactCrop from 'react-image-crop';
 
 const Cropper = () => {
   const [src, selectFile] = useState(null);
-    
+    /*Implement a function in react to crop and upload   */
+
+    const cropImage = () => {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(
+            image[0], //  
+            image,
+            crop.x * scaleX,
+            crop.y * scaleY,
+            crop.width * scaleX,
+            crop.height * scaleY,
+            0,
+            0,
+            crop.width,
+            crop.height
+        );
+          
+        const base64Image = canvas.toDataURL('image/jpeg');
+        setResult(base64Image);
+    }
   const handleFileChange = (e) => {
     selectFile(URL.createObjectURL(e.target.files[0]));
   }
@@ -50,7 +74,7 @@ const handleCropComplete = () => {
             <div className="col-6">
                 {src && (
                     <div >
-                             <ReactCrop 
+                             {/* <ReactCrop 
                              aspect={16/9}
                              src = {src}  
                              crop = {crop} 
@@ -58,8 +82,18 @@ const handleCropComplete = () => {
                              
                              > 
                              <img onImageLoaded = {setImage} src= {src} alt=""/> 
-                             </ReactCrop>
-                             <button  onClick={handleCropComplete}>Crop</button>      
+                             </ReactCrop> */}
+                                 
+                             <ReactCrop
+                              src = {src}
+                              crop = {crop}
+                              onChange={setCrop}
+                              onComplete={cropImage}
+                              >
+                              <img onImageLoaded = {setImage} src= {src} alt=""/>
+                              </ReactCrop>
+                              <button  onClick={() => cropImage()}>Crop</button>  
+
                     </div>               
                  
                 )}
