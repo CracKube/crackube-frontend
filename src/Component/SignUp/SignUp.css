@@ -5,41 +5,54 @@
   }
   
   .container {
-    display: flex;
-    height: 100vh;
     width: 100%;
     overflow: hidden;
+    min-height: 100vh;
+    background-color: #fff;
+    border-radius: 5px;
+    align-items: stretch;
+    display: flex;
+    position: relative;
   }
   
   .left-container {
-    flex: 1;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     /* margin: 10px; */
-    padding: 10px;
+    width: 60%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    position: relative;
+    height: 300px;
+    text-align: center;
+    background: #dddddd;
+    clear: both;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
   }
   
   .left-image {
-    width: 500px;
-    height: auto;
-    max-width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   
   .right-container {
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
+    width: 40%;
+    min-width: 450px;
+    flex: none;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    background-color: transparent;
-    overflow-y: auto;
-    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    padding-left: 8%;
+    font-size: 16px;
+    display: flex;
   }
   
   .signup-logo {

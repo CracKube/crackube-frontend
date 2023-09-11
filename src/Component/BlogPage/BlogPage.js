@@ -25,8 +25,6 @@ function BlogPage({theme, setTheme}) {
     getBlog();
   }, []);
 
-  if (!blog) return (<div>Loading...</div>)
-else{
   return (
     <div className='home' id = {theme}>
 
@@ -46,7 +44,9 @@ else{
           <div className='blog-title'>
             <p>{blog && blog.blogTitle} </p>
           </div>
-          <div className='prof'>
+         
+        </div>
+        <div className='prof'>
             <Profile author={blog && blog.userPosted} modified={blog && moment(blog.postedOn).fromNow()} url={authorUrl} />
           </div>
           <div>
@@ -54,14 +54,13 @@ else{
               {blog && blog.blogBody}
             </p>
           </div>
-        </div>
       </div>
+      
     </div>
 
   )
 
 }
   
-}
 
 export default BlogPage

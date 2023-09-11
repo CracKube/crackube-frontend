@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignUp.css";
 import signupimage from "../../Assets/SignUpImg.svg";
 import Logo from "../Logo";
@@ -6,12 +6,15 @@ import apple from "../../Assets/Apple.svg";
 import facebook from "../../Assets/Facebook.svg";
 import twitter from "../../Assets/Twitter.svg";
 import google from "../../Assets/Google.svg";
-
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const SignUp = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userId , setUserId] = useState("");
 
   const handleSignUP = async (e) => {
     // https://crackube-backend-test.onrender.com/users/createUser
@@ -32,11 +35,15 @@ const SignUp = () => {
 
     const data = await response.json();
     console.log(data)
+    setUserId(data._id);
+    console.log(userId)
+    console.log(email);
     if (data.message === "User already exists") {
       window.alert("User already exists");
     } else {
       window.alert("User created successfully");
-      window.location.href = "/otp";
+      localStorage.setItem("token", data.token);
+      navigate('/otp', {state : {email: `${email}`, userId : `${data.result._id}`}})
     }
 
    
@@ -49,6 +56,7 @@ const SignUp = () => {
   const handleMicrosoftLogin = async () =>{
     window.location.href = 'https://crackube-backend-test.onrender.com/auth/microsoft'
   }
+
 
   return (
     <div className="container">

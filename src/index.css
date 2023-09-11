@@ -1,49 +1,7 @@
 
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-Regular.otf);
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-Bold.otf);
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-ExtraBold.otf);
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-Medium.otf);
-  font-weight: 150;
-}
-
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-Light.otf);
-  font-weight: 50;
-}
-
-@font-face {
-  font-family: 'Visby CF';
-  src: url(./styles/Fonts/VisbyCF-Thin.otf);
-  font-weight: 0;
-}
-
-@font-face {
-  font-family: 'Seriguela';
-  src: url(./styles/Fonts/seriguela/Seriguela-Black.otf);
-  font-weight: 0;
-}
-
 
 * {
-  font-family: 'Visby CF', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   
 }
@@ -85,10 +43,13 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: start;
-  margin-left: 1.45rem;
+  margin-left: 1rem;
   gap: 0.95rem;
-margin-bottom: 2rem;
-  color: #960FFA;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.45rem;
+  background-color: #fbf5ff;
+  border-radius: 0.75rem;
 }
 
 .logo img {
@@ -279,10 +240,12 @@ line-height: normal;
   flex-direction: row;
 } */
 .home{
+  position: relative;
   display: grid;
   grid-template-columns: 1.5fr 10fr;
   overflow-x: hidden;
   overflow-y: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .home-none {
@@ -294,8 +257,8 @@ line-height: normal;
 }
 .crack-logo {
   height: 100vh;
-  padding-top: 1.5rem;
-  border-right: 2px solid rgb(191, 191, 191);
+  padding-top: 1rem;
+  border-right: 1px solid #f2f2f2;
   display: flex;
   flex-direction: column;
   max-width: 15rem;
@@ -340,17 +303,19 @@ line-height: normal;
   bottom: 2rem;
 
 }
+
+
 .menu-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  margin-bottom: 1.5rem;
   color: #960FFA;
-text-align: center;
-font-family: Montserrat;
-font-size: 1.25rem;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 .crack-logo-none {
   display: none;
@@ -429,24 +394,17 @@ line-height: normal;
 .menu-bar-link {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
   padding-left: 1rem;
   align-items: start;
   color: var(--crac-kube-purple, #8F00FF);
   font-family: Montserrat;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
 }
-.menu-btn > img > p {
-  color: var(--crac-kube-purple, #8F00FF);
-font-family: Montserrat;
-font-size: 1rem;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-}
+
+
 .cover-link {
   min-width: 15rem;
   display: flex;
@@ -454,8 +412,9 @@ line-height: normal;
 }
 
 #dark .menu-btn {
-  display: flex;
+  display: inline-flex;
 width: 12rem;
+align-items: center;
 height: 2.5rem;
 padding: 0.5rem 5.75rem 0.5rem 1rem;
 align-items: center;
@@ -463,9 +422,10 @@ gap: 0.5rem;
 flex-shrink: 0;
 }
 #light .menu-btn {
-  display: flex;
+  display: inline-flex;
   width: 12rem;
   height: 2.5rem;
+  align-items: center;
   padding: 0.5rem 2rem 0.5rem 1rem;
   align-items: center;
   gap: 0.5rem;
@@ -473,10 +433,14 @@ flex-shrink: 0;
   border-radius: 4rem;
 background: var(--white, #FFF);
 }
-
+.stay {
+  background-color: #FBF5FF !important;
+  color: #8F00FF;
+  text-decoration: none;
+}
 #light .menu-btn:hover {
-  background-color: #202020;
-  color: #ffffff;
+  background-color: #FBF5FF;
+  color: #8F00FF;
   text-decoration: none;
 }
 #dark .menu-btn:hover {
@@ -674,6 +638,14 @@ background: var(--white, #FFF);
   font-size: 24px;
   margin-left: 1.75rem;
 }
+.user-name p {
+  display: flex;
+  color: #000;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
 /* End - Answer page */
 
@@ -722,8 +694,12 @@ background: var(--white, #FFF);
   align-items: center;
 }
 .ans-user > div {
-  padding-right: 1rem;
+  padding-right: 0.25rem;
   
+}
+.user-pic > img{
+  width: 2rem;
+  height: 2rem;
 }
 .ans-user > div > button {
   color: white;
@@ -897,11 +873,10 @@ justify-content: center;
 .bk-btn-wrap{
   display: flex;
   align-items: center;
-  padding-right: 2rem;
+  margin-right: 0.97rem;
 }
-.bk-btn-wrap > div{
-  padding-left: 1rem;
-  padding-right: 1.5rem;
+.bk-btn-wrap > img{
+  padding-right: 0.97rem;
 }
 .btn-rep{
   border-radius: 100px;
@@ -956,13 +931,7 @@ justify-content: center;
   box-sizing: border-box;
 }
 
-.header{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 1rem;
-}
+
 
 
 
@@ -982,6 +951,16 @@ justify-content: center;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+ /* .home:not(.effect) {
+  filter: blur(10px);
+} */
+/* .effect {
+  cursor: pointer;
+} */
+.searchButton:focus, .searchButton:active {
+  filter: none;
+
 }
 
 .topmenuBar{
@@ -1018,14 +997,7 @@ justify-content: center;
 }
 
 
-.searchnav{
-  width: 14.75rem;
-  height: 100%;
-  border-radius: 24px;
-  margin-right: 0.5rem;
-  display: flex;
-  padding: 0 1rem;
-}
+
 
 
 /* #light .topmenuBar > div:first-child{
@@ -1053,6 +1025,11 @@ justify-content: center;
 }
 #dark .heading {
   color: #fff;
+}
+.avatar > img{
+  width: 6.375rem;
+height: 6.375rem; 
+border-radius: 100rem;
 }
 
 @media only screen and (max-height: 600px){
@@ -1086,21 +1063,24 @@ justify-content: center;
   
   }
 }
-@media (min-width:750px)  {
+@media (min-width:826px)  {
   .bottom-nav {
     display: none;
   }
 }
-@media (max-width:750px) {
+@media (max-width:826px) {
   .dashboard1 {
       grid-template-columns: repeat(2, 1fr);
   }
   .bottom-nav {
+    position: fixed;
+    bottom: 0px;
     padding-top: 1rem;
+    width: 100%;
     border-radius: 32px 32px 0px 0px;
     background: #FFF;
     box-shadow: 0px -4px 20px 0px rgba(142, 0, 255, 0.10);
-    height: 3vh;
+    min-height: 2rem;
   }
   .bot-nav-cover {
     display: flex;

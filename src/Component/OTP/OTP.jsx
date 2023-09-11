@@ -3,37 +3,61 @@ import "./OTP.css";
 import signupimage from "../../Assets/SignUpImg.svg";
 import Logo from "../Logo";
 import { useEffect } from "react";
-
+import OTPInput from "react-otp-input";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const OTP = () => {
+  const navigate = useNavigate();
   const [otp, setOtp] = useState("");
-  setOtp(otp);
-  // useEffect ( async ()  => {
-  //   const response = await fetch(
-  //     "https://crackube-backend-test.onrender.com/users/sendEmail",
-  //     {
-  //       method: "GET",
-  //       headers:
-  //     }
-  //   )
-  // })
-  // make a otp api call to backend 
-  // "https://crackube-backend-test.onrender.com/auth/createUser"
-  // {
-  useEffect ( async () => {
+  const {state} = useLocation();
+  const {email, userId} = state;
+  // send otp to backend
+  // verify otp from backend
+  // if otp is verified then redirect to login page
+  // else show error message
+  console.log(email);
+  console.log(userId)
+  const handleOtp = async () => {
     const response = await fetch(
-      "https://crackube-backend-test.onrender.com/auth/createUser",
+      "https://crackube-backend-test.onrender.com/users/sendEmail",
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: ``
+        body: `email=${email}&_id=${userId}`
       }
     );
-    const data = await response.json();
-    console.log(data);
+      console.log(response)
+    
+  };
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault()
+    const response = await fetch(
+      "https://crackube-backend-test.onrender.com/users/verify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `_id=${userId}&otp=${otp}`
+      }
+    );
+    console.log(response);
 
-  })
+    if(response.statusText === "Accepted") {
+      navigate('/third', {state: {userId: userId}})
+    }else {
+      window.alert("Wrong Otp");
+    }
+
+  };
+
+ 
+
+  useEffect(() => {
+    handleOtp();
+  }, []);
   return (
     <div className="container">
       <div className="left-container">
@@ -51,16 +75,23 @@ const OTP = () => {
             </p>
           </div>
           <div className="signup-otp">
-            <input className="opt-input" type="number" min="0" max="9"></input>
-            <input className="opt-input" type="number" min="0" max="9"></input>
-            <input className="opt-input" type="number" min="0" max="9"></input>
-            <input className="opt-input" type="number" min="0" max="9"></input>
+            <OTPInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={4}
+              renderSeparator={<span></span>}
+              renderInput={(props) => <input {...props} />}
+              containerStyle={"otp-container"}
+              shouldAutoFocus = {true}
+              inputStyle={"input-box"}
+              inputType="integer"
+            />
           </div>
           <div className="signupotp-bottom">
             <p>
               Didn’t you receive the OTP? <span className="span">Resend</span>
             </p>
-            <button className="verifyotp-button" >Verify OTP</button>
+            <button className="verifyotp-button" onClick={(e) => handleVerifyOtp(e)}>Verify OTP</button>
           </div>
         </div>
       </div>

@@ -174,27 +174,27 @@ function Login() {
           document.getElementById("password").value
         }&firstName=${document.getElementById("firstname").value}&lastName=${
           document.getElementById("lastname").value
-        }`
+        }`,
       }
     );
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     if (data == "User already exists") {
-      window.alert("User already exists");
+      window.location.href = "/otp";
     } else {
       window.alert("User created successfully");
       window.location.href = "/otp";
     }
-
-   
   };
-  const handleGoogleLogin = async () =>{
-    window.location.href = 'https://crackube-backend-test.onrender.com/auth/google'
-  }
-  const handleMicrosoftLogin = async () =>{
-    window.location.href = 'https://crackube-backend-test.onrender.com/auth/microsoft'
-  }
+  const handleGoogleLogin = async () => {
+    window.location.href =
+      "https://crackube-backend-test.onrender.com/auth/google";
+  };
+  const handleMicrosoftLogin = async () => {
+    window.location.href =
+      "https://crackube-backend-test.onrender.com/auth/microsoft";
+  };
   return (
     <div className="Outer">
       <div className="out">
@@ -414,10 +414,17 @@ function Login() {
           <div className="sign-button">
             <div className="sign-in">
               <div className="common">
-                <button className="facebook" onClick={() => handleMicrosoftLogin()}>Sign up with FaceBook</button>
+                <button
+                  className="facebook"
+                  onClick={() => handleMicrosoftLogin()}
+                >
+                  Sign up with FaceBook
+                </button>
               </div>
               <div className="common">
-                <button className="google" onClick={() => handleGoogleLogin()}>Sign up with Google</button>
+                <button className="google" onClick={() => handleGoogleLogin()}>
+                  Sign up with Google
+                </button>
               </div>
               <div className="common">
                 <button className="apple">Sign up with Apple</button>

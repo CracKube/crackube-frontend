@@ -1,14 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    
+}
+.header {
+    height: 4.25rem;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    border-bottom: 1px solid #f2f2f2;
 }
 
-.header {
-    margin: auto;
-    height: 3.75rem;
-    margin-top: 1rem;
-}
 
 .topnavbar {
     height: 2.25rem;
@@ -24,6 +26,16 @@
     background-color: black;
     border-radius: 2rem;
 }
+.button-nav   {
+    color: #000;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+    display: flex;
+    align-items: center;
+}
 .searchButton {
     border: none;
     box-shadow: none;
@@ -31,6 +43,11 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
+}
+.effect {
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(10px); 
 }
 
 .topmenuBar {
@@ -55,7 +72,6 @@
     text-decoration: none;
     color: #FFF;
     text-align: center;
-    font-family: Montserrat;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 600;
@@ -63,7 +79,30 @@
 }
 
 
+.searchnav{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 33.875rem;
+    left: 35rem;
+    top:4.25rem;
+    height: 4rem;
+    margin-right: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 2rem;
+    z-index:999;
+  }
 
+
+
+/*blur the page except the searchnav*/
+.searchnav > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
 
 .searchButton {
     width: 2.25rem;

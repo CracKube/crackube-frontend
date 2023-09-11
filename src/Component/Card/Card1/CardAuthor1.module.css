@@ -1,12 +1,12 @@
 .authorContainer{
     font-weight: 300;
     font-size: 0.5rem;
-    padding: 0 0.906rem 0 0.75rem;
+    padding-left: 0.75rem;
+    padding-top: 0.5rem;
     height: 1.5rem;
-    display: flex;
-    justify-content: space-between;
+    display: flex;;
     align-items: center;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .image{

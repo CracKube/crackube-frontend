@@ -58,6 +58,7 @@ function UploadMainBar({ theme }) {
             />
             <div className="blog-description">
               <ReactQuill
+                  theme="snow"
                   value={editorText}
                   onChange={setEditorText}
                   className="editor-textarea"

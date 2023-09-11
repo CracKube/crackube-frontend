@@ -4,7 +4,8 @@
     padding: 0 0.906rem 0 0.75rem;
     height: 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    padding-left: 1.5rem;
     align-items: center;
 }
 
@@ -23,7 +24,6 @@
 
 
 .cover{
-    flex: 5;
     padding: 0.313rem;
     padding-left: 3rem;
     font-weight: 800;
@@ -32,10 +32,11 @@
      
 }
 .title{
-    flex: 5;
-    padding: 0.313rem;
-    font-size: 24px;
-    font-weight: 800;
+    color: #000;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 800;
+line-height: normal; 
 
 }
 .modified{
@@ -52,7 +53,6 @@ padding-left: 10px;
 
 }
 .followbtn{
-    flex: 19;
     padding: 4px 12px 4px 12px;
     border-radius: 24px;
     padding-bottom: 30px;

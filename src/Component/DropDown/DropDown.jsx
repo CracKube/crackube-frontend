@@ -7,8 +7,12 @@ const Dropdown = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
+    if(option.label === 'Logout'){
+      localStorage.removeItem('token');
+      window.location.href = '/login'
+    }else {
+
+    }
   };
 
   return (
@@ -23,8 +27,9 @@ const Dropdown = ({ options }) => {
               key={option.value}
               to=  {option.route}
               className="dropdown-option"
+              onClick={() => handleOptionClick(option)}
             >
-            <Link to={option.route} >{option.label}</Link> 
+           {option.label}
             </Link>
           ))}
         </div>

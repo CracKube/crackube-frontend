@@ -13,54 +13,55 @@
      src: url('../../../src/styles/Fonts/VisbyCF-Heavy.otf');
  }
 
-.blog-pic{
-    position: absolute;
-    max-width: 832px;
-    max-height: 468px;
-    left: 424px;
-    top: 84px;
 
-    background: url('../../Assets/blogPic.svg');
-    box-shadow: 0px 4px 50px 10px rgba(161, 159, 173, 0.25);
-    border-radius: 24px;
-}
 .blog-container{
     display: flex;
     justify-content: center;
+    max-width: 43rem;
+max-height: 24.1875rem;
+flex-shrink: 0;
+border-radius: 2rem;
+box-shadow: 0px 19px 42px 0px rgba(221, 166, 84, 0.10), 0px 76px 76px 0px rgba(221, 166, 84, 0.09), 0px 170px 102px 0px rgba(221, 166, 84, 0.05), 0px 303px 121px 0px rgba(221, 166, 84, 0.01), 0px 473px 132px 0px rgba(221, 166, 84, 0.00);
+}
+.blog-container  > img {
+    border-radius: 2rem;
+    object-fit: contain;
 }
 .blog-cover{
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
 }
 .blog-title{
-    min-height: 300px;
-    font-family: 'VisbyCFH';
-    font-style: normal;
-    font-size: 102px;
-    line-height: 92px;
-    display: flex;
-    align-items: center;
-    color: #232127;
-    padding-bottom: 2rem;
+    color: #000;
+font-size: 4rem;
+font-style: normal;
+font-weight: 900;
+display: flex;
+justify-content: start;
+align-items: start;
+line-height: 120%; /* 4.8rem */
+letter-spacing: -0.16rem; 
+padding-top: 1.5rem;
 }
 .blog-content{
-    width: 90%;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-
-
+    color: #000;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: 130%; /* 1.95rem */
+font-family: Montserrat; 
+letter-spacing: -0.06rem; 
+padding-right: 4rem;
+padding-left: 4rem;
+padding-top: 1.5rem;
 }
+
+
 .prof{
-    height: 10%;
-    padding-bottom: 3rem;
+    padding-top: 1.5rem;
 }
 
  .main1{
@@ -104,6 +105,13 @@
  .Emtxt{
      padding-top: 1.5rem;
  }
+#cars {
+    width: 100%;
+}
+.avatar {
+    display: flex;
+    align-items: center;
+}
  .Patxt{
     font-family: 'VisbyCH';
      padding-top: 1.5rem;

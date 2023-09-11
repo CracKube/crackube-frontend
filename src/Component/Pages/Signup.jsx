@@ -17,19 +17,7 @@ function Signup() {
         isAuthenciated,
         getAccessTokenSilently
     } = useAuth0();
-    async function  callProtectApi() {
-        try{
-            const token = await getAccessTokenSilently();
-            const response = await axios.get("http://localhost:5000/protect", {
-                headers : {
-                    authorization: `Bearer ${token}`
-                }
-            });
-        }catch(error) {
-            console.log(error)
-        }
-       
-    }
+
 
 
     const handleLogin = async () => {
@@ -51,9 +39,10 @@ function Signup() {
         const data = await response.json();
         console.log(data);
         if (data.message === "Successfully logged in...") {
-
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userId", data.result._id);
+            window.location.href = "/home";
             setLoginStatus(true);
-            window.location.href = '/home';
         }else {
             alert("Invalid email or password")
         }

@@ -2,7 +2,7 @@
 .dashboard1 {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(7,1fr);
     grid-column-gap: 1rem ;
     grid-row-gap : 1.5rem;
     padding-right: 1.5rem;
@@ -30,13 +30,13 @@
     }
 }
 
-@media (max-width:1200px) {
+@media (max-width:1366px) {
     .dashboard1 {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width:950px) {
+@media (max-width:1072px) {
     .dashboard1 {
         grid-template-columns: repeat(2, 1fr);
     }

@@ -46,12 +46,12 @@ const LoginPage = () => {
         },
     }).then((response) => {
         console.log(authRes);
-        window.location.href = "/home";
     })
 
 
     const data = await authRes.json();
     if (data.message === "Successfully logged in...") {
+        window.alert("check jwt")
         window.location.href = "/answer";
     }
     else {

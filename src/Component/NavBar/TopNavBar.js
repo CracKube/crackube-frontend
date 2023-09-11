@@ -1,4 +1,4 @@
-
+import React from 'react';
 import searchicon from '../../styles/Icons/Search 1.svg';
 import Noti from '../../Assets/Noti.svg'
 import Settings from '../../Assets/Settings.svg'
@@ -10,6 +10,9 @@ import Cookies from 'js-cookie';
 import './TopNavBar.css'
 import Dropdown from '../DropDown/DropDown';
 import UploadDropdown from '../DropDown/UploadDropDown';
+import { hover } from '@testing-library/user-event/dist/hover';
+
+
 export default function TopNavBar({theme}){
     const [hoverMe, setHoverMe] = useState(false);
     const [section, setSection] = useState('blogs');
@@ -17,8 +20,9 @@ export default function TopNavBar({theme}){
     const buttonHandler = ('click', () => {
     setShow(!show);
   });
+
     const onEnterLeave = () => {
-        setHoverMe(!hoverMe);
+        
     }
     const setCookieBlog = () => {
         setSection('blogs');
@@ -52,19 +56,30 @@ export default function TopNavBar({theme}){
         { value: 'option2', label: 'Answer a question', route : '/uploadanswer' },
         { value: 'option3', label: 'Code', route : '/uploadcode' },
       ];
-        
+      // blur the whole page except the searchnav input
+        const blur = (e) => {
+            e.preventDefault( );
+            document.getElementById('wrapper').style.filter = 'blur(10px)';
+            document.getElementById('wrapper').style.background = 'rgba(0, 0, 0, 0.5)';
+            document.getElementById('unblur').style.display = 'block';
+            document.getElementById('unblur').focus();
+
+        }
+    // do not blur the input
     return(
-        <div className='header'>
+        <>
+        
+
+        <div className='header' id='cool' >
             <div className='topnavbar' id = {theme}>
-                { hoverMe ? 
-                    <input type="search" name="search"  className='searchnav'/> :
+                { 
                     <div className= 'topmenuBar' id = {theme}>
                         <div onClick={setCookieAnswer} className= 'button-nav'><NavLink to= '/answer'>Answer</NavLink></div>
                         <div onClick={setCookieBlog} className= 'button-nav'><NavLink to = '/home'>Blog</NavLink></div>
                         <div onClick={setCookieCode} className= 'button-nav'><NavLink to = '/code'>Code</NavLink></div>
                     </div>
                 }
-                <button onClick={(e)=> {e.preventDefault(); onEnterLeave()}} className='searchButton'>
+                <button onClick={(e)=> {blur(e)}} className = {`searchButton`}>
                     <a href=""><img src={searchicon} alt="" /></a>
                 </button>
             </div>
@@ -84,5 +99,6 @@ export default function TopNavBar({theme}){
                 </div>
             </div>
         </div>
+        </>
     );
 }

@@ -19,6 +19,12 @@ background: var(--crac-kube-red, #F42271);
 .upload--btn svg {
 
 }
+.ans-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+}
 .upload-box {
   display: flex;
   flex-direction: column;
@@ -44,7 +50,6 @@ background: var(--crac-kube-red, #F42271);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Montserrat;
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -78,7 +83,6 @@ background: var(--crac-kube-red, #F42271);
     border: 1px solid #ccc;
     border-radius: 30px;
     color: var(--gray, #737373);
-    font-family: Montserrat;
     font-size: 32px;
     font-style: normal;
     font-weight: 900;
@@ -101,10 +105,11 @@ background: var(--crac-kube-red, #F42271);
     font-weight: 600;
     line-height: normal;
     min-height: 400px;
-    height: 300px;/* Set the desired height */
-    padding: 10px;
+    height: 16rem;/* Set the desired height */
+    padding-bottom: 4rem;
     color: #333;
     border-radius: 5px;
+    border: 1px solid #ccc;
   }
   
   .blog-description_icons {

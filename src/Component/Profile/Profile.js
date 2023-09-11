@@ -1,16 +1,16 @@
 import styles from './Profile.module.css';
 import { authorUrl as url, Diamond as url1 } from '../Constants'
 
-export default function Profile() {
+export default function Profile({details}) {
     return (
         <div className={styles.profile}>
             <div className={styles.pfp}>
-                <img src={url} alt="" className={styles.pfpimage} />
+                <img src={details.profilePicUrl} alt="" className={styles.pfpimage} />
             </div>
             <div className={styles.pfcardcontainer}>
                 <div className={styles.pfcard}>
-                    <div className={styles.name}>Sophia Margrete</div>
-                    <div className={styles.id}>@sophiamargrete7</div>
+                    <div className={styles.name}>{details.firstName} </div>
+                    <div className={styles.id}>@{details.username}</div>
                     <div className={styles.league}>
                         <img src={url1} alt="" className={styles.leagueimage} />
                         <div className={styles.leaguetitle}>Diamond</div>

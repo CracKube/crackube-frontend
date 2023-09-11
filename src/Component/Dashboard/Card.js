@@ -7,12 +7,15 @@ function Card(props) {
     <div className="card__container" style={{ cursor: 'pointer' }}
     onClick={() => { window.location.href = `/blog/${props.id}`; }}>
         <div className="img__container">
-            <div className='tags-container'><p>Tags</p></div>
-            <img src= {props.thumbnail} alt="" className='thumbnail'/>
+            <div className='tags-container'>{props.tags}</div>
+            <img src= {props.thumbnail} alt="" className='thumbnailBlog'/>
             
         </div>
+        <div>
+        <CardTitle1 className='titleContainer' title={props.title} />
+        </div>
         <div className="card__details">
-            <CardTitle1 className='titleContainer' title={props.title} />
+            
             <CardAuthor1 authorImage = {props.authorImage} author={props.author} modified={moment(props.modified).fromNow()} />
         </div>
         

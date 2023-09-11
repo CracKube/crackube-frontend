@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import DropDownSplash from "../UploadPage/DropDownSplash";
 import UnSplash from "../UnSplash/UnSplash";
@@ -8,17 +8,24 @@ import UnSplash1 from '../../Assets/unsplash-logo.png'
 import axios from "axios";
 export const StateContext = createContext();
 const UploadSection = ({ body, title, setFirst }) => {
+  
+  const [response, setResponse] = useState("");
+  
+  const getUserDetails = async () => {
+    const response = await axios.get(`https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem("userId")}`);
+    setResponse(response.data);
+      console.log(response.data)
+    
+  }
   const [category, setCategory] = useState([]);
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
-  const userPosted = "test22";
-  const userId = "test123456788";
   const formData = new FormData();
     formData.append("image", file);
-    formData.append("userId", userId);
-    formData.append("userPosted", userPosted);
+    formData.append("userId", localStorage.getItem("userId"));
+    formData.append("userPosted", response.username);
     formData.append("blogTitle", title);
     formData.append("blogBody", body);
     formData.append("blogTags", category);
@@ -67,7 +74,10 @@ const UploadSection = ({ body, title, setFirst }) => {
   }
   // upload the images, title, body, tags, category, userPosted, userId to the backend url https://crackube-backend-test.onrender.com/blogs/post/
 
-  
+
+  useEffect(() => {
+      getUserDetails();
+    }, [])
   
   const [state, setState] = useState(false);
   const value = {
@@ -80,7 +90,6 @@ const UploadSection = ({ body, title, setFirst }) => {
     const options = [{ value: "Upload" }, { value: "UnSplash" }];
     return (
       <div className="thumbnail">
-        
           <img src= {UnSplash1} alt="" />
         <DropDownSplash
           options={options}
@@ -106,7 +115,7 @@ const UploadSection = ({ body, title, setFirst }) => {
         </div>
         <div className="cat-container">
           <h1>Categories</h1>
-          <input type="text" className="cat-input" onChange={setCategory} />
+          <input type="text" className="cat-input" onChange={setCategory} placeholder="Enter your categories" />
         </div>
         <div className="thumbnailUpload">
           <label htmlFor="file" className="file-upload">

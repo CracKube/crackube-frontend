@@ -48,6 +48,7 @@ export default function Dashboard(props) {
                         title={blog.blogTitle}
                         author={blog.userPosted}
                         modified={blog.postedOn}
+                        tags = {blog.blogTags}
                     />
 
                 ))

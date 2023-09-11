@@ -5,7 +5,7 @@ export default function CardTitle1(props) {
     const val = props.title.slice(0,50);
     return (
         
-        <div className={`${styles[props.classname]}`}>
+        <div className= 'titleContainer'>
             
             {
             ques < 50 ? (

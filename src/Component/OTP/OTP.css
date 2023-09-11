@@ -158,6 +158,25 @@
   .verifyotp-button:hover {
     background-color: #0056b3;
   }
+.otp-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+    
+
+  }
   
+  .input-box{
+    min-width: 6.5rem;
+    min-height: 6.5rem; 
+    border-radius: 2rem;
+    border: 1px solid var(--CracKube-Purple, #8F00FF);
+    background: var(--CK-Purple-btn, #FBF5FF); 
+
+  }
   
   
