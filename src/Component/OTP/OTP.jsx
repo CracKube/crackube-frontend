@@ -45,7 +45,7 @@ const OTP = () => {
     );
     console.log(response);
 
-    if(response.statusText === "Accepted") {
+    if(response.status === 202) {
       navigate('/third', {state: {userId: userId}})
     }else {
       window.alert("Wrong Otp");
