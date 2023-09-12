@@ -84,7 +84,7 @@ const Test = () => {
             students solve their problems and also serve as an Educational
             Social Media to share blogs and Earn Money.
           </p>
-          <a href="https://google.com" className="hero-button w-button">
+          <a href="/signup" className="hero-button w-button">
             Get Started
           </a>
         </div>
