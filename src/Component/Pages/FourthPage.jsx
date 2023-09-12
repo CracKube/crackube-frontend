@@ -60,11 +60,12 @@ const FourthPage = () => {
       }
     )
  
-
-    if(response.statusText === "OK") {
+    console.log(response)
+    if(response.status === 200) {
       window.alert("Profile Updated");
       navigate('/home', {state: {userId: state.userId}})
       window.localStorage.setItem("userId", state.userId);
+     
   }else{
     window.alert("Something went wrong");
   }
