@@ -29,9 +29,6 @@ function BlogPage({theme, setTheme}) {
     <div className='home' id = {theme}>
 
       <MenuBar theme = {theme} setTheme = {setTheme}/> 
-
-
-
       <div className='home-container'>
       <TopNavBar theme = {theme}/>
         <div className='blog-cover'>

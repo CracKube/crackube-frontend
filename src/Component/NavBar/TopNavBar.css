@@ -108,7 +108,7 @@
     width: 2.25rem;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8E00FF 0%, #9F38DB 22.92%, #AC25DC 52.6%, #B521DA 76.04%, #D906DD 100%);
+    background: var(--CracKube-Purple, #8F00FF); 
 }
 
 .nav-link {

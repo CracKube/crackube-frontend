@@ -7,10 +7,18 @@
 }
 
 .horizontal-dropdown-button {
-  padding: 10px 20px;
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem; 
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  color: var(--White, #FFF);
+text-align: center;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal; 
 }
 
 .horizontal-dropdown-list-sp {

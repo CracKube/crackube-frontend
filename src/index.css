@@ -294,7 +294,6 @@ line-height: normal;
 }
 
 .menu-bar-half-2 {
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -353,6 +352,7 @@ line-height: normal;
 .profile {
   /* position: relative; */
   /* top: 120px; */
+    height: 12.45rem;
 }
 
 .modes button {

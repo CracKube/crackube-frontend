@@ -4,11 +4,37 @@
     padding: 0 0.906rem 0 0.75rem;
     height: 1.5rem;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    align-items: center;
+}
+.authorContainerSec{
+    font-weight: 300;
+    font-size: 0.5rem;
+    padding: 0 0.906rem 0 0.75rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: space-between;
     padding-left: 1.5rem;
     align-items: center;
 }
-
+.blogOp {
+    display: flex;
+    border-radius: 2rem;
+background: var(--Light-Gray-for-Division, #F2F2F2);
+height: 2.25rem;
+padding: 0.5rem 1rem;
+justify-content: center;
+align-items: center;
+gap: 0.25rem;
+flex-shrink: 0; 
+}
+.blogopalign {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 1.5rem;
+    
+}
 .image{
     max-width: 1.5rem;
     max-height: 1.5rem;
