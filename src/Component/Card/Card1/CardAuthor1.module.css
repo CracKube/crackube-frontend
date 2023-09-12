@@ -35,5 +35,7 @@
 .bookmark{
     flex: 1;
     display: flex;
+    gap: 0.5rem;
+    padding-right: 1rem;
     justify-content: flex-end;
 }
