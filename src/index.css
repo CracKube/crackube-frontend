@@ -343,7 +343,6 @@ line-height: normal;
   border: 1px solid #000;
   width: 9.8125rem;
   height: 2.25rem;
-  background-color: #ffffff;
   padding: 0.125rem;
   border-radius: 24px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -367,7 +366,10 @@ line-height: normal;
   border: none;
 }
 .dark-mode {
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
+  background-color: #fff;
 }
 #light .light-mode {
   color: #ffffff;
@@ -385,7 +387,6 @@ line-height: normal;
   cursor: pointer;
 }
 #dark .mode {
-  color: #555555;
   background-color: #ffffff;
   cursor: pointer;
 }
@@ -1030,6 +1031,105 @@ justify-content: center;
   width: 6.375rem;
 height: 6.375rem; 
 border-radius: 100rem;
+}
+
+.red-flag > img{
+  padding-right: 0.25rem;
+}
+
+.list-wrap  {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.results-list-pull {
+  display: flex;
+  flex-direction: column;
+  padding:30px;
+  position: absolute;
+  background-color: #f1f1f1;
+  gap:20px;
+  border-radius: 25px;
+  margin-top:20px;
+  z-index: 1;
+  width: 36.25rem;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s;
+}
+.results-list {
+  display: flex;
+  flex-direction: column;
+  padding:30px;
+  position: relative;
+  background-color: #f1f1f1;
+  gap:20px;
+  border-radius: 25px;
+  margin-top:20px;
+  z-index: 1;
+  width: 36.25rem;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s;
+}
+
+.results-list{
+  display: flex;
+  flex-direction: column;
+  padding:30px;
+  position: relative;
+  background-color: #f1f1f1;
+  gap:20px;
+  border-radius: 25px;
+  margin-top:20px;
+  z-index: 1;
+  width: 36.25rem;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.search-result:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.Comp-Name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+   display: inline-block;
+
+  /* border: solid 1px red;  */
+  text-align: center;
+  /* border: solid 1px red;  */
+
+}
+
+.Comp-Name p {
+  font-size: 6.375rem;
+  line-height: 7.75rem;
+  background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+.SearchPage {
+  width: 100%;
+  /* border: solid 2px blue; */
 }
 
 @media only screen and (max-height: 600px){

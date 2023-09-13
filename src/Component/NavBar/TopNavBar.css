@@ -4,11 +4,14 @@
     
 }
 .header {
+    position: sticky;
     top: 0px;
     height: 4.25rem;
     align-items: center;
     justify-content: start;
     display: flex;
+    z-index: 9999999;
+    background-color: #FFF;
 }
 
 

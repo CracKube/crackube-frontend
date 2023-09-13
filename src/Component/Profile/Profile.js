@@ -12,7 +12,6 @@ export default function Profile({details}) {
                     <div className={styles.name}>{details.firstName} </div>
                     <div className={styles.id}>@{details.username}</div>
                     <div className={styles.league}>
-                        <img src={url1} alt="" className={styles.leagueimage} />
                         <div className={styles.leaguetitle}>Diamond</div>
                     </div>
                     <div className={styles.peoplecount}>

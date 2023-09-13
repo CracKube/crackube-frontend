@@ -19,9 +19,9 @@ const SearchBarDiv = ({handleChange})=>{
       
 
 
-const SearchResultsList =({results}) => {
+const SearchResultsList =({results, prop}) => {
     return(
-      <div className='results-list'>
+      <div className={`results-list-${prop}`}>
         {
           results.map((result,id)=>{
             return <SearchResult result={result} key={id}/>
@@ -42,7 +42,7 @@ const SearchResultsList =({results}) => {
   }
   
 
-function SearchBar () {
+function SearchBar ({prop}) {
     const [input, setInput] = useState('')
     const [results, setResults] = useState([])
     const [blogs, setBlogs] = useState([])
@@ -97,7 +97,7 @@ function SearchBar () {
         <div>
 
             <SearchBarDiv handleChange={handleChange}/>
-            <SearchResultsList results={results}/>
+            <SearchResultsList results={results} prop = {prop}/>
         </div>
          
     )

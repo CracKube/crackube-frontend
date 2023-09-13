@@ -197,10 +197,9 @@
 
 .SearchPage {
   /* Hide vertical scrollbar */
-  overflow-x: hidden;
-  font-family: 'VisbyCFH';
   margin-top: 5.875rem;
-  width: 80vw;
+  width: 100%;
+  align-items: center;
   padding-top: 1rem;
   min-height: 100vh;
 }
@@ -208,10 +207,9 @@
 .Comp-Name {
   font-family: 'VisbyCFH';
   display: flex;
-  flex-direction: column;
-  padding-right: 360px;
+  flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: space-around;
   font-size: 6.375rem;
   line-height: 7.75rem;
   background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
@@ -228,9 +226,7 @@
 
 .Search {
   display: flex;
-  /* padding-right: 360px; */
   justify-content: center;
-  /* padding-left: 60px; */
 }
 
 .Search img {
@@ -478,7 +474,6 @@ input:focus {
   }
 
   .Comp-Name {
-    font-family: 'VisbyCFH';
     display: flex;
     flex-direction: column;
     align-items: center;

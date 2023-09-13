@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import MenuBar from '../MenuBar'
 import { MainBar, TopNavBar } from '../Constants'
 import homeIcon from '../../Assets/homeIcon.svg'
-
-
+import SearchResultsList from './SearchResultsList';
 const SearchBar = ({handleChange})=>{
   const [input, setInput ] = useState("");
   
@@ -33,27 +32,9 @@ const SearchBar = ({handleChange})=>{
   )
 }
 
-const SearchResultsList =({results}) => {
-  return(
-    <div className='results-list'>
-      {
-        results.map((result,id)=>{
-          return <SearchResult result={result} key={id}/>
-        })
-      }
-    </div>
-  )
-}
 
-const SearchResult =({result})=> {
-  return (
-  <div className='search-result'>
-    
-    <img className='search-list-icon'src= {Search} alt="img" />
-    {result}</div>
-  )
 
-}
+
 
 
 

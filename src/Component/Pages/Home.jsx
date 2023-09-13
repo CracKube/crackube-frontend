@@ -9,6 +9,9 @@ import HiddenComponent from './HiddenComponent';
 import { useLocation } from 'react-router-dom';
 import { blue } from '@mui/material/colors';
 import axios from 'axios';
+import SearchPage from '../SearchPage/SearchPage';
+import SearchBar from '../LandingPage/searchBarcomp/SearchBar';
+import SearchResultsList from '../SearchPage/SearchResultsList';
 
 
 export const ThemeContext = createContext()
@@ -24,17 +27,26 @@ function Home() {
  const handleSearchBar = () => {
   document.getElementById('wrapper').style.filter = 'blur(0px)';
   document.getElementById('unblur').style.display = 'none';
+  document.getElementById('unblur').style.position = 'absolute';
  }
+
+ 
 
  useEffect (() => {
     document.getElementById('unblur').style.display = 'none';
     setUserId(window.localStorage.getItem('userId'));
   }, [])
 
+
   return (
     
     <ThemeContext.Provider value={theme}>
-      <input type="search" name="search"  className='searchnav' id='unblur' onBlur={handleSearchBar} /> 
+      <div id='unblur' onBlur={handleSearchBar}>
+        <div className="list-wrap">
+        <SearchBar prop = "pull"/>
+        </div>
+      </div>
+      
       <div id="wrapper">
       <div className="home" id = {theme}  >
         <MenuBar theme = {theme} setTheme = {setTheme} state = {userId}/> 
