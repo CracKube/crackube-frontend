@@ -9,6 +9,7 @@ const Dropdown = ({ options }) => {
   const handleOptionClick = (option) => {
     if(option.label === 'Logout'){
       localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       window.location.href = '/login'
     }else {
 

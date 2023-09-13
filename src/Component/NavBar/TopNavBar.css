@@ -4,11 +4,11 @@
     
 }
 .header {
+    top: 0px;
     height: 4.25rem;
     align-items: center;
     justify-content: start;
     display: flex;
-    border-bottom: 1px solid #f2f2f2;
 }
 
 
@@ -80,12 +80,11 @@
 
 
 .searchnav{
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 33.875rem;
-    left: 35rem;
     top:4.25rem;
     height: 4rem;
     margin-right: 0.5rem;

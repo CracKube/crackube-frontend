@@ -39,7 +39,7 @@ function BlogPage({theme, setTheme}) {
             
           </div>
           <div className='blog-title'>
-            <p>{blog && blog.blogTitle} </p>
+            <h1>{blog && blog.blogTitle} </h1>
           </div>
          
         </div>
@@ -48,7 +48,7 @@ function BlogPage({theme, setTheme}) {
           </div>
           <div>
             <p className='blog-content'>
-              {blog && blog.blogBody}
+              <p>{blog && blog.blogBody}</p>
             </p>
           </div>
       </div>
