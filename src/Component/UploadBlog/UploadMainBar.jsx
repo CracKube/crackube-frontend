@@ -33,10 +33,6 @@ function UploadMainBar({ theme }) {
   const getBack = () => {
     setFirst(true);
   }
-  const handleTextArea = (val) => {
-    setBody(val)
-    setEditorText(editorText)
-  }
 
   return (
     <div className="home-container">

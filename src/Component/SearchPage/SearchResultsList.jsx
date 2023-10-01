@@ -1,6 +1,7 @@
 import React from "react";
 import SearchResult from "./SearchResult";
 const SearchResultsList =({results}) => {
+
     if (results.length !== 0) {
       console.log("Hello");
       return(

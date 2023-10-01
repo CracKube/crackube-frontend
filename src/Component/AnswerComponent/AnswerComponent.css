@@ -1,8 +1,10 @@
 .answer-wrapper {
     margin: 1.5rem;
-    max-width: 72rem;
+    width: 100%;
     height: fit-content;
     border-radius: 2rem;
+    padding-right: 1.5rem;
+    overflow: hidden;
     border: 1px solid #e6e6e6;
 }
 .answer-cover {

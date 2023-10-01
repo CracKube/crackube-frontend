@@ -36,6 +36,7 @@ import ThirdPage from "./Component/Pages/ThirdPage";
 import BlogRead from "./Component/BlogRead/BlogRead";
 import FourthPage from "./Component/Pages/FourthPage";
 import Test from "./Component/Landing/Test";
+import Wallet from "./Component/Wallet/Wallet";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
                         <Route path = '/third' element = {<ThirdPage />}></Route>
                         <Route path='/fourth' element = {<FourthPage />}></Route>
                         <Route path = '/read' element = {<BlogRead  theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path = '/wallet' element = {<Wallet />}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

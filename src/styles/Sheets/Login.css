@@ -197,7 +197,7 @@
 
 .SearchPage {
   /* Hide vertical scrollbar */
-  margin-top: 5.875rem;
+  margin-top: 2.63rem;
   width: 100%;
   align-items: center;
   padding-top: 1rem;
@@ -223,29 +223,76 @@
 .search-change {
   padding-right: 120px;
 }
-
-.Search {
+.search-nav-bar-eff {
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.Search img {
+.Search  > img {
   position: relative;
   left: 1.875rem;
   top: 0.063rem;
 
 }
-
-.search-bar {
-  font-family: 'VisbyCF';
+.search-container {
   border: #FFFFFF;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05), 0px 255px 102px rgba(0, 0, 0, 0.01), 0px 143px 86px rgba(0, 0, 0, 0.05), 0px 64px 64px rgba(0, 0, 0, 0.09), 0px 16px 35px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-  width: 36.25rem;
-  height: 2.5rem;
+  background: var(--Light-Gray-for-Division, #F2F2F2); 
+  max-width: 40rem;
+  width: 100%;
+  height: 4rem; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 6.25rem;
-  padding-left: 2.563rem;
 }
-
+.search-bar {
+  background: var(--Light-Gray-for-Division, #F2F2F2); 
+ width: 100%;
+  border: none;
+  font-family: 'VisbyCF';
+  padding-left: 2rem;
+  color: var(--Gray, #737373);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal; 
+  
+}
+.search-attr {
+  padding-right:2rem ;
+  display: flex;
+  align-items: center;
+}
+.search-attr > p {
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+}
+.stroke {
+  width: 1rem;
+height: 0rem;
+transform: rotate(-90deg);
+flex-shrink: 0; 
+stroke-width: 1px;
+stroke: var(--Gray, #737373);
+}
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4rem;
+background: linear-gradient(135deg, #8F00FF 0%, #F42271 100%);
+box-shadow: 0px 2px 4px 0px rgba(143, 0, 255, 0.10), 0px 7px 7px 0px rgba(143, 0, 255, 0.09), 0px 16px 10px 0px rgba(143, 0, 255, 0.05), 0px 28px 11px 0px rgba(143, 0, 255, 0.01), 0px 44px 12px 0px rgba(143, 0, 255, 0.00);
+height: 4rem;
+width: 4rem;
+}
 input:focus {
   outline: none;
 }
@@ -265,7 +312,9 @@ input:focus {
 }
 
 .Discover {
+  position: relative;
   display: flex;
+
   padding-left: 1rem;
   flex-wrap: wrap;
 }
@@ -273,8 +322,8 @@ input:focus {
 .Dbox {
   margin-top: 1rem;
   margin-left: 1rem;
-  height: 8rem;
-  width: 8rem;
+  width: 17rem;
+  height: 8rem; 
   background-color: #FFFFFF;
   box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01), 0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
@@ -283,7 +332,6 @@ input:focus {
 .coverUp {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
   margin-left: 2rem;
 }
 
@@ -352,10 +400,7 @@ input:focus {
     background-color: red;
   }
 
-  .img {
-    width: 50%;
-    height: 100vh;
-  }
+
 
   .img-c {
     width: 50%;
@@ -467,9 +512,7 @@ input:focus {
 
   .SearchPage {
     font-family: 'VisbyCFH';
-    margin-top: 5.875rem;
-    width: 70vw;
-    padding-top: 1rem;
+    padding-top:2.63rem;
     min-height: 100vh;
   }
 
@@ -720,7 +763,14 @@ input:focus {
     list-style: none;
     padding: 0;
   }
-  
+  .overlay {
+    position: absolute;
+    left:40px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
   .list-view li {
     display: flex;
     align-items: center;

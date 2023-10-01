@@ -5,7 +5,16 @@ import Share from '../../Assets/Share.svg';
 import Flag from '../../Assets/Flag.svg';
 import Options from '../../Assets/Option.svg';
 import Save from '../../Assets/BK_BLOG.svg'
+import { FacebookIcon, WhatsappIcon } from 'react-share';
+import BlogShare from './BlogShare';
+import BlogLike from './BlogLike';
+import BlogSave from './BlogSave';
 export default function Profile(props){
+    const share = [
+        { value: 'option1', label: 'Facebook', route : '/uploadblogs'},
+        { value: 'option2', label: 'Whatsapp', route : '/uploadanswer' },
+        { value: 'option3', label: 'Instagram', route : '/uploadcode' },
+      ];
     return(
         <div className={styles.authorContainer}>
             <div className= {styles.authorContainer}>
@@ -23,9 +32,9 @@ export default function Profile(props){
             </div>
             
             <div className= {styles.blogopalign}>
-                <BlogOptions img = {Like} note = "Like" /> 
-                <BlogOptions img = {Share} note = "Share" />
-                <BlogOptions  img = {Save} note = "Save" />
+                <BlogLike img = {Like} note = "Like" /> 
+                <BlogShare img = {Share} note = "Share" options = {share} />
+                <BlogSave  img = {Save} note = "Save" />
                 <BlogOptions img = {Flag} note = "Report" />
                 <BlogOptions img = {Options} note = "" />
             </div>

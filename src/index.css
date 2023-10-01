@@ -242,12 +242,34 @@ line-height: normal;
 .home{
   position: relative;
   display: grid;
-  grid-template-columns: 1.5fr 10fr;
+  grid-template-columns: 15rem 10fr;
   overflow-x: hidden;
   overflow-y: hidden;
   backdrop-filter: blur(10px);
 }
-
+.home-options {
+  display: flex;
+  width: 26.4375rem;
+  height: 2.5rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5625rem;
+  flex-shrink: 0;
+}
+.home-options > div {
+  display: flex;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  background: var(--CK-Light-Red, #FDE9F1); 
+}
+.home-options > div > p {
+  color: var(--CracKube-Red, #F42271); 
+}
 .home-none {
   display: flex;
 }
@@ -263,6 +285,11 @@ line-height: normal;
   flex-direction: column;
   max-width: 15rem;
   position: relative;
+}
+.active, .menu-bar-link{
+  background-color: #FBF5FF;
+  color: #8F00FF;
+  text-decoration: none;
 }
 .crack-logo-none {
   width: 0px;
@@ -333,6 +360,11 @@ line-height: normal;
   overflow-y: auto;
   width: 100%;
   max-height: 100vh;
+}
+.center-maker {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .modes {
@@ -1036,6 +1068,7 @@ border-radius: 100rem;
 .red-flag > img{
   padding-right: 0.25rem;
 }
+/* have list-wrap over all elements in css*/ 
 
 .list-wrap  {
   position: relative;
@@ -1043,6 +1076,8 @@ border-radius: 100rem;
   align-items: center;
   justify-content: center;
   padding-top: 1rem;
+  z-index: 9999;
+  
 }
 .results-list-pull {
   display: flex;

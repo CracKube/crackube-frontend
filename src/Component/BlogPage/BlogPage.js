@@ -12,8 +12,10 @@ import moment from 'moment'
 
 
 function BlogPage({theme, setTheme}) {
+
   const id = useParams().id;
   const [blog, setBlog] = React.useState({});
+  
   console.log(blog.blogImage)
   const getBlog = async () => {
     const response = await fetch(`https://crackube-backend-test.onrender.com/blogs/get/${id}`)
@@ -47,8 +49,8 @@ function BlogPage({theme, setTheme}) {
             <Profile author={blog && blog.userPosted} modified={blog && moment(blog.postedOn).fromNow()} url={authorUrl} />
           </div>
           <div>
-            <p className='blog-content'>
-              <p>{blog && blog.blogBody}</p>
+            <p className='blog-content' dangerouslySetInnerHTML={{__html: `${blog.blogBody}`}}>
+
             </p>
           </div>
       </div>

@@ -1,64 +1,137 @@
-import React from 'react'
-import Profile from '../../Assets/background.png';
-import League from '../../Assets/league.png';
-import DP from '../../Assets/dp.png';
-function ProfileComponent({theme}) {
-    console.log(theme)
+import React from "react";
+import Profile from "../../Assets/background.png";
+import League from "../../Assets/league.png";
+import DP from "../../Assets/dp.png";
+import Gold from "../../Assets/goldLeague.svg";
+import Cup from "../../Assets/cup.svg";
+import Views from "../../Assets/views.svg";
+import { MainBar } from "../Constants";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import AnswerComponent from "../AnswerComponent/AnswerComponent";
+function ProfileComponent({ theme }) {
+  
+  const [response, setResponse] = useState("");
+  const [blogLength, setBlogLength] = useState(0);
+  const [ansLength, setAnsLength] = useState(0);
+  const getUserDetails = async () => {
+    const response = await axios.get(
+      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+        "userId"
+      )}`
+    );
+    setResponse(response.data);
+    setBlogLength(response.data.blogsPosted.length);
+    setAnsLength(response.data.quesAnswered.length);
+  };
+
+  useEffect(() => {
+    getUserDetails();
+  }, []);
   return (
-    <div className='flex-prof' id = {theme}>
-        <div className='imgs'>
-            <img  className='img-wrap' src={Profile} />
-            <div className='sub-prof' id = {theme}>
-            <img  className='img-wrap1' src={League}/>
-            <h1>Diamond</h1>
-            <p>1,244 CK</p>
-            </div>
-            <div className='sec-user-bar'>
-
-            </div>
+    <div className="flex-prof" id={theme}>
+      <div className="imgs">
+        <div>
+          
+          
+          <div className="dp">
+            <div className="showcase-cover">
+            <img className="img-wrap" src={Profile} />
+            <img className="dp-img" src={response.profilePicUrl} />
             
-        </div>
-        <div className='dp'>
-            <img className='dp-img' src= {DP}/>
-            <p className='user-prof-cover'>James Cooper</p>
-            <p className='user-name'>@jamescooper</p>
-            <div className='user-flw-btn'>
-            <button >Follow</button>
             </div>
-            
-            <div className='user-data'>
-                <div className='fit'>
-                    <p>1.2k</p>
-                    <p>Answers</p>
-                </div>
-                <div className='user-sep-bar'></div>
-                <div className='fit'>
-                    <p>1.7k</p>
-                    <p>Blogs</p>
-                </div>
-                <div className='user-sep-bar'></div>
-                <div className='fit'>
-                    <p>1.7m</p>
-                    <p>Followers</p>
-                </div>
-                <div className='user-sep-bar'></div>
-                <div className='fit'>
-                    <p>701</p>
-                    <p>following</p>
-                </div>
+          
+          
+            <p className="user-prof-cover">{response.firstName}</p>
+            <p className="user-name">@{response.username}</p>
+            <div className="user-flw-btn">
+              <button>Follow</button>
             </div>
-            <p className='user-desc'>Writer. #MarieTV. Fancy Dancer. <br />
-            🎧 Learn to get anything you want. <br />
-            Free download <br />
-            marieforleo.com/blog <br />
 
-            <strong>New Jersey, USA</strong>
+            <div className="user-data">
+              <div className="fit">
+                <p>{ansLength}</p>
+                <p>Answers</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>{blogLength}</p>
+                <p>Blogs</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>1.7m</p>
+                <p>Followers</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>701</p>
+                <p>following</p>
+              </div>
+            </div>
+            <p className="user-desc">
+              Writer. #MarieTV. Fancy Dancer. <br />
+              🎧 Learn to get anything you want. <br />
+              Free download <br />
+              marieforleo.com/blog <br />
+              <strong>New Jersey, USA</strong>
             </p>
-
+            <div className="profile-show">
+              <div className="profile-nav-btn">
+                <button>Answer</button>
+                <button>Questions</button>
+                <button>Code</button>
+              </div>
+            </div>
+          </div>
+          {/* {question &&
+        question.map((item, index) => {
+          return <AnswerComponent 
+          key = {index}
+          theme={theme} 
+          body={item.questionBody}
+          tags = {item.questionTags}
+          userName = {item.userPosted}
+          postedOn = {item.askedOn}
+          
+          />;
+        })} */}
         </div>
-        
+      </div>
+      <div className="achieve-bar">
+        <div className="sub-prof" id={theme}>
+          <div className="cup-cover">
+            <img className="img-wrap1" src={Gold} />
+            <h1>1600XP</h1>
+            <p>Reputation</p>
+          </div>
         </div>
-  )
+        <div className="sub-prof" id={theme}>
+          <div className="cup-cover">
+            <img className="img-wrap1" src={Cup} />
+            <h1>Novice</h1>
+            <p>Current League</p>
+          </div>
+        </div>
+        <div className="bar-mid">
+          <div className="views-cover">
+            <h1>Stats</h1>
+            <p>Private for you</p>
+          </div>
+          <div className="view-btn">
+            <button>View more</button>
+          </div>
+        </div>
+        <div className="sub-prof" id={theme}>
+          <div className="cup-cover">
+            <img className="img-wrap1" src={Views} />
+            <h1>1900</h1>
+            <p>Views in the last 30 days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default ProfileComponent
+export default ProfileComponent;

@@ -25,20 +25,20 @@ export default function TopNavBar({theme}){
         
     }
     const setCookieBlog = () => {
-        setSection('blogs');
-        Cookies.set("state", "blogs", {
+        setSection('home');
+        Cookies.set("state", "/home", {
             expires: 30
         });
     };
     const setCookieAnswer = () => {
         setSection('answer');
-        Cookies.set("state", "answer", {
+        Cookies.set("state", "/answer", {
             expires: 30
         });
     };
     const setCookieCode = () => {
         setSection('code');
-        Cookies.set("state", "code", {
+        Cookies.set("state", "/code", {
             expires: 30
         });
     };
@@ -53,7 +53,7 @@ export default function TopNavBar({theme}){
       ];
     const uploadOption = [
         { value: 'option1', label: 'write a blog', route : '/uploadblogs'},
-        { value: 'option2', label: 'Answer a question', route : '/uploadanswer' },
+        { value: 'option2', label: 'Ask a question', route : '/uploadanswer' },
         { value: 'option3', label: 'Code', route : '/uploadcode' },
       ];
       // blur the whole page except the searchnav input

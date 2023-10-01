@@ -23,6 +23,7 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
+
     formData.append("image", file);
     formData.append("userId", localStorage.getItem("userId"));
     formData.append("userPosted", response.username);
@@ -33,6 +34,8 @@ const UploadSection = ({ body, title, setFirst }) => {
     formData.append("blogImageUrl", blogImageUrl);
   console.log(formData);
   const handleImageChange = (e) => {
+
+
     const file = e.target.files[0];
     setBlogImageProvider("upload");
     console.log(file);

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import homeIcon from "../Assets/homeIcon.svg";
 import Explore from "../Assets/Explore.svg";
 import Ck from "../Assets/CK.svg";
@@ -14,6 +14,7 @@ import { useState } from "react";
 import { ThemeContext } from "../App";
 import { useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function MenuBar({ theme, setTheme, state }) {
   const [response, setResponse] = useState("");
@@ -70,30 +71,30 @@ function MenuBar({ theme, setTheme, state }) {
           <div className="menu-bar-half-1">
             <div className="cover-link">
               <div className="menu-bar-link">
-                <Link
-                  to="/home"
+                <NavLink
+                  to= {Cookies.get('state')}
                   className={`menu-btn ${isClicked ? "stay" : ""}`}
                   onClick={handleClick}
                 >
                   <img src={homeIcon} alt="" />
                   <p>Home</p>
-                </Link>
-                <Link to="/search" className="menu-btn" tabIndex="1">
+                </NavLink>
+                <NavLink to="/search" className="menu-btn" tabIndex="1">
                   <img src={Explore} alt="" />
                   <p>Explore</p>
-                </Link>
-                <Link to="/" className="menu-btn" tabIndex="1">
+                </NavLink>
+                <NavLink to="/" className="menu-btn" tabIndex="1">
                   <img src={Ck} alt="" />
                   <p>CK Originals</p>
-                </Link>
-                <Link to="/" className="menu-btn" tabIndex="1">
+                </NavLink>
+                <NavLink to="/" className="menu-btn" tabIndex="1">
                   <img src={Ck} alt="" />
                   <p>CK Experts</p>
-                </Link>
-                <Link to="/" className="menu-btn" tabIndex="1">
+                </NavLink>
+                <NavLink to="/" className="menu-btn" tabIndex="1">
                   <img src={Den} alt="" />
                   <p>Your Den</p>
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>

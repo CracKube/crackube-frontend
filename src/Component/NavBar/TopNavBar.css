@@ -11,6 +11,7 @@
     justify-content: start;
     display: flex;
     z-index: 9999999;
+    
     background-color: #FFF;
 }
 
@@ -69,6 +70,9 @@
     color: black !important;
     background-color: white;
     border-radius: 2rem;
+}
+.header {
+
 }
 .topmenuBar > div > a {
     padding: 0.5rem 1rem 0.5rem 1rem;

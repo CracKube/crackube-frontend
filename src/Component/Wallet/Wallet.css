@@ -1,0 +1,279 @@
+.wallet-cover {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.wallet-buttons > button{
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 2000;
+    line-height: normal;
+    letter-spacing: -0.04rem; 
+}
+.wallet-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2.88rem;
+    padding-bottom: 2rem;
+    gap: 0.5rem;
+    display: flex;
+    align-items: end;
+}
+.wallet-title > p{
+    background: var(--gradient-slanting, linear-gradient(90deg, #8F00FF 0%, #F42271 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 1rem;
+}
+.earn-points{
+    border: none;
+    min-width: 9.5rem;
+    max-width: 100%;
+    height: 2.625rem;
+    margin-right: 1rem;
+    border-radius: 2rem;
+    background: var(--Neutral-Blue, #473EFF);
+    box-shadow: 0px 4px 9px 0px rgba(71, 62, 255, 0.10), 0px 17px 17px 0px rgba(71, 62, 255, 0.09), 0px 38px 23px 0px rgba(71, 62, 255, 0.05), 0px 67px 27px 0px rgba(71, 62, 255, 0.01), 0px 105px 29px 0px rgba(71, 62, 255, 0.00);
+}
+.redeem {
+    border: none;
+    min-width: 9.5rem;
+    max-width: 100%;
+    height: 2.625rem;
+    border-radius: 2rem;
+background: var(--Success-Green, #41CC50);
+box-shadow: 0px 4px 9px 0px rgba(65, 204, 80, 0.10), 0px 17px 17px 0px rgba(65, 204, 80, 0.09), 0px 38px 23px 0px rgba(65, 204, 80, 0.05), 0px 67px 27px 0px rgba(65, 204, 80, 0.01), 0px 105px 29px 0px rgba(65, 204, 80, 0.00);
+}
+.points-cover {
+    width: 100%;
+height: 100%;
+flex-shrink: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    border: 1px solid var(--Med-Gray, #C8C8C8); 
+}
+.points-cover > p {
+    color: var(--Gray, #737373);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+.value > h1 {
+    color: #000;
+    text-align: center;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.16rem;
+}
+.value > p {
+    color: var(--Med-Gray, #C8C8C8);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.06rem; 
+}
+.system-flex {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.value > p > img {
+    height: 5rem;
+flex-shrink: 0;
+}
+.reward-section {
+    
+}
+.reward-cover {
+    width: 100%;
+    height: 17.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    border: 1px solid var(--Med-Gray, #C8C8C8); 
+    position: relative;
+}
+.reward-section > img{
+    position: absolute;
+    
+    bottom: 0;
+}
+.img1 {
+    right: 4rem;
+}
+.img2 {
+    right: 2rem;
+}
+.img3 {
+    right: 3rem;
+}
+.earn-money {
+    border: none;
+    width: 9.5rem;
+    height: 2.625rem;
+    border-radius: 2rem;
+    border: 1px solid var(--Gray, #737373);
+    background: var(--Black, #000);
+    box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.10), 0px 17px 17px 0px rgba(0, 0, 0, 0.09), 0px 38px 23px 0px rgba(0, 0, 0, 0.05), 0px 67px 27px 0px rgba(0, 0, 0, 0.01), 0px 105px 29px 0px rgba(0, 0, 0, 0.00);border-radius: 2rem;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 1000;
+}
+.reward-cover > p {
+    color: var(--Gray, #737373);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+.transaction-cover {
+
+    width: 100%;
+    margin-top: 1.5rem;
+    height: 20rem;
+    border-radius: 2rem;
+    border: 1px solid var(--Med-Gray, #C8C8C8); 
+}
+.transaction-search {
+    width: 18.125rem;
+    height: 3rem; 
+    border-radius: 2rem;
+    background: var(--Light-Gray-for-Division, #F2F2F2);
+    border: none;
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    
+    padding-bottom: 1rem;
+}
+.trans-flex {
+    display: flex;
+    padding-top: 1.5rem;
+    justify-content: space-between;
+}
+.trans-flex > h1 {
+    padding-left: 1.5rem;
+    color: #000;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.06rem;
+}
+.trans-flex > div {
+    position: relative;
+    padding-right: 1.5rem;
+}
+.search-trans {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+
+}
+.trans-options {
+    display: inline-flex;
+    padding: 0.25rem 0rem;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+.option {
+    display: flex;
+    padding: 0.375rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 2rem;
+    background: var(--Light-Gray-for-Division, #F2F2F2); 
+}
+.option > p {
+    color: var(--Gray, #737373);
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.trans-bar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+}
+.right-option {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; 
+}
+.right-option-cover {
+    padding-top: 0.5rem;
+    padding-right: 1.5rem;
+}
+.right-option > p {
+    color: var(--Gray, #737373);
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+@media only screen and (max-width: 1400px) {
+    .earn-points {
+        min-width: 6rem;
+    }
+    .redeem {
+        min-width: 5rem;
+    }
+    .value > h1 {
+        font-size: 2.5rem;
+    }
+    .wallet-buttons > button {
+        font-size: 0.75rem;
+    }
+    .reward-section > img {
+        height: 7rem;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 1025px) {
+    .system-flex {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .earn-points {
+        min-width: 9.5rem;
+    }
+    .redeem {
+        min-width: 9.5rem;
+    }
+    .value > h1 {
+        font-size: 4rem;
+    }
+
+
+  }

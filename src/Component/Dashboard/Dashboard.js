@@ -3,44 +3,41 @@ import { Card1, Card2, thumbnailUrl, authorUrl, authorUrl2 } from '../Constants'
 import styles from './Dashboard.module.css'
 import { useState } from 'react';
 import Card from './Card';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from 'react-loading-skeleton';
+import CardSkeleton from './CardSkeleton';
 export default function Dashboard(props) {
-
+    const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState([]);
-    const [questions, setQuestions] = useState([]);
 
 
     const getAllBlogs = async () => {
         const response = await fetch('https://crackube-backend-test.onrender.com/blogs/getAll');
         const data = await response.json();
-        console.log(data);
+        setLoading(false)
         setBlogs(data);
+        console.log(data);
     }
 
-    const getAllQuestions = async () => {
-        const response = await fetch('https://crackube-backend-test.onrender.com/questions/get');
-        const data = await response.json();
-        setQuestions(data);
-    }
+
 
     useEffect(() => {
         getAllBlogs();
-        getAllQuestions();
     }, []);
-    console.log(blogs);
-    return (
-        <div className={`${styles[props.type == "card1" ? "dashboard1" : "dashboard2"]}`}>
-            {
-                props.type === 'card1' && blogs && blogs.map((blog, index) => (
-                    // <Card1
-                    //     key={blog._id}
-                    //     id={blog._id}
-                    //     thumbnail={blog.blogImageUrl}
-                    //     authorImage={blog.blogImageUrl}
-                    //     title={blog.blogTitle}
-                    //     author={blog.userPosted}
-                    //     modified={blog.postedOn}
-                    // />
+    console.log(loading)
+        return (
+            // <InfiniteScroll
+            // dataLength={5}
+            // next={getAllBlogs}
+            // hasMore = {true}
+            // endMessage = {<p>No More Data to Load</p>}>
+            
+            <div className={`${styles[props.type == "card1" ? "dashboard1" : "dashboard2"]}`}>
+            
+               {loading ? <CardSkeleton blogs = {blogs}/> : blogs.map((blog, index) => (
                     <Card
+                    
                         key={index}
                         id={blog._id}
                         thumbnail={blog.blogImageUrl}
@@ -49,11 +46,15 @@ export default function Dashboard(props) {
                         author={blog.userPosted}
                         modified={blog.postedOn}
                         tags = {blog.blogTags}
-                    />
-
-                ))
-            }
+                        loading = {loading}
+                    />  
+                ))}
             
+
+       
         </div>
+        // </InfiniteScroll>
     );
+
+    
 }

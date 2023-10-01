@@ -70,11 +70,14 @@ background: var(--crac-kube-red, #F42271);
   
   .blog-content {
     margin-top: 1.5rem;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .blog-content > p > img {
+    width: 50%;
+    height: auto;
   }
   
   .input {
