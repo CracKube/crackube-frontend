@@ -28,10 +28,16 @@
     padding: 0.313rem;
     font-size: 0.5rem;
     line-height: 0.75rem;
-    font-weight: 800;
+    font-weight: 700;
 
 }
-
+.auth-name {
+    color: #000;
+font-size: 0.75rem;
+font-style: bold;
+font-weight: 600;
+line-height: normal;
+}
 .bookmark{
     flex: 1;
     display: flex;

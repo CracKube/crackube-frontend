@@ -52,8 +52,8 @@ export default function TopNavBar({theme}){
         { value: 'option3', label: 'Logout' },
       ];
     const uploadOption = [
-        { value: 'option1', label: 'write a blog', route : '/uploadblogs'},
-        { value: 'option2', label: 'Ask a question', route : '/uploadanswer' },
+        { value: 'option1', label: 'Ask a question', route : '/uploadanswer' },
+        { value: 'option2', label: 'Write a Blog', route : '/uploadblogs' },
         { value: 'option3', label: 'Code', route : '/uploadcode' },
       ];
       // blur the whole page except the searchnav input
@@ -87,8 +87,8 @@ export default function TopNavBar({theme}){
                 <div className='upload-nav-btn'>
                 <UploadDropdown options={uploadOption} />
                 </div>
-                
-                <img src={Noti} alt="" />
+
+                <img src={Noti} className='notification-img' alt="" />
                 <img src= {Settings} alt="" />
                 <div className='drop-flex'>
                 

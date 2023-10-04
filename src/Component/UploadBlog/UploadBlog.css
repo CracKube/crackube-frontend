@@ -63,6 +63,7 @@ background: var(--crac-kube-red, #F42271);
     justify-content: center;
     align-items: center;
     gap: 10px;
+    border: none;
     border-radius: 32px;
     background: var(--crac-kube-purple, #8F00FF);
     color: white;
@@ -91,6 +92,13 @@ background: var(--crac-kube-red, #F42271);
     font-weight: 900;
     line-height: normal;
   }
+
+  .ql-toolbar.ql-snow {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 8px;
+  }
   
 .blog-description {
   display: flex;
@@ -112,9 +120,8 @@ background: var(--crac-kube-red, #F42271);
     padding-bottom: 4rem;
     color: #333;
     border-radius: 5px;
-    border: 1px solid #ccc;
   }
-  
+
   .blog-description_icons {
     display: flex;
     flex-direction: row;
@@ -170,4 +177,70 @@ background: var(--crac-kube-red, #F42271);
   min-height: 100%; 
   border-radius: 1.5rem;
   border: 2px dashed var(--med-gray, #C8C8C8); 
+}
+.points-toggle {
+  width: fit-content;
+  display: inline-flex;
+  padding: 0.125rem;
+  align-items: flex-start;
+  border-radius: 4rem;
+  border: 1px solid var(--CracKube-Purple, #8F00FF);
+  background: #FFF;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
+}
+.points-toggle > button {
+  padding: 0.5rem;
+  border-radius: 4rem;
+  border: none;
+  color: var(--CracKube-Purple, #8F00FF);
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  background: none;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.points-CK  {
+  background-color: var(--CracKube-Purple, #8F00FF) !important;
+  color: var(--White, #FFF)!important;
+}
+.cash-Cash{
+  background-color: var(--CracKube-Purple, #8F00FF) !important; 
+  color: var(--White, #FFF) !important; 
+}
+.point-amount {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  gap: 0.75rem;
+}
+.point-amount > p {
+  color: var(--Gray, #737373);
+  text-align: center;
+ 
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.select-amount {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 1.5rem;
+  background: var(--CK-Light-Purple, #F5E5FF);
+}
+.select-amount > input {
+  border: none;
+  width: 5rem;
+  background: var(--CK-Light-Purple, #F5E5FF);
+  color: var(--CracKube-Purple, #8F00FF);
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

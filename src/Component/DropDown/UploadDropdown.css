@@ -33,6 +33,7 @@ line-height: normal;
 }
 .horizontal-dropdown-list {
   position: absolute;
+  width: fit-content;
   top: 100%;
   right: 1rem;
   display: flex; /* Display items horizontally */
@@ -45,6 +46,7 @@ line-height: normal;
 }
 
 .horizontal-dropdown-option {
+  width: 100px;
   padding: 10px 20px;
   color: #333;
   text-decoration: none;

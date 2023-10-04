@@ -17,10 +17,15 @@ const Dropdown = ({ options }) => {
   };
 
   return (
-    <div className="dropdown-container">
-      <div className="dropdown-button" onClick={() => setIsOpen(!isOpen)} >
-       <Link><img className='prof-pic-nav'  src= {PropTop} alt="" /></Link>
+    <>
+    <div className="dropdown-button" onClick={() => setIsOpen(!isOpen)} >
+        <div className='prof-circle'>
+        <Link><img className='prof-pic-nav'  src= {PropTop} alt="" /></Link>
+        </div>
+       
       </div>
+    <div className="dropdown-container">
+      
       {isOpen && (
         <div className="dropdown-list">
           {options.map((option) => (
@@ -36,6 +41,7 @@ const Dropdown = ({ options }) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

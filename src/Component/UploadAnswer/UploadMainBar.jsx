@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../UploadBlog/UploadBlog.css";
-import Tesseract from "tesseract.js";
 import { createWorker } from "tesseract.js";
 const UploadMainBar = () => {
   const modules = {
@@ -21,8 +20,8 @@ const UploadMainBar = () => {
       ["link", "image", "video"],
     ],
   };
-  const [ocr, setOcr] = useState("");
   const [imageData, setImageData] = useState("");
+  const [type, setType] = useState("CK");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [editorText, setEditorText] = useState("");
@@ -30,6 +29,7 @@ const UploadMainBar = () => {
   const [category, setCategory] = useState([]);
   const [image, setImage] = useState(null);
   const userPosted = "test22";
+
 
   // const convertImageToText = async () => {
   //   if(!imageData) return;
@@ -48,23 +48,26 @@ const UploadMainBar = () => {
   //     setEditorText(text);
   //     console.log(text);
   //   })
+  const handleButton = () => {
+    setType("CK");
+  }
+  const handleCash = () => {
+    setType("Cash");
+  }
 
-  const worker = createWorker({});
+  const worker = createWorker();
 
   const convertImageToText = async () => {
-    try {
-      setEditorText("Recognizing...");
+    try { 
       await worker.load();
-      await worker.loadLanguage("eng");
-      await worker.initialize("eng");
+      await worker.loadLanguage('eng');
+      await worker.initialize('eng');
       const {
         data: { text },
       } = await worker.recognize(file);
       console.log(text);
       setEditorText(text);
-      await worker.terminate();
     } catch (error) {
-      await worker.terminate();
       console.log(error);
     }
   };
@@ -75,26 +78,23 @@ const UploadMainBar = () => {
   const handleImageChange = async (e) => {
     try {
       const file = e.target.files[0];
-      if (!file) {
-        await worker.terminate();
-        return;
-      }
-
+      setFile(file);
+      if(!file) return;
       if (file) {
         const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
-        setFile(file);
+        
 
         if (allowedTypes.includes(file.type)) {
           const reader = new FileReader();
-
+          setEditorText("Recognizing...");
           reader.onload = () => {
             var dataURL = reader.result;
             setImageData(dataURL);
-            setImage(dataURL.split(",")[1]); //`data:image/png;base64,${image}`
             setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
             console.log(image);
           };
           reader.readAsDataURL(file);
+          convertImageToText();
         } else {
           setImage("");
         }
@@ -132,13 +132,13 @@ const UploadMainBar = () => {
     setCategory([]);
     window.location.href = "/home";
   };
-  useEffect(() => {
-    try {
-      convertImageToText();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [file]);
+  // useEffect(() => {
+  //   try {
+  //     convertImageToText();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [file]);
 
   return (
     <div className="blog-layout">
@@ -210,6 +210,18 @@ const UploadMainBar = () => {
           <h1>Categories</h1>
           <input type="text" className="cat-input" onChange={setCategory} />
         </div>
+
+      </div>
+      <div className="points-toggle">
+        <button className= {`points-${type} `} id="button" onClick={handleButton}>CK Points</button>
+        <button className= {`cash-${type} `} id = "button" onClick = {handleCash}>Real Cash</button>
+      </div>
+      <div className="point-amount">
+        <div className="select-amount">
+        <input type="number" min={10} max={500} step={5} pattern= "[0-9]" />
+        </div>
+        
+        <p>you have 54 points</p>
       </div>
     </div>
   );

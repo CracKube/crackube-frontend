@@ -14,14 +14,14 @@ export default function CardAuthor1(props){
             <div className={styles.title}>
                 <div><a href="">
                 { ques < 25 ? (<>
-                <div>{props.author}</div>
+                <div className='auth-name'>{props.author}</div>
                 </>): 
                 <>
                 <div>
                     {val}...
                 </div>
                 </>}</a></div>
-                <div style={{fontWeight: '50'}}>{props.modified}</div>
+                <div>{props.modified}</div>
             </div>
             <div className={styles.bookmark}>
                 <a href=""><img src= {BlogLike} alt="" /></a>

@@ -6,7 +6,30 @@ import RewardSystem from "./RewardSystem";
 import Search from "../../Assets/transSearch.svg";
 import Calendar from "../../Assets/calendar.svg";
 import Arrow from "../../Assets/arrowTrans.svg";
+import Data from "../../Data.json";
 const WalletComponent = () => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const recordsPerPage = 10;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const currentRecords = Data.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(Data.length / recordsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
+  function paginate(n) {
+    setCurrentPage(n);
+  }
+  function nextPage() {
+    if (currentPage !== npage) {
+      setCurrentPage((currentPage) => currentPage + 1);
+    }
+  }
+  function prePage() {
+    if (currentPage !== 1) {
+      setCurrentPage((currentPage) => currentPage - 1);
+    }
+  }
+
   return (
     <div className="wallet-cover">
       <div className="wallet-title">
@@ -51,14 +74,82 @@ const WalletComponent = () => {
               <p>Withdraw</p>
             </div>
           </div>
-          <div className="right-option-cover">          
-          <div className="right-option">
-            <img src={Calendar} alt="" />
-            <p>Past 90 Days</p>
-            <img src={Arrow} alt="" />
-          </div>
+          <div className="right-option-cover">
+            <div className="right-option">
+              <img src={Calendar} alt="" />
+              <p>Past 90 Days</p>
+              <img src={Arrow} alt="" />
+            </div>
           </div>
         </div>
+        <div className="history-cover">
+          <div className="trans-history">
+            <h6>Date</h6>
+            {currentRecords.map((record) => (
+              <p>{record.Date}</p>
+            ))}
+          </div>
+          <div className="trans-history">
+            <h6>Name</h6>
+            {currentRecords.map((record) => (
+              <p>{record.Name}</p>
+            ))}
+          </div>
+          <div className="trans-history">
+            <h6>Transaction ID</h6>
+            {currentRecords.map((record) => (
+              <p>{record.ID}</p>
+            ))}
+          </div>
+          <div className="trans-history">
+            <h6>Amount</h6>
+            {currentRecords.map((record) => (
+              <p>{record.Amount}</p>
+            ))}
+          </div>
+          <div className="trans-history">
+            <h6>Type</h6>
+            {currentRecords.map((record) => {
+              <p>{record.Type}</p>;
+            })}
+          </div>
+          <div className="trans-history">
+            <h6>Status</h6>
+            {currentRecords.map((record) => {
+              <p>{record.Status}</p>;
+            })}
+          </div>
+        </div>
+        <nav className="history-paginate">
+          <ul className="pagination">
+            <div className="page-item">
+              <a href="#" className="page-link" onClick={prePage}>
+                <button>Prev</button>
+              </a>
+            </div>
+            {numbers.map((number) => (
+              <div
+                className={`page-item ${
+                  currentPage === number ? "more" : ""
+                } `}
+                key={number}
+              >
+                <a
+                  href="#"
+                  className="page-link"
+                  onClick={() => paginate(number)}
+                >
+                  {number}
+                </a>
+              </div>
+            ))}
+            <div className="page-item">
+              <a href="#" className="page-link" onClick={nextPage}>
+                <button>Next</button>
+              </a>
+            </div>
+          </ul>
+        </nav>
       </div>
     </div>
   );

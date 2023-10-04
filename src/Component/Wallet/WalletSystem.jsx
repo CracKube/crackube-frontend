@@ -10,8 +10,8 @@ const WalletSystem = ({title, value, type}) => {
         
       </div>
       <div className="wallet-buttons">
-        <button className="earn-points">Earn Points</button>
-        <button className="redeem">Redeem</button>
+        <button className="earn-points">Deposit</button>
+        <button className="redeem">Withdraw</button>
       </div>
     </div>
   );

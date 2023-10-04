@@ -1,11 +1,13 @@
 .dropdown-container {
     position: relative;
     display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
   }
-  
   .dropdown-button {
     color: #ffffff;
-    padding: 15px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -20,13 +22,11 @@
     align-items: center;
     flex-direction: column;
     position: absolute;
-
     top: 100%;
-    right: 1rem;
+    right: 2rem;
     width: 100%;
     background-color: #f1f1f1;
     border-radius: 5px;
-    overflow: hidden;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
@@ -42,3 +42,13 @@
   .dropdown-option:hover {
     background-color: #ddd;
   }
+  .prof-circle {
+    padding-right: 1rem;
+  }
+  .prof-pic-nav {
+    padding: 0.13rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--CracKube-Red, #F42271);
+    background: #FFF;
+  }
+  

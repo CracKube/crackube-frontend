@@ -154,6 +154,9 @@ a {
     display: flex;
     align-items: center;
 }
+.nav-btn > img {
+    padding-right: 0.65rem;
+}
 .nav-btn button {
     width: 6.5rem;
     height: 2.25rem;
@@ -162,7 +165,7 @@ a {
     background: var(--crac-kube-purple, #8F00FF);
     box-shadow: 0px 0px 0px 0px rgba(143, 0, 255, 0.10), 0px 3px 6px 0px rgba(143, 0, 255, 0.10), 0px 11px 11px 0px rgba(143, 0, 255, 0.09), 0px 26px 15px 0px rgba(143, 0, 255, 0.05), 0px 46px 18px 0px rgba(143, 0, 255, 0.01), 0px 72px 20px 0px rgba(143, 0, 255, 0.00);
 }
-.nav-btn > img {
+.notification-img {
     padding-right: 0.65rem;
 }
 .nav-btn > div>button {
@@ -173,9 +176,6 @@ a {
 }
 .button-nav .active {
     color: black;
-}
-.prof-pic-nav {
-    padding-right: 0.5rem;
 }
 
 @media (max-width:500px) { 
