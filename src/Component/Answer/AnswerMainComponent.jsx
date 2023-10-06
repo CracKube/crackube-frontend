@@ -47,10 +47,11 @@ const AnswerMainComponent = ({ theme }) => {
         question.map((item, index) => {
           return <AnswerComponent 
           key = {index}
-          theme={theme} 
+          theme={theme}
+          id = {item._id}
           body={item.questionBody}
           tags = {item.questionTags}
-          userName = {item.userPosted}
+          userName = {item.userPosted._id}
           postedOn = {item.askedOn}
           
           />;

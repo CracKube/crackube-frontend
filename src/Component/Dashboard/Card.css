@@ -41,6 +41,13 @@
     height: 100%;
     border-radius: 1.125rem;
 }
+.card__container:hover {
+    transition: ease-in-out 0.2s;
+    transform: scale(0.90);
+}
+.auth-name {
+    font-weight: 600;
+}
 .title-skel {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;

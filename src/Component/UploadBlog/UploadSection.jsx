@@ -25,8 +25,7 @@ const UploadSection = ({ body, title, setFirst }) => {
   const formData = new FormData();
 
     formData.append("image", file);
-    formData.append("userId", localStorage.getItem("userId"));
-    formData.append("userPosted", response.username);
+    formData.append("userPosted", localStorage.getItem("userId"));
     formData.append("blogTitle", title);
     formData.append("blogBody", body);
     formData.append("blogTags", category);

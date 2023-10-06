@@ -2,19 +2,21 @@ import React from 'react'
 import User from '../../Assets/ans-user.png';
 import BookMark from '../../Assets/bookmark.png'
 import RedFlag from '../../Assets/red-flag.png';
-function AnsUser({theme}) {
+import verify from '../../Assets/Verify.svg';
+function AnsUser({theme, answer}) {
   return (
     <div className='ans-whole-wrap'> 
     <div className='ans-user'>
                 <div>
-                    <img src= {User}/>
+                    <img className='question-user-prof' src= {User}/>
                 </div>
                 <div>
-                    <div>Jennifer Margrete</div>
+                    <div className='ques-auth-flex'>
+                    <div className='auth-ques-name'>{answer && answer.userPosted.name}</div>
+                    <img src= {verify} alt="" />
+                    </div>
+                    
                     <div className='user-ans-id'>@jennifermargreed</div>
-                </div>
-                <div>
-                    <button>Follow</button>
                 </div>
                 </div>    
                 <div>

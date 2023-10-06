@@ -20,7 +20,6 @@ function BlogPage({theme, setTheme}) {
   const getBlog = async () => {
     const response = await fetch(`https://crackube-backend-test.onrender.com/blogs/get/${id}`)
     const data = await response.json();
-    console.log(data);
     setBlog(data);
   }
   useEffect(() => {

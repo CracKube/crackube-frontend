@@ -10,9 +10,9 @@
     align-items: center;
     justify-content: start;
     display: flex;
-    z-index: 9999999;
-    
-    background-color: #FFF;
+    z-index: 999;
+    border-bottom: 1px solid var(--Light-Gray-for-Division, #F2F2F2);
+    background: rgba(255, 255, 255, 0.50);
 }
 
 

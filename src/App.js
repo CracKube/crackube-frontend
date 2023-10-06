@@ -37,6 +37,7 @@ import BlogRead from "./Component/BlogRead/BlogRead";
 import FourthPage from "./Component/Pages/FourthPage";
 import Test from "./Component/Landing/Test";
 import Wallet from "./Component/Wallet/Wallet";
+import MainAnswer from "./Component/AnsweringPage/MainAnswer";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -64,7 +65,7 @@ function App() {
                         <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/blog/:id" element={<BlogPage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>
-                        <Route path= '/answering' element = {<AnsweringPage theme = {theme} setTheme = {setTheme} />}></Route>
+                        <Route path= '/answering/:id' element = {<MainAnswer theme = {theme} setTheme = {setTheme} />}></Route>
                         <Route path= '/upload' element = {<UploadPage/>}></Route>
                         <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path = '/unsplash' element = {<UnSplash/>}></Route>

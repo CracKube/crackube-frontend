@@ -1,12 +1,17 @@
 import React from 'react'
 
-function Tags({theme}) {
+function Tags({theme, answer}) {
   return (
     <div className='ans-tags' id = {theme}>
-        <div>Math</div>
-        <div >Probability</div>
-        <div>Statistics</div>
-        <div>Complex</div>
+        {
+          answer && answer.questionTags.map((tag) => {
+            return(
+              <div className='ans-tag'>
+                {tag}
+              </div>
+            )
+          })
+        }
     </div>
   )
 }

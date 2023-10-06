@@ -265,6 +265,9 @@
   line-height: normal; 
   
 }
+.camera-ocr {
+  padding-right: 1rem;
+}
 .search-attr {
   padding-right:2rem ;
   display: flex;

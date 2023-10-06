@@ -16,6 +16,7 @@ export default function Dashboard(props) {
         const response = await fetch('https://crackube-backend-test.onrender.com/blogs/getAll');
         const data = await response.json();
         setLoading(false)
+
         setBlogs(data);
         console.log(data);
     }

@@ -9,6 +9,7 @@ import SearchResultsList from "./SearchResultsList";
 import vector from "../../Assets/vector.svg";
 import category from "../../Assets/category.svg";
 import follow from "../../Assets/follow-prof.svg";
+import camera from "../../Assets/camera.svg";
 const SearchBar = ({ handleChange }) => {
   const [input, setInput] = useState("");
 
@@ -37,6 +38,7 @@ const SearchBar = ({ handleChange }) => {
           placeholder="Search for anything"
         />
         <div className="search-attr">
+          <img src= {camera} className="camera-ocr" alt="" />
           <svg
             width="2"
             height="18"

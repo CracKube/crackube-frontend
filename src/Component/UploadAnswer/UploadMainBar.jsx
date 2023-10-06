@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../UploadBlog/UploadBlog.css";
-import { createWorker } from "tesseract.js";
+import Tesseract from "tesseract.js";
 const UploadMainBar = () => {
   const modules = {
     toolbar: [
@@ -28,7 +28,8 @@ const UploadMainBar = () => {
   const [file, setFile] = useState("");
   const [category, setCategory] = useState([]);
   const [image, setImage] = useState(null);
-  const userPosted = "test22";
+  const [amount, setAmount] = useState(0);
+  const userPosted = window.localStorage.getItem("userId");
 
 
   // const convertImageToText = async () => {
@@ -55,28 +56,22 @@ const UploadMainBar = () => {
     setType("Cash");
   }
 
-  const worker = createWorker();
 
-  const convertImageToText = async () => {
-    try { 
-      await worker.load();
-      await worker.loadLanguage('eng');
-      await worker.initialize('eng');
+
+  const convertImageToText = async (file) => {
+      const worker = await Tesseract.createWorker('eng', 1, m => console.log(m));
       const {
         data: { text },
       } = await worker.recognize(file);
       console.log(text);
       setEditorText(text);
-    } catch (error) {
-      console.log(error);
-    }
+
   };
   const handleImageState = () => {
     setImage("");
   };
 
-  const handleImageChange = async (e) => {
-    try {
+  const handleImageChange = (e) => {
       const file = e.target.files[0];
       setFile(file);
       if(!file) return;
@@ -90,23 +85,22 @@ const UploadMainBar = () => {
           reader.onload = () => {
             var dataURL = reader.result;
             setImageData(dataURL);
+            convertImageToText(file);
             setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
             console.log(image);
           };
           reader.readAsDataURL(file);
-          convertImageToText();
+          
         } else {
           setImage("");
         }
       }
-    } catch (error) {
-      console.log(error);
-    }
+
   };
 
   const handleUpload = async () => {
     let data, res;
-    data = `questionBody=${editorText}&questionTags=${category}&userPosted=${userPosted}`;
+    data = `questionBody=${editorText}&questionTags=${category}&userPosted=${userPosted}&amount=${amount}`;
     res = await fetch(
       "https://crackube-backend-test.onrender.com/questions/ask",
       {
@@ -132,13 +126,6 @@ const UploadMainBar = () => {
     setCategory([]);
     window.location.href = "/home";
   };
-  // useEffect(() => {
-  //   try {
-  //     convertImageToText();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [file]);
 
   return (
     <div className="blog-layout">
@@ -218,7 +205,7 @@ const UploadMainBar = () => {
       </div>
       <div className="point-amount">
         <div className="select-amount">
-        <input type="number" min={10} max={500} step={5} pattern= "[0-9]" />
+        <input type="number" min={10} max={500} step={5} pattern= "[0-9]" onChange={(e) => setAmount(e.target.value) } />
         </div>
         
         <p>you have 54 points</p>

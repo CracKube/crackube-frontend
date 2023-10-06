@@ -93,12 +93,6 @@ background: var(--crac-kube-red, #F42271);
     line-height: normal;
   }
 
-  .ql-toolbar.ql-snow {
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    padding: 8px;
-  }
   
 .blog-description {
   display: flex;
@@ -154,6 +148,7 @@ background: var(--crac-kube-red, #F42271);
   padding-bottom: 1rem;
 }
 .cat-container h1 {
+  font-weight: 700;
   padding-bottom: 1rem;
 }
 .thumbnailUpload {
