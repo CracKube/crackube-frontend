@@ -24,7 +24,7 @@ const AnswerComponent = ({ body, tags, userName, postedOn, id }) => {
           </div>
         </div>
         <div className="answer-section">
-          <p>{body}</p>
+          <p dangerouslySetInnerHTML={{__html: `${body}`}}></p>
         </div>
         <div>
           <UserComponent user={userName} time={postedOn} />
