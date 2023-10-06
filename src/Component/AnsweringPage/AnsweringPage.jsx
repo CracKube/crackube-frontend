@@ -87,9 +87,8 @@ function AnsweringPage({ theme, setTheme }) {
           </div>
           <div className="question-area">
             <h3>Question</h3>
-            <p>
-              {answer.data && answer.data.questionBody}
-            </p>
+            {answer.data && <p dangerouslySetInnerHTML={{__html: `${answer.data.questionBody}`}}></p>}
+
           </div>
           <div className="answer-area">
             <h3>Your Answer</h3>

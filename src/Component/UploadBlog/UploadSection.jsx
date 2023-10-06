@@ -31,7 +31,7 @@ const UploadSection = ({ body, title, setFirst }) => {
     formData.append("blogTags", category);
     formData.append("blogImageProvider", blogImageProvider);
     formData.append("blogImageUrl", blogImageUrl);
-  console.log(formData);
+    console.log(formData);
   const handleImageChange = (e) => {
 
 

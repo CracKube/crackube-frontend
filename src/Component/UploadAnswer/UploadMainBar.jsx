@@ -100,7 +100,7 @@ const UploadMainBar = () => {
 
   const handleUpload = async () => {
     let data, res;
-    data = `questionBody=${editorText}&questionTags=${category}&userPosted=${userPosted}&amount=${amount}`;
+    data = `questionBody=${editorText}&questionTags=${category}&userPosted=${userPosted}&points=${amount}&type=${type}`;
     res = await fetch(
       "https://crackube-backend-test.onrender.com/questions/ask",
       {
