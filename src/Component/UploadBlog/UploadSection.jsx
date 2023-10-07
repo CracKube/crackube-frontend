@@ -24,7 +24,7 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
 
-    formData.append("image", file);
+    formData.append("blogImage", file);
     formData.append("userPosted", localStorage.getItem("userId"));
     formData.append("blogTitle", title);
     formData.append("blogBody", body);
@@ -63,16 +63,21 @@ const UploadSection = ({ body, title, setFirst }) => {
   // use headers to set the content type to multipart/form-data
   // use async await to wait for the response from the backend
   const redirect = async () => {
-    let data;
-    data = await axios.post(
-      "https://crackube-backend-test.onrender.com/blogs/post/",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
-    console.log(data);
-    setFirst(false);
+    try {
+      let data;
+      data = await axios.post(
+        "https://crackube-backend-test.onrender.com/blogs/post/",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      console.log(data.response);
+      setFirst(false);
+    } catch (error) {
+      console.log(error.response);
+    }
+
   }
   // upload the images, title, body, tags, category, userPosted, userId to the backend url https://crackube-backend-test.onrender.com/blogs/post/
 

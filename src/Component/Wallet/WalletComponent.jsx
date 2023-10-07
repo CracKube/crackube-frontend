@@ -7,13 +7,18 @@ import Search from "../../Assets/transSearch.svg";
 import Calendar from "../../Assets/calendar.svg";
 import Arrow from "../../Assets/arrowTrans.svg";
 import Data from "../../Data.json";
-const WalletComponent = () => {
+const WalletComponent = ({response}) => {
+ 
+  
   const [currentPage, setCurrentPage] = React.useState(1);
   const recordsPerPage = 10;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
-  const currentRecords = Data.slice(firstIndex, lastIndex);
-  const npage = Math.ceil(Data.length / recordsPerPage);
+  const currentRecords = response && response.transactions.slice(firstIndex, lastIndex);
+  console.log(currentRecords);
+
+  
+  const npage = response && Math.ceil(response.transactions.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
   function paginate(n) {
@@ -36,7 +41,7 @@ const WalletComponent = () => {
         <p>Your Wallet</p>
       </div>
       <div className="system-flex">
-        <WalletSystem title={"Your CK Points"} value={2300} type={"CK"} />
+        <WalletSystem title={"Your CK Points"} value={response.points} type={"CK"} />
         <WalletSystem title={"Your Money"} value={2300} type={"INR"} />
         <RewardSystem title={"Reward System"} />
       </div>
@@ -85,39 +90,40 @@ const WalletComponent = () => {
         <div className="history-cover">
           <div className="trans-history">
             <h6>Date</h6>
-            {currentRecords.map((record) => (
-              <p>{record.Date}</p>
+            {response && currentRecords.map((record) => (
+              <p></p>
             ))}
           </div>
           <div className="trans-history">
             <h6>Name</h6>
-            {currentRecords.map((record) => (
-              <p>{record.Name}</p>
+            {response && currentRecords.map((record) => (
+              <p></p>
             ))}
           </div>
           <div className="trans-history">
             <h6>Transaction ID</h6>
-            {currentRecords.map((record) => (
-              <p>{record.ID}</p>
+            {response && currentRecords.map((record) => (
+              <p>{record._id}</p>
             ))}
           </div>
           <div className="trans-history">
             <h6>Amount</h6>
-            {currentRecords.map((record) => (
-              <p>{record.Amount}</p>
+            {response && currentRecords.map((record) => (
+              <p>{record.amount}.00 INR</p>
             ))}
           </div>
           <div className="trans-history">
             <h6>Type</h6>
-            {currentRecords.map((record) => {
-              <p>{record.Type}</p>;
-            })}
+            {response && currentRecords.map((record) => (
+              <p>{record.type}</p>
+            ))}
+            
           </div>
           <div className="trans-history">
             <h6>Status</h6>
-            {currentRecords.map((record) => {
-              <p>{record.Status}</p>;
-            })}
+            {response && currentRecords.map((record) => (
+              <p>success</p>
+            ))}
           </div>
         </div>
         <nav className="history-paginate">

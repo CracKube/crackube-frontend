@@ -111,13 +111,14 @@ const UploadMainBar = () => {
         body: data,
       }
     );
+    
     const response = await res.json();
 
     console.log(response);
     if (res.status == 200) {
       alert("Successfully Posted");
     } else {
-      alert("Something went wrong");
+      alert(response);
       return;
     }
     setBody("");

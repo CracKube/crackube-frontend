@@ -289,7 +289,6 @@ line-height: normal;
   position: relative;
 }
 .active, .menu-bar-link{
-  background-color: #FBF5FF;
   color: #8F00FF;
   text-decoration: none;
 }
@@ -765,14 +764,20 @@ background: var(--white, #FFF);
 }
 .ans-user > div > button {
   display: inline-flex;
-  height: 2.25rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.75rem;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
   border-radius: 2rem;
   color: #fff;
   background: var(--Black, #000);
+  color: var(--White, #FFF);
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 .ans-users {
   min-height: fit-content;

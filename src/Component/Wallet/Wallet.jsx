@@ -17,35 +17,49 @@ const Wallet = () => {
     document.getElementById("unblur").style.display = "none";
     document.getElementById("unblur").style.position = "absolute";
   };
+  const [response, setResponse] = useState("");
+  const getUserDetails = async () => {
+    const response = await fetch(
+      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+        "userId"
+      )}`
+    );
+    let data = await response.json();
+    setResponse(data);
+    console.log(data);
+    
+  };
 
   useEffect(() => {
+    console.log(response);
+    getUserDetails();
     document.getElementById("unblur").style.display = "none";
   }, []);
 
   return (
     <ThemeContext.Provider value={theme}>
-    <div id="unblur" onBlur={handleSearchBar}>
-      <div className="list-wrap">
-        <SearchBar prop="pull" />
-      </div>
-    </div>
-
-    <div id="wrapper">
-      <div className="home" id={theme}>
-        <MenuBar theme={theme} setTheme={setTheme}/>
-        <div className="center-maker">
-        <div className="home-container">
-          <TopNavBar theme={theme} />
-          <WalletComponent />
-        </div>
+      <div id="unblur" onBlur={handleSearchBar}>
+        <div className="list-wrap">
+          <SearchBar prop="pull" />
         </div>
       </div>
-    </div>
-    <div className="bottom-nav">
-      <HiddenComponent> </HiddenComponent>
-    </div>
-  </ThemeContext.Provider>
-  )
-}
 
-export default Wallet
+      <div id="wrapper">
+        <div className="home" id={theme}>
+          <MenuBar theme={theme} setTheme={setTheme} />
+          <div className="center-maker">
+            <div className="home-container">
+              <TopNavBar theme={theme} />
+              <WalletComponent response = {response} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bottom-nav">
+        <HiddenComponent> </HiddenComponent>
+      </div>
+    </ThemeContext.Provider>
+  );
+};
+
+export default Wallet;

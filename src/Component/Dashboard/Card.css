@@ -43,7 +43,7 @@
 }
 .card__container:hover {
     transition: ease-in-out 0.2s;
-    transform: scale(0.90);
+    transform: scale(0.95);
 }
 .auth-name {
     font-weight: 600;
