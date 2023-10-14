@@ -19,38 +19,15 @@
   display: none;
 }
 
-.otp_formContainer {
-  width: 30rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.otp_box {
-  width: 104px;
-  height: 104px;
-  border-radius: 132px;
-}
-
-.otp_input {
-  height: 100%;
-  width: 100%;
-  border-radius: 32px;
-  border: 1px solid #8f00ff;
-  background: #fbf5ff;
-
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-.forgotPassword_form-container {
+.third_form-container {
   width: 55%;
-  height: 70%;
+  height: 80%;
 
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  margin-top: 0rem;
+  margin-top: 2rem;
 }
 
 .signUp_logo-container {
@@ -109,9 +86,9 @@
   gap: 1rem;
 }
 
-.signUpForm_label {
+.third_label {
   color: #000;
-  font-size: 16px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -127,6 +104,21 @@
   align-items: center;
   justify-content: center;
   border: none;
+}
+
+.radio_container {
+  margin-top: 1rem;
+  margin-left: 3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio_button {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: #8f00ff;
 }
 
 .login_para2 {
@@ -228,9 +220,7 @@
   margin-top: 2px;
 }
 
-.forgotPassword_para2-mobile,
-.otp_para-mobile,
-.otp_para2-mobile {
+.forgotPassword_para2-mobile {
   display: none;
 }
 @media only screen and (max-width: 800px) {
@@ -239,7 +229,7 @@
     flex-direction: column;
     align-items: start;
   }
-  .forgotPassword_form-container {
+  .third_form-container {
     margin-top: 6rem;
     width: 100%;
     height: 80vh;
@@ -260,26 +250,6 @@
 
   .signUp_title {
     text-align: center;
-  }
-
-  .otp_formContainer {
-    width: 23rem;
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .otp_box {
-    width: 84px;
-    height: 84px;
-    border-radius: 102px;
-  }
-
-  .otp_input {
-    height: 100%;
-    width: 100%;
-    border-radius: 32px;
-    border: 1px solid #8f00ff;
-    background: #fbf5ff;
   }
 
   .signUpForm {
@@ -356,18 +326,6 @@
   .forgotPassword_para2-mobile {
     display: block;
     margin-top: 1rem;
-  }
-
-  .otp_para-mobile {
-    display: block;
-    text-align: center;
-    padding: 0.2rem;
-    margin-top: 1rem;
-  }
-
-  .otp_para2-mobile {
-    margin-top: 1rem;
-    display: block;
   }
 
   .signUp_para,
