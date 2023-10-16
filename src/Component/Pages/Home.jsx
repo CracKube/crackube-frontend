@@ -37,7 +37,7 @@ function Home() {
           </div>
         </div>
 
-        <div id="wrapper">
+        <div id= {theme} >
           <div className="home" id={theme}>
             <MenuBar
               theme={theme}

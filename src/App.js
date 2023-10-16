@@ -38,6 +38,8 @@ import FourthPage from "./Component/Pages/FourthPage";
 import Test from "./Component/Landing/Test";
 import Wallet from "./Component/Wallet/Wallet";
 import MainAnswer from "./Component/AnsweringPage/MainAnswer";
+import GPTInterface from "./Component/GPT/GPTInterface";
+import GPT4 from "./Component/GPT/GPT4";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -80,6 +82,8 @@ function App() {
                         <Route path='/fourth' element = {<FourthPage />}></Route>
                         <Route path = '/read' element = {<BlogRead  theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path = '/wallet' element = {<Wallet />}></Route>
+                        <Route path = '/gpt' element = {<GPTInterface/>}></Route>
+                        <Route path = '/gpt4' element = {<GPT4 />}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

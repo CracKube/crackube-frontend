@@ -1,12 +1,12 @@
 import React from "react";
 import { CardTitle1, CardAuthor1 } from "../Constants";
 import moment from "moment/moment";
-import "./Card.css";
+import "./CardBlog.css";
 import Skeleton from "react-loading-skeleton";
 function Card(props) {
   return (
     <div
-      className="card__container" id = {props.theme}
+      className="card__container_blog" id = {props.theme}
       style={{ cursor: "pointer" }}
       onClick={() => {
         window.location.href = `/blog/${props.id}`;
@@ -17,7 +17,7 @@ function Card(props) {
         {props.loading ? (
           <Skeleton className="h-40" />
         ) : (
-          <img src={props.thumbnail} alt="" className="thumbnailBlog" />
+          <img src={props.thumbnail} alt="" className="thumbnailBlog_blog" />
         )}
       </div>
       <div>
@@ -27,7 +27,7 @@ function Card(props) {
         <CardAuthor1
           id = {props.theme} 
           authorImage={props.authorImage}
-          author={ props.author}
+          author={props.author}
           modified={moment(props.modified).fromNow()}
         />
       </div>

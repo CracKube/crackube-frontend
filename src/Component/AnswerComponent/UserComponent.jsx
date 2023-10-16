@@ -15,8 +15,7 @@ function UserComponent({ user, time }) {
         </div>
         <div>
           <div className="user-name">
-            {" "}
-            <p>{user}</p> <img src={Verify} alt="" />
+            <p>{user && user}</p> <img src={Verify} alt="" />
           </div>
           <div className="user-ans-id">posted {moment(time).fromNow()}</div>
         </div>

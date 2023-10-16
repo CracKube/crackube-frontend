@@ -4,8 +4,8 @@ import BlogShare from '../../../Assets/BlogShare.svg'
 import BlogOptions from '../../../Assets/BlogOption.svg'
 import BlogLike from '../../../Assets/BlogLike.svg'
 export default function CardAuthor1(props){
-    const ques = props.author.length;
-    const val = props.author.slice(0,25);
+    const ques = props.author && props.author.length;
+    const val = ques && props.author.slice(0,10);
     return(
         <div className={styles.authorContainer}>
             <div className={styles.image}>
@@ -13,15 +13,15 @@ export default function CardAuthor1(props){
             </div>
             <div className={styles.title}>
                 <div><a href="">
-                { ques < 25 ? (<>
+                { ques < 10 ? (<>
                 <div className='auth-name'>{props.author}</div>
                 </>): 
                 <>
-                <div>
+                <div className='auth-name'>
                     {val}...
                 </div>
                 </>}</a></div>
-                <div>{props.modified}</div>
+                <div className='modi'>posted {props.modified}</div>
             </div>
             <div className={styles.bookmark}>
                 <a href=""><img src= {BlogLike} alt="" /></a>

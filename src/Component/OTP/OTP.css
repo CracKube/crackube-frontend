@@ -47,10 +47,18 @@
   
   .signup-logo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-top: 4rem;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
     flex: 0.3;
+  }
+  .signUp_logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
   }
   
   .signupotp-content {

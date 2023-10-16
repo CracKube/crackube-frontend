@@ -1,12 +1,16 @@
 import React from 'react'
 import User from '../../Assets/ans-user.png';
 import Msg from '../../Assets/msg.svg';
-const CommentSection = () => {
+const CommentSection = ({openComment, setCommentId, id}) => {
+  const handleModal = () => {
+    openComment(true);
+    setCommentId(id);
+  }
   return (
     <div className="comment-cover">
         <div className="cmt-flex">
         <h5>21 Comments</h5>
-        <p>view 21 comments</p>
+        <button onClick={handleModal}>view 21 comments</button>
         </div>
         
         <div className='comment-flex'>

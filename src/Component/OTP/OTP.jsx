@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import OTPInput from "react-otp-input";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import ck_logo from "../../Assets/CK_LOGO.png";
 const OTP = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
@@ -60,12 +61,12 @@ const OTP = () => {
   }, []);
   return (
     <div className="container">
-      <div className="left-container">
-        <img src={signupimage} alt="image" className="left-image" />
-      </div>
       <div className="right-container">
         <div className="signup-logo">
-          <Logo />
+        <div className="signUp_logo-container">
+          <img src={ck_logo} alt="logo" className="signUp_logo" />
+          <span className="signUpLogo_text">CracKube</span>
+        </div>
         </div>
         <div className="signupotp-content">
           <div className="signupotp-heading">

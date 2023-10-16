@@ -1,58 +1,138 @@
-import React, { useState } from "react";
-import "../../styles/Sheets/Style.css";
-import LoginDesign from "../../Assets/SignUpImg.svg";
-import { NavLink, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import OTP from "../../Component/OTP Page/OTP.js";
-import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
-import { LoginSocialFacebook } from "reactjs-social-login";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// components
+
+// Assets
+import ck_logo from "../../Assets/CK_LOGO.png";
+
+//css
+import "../../styles/Sheets/thirdPage.css";
 
 const ThirdPage = () => {
   const navigate = useNavigate();
-  const {state} = useLocation();
-    const [Date, setDate] = useState("");
-  const [Gender, setGender] = useState("");
+  const [gender, setGender] = useState("");
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  const [Date, setDate] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+
+  const handleGender = (e) => {
+    const value = e.target.value;
+    setGender(value); // Allow user to enter value
+  };
   const datePick = (e) => {
     setDate(e.target.value);
   };
-
-  // get the selected option in id= gender
-  const handleGender = (e) => {
-    setGender(e.target.value);
-  }
   const handleNavigate = () => {
-    navigate("/fourth", {state: {date: Date, gender: Gender, userId: state.userId}});
+    navigate("/fourth", {
+      state: { date: Date, gender: gender, country: selectedCountry },
+    });
   };
 
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  // Define a function to handle the change event of the dropdown
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
+  const countryOptions = [
+    { value: "india", label: "India" },
+    { value: "usa", label: "United States" },
+    { value: "canada", label: "Canada" },
+    { value: "uk", label: "United Kingdom" },
+  ];
 
   return (
-    <div className="main1">
-      <div className="Design">
-        <img className="img" src={LoginDesign} alt="" />
+    <div className="forgotPassword_container">
+      <div className="third_form-container">
+        <div className="signUp_logo-container">
+          <img src={ck_logo} alt="logo" className="signUp_logo" />
+          <span className="signUpLogo_text">CracKube</span>
+        </div>
+        <span className="signUp_title">Tell us more about you...</span>
+        <p className="signUp_para">
+          {/* Enter your email to reset password. OTP will <br />
+          be sent to your account. */}
+        </p>
+        <div className="signUpForm">
+          <div className="">
+            <label className="third_label">Whats your Gender</label>
+            <div className="radio_container">
+              <input
+                type="radio"
+                placeholder="Enter your email"
+                className="radio_button"
+                name="gender"
+                value={gender}
+                onChange={handleGender}
+                required
+              />{" "}
+              Male
+              <input
+                type="radio"
+                placeholder="Enter your email"
+                className="radio_button"
+                name="gender"
+                value={gender}
+                onChange={handleGender}
+                required
+              />{" "}
+              Female
+              <input
+                type="radio"
+                placeholder="Enter your email"
+                className="radio_button"
+                name="gender"
+                value={gender}
+                onChange={handleGender}
+                required
+              />{" "}
+              Other
+            </div>
+          </div>
+          <div className="">
+            <label className="third_label">Date of Birth</label>
+            <br />
+            <br />
+            <input
+              type="date"
+              value={Date}
+              placeholder="Enter your email"
+              className="signUpForm_input"
+              onChange={datePick}
+              required
+            />
+          </div>
+          <div className="">
+            <label className="third_label">Your Country</label>
+            <br />
+            <br />
+            <select
+              value={selectedCountry}
+              onChange={handleCountryChange}
+              className="signUpForm_input"
+              required
+            >
+              <option value="" disabled>
+                Select Your Country
+              </option>
+              {countryOptions.map((ele, index) => (
+                <option value={ele.value}>{ele.label}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <button className="forgotPassword_button" onClick={handleNavigate}>
+          Next
+        </button>
       </div>
-      <div className="Welcome">
-        <p className="txt">Tell us more about you</p>
-        <form action="">
-          <p className="Emtxt">Mention your gender</p>
-          <select id="gender" onChange={handleGender}>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-        </form>
-        <form action="">
-          <p className="Patxt">Your Date of birth*</p>
-          <input
-            placeholder="Enter your DOB"
-            type="date"
-            onChange={datePick}
-          />
-        </form>
-        <button onClick={handleNavigate}>Next Page</button>
-      </div>
-      
     </div>
   );
 };

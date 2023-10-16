@@ -7,7 +7,6 @@ function QuestionUser({ answer, theme }) {
         {answer && <p dangerouslySetInnerHTML={{__html: `${answer.questionBody}`}}></p>}
 
       <div>
-        {answer && answer.points}
       </div>
       <Tags answer={answer}></Tags>
       <QuesUser answer = {answer}></QuesUser>

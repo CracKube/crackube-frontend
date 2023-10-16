@@ -3,7 +3,7 @@ import logo from "../../src/Assets/CK_LOGO.svg";
 
 function Logo({ cssClass }) {
   return (
-      <div className={cssClass}>
+      <div className= "logo">
         <img src={logo} alt="logo" />
         <h1>CracKube</h1>
       </div>

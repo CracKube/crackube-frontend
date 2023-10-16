@@ -3,12 +3,8 @@ import AnswerPage from './AnswerPage/AnswerPage';
 // MainPage Components
 export {default as MainBar} from './MainBar/MainBar'
 export {default as AddButton} from './AddButton/AddButton'
-export {default as BlogPart} from './BlogPart/BlogPart'
 
-// BlogPage Components
-export {default as BannerImage} from './BlogPart/BannerImage'; 
-export {default as BlogAuthor} from './BlogPart/BlogAuthor';
-export {default as BlogContent} from './BlogPart/BlogContent';
+
 
 // Card1
 export {default as Card1} from './Card/Card1/Card1'

@@ -33,10 +33,10 @@
 }
 .auth-name {
     color: #000;
-font-size: 0.75rem;
-font-style: bold;
-font-weight: 600;
-line-height: normal;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 .bookmark{
     flex: 1;

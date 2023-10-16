@@ -1,14 +1,17 @@
 import styles from './Profile.module.css';
 import { authorUrl as url, Diamond as url1 } from '../Constants'
 
-export default function Profile({details}) {
+export default function Profile({details, time}) {
     return (
         <div className={styles.profile}>
             <div className={styles.pfp}>
                 <img src={details.profilePicUrl} alt="" className={styles.pfpimage} />
+                <p>{time}</p>
             </div>
+            
             <div className={styles.pfcardcontainer}>
                 <div className={styles.pfcard}>
+
                     <div className={styles.name}>{details.firstName} </div>
                     <div className={styles.id}>@{details.username}</div>
                     <div className={styles.league}>

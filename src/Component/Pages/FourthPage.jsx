@@ -73,9 +73,6 @@ const FourthPage = () => {
 
   return (
     <div className="main1">
-    <div className="Design">
-      <img className="img" src={LoginDesign} alt="" />
-    </div>
     <div className="Welcome">
       <p className="txt">Make yourself Unique</p>
       <div className="avatar">

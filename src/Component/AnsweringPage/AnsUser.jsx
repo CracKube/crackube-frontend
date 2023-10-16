@@ -1,6 +1,7 @@
 import React from "react";
 import Tags from "./Tags";
 import User from "../../Assets/ans-user.png";
+import Flag from "../../Assets/report.svg";
 import BookMark from "../../Assets/bookmark.png";
 import RedFlag from "../../Assets/red-flag.png";
 function AnsUser({ answer }) {
@@ -12,7 +13,7 @@ function AnsUser({ answer }) {
                   <img src={User} />
                 </div>
                 <div>
-                  <div>{answer.userPosted.name}</div>
+                  <div>{answer.userPosted.username}</div>
                   <div className="user-ans-id">@{answer.userPosted._id}</div>
                 </div>
                 <div>
@@ -20,7 +21,7 @@ function AnsUser({ answer }) {
                 </div>
               </div>
               <div>
-                <div className="bk-btn-wrap"></div>
+                <button className="report-flag"><img src= {Flag} alt="" /></button>
               </div>
             </div>
     </>

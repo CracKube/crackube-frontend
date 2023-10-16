@@ -10,6 +10,7 @@ import vector from "../../Assets/vector.svg";
 import category from "../../Assets/category.svg";
 import follow from "../../Assets/follow-prof.svg";
 import camera from "../../Assets/camera.svg";
+import { NavLink } from "react-router-dom";
 const SearchBar = ({ handleChange }) => {
   const [input, setInput] = useState("");
 
@@ -38,7 +39,7 @@ const SearchBar = ({ handleChange }) => {
           placeholder="Search for anything"
         />
         <div className="search-attr">
-          <img src= {camera} className="camera-ocr" alt="" />
+          <img src={camera} className="camera-ocr" alt="" />
           <svg
             width="2"
             height="18"
@@ -74,9 +75,27 @@ function SearchNavbar() {
     <div className="search-nav-bar-eff">
       <div className="profile-show">
         <div className="profile-nav-btn">
-          <button> <img src= {vector} alt="" /> Trending</button>
-          <button> <img src= {category} alt="" /> Categories</button>
-          <button><img src= {follow} alt="" />Who to follow</button>
+          <NavLink className='profile-nav-btn-active'
+            style={({ isActive }) => ({
+              backgroundColor: isActive ? "#F2F2F2" : "",
+            })}
+          >
+            <img src={vector} alt="" /> <p>Trending</p>
+          </NavLink>
+          <NavLink className='profile-nav-btn-active'
+            style={({ isActive }) => ({
+              backgroundColor: isActive ? "#F2F2F2" : "",
+            })}
+          >
+            <img src={category} alt="" /> <p>Categories</p>
+          </NavLink>
+          <NavLink className='profile-nav-btn-active'
+            style={({ isActive }) => ({
+              backgroundColor: isActive ? "#F2F2F2" : "",
+            })}
+          >
+            <img src={follow} alt="" /> <p>Who to follow</p>
+          </NavLink>
         </div>
       </div>
     </div>
@@ -151,8 +170,10 @@ function SearchPage({ theme, setTheme }) {
         <div className="SearchPage">
           {/* SearchBar */}
           <SearchBar handleChange={handleChange} />
-        
-          <div className="list-wrap overlay"><SearchResultsList results={results} /></div>
+
+          <div className="list-wrap overlay">
+            <SearchResultsList results={results} />
+          </div>
           <SearchNavbar />
           <div className="coverUp">
             <div className="Discover">

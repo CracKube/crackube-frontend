@@ -2,7 +2,6 @@ import styles from '../MainBar/MainBar.module.css'
 import TopNavBar from '../NavBar/TopNavBar';
 import Dashboard from '../Dashboard/Dashboard';
 import Heading from './Heading/Heading';
-import BlogPart from '../BlogPart/BlogPart';
 import Infinite from '../InfinitePart/Infinite';
 import { Card1 } from '../Constants';
 import Wand from '../../Assets/magicWand.svg';
@@ -23,7 +22,7 @@ export default function MainBar({theme}) {
                     <p>Following</p>
                 </div>
             </div>
-            <Dashboard type='card1' />
+            <Dashboard type='card1' theme = {theme} />
         </div>
         </ThemeContext.Provider>
     );

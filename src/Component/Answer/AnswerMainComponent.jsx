@@ -51,7 +51,7 @@ const AnswerMainComponent = ({ theme }) => {
           id = {item._id}
           body={item.questionBody}
           tags = {item.questionTags}
-          userName = {item.userPosted._id}
+          userName = {item.userPoster && item.userPosted._id}
           postedOn = {item.askedOn}
           
           />;
