@@ -368,18 +368,55 @@ function AnsweringPage({ theme, setTheme }) {
             <h1>{answer && answer.answerCount} Answers</h1>
             {answer.data &&
               answer.data.answers &&
-              answer.data.answers.map((ans) => {
+              answer.data.answers.map((ans, index) => {
                 return (
-                  <div className="ans-holder">
-                    <div className="ans-users">
+                  <div className={"ans-holder"} key={index}>
+                    <div
+                      className={`ans-users${
+                        answer.data.verifiedAnsId === ans._id ? "-sp" : ""
+                      }`}
+                    >
                       <div className="ans-container">
-                        <AnsUser answer={ans}></AnsUser>
+                        <div className="ans-whole-wrap-1">
+                          <div className="ans-user">
+                            <div>
+                              <img src={User} />
+                            </div>
+                            <div>
+                              <div>{ans.userPosted.username}</div>
+                              <div className="user-ans-id">
+                                @{ans.userPosted._id}
+                              </div>
+                            </div>
+                            <div>
+                              <button>Follow</button>
+                            </div>
+                          </div>
+                          <div className="answer-comp">
+                            {answer.data.verifiedAnsId === ans._id && (
+                              <div className="best-ans-sp">Best Answer</div>
+                            )}
+                            {!answer.data.isVerified && (
+                              <button
+                                className="best-ans"
+                                onClick={handleVerify(ans._id)}
+                              >
+                                Choose this as the best Answer
+                              </button>
+                            )}
+                            <button className="report-flag">
+                              <img src={Flag} alt="" />
+                            </button>
+                          </div>
+                        </div>
                         <p>{ans.answerBody}</p>
 
                         <LikeAndReply></LikeAndReply>
-                        <CommentSection openComment={setIsCommentOpen}
+                        <CommentSection
+                          openComment={setIsCommentOpen}
                           setCommentId={setCommentId}
-                          id={ans._id}/>
+                          id={ans._id}
+                        />
                       </div>
                     </div>
                   </div>

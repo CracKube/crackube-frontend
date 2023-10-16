@@ -4,6 +4,9 @@
   font-family: "Montserrat";
   font-weight: 500;
 }
+button {
+  cursor: pointer;
+}
 .blog-flex {
   display: grid;
   grid-template-columns: 5fr 14rem;
