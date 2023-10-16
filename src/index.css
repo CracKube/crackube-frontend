@@ -1214,6 +1214,39 @@ letter-spacing: -0.06rem;
 }
 .comments-area {
   display: flex;
+  gap: 1rem;
+  margin-top: 2.37rem;
+}
+.user-cmt-img > img{
+  width: 4rem;
+height: 4rem;
+flex-shrink: 0;
+border-radius: 4rem;
+}
+.comments > h3 {
+  color: #000;
+font-family: Montserrat;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.comments > p {
+  padding-top: 0.25rem;
+  color: #000;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.comments > span {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 .modal-head {
   display: flex;

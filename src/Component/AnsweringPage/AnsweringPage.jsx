@@ -35,6 +35,7 @@ const Comments = ({ isOpen, onRequestClose, children }) => {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       className="modal"
+      ariaHideApp = {false}
       overlayClassName="modal-overlay"
     >
       {children}
@@ -48,6 +49,7 @@ function AnsweringPage({ theme, setTheme }) {
   const [ansId, setCommentId] = useState("");
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [answer, setAnswer] = useState([]);
+  
   const [answerBody, setAnswerBody] = useState("");
   const openModal = () => {
     console.log("open");
@@ -62,6 +64,7 @@ function AnsweringPage({ theme, setTheme }) {
   const closeComment = () => {
     setIsCommentOpen(false);
   };
+
   const getAnswer = async () => {
     const response = await fetch(
       `https://crackube-backend-test.onrender.com/answers/get/${id}`
@@ -171,38 +174,11 @@ function AnsweringPage({ theme, setTheme }) {
           </CustomModal>
           <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
             {answer.data && answer.data.answers.map((ans, index) => {
-              {console.log(ans._id === ansId)}
               return (
-                <>
-                {ans._id === ansId && 
-                    <>
-                      <div className="modal-head">
-                        <button onClick={closeComment}>
-                          <img src={Arrow} alt="" />
-                        </button>
-                        <h2>Comments</h2>
-                      </div>
-                      <div className="comments-area">
-                        <div className="user-cmt-img">
-                          <img src="" alt="" />
-                        </div>
-                        <div className="comments">
-                          <h3>user-name</h3>
-                          <p>Comment body</p>
-                          <p>reply-show 2 replies</p>
-                        </div>
-                      </div>
-                    </>
-                
-                }
-                </>
-              );
-            }
-            )}
-            {/* {answer.data && answer.data.answers._id === ansId &&
-              answer.data.answers.map((ans, index) => {
-                return (
-                  <>
+                <div key = {index}>
+                {ans._id === ansId && ans.comments.map((cmt, index) => {
+                  return(
+                    <div key={index}>
                     <div className="modal-head">
                       <button onClick={closeComment}>
                         <img src={Arrow} alt="" />
@@ -211,17 +187,27 @@ function AnsweringPage({ theme, setTheme }) {
                     </div>
                     <div className="comments-area">
                       <div className="user-cmt-img">
-                        <img src="" alt="" />
+                        <img src= {cmt.userPosted.profilePic} alt="" />
                       </div>
                       <div className="comments">
-                        <h3>user-name</h3>
-                        <p>Comment body</p>
-                        <p>reply-show 2 replies</p>
+                        <h3>{cmt.userCommented}</h3>
+                        <p>{cmt.commentBody}</p>
+                        <span>reply-show 2 replies</span>
                       </div>
                     </div>
-                  </>
-                );
-              })} */}
+                  </div>
+                  )
+                 
+                })
+                    
+                  
+                
+                }
+                </div>
+              );
+            }
+            )}
+
           </Comments>
 
           <div className="ans-line-1" id={theme}>
@@ -340,6 +326,43 @@ function AnsweringPage({ theme, setTheme }) {
               <button onClick={handleAnswerSubmit}>Submit</button>
             </div>
           </CustomModal>
+          <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
+            {answer.data && answer.data.answers.map((ans, index) => {
+              return (
+                <div key = {index}>
+                {ans._id === ansId && ans.comments.map((cmt, index) => {
+                  return(
+                    <div key={index}>
+                    <div className="modal-head">
+                      <button onClick={closeComment}>
+                        <img src={Arrow} alt="" />
+                      </button>
+                      <h2>Comments</h2>
+                    </div>
+                    <div className="comments-area">
+                      <div className="user-cmt-img">
+                        <img src= {cmt.userPosted.profilePic} alt="" />
+                      </div>
+                      <div className="comments">
+                        <h3>{cmt.userCommented}</h3>
+                        <p>{cmt.commentBody}</p>
+                        <span>reply-show 2 replies</span>
+                      </div>
+                    </div>
+                  </div>
+                  )
+                 
+                })
+                    
+                  
+                
+                }
+                </div>
+              );
+            }
+            )}
+
+          </Comments>
           <div className="ans-line-1" id={theme}>
             <QuestionUser id={theme} answer={answer.data}></QuestionUser>
             <h1>{answer && answer.answerCount} Answers</h1>
@@ -354,7 +377,9 @@ function AnsweringPage({ theme, setTheme }) {
                         <p>{ans.answerBody}</p>
 
                         <LikeAndReply></LikeAndReply>
-                        <CommentSection />
+                        <CommentSection openComment={setIsCommentOpen}
+                          setCommentId={setCommentId}
+                          id={ans._id}/>
                       </div>
                     </div>
                   </div>

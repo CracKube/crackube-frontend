@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // components
 
@@ -12,6 +12,7 @@ import "../../styles/Sheets/thirdPage.css";
 const ThirdPage = () => {
   const navigate = useNavigate();
   const [gender, setGender] = useState("");
+  const {state} = useLocation();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,8 +30,7 @@ const ThirdPage = () => {
     setDate(e.target.value);
   };
   const handleNavigate = () => {
-    navigate("/fourth", {
-      state: { date: Date, gender: gender, country: selectedCountry },
+    navigate("/fourth", {state: { date: Date, gender: gender, country: selectedCountry, userId: state.userId },
     });
   };
 
