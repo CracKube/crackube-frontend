@@ -61,7 +61,7 @@ const ThirdPage = () => {
           be sent to your account. */}
         </p>
         <div className="signUpForm">
-          <div className="">
+          <div className="sign-flex">
             <label className="third_label">Whats your Gender</label>
             <div className="radio_container">
               <input
@@ -96,7 +96,7 @@ const ThirdPage = () => {
               Other
             </div>
           </div>
-          <div className="">
+          <div className="dob-third">
             <label className="third_label">Date of Birth</label>
             <br />
             <br />
@@ -109,7 +109,7 @@ const ThirdPage = () => {
               required
             />
           </div>
-          <div className="">
+          <div className="country-third">
             <label className="third_label">Your Country</label>
             <br />
             <br />

@@ -220,16 +220,7 @@ const SignUp = () => {
         <button className="signUp_button-mobile">Agree and Continue</button>
 
         <p className="signUp_para2 mobile">
-          Already have an account ?{" "}
-          <span
-            className="login_link"
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Log in
-          </span>
-        </p>
+          Already have an account ? <a href="/login">Login</a>   </p>
         <p className="signUp_para2 mobile">or</p>
 
         <div className="signUp_socials">

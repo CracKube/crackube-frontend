@@ -89,8 +89,8 @@ const OTP = () => {
             />
           </div>
           <div className="signupotp-bottom">
-            <p>
-              Didn’t you receive the OTP? <span className="span">Resend</span>
+            <p className="resend">
+              Didn’t you receive the OTP? <a className="span">Resend</a>
             </p>
             <button className="verifyotp-button" onClick={(e) => handleVerifyOtp(e)}>Verify OTP</button>
           </div>

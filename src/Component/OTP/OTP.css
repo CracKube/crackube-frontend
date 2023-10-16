@@ -115,12 +115,8 @@
     align-items: center;
     text-align: center;
   }
-  .opt-input {
-    width: 6.5rem;
-    height: 6.5rem;
-    text-align: center;
-    border-radius: 2rem;
-    border: 1px solid var(--CracKube-Purple, #8f00ff);
+
+  .opt-input :focus {
     background: var(--CK-Light-Purple, #f5e5ff);
   }
   
@@ -177,14 +173,21 @@
     
 
   }
-  
+  .resend {
+    display: flex;
+    gap: 0.3rem;
+  }
   .input-box{
     min-width: 6.5rem;
     min-height: 6.5rem; 
     border-radius: 2rem;
-    border: 1px solid var(--CracKube-Purple, #8F00FF);
-    background: var(--CK-Purple-btn, #FBF5FF); 
+    border: 1px solid var(--Med-Gray, #C8C8C8); 
+    background: var(--Light-Gray-for-Division, #F2F2F2); 
 
+  }
+  .input-box:focus {
+    border: 1px solid var(--CracKube-Purple, #8F00FF);
+    background: var(--CK-Light-Purple, #f5e5ff);
   }
   
   

@@ -15,9 +15,6 @@ const ForgetPswd = () => {
 
   return (
     <div className="container">
-      <div className="left-container">
-        <img src={image} alt="image" className="left-image" />
-      </div>
       <div className="right-container">
         <div className="crackube-logo">
           <Logo />
@@ -43,7 +40,7 @@ const ForgetPswd = () => {
             Reset Password
           </button>
         </form>
-        <p className="resend-text">Resend code</p>
+        <a className="resend-text">Resend code</a>
       </div>
     </div>
   );

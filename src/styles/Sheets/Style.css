@@ -7,6 +7,9 @@
 button {
   cursor: pointer;
 }
+a{
+  cursor: pointer;
+}
 .blog-flex {
   display: grid;
   grid-template-columns: 5fr 14rem;
@@ -100,12 +103,44 @@ margin-bottom: 1rem;
 
 
 .txt {
-  font-size: 4rem;
-  font-weight: 900;
+  color: var(--Black, #000);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.08rem;
 }
 .req {
-  font-size: 1rem;
-  font-weight: 600;
+  color: var(--Gray, #737373);
+text-align: center;
+font-family: Montserrat;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.05rem;
+}
+.Password, .Email {
+  margin-top: 0.5rem;
+}
+form > p {
+  color: var(--Black, #000);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+form > input {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 .req a {
   color: #ea4335;
@@ -1104,4 +1139,17 @@ img {
 .img-wrap1 {
   position: relative;
   border-radius: 20px;
+}
+.enter-ck {
+  margin-top: 1rem;
+  color: var(--White, #FFF);
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 2rem;
+background: var(--CracKube-Purple, #8F00FF);
 }

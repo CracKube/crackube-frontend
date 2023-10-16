@@ -132,7 +132,7 @@ const FourthPage = () => {
         />
       </form>
 
-      <button onClick={() => handleProfile()}>Enter CK WORLD</button>
+      <button className = "enter-ck" onClick={() => handleProfile()}>Enter CK WORLD</button>
     </div>
   </div>
   )

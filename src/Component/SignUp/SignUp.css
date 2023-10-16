@@ -105,10 +105,10 @@
 .signUp_button {
   margin-top: 0.4rem;
   width: 464px;
-  height: 40px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 32px;
   background: #8f00ff;
-
   color: #fff;
   text-align: center;
   font-size: 16px;
