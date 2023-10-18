@@ -18,8 +18,25 @@ const GPTInterface = () => {
     async function handleSubmit (e) {
         e.preventDefault();
         if(input === "") return;
-        setChatLog([...chatLog, {user: "user", message: `${input}`}])
-        setInput("");
+         let chatLogNew = [...chatLog, {user: "user", message: `${input}`}]
+         setInput("");
+        setChatLog(chatLogNew);
+        // fetch response to the
+        const messages =  chatLogNew.map((message) => message.message).join("");
+        const response = await fetch("https://crackube-backend-ai-test.onrender.com/v1/chat", {
+            method: "POST",
+            headers: {
+              //url encoded
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: JSON.stringify({
+              message: messages
+            })
+        });
+        const data = await response.json(); 
+        console.log(data);
+        setChatLog([...chatLogNew, {user: "gpt", message: `${data.result}`}])
+        console.log(data.result);
     }
   return (
     <div className="gpt-cover">

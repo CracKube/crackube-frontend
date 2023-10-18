@@ -49,6 +49,7 @@ function AnsweringPage({ theme, setTheme }) {
   const [ansId, setCommentId] = useState("");
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [answer, setAnswer] = useState([]);
+  const [verify, setVerify] = useState("Choose this as the best Answer");
   
   const [answerBody, setAnswerBody] = useState("");
   const openModal = () => {
@@ -96,29 +97,37 @@ function AnsweringPage({ theme, setTheme }) {
     closeModal();
     getAnswer();
   };
+  const handleVerify = async (answerId) => {
+    setVerify("Verified");
+    try {
+     
+      console.log(answerId);
+      console.log(window.localStorage.getItem("userId"));
+      const response = await fetch(
+        `https://crackube-backend-test.onrender.com/answers/verify/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `answerId=${answerId}&userId=${window.localStorage.getItem(
+            "userId"
+          )}`,
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    }catch(err){
+      console.log(err)
+    }
+    
+    
+  };
 
   useEffect(() => {
     getAnswer();
-  }, []);
-  const handleVerify = async (answerId) => {
-    console.log(answerId);
-    console.log(window.localStorage.getItem("userId"));
-    const response = await fetch(
-      `https://crackube-backend-test.onrender.com/answers/verify/${id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `answerId=${answerId}&userId=${window.localStorage.getItem(
-          "userId"
-        )}`,
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-    
-  };
+  }, [verify]);
+
   if (
     answer.data &&
     window.localStorage.getItem("userId") === answer.data.userPosted._id
@@ -241,16 +250,17 @@ function AnsweringPage({ theme, setTheme }) {
                           </div>
                           <div className="answer-comp">
                             {answer.data.verifiedAnsId === ans._id && (
-                              <div className="best-ans-sp">Best Answer</div>
+                              <div key = {index} className="best-ans-sp">Best Answer</div>
                             )}
                             {!answer.data.isVerified && (
+                              
                               <button
                                 className="best-ans"
-                                onClick={handleVerify(ans._id)}
+                                onClick={() => {handleVerify(ans._id)}}
                               >
-                                Choose this as the best Answer
+                                Choose the best answer
                               </button>
-                            )}
+                            )  }
                             <button className="report-flag">
                               <img src={Flag} alt="" />
                             </button>
@@ -396,14 +406,7 @@ function AnsweringPage({ theme, setTheme }) {
                             {answer.data.verifiedAnsId === ans._id && (
                               <div className="best-ans-sp">Best Answer</div>
                             )}
-                            {!answer.data.isVerified && (
-                              <button
-                                className="best-ans"
-                                onClick={handleVerify(ans._id)}
-                              >
-                                Choose this as the best Answer
-                              </button>
-                            )}
+                           
                             <button className="report-flag">
                               <img src={Flag} alt="" />
                             </button>

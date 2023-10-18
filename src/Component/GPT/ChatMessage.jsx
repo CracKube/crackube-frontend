@@ -1,7 +1,6 @@
 import React from "react";
 import User from "../../Assets/ans-user.png";
 const ChatMessage = ({ key, message }) => {
-  console.log(message);
   return (
     <div
       className={`${message.user === "gpt" ? "ai-chat" : "user-chat"}`}
