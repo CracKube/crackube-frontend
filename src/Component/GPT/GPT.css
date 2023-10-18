@@ -116,7 +116,8 @@
 .gpt-bottom {
   width: calc(100% - 15rem);
   position: fixed;
-  bottom: 4rem;
+  bottom: 0rem;
+  background: #fff;
 }
 .gpt-bottom > p {
   padding-top: 0.5rem;
@@ -209,6 +210,8 @@
   line-height: normal;
 }
 .conversation {
+  height: 100%;
+  overflow: auto;
   padding: 2rem 4rem 2rem 4rem;
 }
 .user-chat {
@@ -229,11 +232,12 @@
   overflow-x: auto;
   margin-left: 1rem;
   margin-right: 1rem;
+
   padding: 1.5rem 2rem 1.5rem 2rem;
   border-radius: 2rem;
   background: var(--Light-Gray-for-Division, #f2f2f2);
   color: #000;
-  text-align: center;
+  text-align: start;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;

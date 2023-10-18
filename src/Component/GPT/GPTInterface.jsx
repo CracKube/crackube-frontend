@@ -7,13 +7,7 @@ import { useState } from "react";
 import ChatMessage from "./ChatMessage";
 const GPTInterface = () => {
     const [input, setInput] = useState("");
-    const [chatLog, setChatLog] = useState([{
-        user: "gpt",
-        message: "How can I help you?"
-    }, {
-        user: "user",
-        message : "Use gpt right"
-    }]);
+    const [chatLog, setChatLog] = useState([]);
 
     async function handleSubmit (e) {
         e.preventDefault();
@@ -27,16 +21,14 @@ const GPTInterface = () => {
             method: "POST",
             headers: {
               //url encoded
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              message: messages
-            })
+              message : messages
+            }),
         });
         const data = await response.json(); 
-        console.log(data);
         setChatLog([...chatLogNew, {user: "gpt", message: `${data.result}`}])
-        console.log(data.result);
     }
   return (
     <div className="gpt-cover">
