@@ -4,6 +4,8 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../UploadBlog/UploadBlog.css";
 import Tesseract from "tesseract.js";
+import Arrow from "../../Assets/ans-back-arrow.svg";
+
 const UploadMainBar = () => {
   const modules = {
     toolbar: [
@@ -31,7 +33,6 @@ const UploadMainBar = () => {
   const [amount, setAmount] = useState(0);
   const userPosted = window.localStorage.getItem("userId");
 
-
   // const convertImageToText = async () => {
   //   if(!imageData) return;
   //   await worker.load();
@@ -51,51 +52,47 @@ const UploadMainBar = () => {
   //   })
   const handleButton = () => {
     setType("CK");
-  }
+  };
   const handleCash = () => {
     setType("Cash");
-  }
-
-
+  };
 
   const convertImageToText = async (file) => {
-      const worker = await Tesseract.createWorker('eng', 1, m => console.log(m));
-      const {
-        data: { text },
-      } = await worker.recognize(file);
-      console.log(text);
-      setEditorText(text);
-
+    const worker = await Tesseract.createWorker("eng", 1, (m) =>
+      console.log(m)
+    );
+    const {
+      data: { text },
+    } = await worker.recognize(file);
+    console.log(text);
+    setEditorText(text);
   };
   const handleImageState = () => {
     setImage("");
   };
 
   const handleImageChange = (e) => {
-      const file = e.target.files[0];
-      setFile(file);
-      if(!file) return;
-      if (file) {
-        const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
-        
+    const file = e.target.files[0];
+    setFile(file);
+    if (!file) return;
+    if (file) {
+      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
 
-        if (allowedTypes.includes(file.type)) {
-          const reader = new FileReader();
-          setEditorText("Recognizing...");
-          reader.onload = () => {
-            var dataURL = reader.result;
-            setImageData(dataURL);
-            convertImageToText(file);
-            setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
-            console.log(image);
-          };
-          reader.readAsDataURL(file);
-          
-        } else {
-          setImage("");
-        }
+      if (allowedTypes.includes(file.type)) {
+        const reader = new FileReader();
+        setEditorText("Recognizing...");
+        reader.onload = () => {
+          var dataURL = reader.result;
+          setImageData(dataURL);
+          convertImageToText(file);
+          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
+          console.log(image);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setImage("");
       }
-
+    }
   };
 
   const handleUpload = async () => {
@@ -111,7 +108,7 @@ const UploadMainBar = () => {
         body: data,
       }
     );
-    
+
     const response = await res.json();
 
     console.log(response);
@@ -132,15 +129,25 @@ const UploadMainBar = () => {
     <div className="blog-layout">
       <div className="blog-top">
         <span className="blog-gradient-text">Ask a Question</span>
-        <button
-          className="button"
-          style={{ cursor: "pointer" }}
-          onClick={handleUpload}
-        >
-          Publish
-        </button>
+        <div className="upload-flex-top">
+          <div className="upload-back">
+            <button>
+              {" "}
+              <a href="/home">
+                <img src={Arrow} alt="" />
+              </a>
+            </button>
+          </div>
+          <button
+            className="button"
+            style={{ cursor: "pointer" }}
+            onClick={handleUpload}
+          >
+            Publish
+          </button>
+        </div>
       </div>
-      <div className="blog-content">
+      <div className="blog-upload-content">
         <div className="blog-description">
           <ReactQuill
             value={editorText}
@@ -180,7 +187,7 @@ const UploadMainBar = () => {
                 />
               </svg>
               <h3>Drag & drop an image to upload</h3>
-              <p>only png or jpeg upto 10 MB</p>
+              <h3>only png or jpeg upto 10 MB</h3>
               <div className="file-input">
                 <input
                   type="file"
@@ -198,17 +205,33 @@ const UploadMainBar = () => {
           <h1>Categories</h1>
           <input type="text" className="cat-input" onChange={setCategory} />
         </div>
-
       </div>
+      <div className="points-wrap">
       <div className="points-toggle">
-        <button className= {`points-${type} `} id="button" onClick={handleButton}>CK Points</button>
-        <button className= {`cash-${type} `} id = "button" onClick = {handleCash}>Real Cash</button>
+        <button
+          className={`points-${type} `}
+          id="button"
+          onClick={handleButton}
+        >
+          CK Points
+        </button>
+        <button className={`cash-${type} `} id="button" onClick={handleCash}>
+          Real Cash
+        </button>
+      </div>
       </div>
       <div className="point-amount">
         <div className="select-amount">
-        <input type="number" min={10} max={500} step={5} pattern= "[0-9]" onChange={(e) => setAmount(e.target.value) } />
+          <input
+            type="number"
+            min={10}
+            max={500}
+            step={5}
+            pattern="[0-9]"
+            onChange={(e) => setAmount(e.target.value)}
+          />
         </div>
-        
+
         <p>you have 54 points</p>
       </div>
     </div>

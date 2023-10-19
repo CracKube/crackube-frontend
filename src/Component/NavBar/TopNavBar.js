@@ -6,6 +6,7 @@ import Settings from "../../Assets/Settings.svg";
 import { useState } from "react";
 
 import { NavLink } from "react-router-dom";
+import logo from '../../Assets/CK_LOGO.svg'
 import Cookies from "js-cookie";
 import "./TopNavBar.css";
 import Dropdown from "../DropDown/DropDown";
@@ -67,6 +68,9 @@ export default function TopNavBar({ theme }) {
   return (
     <>
       <div className="header" id="cool">
+        <div className="mobile-logo">
+        <img src={logo} alt="logo" />
+        </div>
         <div className="topnavbar" id={theme}>
           {
             <div className="topmenuBar" id={theme}>

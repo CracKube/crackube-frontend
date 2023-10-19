@@ -118,7 +118,10 @@ const UploadSection = ({ body, title, setFirst }) => {
       <div className="container-wrapper">
       <div className="blog-top">
           <span className="blog-gradient-text">Write Your Thoughts!</span>
+          <div className="nxt-btn">
           <button className="button" onClick={redirect}>Publish</button>
+            
+          </div>
         </div>
         <div className="cat-container">
           <h1>Categories</h1>

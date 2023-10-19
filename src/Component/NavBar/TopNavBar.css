@@ -8,7 +8,7 @@
     top: 0px;
     height: 4.25rem;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     display: flex;
     z-index: 999;
     border-bottom: 1px solid var(--Light-Gray-for-Division, #F2F2F2);
@@ -173,7 +173,9 @@ a {
 .button-nav .active {
     color: black;
 }
-
+.mobile-logo {
+    display: none;
+}
 @media (max-width:500px) { 
     .searchButton {
         display: none;
@@ -185,4 +187,22 @@ a {
         display: none;
     }
     
+}
+@media only screen and (max-width: 500px){ 
+    .topnavbar {
+        height: 2.25rem;
+        display: flex;
+        font-size: 0.75rem;
+        font-weight: 150;
+        justify-content: center;
+    }
+    .mobile-logo {
+        display: block;
+        padding-left: 1rem;
+        align-items: center;
+        cursor: pointer;
+    }
+    .mobile-logo > img {
+        display: flex;
+    }
 }
