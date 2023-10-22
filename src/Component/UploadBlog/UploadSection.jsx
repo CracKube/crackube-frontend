@@ -17,7 +17,9 @@ const UploadSection = ({ body, title, setFirst }) => {
       console.log(response.data)
     
   }
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("");
+
+  
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [blogImageProvider, setBlogImageProvider] = useState("");

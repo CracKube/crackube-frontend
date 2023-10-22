@@ -262,12 +262,13 @@ line-height: normal;
   width: 26.4375rem;
   height: 2.5rem;
   margin-top: 1.5rem;
+  margin-left: 1.5rem;
   justify-content: center;
   align-items: flex-start;
   gap: 0.5625rem;
   flex-shrink: 0;
 }
-.home-options > div {
+.clicked-menu  {
   display: flex;
   height: 2.5rem;
   padding: 0.5rem 1rem;
@@ -276,9 +277,28 @@ line-height: normal;
   gap: 0.5rem;
   border-radius: 2rem;
   background: var(--CK-Light-Red, #FDE9F1); 
+  cursor: pointer;
 }
-.home-options > div > p {
+.not-clicked {
+  display: flex;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  background: var(--CK-Light-Red, #fff); 
+  cursor: pointer;
+}
+.not-clicked > p {
+  color: var(--CracKube-Red, #737373);
+}
+
+ .clicked-menu  > p {
   color: var(--CracKube-Red, #F42271); 
+}
+.clicked-menu {
+
 }
 .home-none {
   display: flex;
@@ -1412,7 +1432,6 @@ text-align: center;
   width: fit-content;
   height: 100%;
   border-radius: 2rem; 
-  margin-right: 0.5rem;
   display: flex;
 }
 
@@ -1463,7 +1482,9 @@ text-align: center;
   color: #fff;
   text-decoration: none;
 } */
-
+.mobile-back > img{
+  display: none;
+}
 /* Min Bar heading*/
 #light .heading {
   color: #000;
@@ -1604,6 +1625,7 @@ border-radius: 100rem;
     overflow-y: scroll;
     
   }
+ 
   
 }
 @media only screen and (max-height: 505px){
@@ -1639,17 +1661,17 @@ border-radius: 100rem;
   .bottom-nav {
     position: fixed;
     bottom: 0px;
-    padding-top: 1rem;
     width: 100%;
     border-radius: 32px 32px 0px 0px;
     background: #FFF;
     box-shadow: 0px -4px 20px 0px rgba(142, 0, 255, 0.10);
-    min-height: 2rem;
   }
   .bot-nav-cover {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-top: 0.75rem;
+    
   }
   .bot-nav-cover > div{
       display: flex;
@@ -1660,7 +1682,17 @@ border-radius: 100rem;
     max-height: 1.5rem;
     max-width: 1.5rem;
   }
-
+.bot-nav-cover > div > a > p {
+  color: var(--Gray, #737373);
+text-align: center;
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+padding-top: 0.25rem;
+padding-bottom: 0.25rem;
+}
   .crack-logo {
     display: none;
   }
@@ -1672,9 +1704,18 @@ border-radius: 100rem;
   }
 
 }
-@media (max-width:430px) { 
+@media (max-width:600px) { 
   .bot-nav-cover > div > p {
     font-size: 10px;
+  }
+  .ans-user > div > button {
+    color: var(--White, #FFF);
+text-align: center;
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
   }
 
 }
@@ -1696,6 +1737,33 @@ border-radius: 100rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .time-btn {
+    color: var(--Black, #000);
+text-align: center;
+font-family: Montserrat;
+font-size: 0.65rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+  .answer-btn {
+    color: var(--Black, #fff);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.65rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .points-btn {
+    color: var(--CracKube-Purple, #8F00FF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.65rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
   .questions-flex {
     display: flex;
@@ -1743,5 +1811,8 @@ border-radius: 100rem;
   .report-flag-1 {
     display: block;
     border-radius: 2rem;
+  }
+  .mobile-back >  img{
+    display: block;
   }
 }

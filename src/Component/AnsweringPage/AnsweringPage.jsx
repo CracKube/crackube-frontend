@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import Clock from "./Clock";
 import User from "../../Assets/ans-user.png";
 import Flag from "../../Assets/report.svg";
+import moment from "moment/moment";
 
 const CustomModal = ({ isOpen, onRequestClose, children }) => {
   return (
@@ -134,7 +135,7 @@ function AnsweringPage({ theme, setTheme }) {
         <div className="ans-page-cover">
           <div className="ans-top-flex">
             <h1>Question</h1>
-            <div>
+            <div className="mobile-back" >
               <img src={Arrow} alt="" />
               <div>
                 <button className="time-btn">
@@ -237,7 +238,7 @@ function AnsweringPage({ theme, setTheme }) {
                             <div>
                               <div>{ans.userPosted.username}</div>
                               <div className="user-ans-id">
-                                @{ans.userPosted._id}
+                                @{moment(ans.answeredOn).fromNow()}
                               </div>
                             </div>
                             <div>
@@ -294,7 +295,7 @@ function AnsweringPage({ theme, setTheme }) {
           <div className="ans-top-flex">
             <h1>Question</h1>
             
-            <div>
+            <div className = "mobile-back">
             <img src={Arrow} alt="" />
               <div>
               <button className="time-btn">
@@ -398,7 +399,7 @@ function AnsweringPage({ theme, setTheme }) {
                             <div>
                               <div>{ans.userPosted.username}</div>
                               <div className="user-ans-id">
-                                @{ans.userPosted._id}
+                                posted {moment(ans.answeredOn).fromNow()}
                               </div>
                             </div>
                             <div>

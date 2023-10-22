@@ -1036,6 +1036,10 @@ img {
   cursor: pointer;
   text-decoration: none;
 }
+.profile-nav-btn > a > img {
+  height: 1rem;
+  width: 1rem;
+}
 
 .dp {
   display: flex;
@@ -1152,4 +1156,12 @@ line-height: normal;
   padding: 1rem 2rem 1rem 2rem;
   border-radius: 2rem;
 background: var(--CracKube-Purple, #8F00FF);
+}
+@media only screen and (max-width: 760px) {
+  .profile-nav-btn {
+    padding-top: 3rem;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }

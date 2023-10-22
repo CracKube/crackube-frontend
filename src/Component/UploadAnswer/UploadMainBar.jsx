@@ -28,7 +28,7 @@ const UploadMainBar = () => {
   const [body, setBody] = useState("");
   const [editorText, setEditorText] = useState("");
   const [file, setFile] = useState("");
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
   const [amount, setAmount] = useState(0);
   const userPosted = window.localStorage.getItem("userId");

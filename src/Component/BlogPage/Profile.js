@@ -10,7 +10,6 @@ import BlogShare from "./BlogShare";
 import BlogLike from "./BlogLike";
 import BlogSave from "./BlogSave";
 export default function Profile(props) {
-    console.log(props.author)
   const share = [
     { value: "option1", label: "Facebook", route: "/uploadblogs" },
     { value: "option2", label: "Whatsapp", route: "/uploadanswer" },
