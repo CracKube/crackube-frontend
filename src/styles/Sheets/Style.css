@@ -1165,3 +1165,16 @@ background: var(--CracKube-Purple, #8F00FF);
     gap: 0.75rem;
   }
 }
+@media (max-width:826px) {
+  .blog-content {
+    width: 100%;
+    padding: 1rem 1.5rem 0rem 1.5rem;
+  }
+  .blog-flex {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .blog-right-bar {
+    display: none;
+  }
+}

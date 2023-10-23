@@ -22,6 +22,7 @@ function BlogPage({ theme, setTheme }) {
     );
     const data = await response.json();
     setBlog(data);
+    console.log(data)
   };
   const getAllBlogs = async () => {
     const response = await fetch(
@@ -56,7 +57,9 @@ function BlogPage({ theme, setTheme }) {
             </div>
             <div className="prof">
               <Profile
-                author={blog && blog.userPosted}
+              id = {id}
+              count = {blog && blog.likes}
+                author={blog && blog.userPosted && blog.userPosted.username}
                 modified={blog && moment(blog.postedOn).fromNow()}
                 url={authorUrl}
               />

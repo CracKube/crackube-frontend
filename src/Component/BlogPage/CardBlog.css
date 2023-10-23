@@ -59,6 +59,9 @@
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     position: absolute;
+    
+}
+.blog-tag{
     padding: 0.25rem 0.75rem 0.25rem 0.75rem;
     justify-content: center;
     align-items: center;

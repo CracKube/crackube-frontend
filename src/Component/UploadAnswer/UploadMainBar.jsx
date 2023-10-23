@@ -203,7 +203,7 @@ const UploadMainBar = () => {
         </label>
         <div className="cat-container">
           <h1>Categories</h1>
-          <input type="text" className="cat-input" onChange={setCategory} />
+          <input type="text" className="cat-input" onChange={(e) => {setCategory(e.target.value)}} />
         </div>
       </div>
       <div className="points-wrap">

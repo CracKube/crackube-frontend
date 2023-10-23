@@ -55,7 +55,7 @@ export default function Dashboard(props) {
             thumbnail={blog.blogImageUrl}
             authorImage={blog.blogImageUrl}
             title={blog.blogTitle}
-            author={blog.userPosted}
+            author={blog.userPosted && blog.userPosted.username}
             modified={blog.postedOn}
             tags={blog.blogTags}
             loading={loading}

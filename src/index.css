@@ -23,9 +23,7 @@ a {
   display: inline;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+
 
 
 .nav-bar {
@@ -261,7 +259,7 @@ line-height: normal;
   display: flex;
   width: 26.4375rem;
   height: 2.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.875rem;
   margin-left: 1.5rem;
   justify-content: center;
   align-items: flex-start;
@@ -375,6 +373,7 @@ line-height: normal;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
+  cursor: pointer;
 }
 .side-arrow {
   cursor: pointer;

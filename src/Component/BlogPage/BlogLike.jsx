@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-const BlogLike = ({ img, note }) => {
+const BlogLike = ({ img, note, count }) => {
     const id = useParams().id;
   const handleLike = () => {
     // use axios to connect backend in body put userId
@@ -28,6 +28,9 @@ const BlogLike = ({ img, note }) => {
     <div className={styles.blogOp} onClick={handleLike}>
       <div>
         <img src={img} alt="" />
+      </div>
+      <div>
+        <p>{count == null ? <p>0</p> :  count.length}</p>
       </div>
       <div>
         <p>{note}</p>

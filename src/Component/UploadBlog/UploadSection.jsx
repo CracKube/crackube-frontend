@@ -19,7 +19,7 @@ const UploadSection = ({ body, title, setFirst }) => {
   }
   const [category, setCategory] = useState("");
 
-  
+
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [blogImageProvider, setBlogImageProvider] = useState("");
@@ -33,9 +33,10 @@ const UploadSection = ({ body, title, setFirst }) => {
     formData.append("blogTags", category);
     formData.append("blogImageProvider", blogImageProvider);
     formData.append("blogImageUrl", blogImageUrl);
-    console.log(formData);
+    console.log(category)
   const handleImageChange = (e) => {
 
+  console.log(formData);
 
     const file = e.target.files[0];
     setBlogImageProvider("upload");
@@ -70,6 +71,7 @@ const UploadSection = ({ body, title, setFirst }) => {
       data = await axios.post(
         "https://crackube-backend-test.onrender.com/blogs/post/",
         formData,
+
         {
           headers: { "Content-Type": "multipart/form-data" },
         }
@@ -82,7 +84,6 @@ const UploadSection = ({ body, title, setFirst }) => {
 
   }
   // upload the images, title, body, tags, category, userPosted, userId to the backend url https://crackube-backend-test.onrender.com/blogs/post/
-
 
   useEffect(() => {
       getUserDetails();
@@ -127,7 +128,7 @@ const UploadSection = ({ body, title, setFirst }) => {
         </div>
         <div className="cat-container">
           <h1>Categories</h1>
-          <input type="text" className="cat-input" onChange={setCategory} placeholder="Enter your categories" />
+          <input type="text" className="cat-input" onChange={(e) => {setCategory(e.target.value)}} placeholder="Enter your categories" />
         </div>
         <div className="thumbnailUpload">
           <label htmlFor="file" className="file-upload">

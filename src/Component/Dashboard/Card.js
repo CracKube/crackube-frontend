@@ -6,14 +6,17 @@ import Skeleton from "react-loading-skeleton";
 function Card(props) {
   return (
     <div
-      className="card__container" id = {props.theme}
+      className="card__container"
+      id={props.theme}
       style={{ cursor: "pointer" }}
       onClick={() => {
         window.location.href = `/blog/${props.id}`;
       }}
     >
       <div className="img__container">
-        <div className="tags-container">{props.tags}</div>
+        <div className="tags-container">
+             <div className="blog-tag"> <p>{props.tags[0]}</p> </div>
+        </div>
         {props.loading ? (
           <Skeleton className="h-40" />
         ) : (
@@ -21,13 +24,17 @@ function Card(props) {
         )}
       </div>
       <div>
-        <CardTitle1 className="titleContainer" title={props.title} id = {props.theme} />
+        <CardTitle1
+          className="titleContainer"
+          title={props.title}
+          id={props.theme}
+        />
       </div>
-      <div className="card__details" id = {props.theme}>
+      <div className="card__details" id={props.theme}>
         <CardAuthor1
-          id = {props.theme} 
+          id={props.theme}
           authorImage={props.authorImage}
-          author={ props.author}
+          author={props.author}
           modified={moment(props.modified).fromNow()}
         />
       </div>

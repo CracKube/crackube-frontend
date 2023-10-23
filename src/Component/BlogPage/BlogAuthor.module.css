@@ -12,7 +12,6 @@
 }
 
 .blogOp {
-    margin-right: 2rem;
   display: flex;
   border-radius: 2rem;
   background: var(--Light-Gray-for-Division, #f2f2f2);
@@ -26,11 +25,12 @@
 }
 .blogOp > div > p {
   color: var(--Black, #000);
-  text-align: center;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+text-align: center;
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 }
 .blogopalign {
   display: flex;
@@ -38,8 +38,15 @@
   gap: 0.5rem;
   padding-right: 1.5rem;
 }
-
+.blogopalign img {
+  display: flex;
+}
+.infocover {
+  align-items: center;
+  display: flex;
+}
 .img {
+  
   border-radius: 3.125rem;
   min-height: 4rem;
   max-height: 2rem;
@@ -65,13 +72,63 @@
   padding-left: 10px;
 }
 .followbtn {
-  padding: 4px 12px 4px 12px;
-  border-radius: 24px;
 }
 
 .follow {
-  padding: 4px 12px 4px 12px;
-  border-radius: 24px;
-  color: white;
-  background: #000000;
+  display: inline-flex;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  background: var(--Black, #000);
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 0.5rem;
+}
+.blogopalign > div {
+  margin-right: 0.5rem;
+}
+
+@media (max-width:826px) {
+  .authorContainer {
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: column;
+    padding-left: 0rem;
+  }
+  .authorInside {
+    width: 100%;
+    justify-content: space-between;
+    
+  }
+  .img {
+    width: 2rem;
+height: 2rem;
+flex-shrink: 0;
+
+  }
+  .blogOp > div > p {
+    color: var(--Black, #000);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  }
+  .blogopalign {
+    margin-left: 1.5rem;
+  }
+  .blogopalign > div {
+    margin-right: 0.5rem;
+  }
+
 }

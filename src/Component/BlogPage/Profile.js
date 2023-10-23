@@ -18,6 +18,7 @@ export default function Profile(props) {
   return (
     <div className={styles.authorContainer}>
       <div className={styles.authorInside}>
+        <div className= {styles.infocover}>
         <div className={styles.image}>
           <a href="">
             <img className={styles.img} src={props.url} alt="" />
@@ -31,17 +32,19 @@ export default function Profile(props) {
             {props.modified}
           </div>
         </div>
+        </div>
         <div className={styles.followbtn}>
           <button className={styles.follow}>Follow</button>
         </div>
       </div>
 
       <div className={styles.blogopalign}>
-        <BlogLike img={Like} note="Like" />
-        <BlogShare img={Share} note="Share" options={share} />
-        <BlogSave img={Save} note="Save" />
-        <BlogOptions img={Flag} note="Report" />
-        <BlogOptions img={Options} note="" />
+        
+        <div><BlogLike count={props.count} img={Like} note="Like" /></div>
+        <div><BlogShare img={Share} note="Share" options={share} /></div>
+        <div><BlogSave img={Save} note="Save" /></div>
+        <div><BlogOptions img={Flag} note="Report" /></div>
+        <div><BlogOptions img={Options} note="" /></div>
       </div>
     </div>
   );
