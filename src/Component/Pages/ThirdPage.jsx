@@ -69,30 +69,30 @@ const ThirdPage = () => {
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value={gender}
-                onChange={handleGender}
+                value= 'Male'
+                onChange={() => {setGender("Male")}}
                 required
-              />{" "}
+              />
               Male
               <input
                 type="radio"
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value={gender}
-                onChange={handleGender}
+                value= 'Male'
+                onChange={() => {setGender("Female")}}
                 required
-              />{" "}
+              />
               Female
               <input
                 type="radio"
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value={gender}
-                onChange={handleGender}
+                value= 'Female'
+                onChange={() => {setGender("Other")}}
                 required
-              />{" "}
+              />
               Other
             </div>
           </div>

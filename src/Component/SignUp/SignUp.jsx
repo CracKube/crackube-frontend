@@ -14,7 +14,7 @@ import google from "../../Assets/Google.svg";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -23,7 +23,7 @@ const SignUp = () => {
 
   let navigate = useNavigate();
   const handleSignUP = async (e) => {
-    console.log(email, password, username);
+    console.log(email, password, name);
     // https://crackube-backend-test.onrender.com/users/createUser
     // http://localhost:5000/users/createUser
     //url encoded
@@ -36,7 +36,7 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `email=${email}&password=${password}&firstName=${username}&lastName=${username}`,
+        body: `email=${email}&password=${password}&name=${name}`,
       }
     );
 
@@ -100,7 +100,7 @@ const SignUp = () => {
 
   const handleNameChange = (e) => {
     const value = e.target.value;
-    setUsername(value); // Allow user to enter value
+    setName(value); // Allow user to enter value
     if (value && !validateName(value)) {
       setNameError(
         "Name must be at least 2 characters long and contain no numbers or symbols"
@@ -154,7 +154,7 @@ const SignUp = () => {
               type="text"
               placeholder="Enter your full name"
               className="signUpForm_input"
-              value={username}
+              value={name}
               onChange={handleNameChange}
               required
             />
