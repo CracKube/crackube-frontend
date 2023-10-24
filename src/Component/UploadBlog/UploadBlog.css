@@ -108,7 +108,7 @@ background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
   }
   .blog-content > p > img {
     width: 50%;

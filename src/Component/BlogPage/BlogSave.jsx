@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-const BlogSave = ({ img, note }) => {
+const BlogSave = ({ img, note, count }) => {
     const id = useParams().id;
   const handleSave = () => {
     // use axios to connect backend in body put userId
@@ -29,6 +29,9 @@ const BlogSave = ({ img, note }) => {
     <div className={styles.blogOp} onClick={handleSave}>
       <div>
         <img src={img} alt="" />
+      </div>
+      <div>
+        {count == null ? <p>0</p> : count.length }
       </div>
       <div>
         <p>{note}</p>

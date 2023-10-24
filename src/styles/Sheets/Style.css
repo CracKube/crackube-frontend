@@ -1177,4 +1177,17 @@ background: var(--CracKube-Purple, #8F00FF);
   .blog-right-bar {
     display: none;
   }
+  .blog-title > h1 {
+    color: #000;
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 2.4rem */
+  letter-spacing: -0.08rem;
+  
+  }
+  .blog-title {
+    padding-left: 0rem;
+  }
 }

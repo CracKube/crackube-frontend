@@ -42,7 +42,7 @@ export default function Profile(props) {
         
         <div><BlogLike count={props.count} img={Like} note="Like" /></div>
         <div><BlogShare img={Share} note="Share" options={share} /></div>
-        <div><BlogSave img={Save} note="Save" /></div>
+        <div><BlogSave count = {props.saved} img={Save} note="Save" /></div>
         <div><BlogOptions img={Flag} note="Report" /></div>
         <div><BlogOptions img={Options} note="" /></div>
       </div>

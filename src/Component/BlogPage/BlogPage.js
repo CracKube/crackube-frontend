@@ -58,6 +58,7 @@ function BlogPage({ theme, setTheme }) {
             <div className="prof">
               <Profile
               id = {id}
+              saved = {blog && blog.bookmarks}
               count = {blog && blog.likes}
                 author={blog && blog.userPosted && blog.userPosted.username}
                 modified={blog && moment(blog.postedOn).fromNow()}
