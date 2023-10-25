@@ -60,7 +60,7 @@ function BlogPage({ theme, setTheme }) {
               id = {id}
               saved = {blog && blog.bookmarks}
               count = {blog && blog.likes}
-              authImg = {blog &&  blog.userPosted.profilePicUrl}
+              authImg = {blog &&  blog.userPosted && blog.userPosted.profilePicUrl}
                 author={blog && blog.userPosted && blog.userPosted.username}
                 modified={blog && moment(blog.postedOn).fromNow()}
                 url={authorUrl}
