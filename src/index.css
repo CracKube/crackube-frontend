@@ -774,6 +774,10 @@ background: var(--white, #FFF);
   justify-content: space-between;
   align-items: center;
 }
+.cmt-flex > button {
+  color: #737373;
+  background: none;
+}
 .cmt-flex > p {
   color: var(--Gray, #737373);
   text-align: center;
@@ -940,7 +944,7 @@ background: var(--Light-Gray-for-Division, #F2F2F2);
   border-radius: 2rem;
   height: 2.25rem;
   width: 2.25rem;
-  background-color: #737373;
+  background-color: #E6E6E6;
 }
 .send-msg {
   padding-left: 0.5rem;

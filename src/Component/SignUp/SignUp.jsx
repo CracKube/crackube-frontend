@@ -30,7 +30,7 @@ const SignUp = () => {
     e.preventDefault();
 
     const response = await fetch(
-      "https://crackube-backend-test.onrender.com/auth/createUser",
+      "http://ec2-13-232-252-141.ap-south-1.compute.amazonaws.com:5000/auth/createUser",
       {
         method: "POST",
         headers: {

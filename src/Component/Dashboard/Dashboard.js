@@ -19,7 +19,7 @@ export default function Dashboard(props) {
 
   const getAllBlogs = async () => {
     const response = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
+      "http://ec2-13-232-252-141.ap-south-1.compute.amazonaws.com:5000/blogs/getAll"
     );
     const data = await response.json();
     setLoading(false);

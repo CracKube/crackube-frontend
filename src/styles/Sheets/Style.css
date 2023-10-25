@@ -69,6 +69,10 @@ margin-bottom: 1rem;
   border-radius: 2rem;
 }
 .blog-title > h1 {
+  width: 100%;
+  align-items: start;
+  display: flex;
+  justify-content: start;
   color: #000;
   font-family: Montserrat;
   font-size: 4rem;
@@ -77,6 +81,7 @@ margin-bottom: 1rem;
   line-height: 110%; /* 4.4rem */
 }
 .blog-title {
+  width: 100%;
   padding-top: 2rem;
   padding-left: 1.5rem;
 }
@@ -370,39 +375,79 @@ line-height: normal;
 }
 /*SETTINGS*/
 .settings-cover {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
 .settings-cover > p {
+  padding-left: 1.5rem;
+  color: #000;
+font-family: Montserrat;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+#light .list > ul > button {
+  color: var(--Gray, #737373);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  font-size: 2rem;
-  line-height: 3.125rem;
-  align-items: center;
-  margin-left: 2.25rem;
-  color: #000000;
-}
-
-#light .list > ul > a {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1rem;
+  line-height: normal;
   line-height: 1.563rem;
-  align-items: center;
+  align-items: start;
   padding-bottom: 1.5rem;
   padding-left: 4rem;
-
-  /* Dark Gray */
-
-  color: #5a5a5a;
-}
-#dark .list > ul > a {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.563rem;
+  padding-right: 1rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
   align-items: center;
+  gap: 0.25rem;
+
+}
+
+ .list-btn {
+  color: var(--Gray, #737373);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  line-height: 1.563rem;
+  align-items: start;
   padding-bottom: 1.5rem;
   padding-left: 4rem;
+  padding-right: 1rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #fff;
+
+}
+ .list-not-clicked {
+  color: var(--Gray, #737373);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  line-height: 1.563rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #fff;
 
   /* Dark Gray */
 
@@ -420,18 +465,9 @@ line-height: normal;
   text-decoration: none;
 }
 .list > ul {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
-.bar {
-  position: absolute;
-  top: 490px;
-  width: 450px;
-  height: 0px;
-  /* Light Gray */
 
-  border: 1px solid #d2d2d2;
-  transform: rotate(-90deg);
-}
 .social-profile {
   position: relative;
   min-width: 880px;

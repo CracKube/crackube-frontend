@@ -14,29 +14,17 @@ function Home() {
   const [theme, setTheme] = useState("light");
   const [cookies, setCookie] = useCookies(["state"]);
   const [blur, setBlur] = useState(false);
-  const handleSearchBar = () => {
-    document.getElementById("wrapper").style.filter = "blur(0px)";
-    document.getElementById("unblur").style.display = "none";
-    document.getElementById("unblur").style.position = "absolute";
-  };
   const handleMenu = () => {
     setMenu(!menu);
   };
 
   useEffect(() => {
-    document.getElementById("unblur").style.display = "none";
     setUserId(window.localStorage.getItem("userId"));
   }, []);
 
   if (menu) {
     return (
       <ThemeContext.Provider value={theme}>
-        <div id="unblur" onBlur={handleSearchBar}>
-          <div className="list-wrap">
-            <SearchBar prop="pull" />
-          </div>
-        </div>
-
         <div id= {theme} >
           <div className="home" id={theme}>
             <MenuBar
@@ -61,11 +49,6 @@ function Home() {
   } else {
     return (
       <ThemeContext.Provider value={theme}>
-        <div id="unblur" onBlur={handleSearchBar}>
-          <div className="list-wrap">
-            <SearchBar prop="pull" />
-          </div>
-        </div>
         <div id="arrow-no" onClick={handleMenu}>
           <div className="side-arrow-no">
             <img src={Arrow} alt="" />

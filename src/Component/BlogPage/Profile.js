@@ -21,7 +21,7 @@ export default function Profile(props) {
         <div className= {styles.infocover}>
         <div className={styles.image}>
           <a href="">
-            <img className={styles.img} src={props.url} alt="" />
+            <img className={styles.img} src={props.authImg} alt="" />
           </a>
         </div>
         <div className={styles.cover}>
