@@ -53,9 +53,9 @@ export default function Dashboard(props) {
             key={index}
             id={blog._id}
             thumbnail={blog.blogImageUrl}
-            authorImage={blog.blogImageUrl}
+            authorImage={blog.userPosted.profilePicUrl}
             title={blog.blogTitle}
-            author={blog.userPosted && blog.userPosted.username}
+            author={blog.userPosted && blog.userPosted.name}
             modified={blog.postedOn}
             tags={blog.blogTags}
             loading={loading}

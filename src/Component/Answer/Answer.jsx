@@ -17,7 +17,6 @@ function Answer() {
     <ThemeContext.Provider value={{theme}}>
       <div className="home" id = {theme}>
         <MenuBar theme = {theme} setTheme = {setTheme}/>
-
         <AnswerMainComponent theme = {theme} setTheme = {setTheme}/>
       </div>
       <div className='bottom-nav'>

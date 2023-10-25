@@ -557,7 +557,7 @@ background: var(--white, #FFF);
   color: #000;
 }
 .ans,
-.blog {
+.p {
   font-weight: 300;
   font-size: 0.75rem;
 }
@@ -790,6 +790,7 @@ background: var(--white, #FFF);
 .ans-user >  div > img {
   height: 2.25rem;
   width: 2.25rem;
+  border-radius: 50%;
 }
 .ans-user > div:nth-child(2) {
   font-weight: 600;
@@ -1173,6 +1174,15 @@ line-height: normal;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
+.modal-search {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 3rem;
+  z-index: 9999;
+}
 
 .modal-overlay {
   position: fixed;
@@ -1521,11 +1531,24 @@ border-radius: 100rem;
   border-radius: 25px;
   margin-top:20px;
   z-index: 1;
-  width: 36.25rem;
+  width: 33.875rem;
   align-items: center;
+  
   justify-content: center;
   animation: fadeIn 0.5s;
 }
+.results-list-pull > div {
+  width: 100%;
+  justify-content: start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #C8C8C8;
+  display: flex;
+}
+.results-list-pull > div >div {
+  padding-bottom: 0.5rem;
+}
+
 .results-list {
   display: flex;
   flex-direction: column;

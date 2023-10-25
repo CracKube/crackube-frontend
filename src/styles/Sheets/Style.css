@@ -44,6 +44,7 @@ margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   max-width: 43rem;
+  aspect-ratio: 16/9;
   width: 100%;
   height: auto;
   border-radius: 2rem;
@@ -56,8 +57,9 @@ margin-bottom: 1rem;
 .blog-container > img {
     width: 100%;
     height: auto;
+    aspect-ratio: 16/9;
   border-radius: 2rem;
-  object-fit: contain;
+  object-fit: cover;
 }
 .blog-cover {
   display: flex;
@@ -837,7 +839,7 @@ line-height: normal;
   align-items: center;
   color: #ffffff;
 }
-.dp button {
+.dp  .user-flw-btn > button {
   min-width: 81px;
   min-height: 32px;
   background: #8e00ff;
@@ -845,14 +847,22 @@ line-height: normal;
   border: none;
   color: #fbf7ff;
 }
+.profile-nav-btn > button {
+  display: flex;
+  border-radius: 2rem;
+padding: 0.5rem 1.5rem;
+justify-content: center;
+align-items: center;
+
+}
 .user-prof-cover {
   color: var(--Black, #000);
-  text-align: center;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  padding-top: 2rem;
+text-align: center;
+font-family: Clash Display;
+font-size: 2rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 
   /* Dark */
 }
@@ -872,6 +882,7 @@ line-height: normal;
   text-align: center;
 }
 .user-data {
+  min-width: 480px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -887,11 +898,12 @@ line-height: normal;
 }
 .fit p {
   color: #000;
-  text-align: center;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+text-align: center;
+font-family: Montserrat;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 /*access the 2nd p tag in fit class*/
 .fit p:nth-child(2) {
@@ -909,7 +921,7 @@ line-height: normal;
   width: 24px;
   height: 0px;
   color: #232127;
-  border: 2px solid #000000;
+  border: 1px solid #C8C8C8;
   transform: rotate(90deg);
 }
 img {
@@ -1036,6 +1048,22 @@ img {
   cursor: pointer;
   text-decoration: none;
 }
+.dashboard1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-column-gap: 1rem ;
+  grid-row-gap : 1.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+.profile-click-btn {
+  background-color: #f2f2f2;
+}
+.profile-btn {
+  background: none;
+}
 .profile-nav-btn > a > img {
   height: 1rem;
   width: 1rem;
@@ -1063,12 +1091,13 @@ img {
   color: #ffffff;
 }
 .dp > button {
-  min-width: 81px;
-  min-height: 32px;
-  background: #8e00ff;
-  border-radius: 24px;
-  border: none;
-  color: #fbf7ff;
+  color: var(--White, #FFF);
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 .user-prof-cover {
   font-style: normal;
@@ -1091,19 +1120,13 @@ img {
   align-items: center;
 }
 .user-desc {
+  color: #000;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 25px;
-  text-align: center;
-}
-.user-data {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 2rem;
+  line-height: normal;
 }
 
 .fit {
@@ -1116,7 +1139,7 @@ img {
 .user-sep-bar {
   width: 1rem;
   height: 0px;
-  color: var(--Med-Gray, #c8c8c8);
+  color: var(--Med-Gray, #C8C8C8);
   transform: rotate(90deg);
 }
 .imgs {
@@ -1190,4 +1213,51 @@ background: var(--CracKube-Purple, #8F00FF);
   .blog-title {
     padding-left: 0rem;
   }
+}
+@media (max-width:3000px) {
+  .dashboard1 {
+      grid-template-columns: repeat(7, 1fr);
+  }
+}
+@media (max-width:2400px) {
+  .dashboard1 {
+      grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width:2000px) {
+  .dashboard1 {
+      grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width:1840px) {
+  .dashboard1 {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width:1366px) {
+  .dashboard1 {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width:1072px) {
+  .dashboard1 {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:780px) {
+  .dashboard1 {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:583px) {
+  .dashboard1 {
+      grid-template-columns: repeat(1, 1fr);
+  }
+  .search {
+      display: none;
+  }
+  
 }

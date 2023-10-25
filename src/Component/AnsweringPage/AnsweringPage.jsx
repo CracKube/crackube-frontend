@@ -236,7 +236,7 @@ function AnsweringPage({ theme, setTheme }) {
                               <img src={User} />
                             </div>
                             <div>
-                              <div>{ans.userPosted.username}</div>
+                              <div>{ans.userPosted.name}</div>
                               <div className="user-ans-id">
                                 @{moment(ans.answeredOn).fromNow()}
                               </div>
@@ -394,10 +394,10 @@ function AnsweringPage({ theme, setTheme }) {
                           <div className="ans-user-cover">
                           <div className="ans-user">
                             <div>
-                              <img src={User} />
+                              <img src={ans.userPosted.profilePicUrl} />
                             </div>
                             <div>
-                              <div>{ans.userPosted.username}</div>
+                              <div>{ans.userPosted.name}</div>
                               <div className="user-ans-id">
                                 posted {moment(ans.answeredOn).fromNow()}
                               </div>

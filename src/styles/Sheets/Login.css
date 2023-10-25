@@ -4,20 +4,20 @@
 }
 
 @font-face {
-  font-family: 'VisbyCF';
-  src: url('../../../src/styles/Fonts/VisbyCF-Bold.otf');
+  font-family: "VisbyCF";
+  src: url("../../../src/styles/Fonts/VisbyCF-Bold.otf");
 }
 
 @font-face {
-  font-family: 'VisbyCFH';
-  src: url('../../../src/styles/Fonts/VisbyCF-Heavy.otf');
+  font-family: "VisbyCFH";
+  src: url("../../../src/styles/Fonts/VisbyCF-Heavy.otf");
 }
 
 .main p,
 .main h5,
 .main input,
 .main button {
-  font-family: 'VisbyCF'
+  font-family: "VisbyCF";
 }
 
 .main p,
@@ -27,7 +27,6 @@
 
 .Outer {
   display: flex;
-
 }
 
 .out {
@@ -35,7 +34,7 @@
 }
 
 .title p {
-  font-family: 'VisbyCFH';
+  font-family: "VisbyCFH";
   font-style: bold;
   font-weight: 900;
   font-size: 64px;
@@ -45,7 +44,7 @@
 .dot,
 .log {
   text-decoration: none;
-  color: #8E00FF;
+  color: #8e00ff;
 }
 
 .main {
@@ -53,7 +52,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .name {
@@ -98,19 +96,19 @@
 }
 
 .create-button {
-  background: #8E00FF;
+  background: #8e00ff;
   box-shadow: 0px 0px 20px rgba(142, 0, 255, 0.25);
   border-radius: 24px;
   border: none;
   height: 48px;
   width: 487px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .info a {
   text-decoration: none;
-  color: #8E00FF;
+  color: #8e00ff;
 }
 
 .button-div {
@@ -161,30 +159,30 @@
 }
 
 .facebook {
-  border: 1px solid #D2D2D2;
+  border: 1px solid #d2d2d2;
   padding-left: 20px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #232127;
-  background-image: url('../../../src/Assets/Facebook.png');
+  background-image: url("../../../src/Assets/Facebook.png");
   background-position: 140px 10px;
   background-repeat: no-repeat;
 }
 
 .google {
-  border: 1px solid #D2D2D2;
-  background-color: #FFFFFF;
+  border: 1px solid #d2d2d2;
+  background-color: #ffffff;
   color: #232127;
-  background-image: url('../../../src/Assets/Google.png');
+  background-image: url("../../../src/Assets/Google.png");
   background-position: 140px;
   background-repeat: no-repeat;
 }
 
 .apple {
   padding-right: 10px;
-  border: 1px solid #D2D2D2;
+  border: 1px solid #d2d2d2;
   color: #232127;
-  background-color: #FFFFFF;
-  background-image: url('../../../src/Assets/Apple.png');
+  background-color: #ffffff;
+  background-image: url("../../../src/Assets/Apple.png");
   background-position: 140px 9px;
   background-repeat: no-repeat;
 }
@@ -205,19 +203,18 @@
 }
 
 .Comp-Name {
-  font-family: 'VisbyCFH';
+  font-family: "VisbyCFH";
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   font-size: 6.375rem;
   line-height: 7.75rem;
-  background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+  background: linear-gradient(99.09deg, #8e00ff 0%, #ff008a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 900;
-
 }
 
 .search-change {
@@ -237,40 +234,66 @@
   margin: 0rem 1rem;
 }
 
-.Search  > img {
+.Search > img {
   position: relative;
   left: 1.875rem;
   top: 0.063rem;
-
 }
 .search-container {
-  border: #FFFFFF;
-  background: var(--Light-Gray-for-Division, #F2F2F2); 
+  border: #ffffff;
+  background: var(--Light-Gray-for-Division, #f2f2f2);
   max-width: 40rem;
   width: 100%;
-  height: 4rem; 
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 6.25rem;
 }
 .search-bar {
-  background: var(--Light-Gray-for-Division, #F2F2F2); 
- width: 100%;
+  background: var(--Light-Gray-for-Division, #f2f2f2);
+  width: 100%;
   border: none;
   padding-left: 2rem;
   color: var(--Gray, #737373);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: normal; 
-  
+  line-height: normal;
+}
+.Search-cent > img{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: flex;
+  width: 2rem;
+height: 2rem;
+flex-shrink: 0;
+
+}
+.Search-cent {
+  display: flex;
+  position: relative;
+}
+.search-central {
+  display: flex;
+  min-width: 33.875rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border: none;
+  padding-left: 4rem;
+  border-radius: 2rem;
+  background: var(--White, #fff);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .camera-ocr {
   padding-right: 1rem;
 }
 .search-attr {
-  padding-right:2rem ;
+  padding-right: 2rem;
   display: flex;
   align-items: center;
 }
@@ -280,21 +303,25 @@
 }
 .stroke {
   width: 1rem;
-height: 0rem;
-transform: rotate(-90deg);
-flex-shrink: 0; 
-stroke-width: 1px;
-stroke: var(--Gray, #737373);
+  height: 0rem;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+  stroke-width: 1px;
+  stroke: var(--Gray, #737373);
 }
 .search-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4rem;
-background: linear-gradient(135deg, #8F00FF 0%, #F42271 100%);
-box-shadow: 0px 2px 4px 0px rgba(143, 0, 255, 0.10), 0px 7px 7px 0px rgba(143, 0, 255, 0.09), 0px 16px 10px 0px rgba(143, 0, 255, 0.05), 0px 28px 11px 0px rgba(143, 0, 255, 0.01), 0px 44px 12px 0px rgba(143, 0, 255, 0.00);
-height: 4rem;
-width: 4rem;
+  background: linear-gradient(135deg, #8f00ff 0%, #f42271 100%);
+  box-shadow: 0px 2px 4px 0px rgba(143, 0, 255, 0.1),
+    0px 7px 7px 0px rgba(143, 0, 255, 0.09),
+    0px 16px 10px 0px rgba(143, 0, 255, 0.05),
+    0px 28px 11px 0px rgba(143, 0, 255, 0.01),
+    0px 44px 12px 0px rgba(143, 0, 255, 0);
+  height: 4rem;
+  width: 4rem;
 }
 input:focus {
   outline: none;
@@ -302,18 +329,49 @@ input:focus {
 
 .Search button {
   cursor: pointer;
-  font-family: 'VisbyCF';
-  color: #FFFFFF;
+  font-family: "VisbyCF";
+  color: #ffffff;
   border: none;
   border-radius: 2rem;
   position: relative;
-  background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+  background: linear-gradient(99.09deg, #8e00ff 0%, #ff008a 100%);
   height: 32px;
   width: 72px;
   left: -80px;
   top: 5px;
 }
-
+.search-not-clicked {
+  display: flex;
+}
+.search-clicked {
+  display: flex;
+}
+.search-clicked > p {
+  color: var(--CracKube-Purple, #8F00FF);
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.search-not-clicked >  p {
+  color: var(--Gray, #737373);
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.search-clicked  {
+  border-bottom: 1px solid #8F00FF;
+}
+.search-not-clicked {
+  
+}
+.search-clicked {
+}
 .Discover {
   position: relative;
   display: grid;
@@ -321,17 +379,19 @@ input:focus {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   margin-right: 1.5rem;
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .Dbox {
   min-width: 17rem;
-  min-height: 8rem; 
+  min-height: 8rem;
   aspect-ratio: 17/8;
   width: 100%;
   height: 100%;
-  background-color: #FFFFFF;
-  box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01), 0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01),
+    0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09),
+    0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 1.5rem;
 }
 
@@ -341,7 +401,7 @@ input:focus {
 }
 
 .coverUp p {
-  font-family: 'VisbyCF';
+  font-family: "VisbyCF";
   font-size: 2rem;
   line-height: 3.125rem;
 }
@@ -358,10 +418,8 @@ input:focus {
 }
 
 .image {
-
   max-width: 50%;
   max-height: 100%;
-
 }
 @media only screen and (max-width: 1400px) {
   .Discover {
@@ -384,8 +442,10 @@ input:focus {
     aspect-ratio: 11/5;
     width: 100%;
     height: 100%;
-    background-color: #FFFFFF;
-    box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01), 0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0px 56px 23px rgba(0, 0, 0, 0.01),
+      0px 32px 19px rgba(0, 0, 0, 0.05), 0px 14px 14px rgba(0, 0, 0, 0.09),
+      0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 24px;
   }
 }
@@ -397,14 +457,14 @@ input:focus {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
-  .profile-nav-btn  p{
+  .profile-nav-btn p {
     color: var(--Black, #000);
-text-align: center;
-font-family: Montserrat;
-font-size: 0.75rem;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
   .profile-nav-btn {
     display: inline-flex;
@@ -412,7 +472,6 @@ line-height: normal;
   }
 }
 @media only screen and (max-width: 480px) {
-
   .out {
     margin-right: 100px;
     display: flex;
@@ -436,7 +495,7 @@ line-height: normal;
   }
 
   .title p {
-    font-family: 'VisbyCFH';
+    font-family: "VisbyCFH";
     font-style: bold;
     font-weight: 900;
     font-size: 30px;
@@ -452,16 +511,12 @@ line-height: normal;
     background-color: red;
   }
 
-
-
   .img-c {
     width: 50%;
     position: absolute;
     height: 100%;
     object-fit: cover;
-
   }
-
 
   .email {
     display: flex;
@@ -471,7 +526,7 @@ line-height: normal;
   }
 
   .email input {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     width: 220px;
   }
 
@@ -528,30 +583,30 @@ line-height: normal;
   }
 
   .facebook {
-    border: 1px solid #D2D2D2;
+    border: 1px solid #d2d2d2;
     padding-left: 20px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: #232127;
-    background-image: url('../../../src/Assets/Facebook.png');
+    background-image: url("../../../src/Assets/Facebook.png");
     background-position: 140px 10px;
     background-repeat: no-repeat;
   }
 
   .google {
-    border: 1px solid #D2D2D2;
-    background-color: #FFFFFF;
+    border: 1px solid #d2d2d2;
+    background-color: #ffffff;
     color: #232127;
-    background-image: url('../../../src/Assets/Google.png');
+    background-image: url("../../../src/Assets/Google.png");
     background-position: 140px;
     background-repeat: no-repeat;
   }
 
   .apple {
     padding-right: 10px;
-    border: 1px solid #D2D2D2;
+    border: 1px solid #d2d2d2;
     color: #232127;
-    background-color: #FFFFFF;
-    background-image: url('../../../src/Assets/Apple.png');
+    background-color: #ffffff;
+    background-image: url("../../../src/Assets/Apple.png");
     background-position: 140px 9px;
     background-repeat: no-repeat;
   }
@@ -562,8 +617,6 @@ line-height: normal;
     padding-bottom: 5px;
   }
 
-
-
   .Comp-Name {
     display: flex;
     flex-direction: column;
@@ -571,36 +624,31 @@ line-height: normal;
     justify-content: start;
     font-size: 6.375rem;
     line-height: 7.75rem;
-    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    background: linear-gradient(99.09deg, #8e00ff 0%, #ff008a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 900;
-
   }
 
-  
   input:focus {
     outline: none;
   }
 
   .Search button {
     cursor: pointer;
-    font-family: 'VisbyCF';
-    color: #FFFFFF;
+    font-family: "VisbyCF";
+    color: #ffffff;
     border: none;
     border-radius: 2rem;
     position: relative;
-    background: linear-gradient(99.09deg, #8E00FF 0%, #FF008A 100%);
+    background: linear-gradient(99.09deg, #8e00ff 0%, #ff008a 100%);
     height: 32px;
     width: 72px;
 
-    right:4.77rem;
+    right: 4.77rem;
     top: 4px;
   }
-
-
-
 
   .coverUp {
     display: flex;
@@ -608,7 +656,7 @@ line-height: normal;
   }
 
   .coverUp p {
-    font-family: 'VisbyCF';
+    font-family: "VisbyCF";
     font-size: 2rem;
     line-height: 3.125rem;
   }
@@ -625,15 +673,12 @@ line-height: normal;
   }
 
   .image {
-
     max-width: 50%;
     max-height: 100%;
-
   }
 }
 
 @media only screen and (max-width: 480px) {
-
   .out {
     margin-right: 100px;
     display: flex;
@@ -647,7 +692,7 @@ line-height: normal;
     width: 100%;
     align-items: center;
     min-height: 100vh;
-    }
+  }
 
   .name {
     display: flex;
@@ -665,7 +710,7 @@ line-height: normal;
   }
 
   .title p {
-    font-family: 'VisbyCFH';
+    font-family: "VisbyCFH";
     font-style: bold;
     font-weight: 900;
     font-size: 30px;
@@ -691,9 +736,7 @@ line-height: normal;
     position: absolute;
     height: 100%;
     object-fit: cover;
-
   }
-
 
   .email {
     display: flex;
@@ -703,7 +746,7 @@ line-height: normal;
   }
 
   .email input {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     width: 220px;
   }
 
@@ -726,13 +769,12 @@ line-height: normal;
   .email {
     padding-bottom: 10px;
   }
-
 }
 
 .addbutton {
   height: 4rem;
   width: 4rem;
-  background: #8E00FF;
+  background: #8e00ff;
   position: fixed;
   right: 4rem;
   bottom: 4rem;
@@ -747,7 +789,7 @@ line-height: normal;
 .dropDown {
   height: 4rem;
   width: 4rem;
-  background: #8E00FF;
+  background: #8e00ff;
   position: fixed;
   top: 4rem;
   left: 4rem;
@@ -768,7 +810,6 @@ line-height: normal;
 }
 
 @keyframes rotate {
-
   /* Define the rotation animation */
   /* from {
       transform: rotate(0deg);
@@ -776,60 +817,60 @@ line-height: normal;
     to {
       transform: rotate(300deg);
     } */
-    0% {
-      transform: rotate(0deg) scale(1);
-    }
-    50% {
-      transform: rotate(90) scale(1.1);
-    }
-    100% {
-      transform: rotate(180deg) scale(1);
-    }
+  0% {
+    transform: rotate(0deg) scale(1);
   }
-  .drop-flex{
-    display: flex;
-    flex-direction: column;
+  50% {
+    transform: rotate(90) scale(1.1);
   }
-  .dropDown {
-    position: fixed;
-    top: 125px;
-    left: 1450px;
+  100% {
+    transform: rotate(180deg) scale(1);
   }
-  .popup {
-    position: fixed;
-    right: 15px;
-    bottom: 130px
-  }
-  .list-view {
-    list-style: none;
-    padding: 0;
-  }
-  .overlay {
-    position: absolute;
-    left:40px;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-  .list-view li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .list-view li:last-child {
-    border-bottom: none;
-  }
-  
-  .list-view li::before {
-    content: "\2022";
-    color: #4CAF50;
-    font-weight: bold;
-    margin-right: 10px;
-  } 
-.wrap{
+}
+.drop-flex {
+  display: flex;
+  flex-direction: column;
+}
+.dropDown {
+  position: fixed;
+  top: 125px;
+  left: 1450px;
+}
+.popup {
+  position: fixed;
+  right: 15px;
+  bottom: 130px;
+}
+.list-view {
+  list-style: none;
+  padding: 0;
+}
+.overlay {
+  position: absolute;
+  left: 40px;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.list-view li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-view li:last-child {
+  border-bottom: none;
+}
+
+.list-view li::before {
+  content: "\2022";
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.wrap {
   display: flex;
   flex-direction: column;
 }
@@ -838,9 +879,9 @@ line-height: normal;
   text-align: center;
   min-height: 60px;
   min-width: 100px;
-  padding: 10px ;
+  padding: 10px;
   color: white;
-  background-color: #8E00FF;
+  background-color: #8e00ff;
   border-radius: 20px;
   animation: bop 0.5s ease-in-out;
 }
@@ -854,7 +895,6 @@ line-height: normal;
 }
 
 @keyframes bop {
-
   /* Define the rotation animation */
   /* from {
     transform: rotate(0deg);
@@ -874,10 +914,10 @@ line-height: normal;
     transform: scale(1);
   }
 }
-.pad > div{
+.pad > div {
   padding-top: 10px;
 }
-@media (max-width:700px) {
+@media (max-width: 700px) {
   .addbutton {
     display: none;
   }

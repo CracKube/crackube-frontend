@@ -5,7 +5,7 @@ import UserComponent from "./UserComponent";
 import { useParams } from "react-router-dom";
 import "./AnswerComponent.css";
 
-const AnswerComponent = ({ body, tags, userName, postedOn, id }) => {
+const AnswerComponent = ({ body, tags, userName, postedOn, id, img, verify }) => {
   const handleHistory = () => {
     window.location.href = `/answering/${id}`;
   };
@@ -27,7 +27,7 @@ const AnswerComponent = ({ body, tags, userName, postedOn, id }) => {
           <p dangerouslySetInnerHTML={{__html: `${body}`}}></p>
         </div>
         <div>
-          <UserComponent user={userName} time={postedOn} />
+          <UserComponent user={userName} time={postedOn} img = {img} verify = {verify} />
         </div>
       </div>
     </div>

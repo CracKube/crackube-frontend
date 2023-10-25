@@ -2,20 +2,21 @@ import React from "react";
 import searchicon from "../../styles/Icons/Search 1.svg";
 import Noti from "../../Assets/Noti.svg";
 import Settings from "../../Assets/Settings.svg";
-
+import Modal from "react-modal";
 import { useState } from "react";
-
 import { NavLink } from "react-router-dom";
-import logo from '../../Assets/CK_LOGO.svg'
+import logo from "../../Assets/CK_LOGO.svg";
 import Cookies from "js-cookie";
 import "./TopNavBar.css";
 import Dropdown from "../DropDown/DropDown";
 import UploadDropdown from "../DropDown/UploadDropDown";
 import { hover } from "@testing-library/user-event/dist/hover";
+import SearchBar from "./SearchPart";
 
 export default function TopNavBar({ theme }) {
   const [hoverMe, setHoverMe] = useState(false);
   const [section, setSection] = useState("blogs");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [show, setShow] = useState(false);
   const buttonHandler =
     ("click",
@@ -64,12 +65,34 @@ export default function TopNavBar({ theme }) {
     document.getElementById("unblur").style.display = "block";
     document.getElementById("unblur").focus();
   };
+  const CustomModal = ({ isOpen, onRequestClose, children }) => {
+    return (
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={onRequestClose}
+        className="modal-search"
+        overlayClassName="modal-overlay"
+      >
+        {children}
+      </Modal>
+    );
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const openModal = () => {
+    console.log("open");
+    setIsModalOpen(true);
+  };
   // do not blur the input
   return (
     <>
       <div className="header" id="cool">
+        <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
+        <SearchBar prop="pull" />
+        </CustomModal>
         <div className="mobile-logo">
-        <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className="topnavbar" id={theme}>
           {
@@ -110,9 +133,7 @@ export default function TopNavBar({ theme }) {
             </div>
           }
           <button
-            onClick={(e) => {
-              blur(e);
-            }}
+            onClick={openModal}
             className={`searchButton`}
           >
             <a href="">

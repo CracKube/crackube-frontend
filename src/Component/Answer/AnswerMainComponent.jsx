@@ -48,10 +48,12 @@ const AnswerMainComponent = ({ theme }) => {
           return <AnswerComponent 
           key = {index}
           theme={theme}
+          verify = {item.isVerified}
           id = {item._id}
           body={item.questionBody}
           tags = {item.questionTags}
-          userName = {item.userPoster && item.userPosted._id}
+          img = {item.userPosted.profilePicUrl}
+          userName = {item.userPosted && item.userPosted.name}
           postedOn = {item.askedOn}
           
           />;

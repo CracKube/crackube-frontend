@@ -64,14 +64,13 @@
 }
 
 .name {
-    display: flex;
-    text-align: center;
     color: #000;
+    text-align: center;
+    font-family: Clash Display;
     font-size: 1rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    padding-bottom: 0.25rem;
 }
 
 .id {
