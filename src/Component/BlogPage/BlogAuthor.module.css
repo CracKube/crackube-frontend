@@ -46,10 +46,9 @@ line-height: normal;
   display: flex;
 }
 .img {
-  
   border-radius: 3.125rem;
-  min-height: 4rem;
-  max-height: 2rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 .title {
@@ -126,10 +125,8 @@ flex-shrink: 0;
   line-height: normal;
   }
   .blogopalign {
+    overflow-x: scroll;
     margin-left: 1.5rem;
-  }
-  .blogopalign > div {
-    margin-right: 0.5rem;
   }
 
 }

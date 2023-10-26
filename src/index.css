@@ -1842,3 +1842,23 @@ line-height: normal;
     display: block;
   }
 }
+
+.contact-cover {
+  display: flex;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+}
+.privacy-policy {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+}

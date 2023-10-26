@@ -40,6 +40,8 @@ import Wallet from "./Component/Wallet/Wallet";
 import MainAnswer from "./Component/AnsweringPage/MainAnswer";
 import GPTInterface from "./Component/GPT/GPTInterface";
 import GPT4 from "./Component/GPT/GPT4";
+import ContactUs from "./Component/ContactUs";
+import PrivacyPolicy from "./Component/PrivacyPolicy";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -84,6 +86,8 @@ function App() {
                         <Route path = '/wallet' element = {<Wallet />}></Route>
                         <Route path = '/gpt' element = {<GPTInterface/>}></Route>
                         <Route path = '/gpt4' element = {<GPT4 />}></Route>
+                        <Route path = '/contactUs' element = {<ContactUs />}></Route>
+                        <Route path = '/privacy' element = {<PrivacyPolicy/>}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

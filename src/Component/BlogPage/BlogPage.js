@@ -10,20 +10,18 @@ import { authorUrl } from "../Constants.jsx";
 import { useEffect } from "react";
 import moment from "moment";
 import CardBlog from './CardBlog';
-
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
+import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
+import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
+import { getAllBlog } from "../../redux/Blogs/blogSlice";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;
-  const [blog, setBlog] = React.useState({});
+  const dispatch = useDispatch();
+  //const [blog, setBlog] = React.useState({});
   const [blogs, setBlogs] = React.useState([]);
 
-  const getBlog = async () => {
-    const response = await fetch(
-      `https://crackube-backend-test.onrender.com/blogs/get/${id}`
-    );
-    const data = await response.json();
-    setBlog(data);
-    console.log(data)
-  };
   const getAllBlogs = async () => {
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/blogs/getAll"
@@ -33,9 +31,13 @@ function BlogPage({ theme, setTheme }) {
     console.log(data);
   };
   useEffect(() => {
-    getBlog();
+    dispatch(fetchAsyncBlogDetail(id));
+    
     getAllBlogs();
-  }, []);
+  }, [dispatch, id]);
+
+  const blog = useSelector(getSelectedBlog)
+  console.log(blog);
 
   return (
     <div className="home" id={theme}>

@@ -387,29 +387,10 @@ font-weight: 700;
 line-height: normal;
 }
 
-#light .list > ul > button {
-  color: var(--Gray, #737373);
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  line-height: 1.563rem;
-  align-items: start;
-  padding-bottom: 1.5rem;
-  padding-left: 4rem;
-  padding-right: 1rem;
-  display: flex;
-  padding: 0.5rem 1rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
 
-}
 
  .list-btn {
-  color: var(--Gray, #737373);
+  color: var(--Gray, #8F00FF);
   text-align: center;
   font-family: Montserrat;
   font-size: 1rem;
@@ -448,10 +429,6 @@ line-height: normal;
   align-items: center;
   gap: 0.25rem;
   background-color: #fff;
-
-  /* Dark Gray */
-
-  color: #ffffff;
 }
 .list > ul > a > span {
   font-style: normal;
@@ -467,7 +444,10 @@ line-height: normal;
 .list > ul {
   margin-top: 1.5rem;
 }
-
+.list {
+  margin-right: 3rem;
+  margin-left: 1.5rem;
+}
 .social-profile {
   position: relative;
   min-width: 880px;
@@ -639,16 +619,23 @@ line-height: normal;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 7.5rem;
+  margin-top: 1.5rem;
 }
-.my-details > p {
+.my-details :nth-child(1) {
+  color: var(--CracKube-Purple, #8F00FF);
+font-family: Montserrat;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.my-details :nth-child(2) {
+  color: var(--Black, #000);
+  font-family: Montserrat;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 37px;
-  display: flex;
-  align-items: center;
-  padding-left: 5.813rem;
+  line-height: normal;
 }
 .img-div {
   padding-top: 0.5rem;
@@ -738,17 +725,76 @@ line-height: normal;
   color: #000;
   display: flex;
   flex-direction: column;
+  margin-left: 1.5rem;
 }
 #dark .about-sep {
   color: #ffffff;
   display: flex;
   flex-direction: column;
+  margin-left: 1.5rem;
+
 }
-#light .about-sep p {
-  color: #000;
+.prof-update {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-#dark .about-sep p {
-  color: #ffffff;
+.prof-update > div > img {
+  width: 8rem;
+height: 8rem;
+border-radius: 8rem;
+}
+.prof-update > div :nth-child(1) {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.prof-update > div :nth-child(2) {
+  color: var(--CracKube-Purple, #8F00FF);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.prof-upt-user :nth-child(1) {
+  padding-top: 1rem;
+  color: var(--Black, #000);
+font-family: Montserrat;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.prof-upt-user :nth-child(2) {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.prof-upt-name {
+  margin-top: 1rem;
+}
+.prof-upt-name :nth-child(1) {
+  color: var(--Black, #000);
+font-family: Montserrat;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.prof-upt-name :nth-child(2) {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 }
 .personal-details {
   position: relative;

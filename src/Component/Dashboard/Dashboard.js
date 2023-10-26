@@ -13,25 +13,22 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 import CardSkeleton from "./CardSkeleton";
+import { useDispatch } from "react-redux";
+import { getAllBlog } from "../../redux/Blogs/blogSlice";
+import { useSelector } from "react-redux";
+import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 export default function Dashboard(props) {
   const [loading, setLoading] = useState(true);
-  const [blogs, setBlogs] = useState([]);
+  const dispatch = useDispatch();
 
-  const getAllBlogs = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
-    );
-    const data = await response.json();
-    setLoading(false);
-
-    setBlogs(data);
-    console.log(data);
-  };
 
   useEffect(() => {
-    getAllBlogs();
-  }, []);
-  console.log(loading);
+    dispatch(fetchAsyncBlogs(setLoading));
+  }, [dispatch]);
+
+
+  const blog = useSelector(getAllBlog);
+  console.log(blog);
   return (
     // <InfiniteScroll
     // dataLength={5}
@@ -45,9 +42,9 @@ export default function Dashboard(props) {
       }`}
     >
       {loading ? (
-        <CardSkeleton blogs={blogs} />
+        <CardSkeleton blogs={blog} />
       ) : (
-        blogs.map((blog, index) => (
+        blog.map((blog, index) => (
           <Card
             theme={props.theme}
             key={index}

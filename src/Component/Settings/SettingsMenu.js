@@ -7,6 +7,7 @@ import { MainBar, TopNavBar } from "../Constants";
 import homeIcon from "../../Assets/homeIcon.svg";
 import MyDetails from "../../Assets/my-details.png";
 import { useState } from "react";
+import SettingsBar from "./SettingsBar";
 function SettingsMenu({ theme, setTheme }) {
   const [clicked, setClicked] = useState(0);
 
@@ -42,7 +43,6 @@ function SettingsMenu({ theme, setTheme }) {
   ];
   const handleBtn = (index, value) => {
     setClicked(index);
-    window.location.href = value;
   };
   return (
     <div>
@@ -61,11 +61,10 @@ function SettingsMenu({ theme, setTheme }) {
                     <button
                       className={
                         clicked === index
-                          ? `list-btn`
-                          : `list-not-clicked`
+                          ? 'list-btn'
+                          : 'list-not-clicked'
                       }
                       key={index}
-                      src = {item.to}
                       onClick={() => {handleBtn(index, item.to)}}
                     >
                       {item.name}
@@ -75,7 +74,10 @@ function SettingsMenu({ theme, setTheme }) {
                 </ul>
               </div>
             </div>
+            <SettingsBar clicked = {clicked} />
           </div>
+
+          
         </div>
       </div>
     </div>

@@ -16,20 +16,24 @@ import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Arrow from "../Assets/SideArrow.svg";
+import { addUser, fetchAsyncUsers } from "../redux/Users/userSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getUser } from "../redux/Users/userSlice";
 
 function MenuBar({ theme, setTheme, menu, setMenu }) {
-  const [response, setResponse] = useState("");
+  //const [response, setResponse] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("");
-
-  const getUserDetails = async () => {
-    const response = await axios.get(
-      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
-        "userId"
-      )}`
-    );
-    setResponse(response.data);
-    console.log(response.data);
-  };
+  const despatch = useDispatch();
+  // const getUserDetails = async () => {
+  //   const response = await axios.get(
+  //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+  //       "userId"
+  //     )}`
+  //   );
+  //   setResponse(response.data);
+  //   console.log(response.data);
+  // };
   async function getUserIP() {
     try {
       // Get user's approximate location and timezone using ipinfo.io
@@ -58,11 +62,12 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
       console.error("Error:", error);
     }
   }
-
+  getUserIP();
   useEffect(() => {
-    getUserDetails();
-    getUserIP();
-  }, []);
+    despatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
+  }, [despatch]);
+
+
   const [lightBtn, setLightBtn] = useState("#000");
   const [darkBtn, setDarkBtn] = useState("#ffffff");
   const [toggle, setToggle] = useState(false);
@@ -95,6 +100,8 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
     console.log("clicked");
     setMenu(!menu);
   };
+  const response = useSelector(getUser);
+  console.log(response);
 
   return (
     <div className="crack-logo" id={theme}>
@@ -177,7 +184,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
         <div className="menu-bar-half-2">
           <div className="profile">
             <Link to="/profile">
-              <Profile details={response} time={timeOfDay} />
+              {
+                <Profile details={response} time={timeOfDay} />
+              }
+              
             </Link>
           </div>
           <div className="modes" id={theme}>
