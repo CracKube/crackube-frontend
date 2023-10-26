@@ -1862,3 +1862,34 @@ line-height: normal;
   margin-bottom: 4rem;
   gap: 1rem;
 }
+.refund {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+}
+.ship {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+
+}
+.tc {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+}

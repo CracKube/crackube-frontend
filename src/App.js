@@ -42,6 +42,9 @@ import GPTInterface from "./Component/GPT/GPTInterface";
 import GPT4 from "./Component/GPT/GPT4";
 import ContactUs from "./Component/ContactUs";
 import PrivacyPolicy from "./Component/PrivacyPolicy";
+import Refund from "./Component/Refund";
+import Ship from "./Component/Ship";
+import TAndC from "./Component/TAndC";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -87,7 +90,10 @@ function App() {
                         <Route path = '/gpt' element = {<GPTInterface/>}></Route>
                         <Route path = '/gpt4' element = {<GPT4 />}></Route>
                         <Route path = '/contactUs' element = {<ContactUs />}></Route>
-                        <Route path = '/privacy' element = {<PrivacyPolicy/>}></Route>
+                        <Route path = '/privacypolicy' element = {<PrivacyPolicy/>}></Route>
+                        <Route path="/refundandcancellation" element = {<Refund />}></Route>
+                        <Route path = '/shipanddelivery' element = {<Ship/>}></Route>
+                        <Route path="/termsandconditions" element = {<TAndC/>}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

@@ -5,21 +5,20 @@ import MenuBar from "../MenuBar";
 import { MainBar, TopNavBar } from "../Constants";
 import homeIcon from "../../Assets/homeIcon.svg";
 import blogPic from "../../Assets/blogPic.svg";
-import Profile from "./Profile";
-import { authorUrl } from "../Constants.jsx";
 import { useEffect } from "react";
 import moment from "moment";
-import CardBlog from './CardBlog';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
+import { addBlogs, fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
 import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
 import { getAllBlog } from "../../redux/Blogs/blogSlice";
+import BlogComponent from "./BlogComponent";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;
   const dispatch = useDispatch();
-  //const [blog, setBlog] = React.useState({});
+  const [loading, setLoading] = React.useState(true);
+ // const [blog, setBlog] = React.useState({});
   const [blogs, setBlogs] = React.useState([]);
 
   const getAllBlogs = async () => {
@@ -32,11 +31,11 @@ function BlogPage({ theme, setTheme }) {
   };
   useEffect(() => {
     dispatch(fetchAsyncBlogDetail(id));
-    
     getAllBlogs();
   }, [dispatch, id]);
 
   const blog = useSelector(getSelectedBlog)
+//  const blogs = useSelector(getAllBlog)
   console.log(blog);
 
   return (
@@ -44,58 +43,7 @@ function BlogPage({ theme, setTheme }) {
       <MenuBar theme={theme} setTheme={setTheme} />
       <div className="home-container">
         <TopNavBar theme={theme} />
-        <div className="blog-flex">
-          <div className="blog-min">
-            <div className="blog-cover">
-              <div
-                className="blog-container"
-                style={{ backgroundColor: `${blog.blogImageColor}` }}
-              >
-                <img src={blog.blogImageUrl} alt="" />
-              </div>
-              <div className="blog-title">
-                <h1>{blog && blog.blogTitle} </h1>
-              </div>
-            </div>
-            <div className="prof">
-              <Profile
-              id = {id}
-              saved = {blog && blog.bookmarks}
-              count = {blog && blog.likes}
-              authImg = {blog &&  blog.userPosted && blog.userPosted.profilePicUrl}
-                author={blog && blog.userPosted && blog.userPosted.username}
-                modified={blog && moment(blog.postedOn).fromNow()}
-                url={authorUrl}
-              />
-            </div>
-            <div>
-              <p
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: `${blog.blogBody}` }}
-              ></p>
-            </div>
-          </div>
-          <div className="blog-right-bar">
-            <div className="ad-bar">
-              <h1>AD</h1>
-            </div>
-            { (
-              blogs.map((blog, index) => (
-                <CardBlog
-                  theme={blog.theme}
-                  key={index}
-                  id={blog._id}
-                  thumbnail={blog.blogImageUrl}
-                  authorImage={blog.blogImageUrl}
-                  title={blog.blogTitle}
-                  author={blog.userPosted}
-                  modified={blog.postedOn}
-                  tags={blog.blogTags}
-                />
-              ))
-            )}
-          </div>
-        </div>
+        <BlogComponent blog={blog} blogs = {blogs} id = {id} theme={theme} />
       </div>
     </div>
   );
