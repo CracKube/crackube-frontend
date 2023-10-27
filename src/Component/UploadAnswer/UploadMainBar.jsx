@@ -6,7 +6,7 @@ import "../UploadBlog/UploadBlog.css";
 import Tesseract from "tesseract.js";
 import Arrow from "../../Assets/ans-back-arrow.svg";
 
-const UploadMainBar = () => {
+const UploadMainBar = ({ theme }) => {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -126,7 +126,7 @@ const UploadMainBar = () => {
   };
 
   return (
-    <div className="blog-layout">
+    <div className="blog-layout" id={theme}>
       <div className="blog-top">
         <span className="blog-gradient-text">Ask a Question</span>
         <div className="upload-flex-top">
@@ -203,22 +203,28 @@ const UploadMainBar = () => {
         </label>
         <div className="cat-container">
           <h1>Categories</h1>
-          <input type="text" className="cat-input" onChange={(e) => {setCategory(e.target.value)}} />
+          <input
+            type="text"
+            className="cat-input"
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="points-wrap">
-      <div className="points-toggle">
-        <button
-          className={`points-${type} `}
-          id="button"
-          onClick={handleButton}
-        >
-          CK Points
-        </button>
-        <button className={`cash-${type} `} id="button" onClick={handleCash}>
-          Real Cash
-        </button>
-      </div>
+        <div className="points-toggle">
+          <button
+            className={`points-${type} `}
+            id="button"
+            onClick={handleButton}
+          >
+            CK Points
+          </button>
+          <button className={`cash-${type} `} id="button" onClick={handleCash}>
+            Real Cash
+          </button>
+        </div>
       </div>
       <div className="point-amount">
         <div className="select-amount">

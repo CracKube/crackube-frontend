@@ -10,7 +10,6 @@ const AnswerComponent = ({ body, tags, userName, postedOn, id, img, verify }) =>
     window.location.href = `/answering/${id}`;
   };
 
-
   return (
     <div
       className="answer-wrapper"
@@ -24,7 +23,7 @@ const AnswerComponent = ({ body, tags, userName, postedOn, id, img, verify }) =>
           </div>
         </div>
         <div className="answer-section">
-          <p dangerouslySetInnerHTML={{__html: `${body}`}}></p>
+          <p dangerouslySetInnerHTML={{ __html: `${body}` }}></p>
         </div>
         <div>
           <UserComponent user={userName} time={postedOn} img = {img} verify = {verify} />

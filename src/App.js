@@ -49,12 +49,12 @@ import StoreComponent from "./Component/Store/StoreComponent";
 
 export const ThemeContext = createContext(null);
 
+
 function App() {
   const [theme, setTheme] = useState("light");
-
   return (
     <div className="body">
-      
+
       <CookiesProvider>
                 <Router>
                 <ThemeContext.Provider >

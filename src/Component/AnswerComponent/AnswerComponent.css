@@ -1,55 +1,103 @@
 .answer-wrapper {
-    margin: 1.5rem;
-    height: fit-content;
-    border-radius: 2rem;
-    overflow: hidden;
-    border: 1px solid #e6e6e6;
+  margin: 1.5rem;
+  height: fit-content;
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
 }
+
+#dark .answer-wrapper {
+  margin: 1.5rem;
+  height: fit-content;
+  border-radius: 2rem;
+  overflow: hidden;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
 .answer-cover {
-    padding: 1.5rem 1rem 1.5rem 1.5rem;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
 }
-.tag-section > div{
-    padding-right: 0.5rem;
+.tag-section > div {
+  padding-right: 0.5rem;
 }
 .answer-section {
-
-    padding-top: 0.81rem;
+  padding-top: 0.81rem;
 }
 .answer-section > p {
-    color: var(--Black, #000);
-    margin-right: 2rem;
-    font-family: Montserrat;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%; /* 1.5rem */
+  color: var(--Black, #000);
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 1.5rem */
+}
+
+#dark .answer-section > p {
+  color: var(--White, #fff);
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 1.5rem */
 }
 .editor-text-question {
-    height: 12rem;
-    color: var(--gray, #737373);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin: 1.5rem;/* Set t1he desired height */
-    padding-bottom: 4rem;
-    border-radius: 2rem; 
-    border: 1px solid #ccc;
+  max-width: 72rem;
+  height: 12rem;
+  color: var(--gray, #737373);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 1.5rem; /* Set the desired height */
+  padding-bottom: 4rem;
+  border-radius: 2rem;
+  border: 1px solid #ccc;
 }
+
+#dark .editor-text-question {
+  max-width: 72rem;
+  height: 12rem;
+  color: var(--white, #fff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 1.5rem; /* Set the desired height */
+  padding-bottom: 4rem;
+  border-radius: 2rem;
+  border: 1px solid #ccc;
+}
+
 .tag-container {
-    display: inline-flex;
-    padding: 0.5rem 0.75rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2rem;
-border: 1px solid var(--CracKube-Red, #F42271);
-background: #FFF;
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  border: 1px solid var(--CracKube-Red, #f42271);
+  background: #fff;
 }
+
+#dark .tag-container {
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  border: 1px solid var(--CracKube-Red, #000);
+  background: #fff;
+}
+
 .tag-container > div {
-    color: #F42271;
-    font-family: Montserrat;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: #f42271;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+#dark .ql-toolbar.ql-snow .ql-picker-label {
+  color: #fff;
 }

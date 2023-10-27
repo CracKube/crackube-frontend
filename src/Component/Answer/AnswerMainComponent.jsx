@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { TopNavBar } from "../Constants";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {useDispatch, useSelector} from 'react-redux';
@@ -16,6 +19,7 @@ const AnswerMainComponent = ({ theme }) => {
   //   setQuestion(data);
   //   console.log(data);
   // };
+  
   useEffect(() => {
     // getAllQuestions();
     dispatch(fetchAsyncAnswer());
@@ -23,17 +27,17 @@ const AnswerMainComponent = ({ theme }) => {
   const [editorText, setEditorText] = useState('');
   const modules = {
     toolbar: [
-        [{header:[1,2,3,4,5,6,false]}],
-        [{font: []}],
-        [{size:[]}],
-        ["bold","italic","underline","strike","blackquote"],
-        [
-            {list: "ordered"},
-            {list:"bullet"},
-            {indent:"-1"},
-            {indent:"+1"},
-        ],
-        ["link","image","video",]
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blackquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
     ],
  }
  const question = useSelector(getAnswer);
@@ -43,12 +47,12 @@ const AnswerMainComponent = ({ theme }) => {
       <TopNavBar theme={theme} />
       
       <ReactQuill
-                  theme="snow"
-                  value={editorText}
-                  onChange={setEditorText}
-                  className="editor-text-question"
-                  modules={modules}
-              /> 
+        theme="snow"
+        value={editorText}
+        onChange={setEditorText}
+        className="editor-text-question"
+        modules={modules}
+      />
       {question &&
         question.map((item, index) => {
           return <AnswerComponent 
