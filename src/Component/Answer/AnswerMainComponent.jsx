@@ -3,20 +3,23 @@ import { TopNavBar } from "../Constants";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
+import {useDispatch, useSelector} from 'react-redux';
+import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
 const AnswerMainComponent = ({ theme }) => {
-  const [question, setQuestion] = useState([]);
-  const getAllQuestions = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/questions/get"
-    );
-    const data = await response.json();
-    setQuestion(data);
-    console.log(data);
-  };
+  //const [question, setQuestion] = useState([]);
+  const dispatch = useDispatch();
+  // const getAllQuestions = async () => {
+  //   const response = await fetch(
+  //     "https://crackube-backend-test.onrender.com/questions/get"
+  //   );
+  //   const data = await response.json();
+  //   setQuestion(data);
+  //   console.log(data);
+  // };
   useEffect(() => {
-    getAllQuestions();
-  }, []);
+    // getAllQuestions();
+    dispatch(fetchAsyncAnswer());
+  }, [dispatch]);
   const [editorText, setEditorText] = useState('');
   const modules = {
     toolbar: [
@@ -33,6 +36,8 @@ const AnswerMainComponent = ({ theme }) => {
         ["link","image","video",]
     ],
  }
+ const question = useSelector(getAnswer);
+
   return (
     <div className="home-container">
       <TopNavBar theme={theme} />

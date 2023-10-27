@@ -62,8 +62,8 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
       console.error("Error:", error);
     }
   }
-  getUserIP();
   useEffect(() => {
+    getUserIP();
     despatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
   }, [despatch]);
 
