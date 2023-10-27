@@ -17,6 +17,8 @@ import Clock from "./Clock";
 import User from "../../Assets/ans-user.png";
 import Flag from "../../Assets/report.svg";
 import moment from "moment/moment";
+import { useDispatch, useSelector } from "react-redux";
+import { addAnswer, fetchAsyncAnswerDetail } from "../../redux/Answer/answerSlice";
 
 export const ThemeContext = createContext();
 
@@ -48,10 +50,11 @@ const Comments = ({ isOpen, onRequestClose, children }) => {
 
 function AnsweringPage({ theme, setTheme }) {
   const id = useParams().id;
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [ansId, setCommentId] = useState("");
   const [isCommentOpen, setIsCommentOpen] = useState(false);
-  const [answer, setAnswer] = useState([]);
+  //const [answer, setAnswer] = useState([]);
   const [verify, setVerify] = useState("Choose this as the best Answer");
 
   const [answerBody, setAnswerBody] = useState("");
@@ -69,14 +72,14 @@ function AnsweringPage({ theme, setTheme }) {
     setIsCommentOpen(false);
   };
 
-  const getAnswer = async () => {
-    const response = await fetch(
-      `https://crackube-backend-test.onrender.com/answers/get/${id}`
-    );
-    const data = await response.json();
-    setAnswer(data);
-    console.log(data);
-  };
+  // const getAnswer = async () => {
+  //   const response = await fetch(
+  //     `https://crackube-backend-test.onrender.com/answers/get/${id}`
+  //   );
+  //   const data = await response.json();
+  //   setAnswer(data);
+  //   console.log(data);
+  // };
   const handleAnswerBody = (e) => {
     setAnswerBody(e.target.value);
   };
@@ -98,7 +101,6 @@ function AnsweringPage({ theme, setTheme }) {
     const data = await response.json();
     console.log(data);
     closeModal();
-    getAnswer();
   };
   const handleVerify = async (answerId) => {
     setVerify("Verified");
@@ -125,9 +127,11 @@ function AnsweringPage({ theme, setTheme }) {
   };
 
   useEffect(() => {
-    getAnswer();
-  }, [verify]);
-
+    dispatch(addAnswer)
+    dispatch(fetchAsyncAnswerDetail(id));
+    //getAnswer();
+  }, [dispatch]);
+  const answer = useSelector((state) => state.answers.selectedAnswer);
   if (
     answer.data &&
     window.localStorage.getItem("userId") === answer.data.userPosted._id

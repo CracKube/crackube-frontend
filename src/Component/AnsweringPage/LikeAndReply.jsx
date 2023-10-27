@@ -35,14 +35,14 @@ function LikeAndReply(prop) {
       <div className="likes-cover">
         <div className="love-it">
           <img src={Like} onClick={handleLike} alt="" />
-          <div>Love it</div>
+          <div>Like</div>
         </div>
 
         <div></div>
 
         <div className="hate-it">
           <img src={Dislike} alt="" onClick={handleDislike} />
-          <div>Hate it</div>
+          <div>Dislike</div>
         </div>
       </div>
     </div>

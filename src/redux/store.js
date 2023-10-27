@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userDetails from './user/details.js';
-export const store = configureStore
-({
+import blogsReducer from './Blogs/blogSlice'
+import usersReducer from './Users/userSlice'
+import blogOptionsReducer from './Blogs/blogOptions'
+import answerReducer from './Answer/answerSlice'
+export const store = configureStore({
     reducer: {
-        details: userDetails,
+        blogs : blogsReducer,
+        users : usersReducer,
+        likes : blogOptionsReducer,
+        answers : answerReducer
     }
 });

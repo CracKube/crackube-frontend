@@ -14,7 +14,9 @@ function Card(props) {
       }}
     >
       <div className="img__container">
-        <div className="tags-container">{props.tags}</div>
+      <div className="tags-container">
+             <div className="blog-tag"> <p>{props.tags[0]}</p> </div>
+        </div>
         {props.loading ? (
           <Skeleton className="h-40" />
         ) : (

@@ -5,37 +5,39 @@ import MenuBar from "../MenuBar";
 import { MainBar, TopNavBar } from "../Constants";
 import homeIcon from "../../Assets/homeIcon.svg";
 import blogPic from "../../Assets/blogPic.svg";
-import Profile from "./Profile";
-import { authorUrl } from "../Constants.jsx";
 import { useEffect } from "react";
 import moment from "moment";
-import CardBlog from './CardBlog';
-
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addBlogs, fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
+import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
+import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
+import { getAllBlog } from "../../redux/Blogs/blogSlice";
+import BlogComponent from "./BlogComponent";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;
-  const [blog, setBlog] = React.useState({});
-  const [blogs, setBlogs] = React.useState([]);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = React.useState(true);
+ // const [blog, setBlog] = React.useState({});
+  // const [blogs, setBlogs] = React.useState([]);
 
-  const getBlog = async () => {
-    const response = await fetch(
-      `https://crackube-backend-test.onrender.com/blogs/get/${id}`
-    );
-    const data = await response.json();
-    setBlog(data);
-    console.log(data)
-  };
-  const getAllBlogs = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
-    );
-    const data = await response.json();
-    setBlogs(data);
-    console.log(data);
-  };
+  // const getAllBlogs = async () => {
+  //   const response = await fetch(
+  //     "https://crackube-backend-test.onrender.com/blogs/getAll"
+  //   );
+  //   const data = await response.json();
+  //   setBlogs(data);
+  //   console.log(data);
+  // };
   useEffect(() => {
-    getBlog();
-    getAllBlogs();
-  }, []);
+    dispatch(fetchAsyncBlogDetail(id));
+    dispatch(fetchAsyncBlogs(setLoading));
+   // getAllBlogs();
+  }, [dispatch, id]);
+
+  const blog = useSelector(getSelectedBlog)
+  const blogs = useSelector(getAllBlog)
+  console.log(blog);
 
   return (
     <div className="home" id={theme}>

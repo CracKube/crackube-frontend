@@ -9,15 +9,15 @@ function AnsUser({theme, answer}) {
     <div className='ans-whole-wrap'> 
     <div className='ans-user'>
                 <div>
-                    <img className='question-user-prof' src= {User}/>
+                    <img className='question-user-prof' src= {answer && answer.userPosted.profilePicUrl}/>
                 </div>
                 <div>
                     <div className='ques-auth-flex'>
                     <div className='auth-ques-name'>{answer && answer.userPosted.name}</div>
-                    <img src= {verify} alt="" />
+                    {answer && answer.userPosted.isVerified && <img src= {verify} alt="" />}
                     </div>
                     
-                    <div className='user-ans-id'>@jennifermargreed</div>
+                    <div className='user-ans-id'>@{answer && answer.userPosted.username}</div>
                 </div>
                 </div>    
                 <div>

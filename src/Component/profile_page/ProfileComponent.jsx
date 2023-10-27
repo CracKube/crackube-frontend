@@ -9,11 +9,13 @@ import { MainBar } from "../Constants";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
+import Card from "../BlogPage/CardBlog";
 function ProfileComponent({ theme }) {
   
   const [response, setResponse] = useState("");
   const [blogLength, setBlogLength] = useState(0);
   const [ansLength, setAnsLength] = useState(0);
+  const [blogs, setBlogs] = useState([]);
   const getUserDetails = async () => {
     const response = await axios.get(
       `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
@@ -25,7 +27,41 @@ function ProfileComponent({ theme }) {
     setAnsLength(response.data.quesAnswered.length);
   };
 
+  const [clicked, setClicked] = useState(1);
+  const list = [
+    {
+      name: 'Answer'
+    },
+    {
+      name: 'Blog'
+    },
+    {
+      name: 'Code'
+    }
+  ];  
+  const getAllBlogs = async () => {
+    const response = await fetch(
+      "https://crackube-backend-test.onrender.com/blogs/getAll"
+    );
+    const data = await response.json();
+
+    setBlogs(data);
+    console.log(data);
+  };
+  const [question, setQuestion] = useState([]);
+  const getAllQuestions = async () => {
+    const response = await fetch(
+      "https://crackube-backend-test.onrender.com/questions/get"
+    );
+    const data = await response.json();
+    setQuestion(data);
+    console.log(data);
+  };
+
+
   useEffect(() => {
+    getAllBlogs();
+    getAllQuestions();
     getUserDetails();
   }, []);
   return (
@@ -42,7 +78,7 @@ function ProfileComponent({ theme }) {
             </div>
           
           
-            <p className="user-prof-cover">{response.firstName}</p>
+            <p className="user-prof-cover">{response.name}</p>
             <p className="user-name">@{response.username}</p>
             <div className="user-flw-btn">
               <button>Follow</button>
@@ -78,24 +114,52 @@ function ProfileComponent({ theme }) {
             </p>
             <div className="profile-show">
               <div className="profile-nav-btn">
-                <button>Answer</button>
-                <button>Questions</button>
-                <button>Code</button>
-              </div>
+                {list.map((item, index) => {
+                  return (
+                    <button key={index}  className= {clicked === index ? 'profile-click-btn' : 'profile-btn'} onClick={() => {setClicked(index)}}>
+                      {item.name}
+                    </button>
+                  );
+                })}
+                </div>
             </div>
           </div>
-          {/* {question &&
+          
+          
+         {clicked === 0 && question &&
         question.map((item, index) => {
           return <AnswerComponent 
           key = {index}
-          theme={theme} 
+          theme={theme}
+          verify = {item.isVerified}
+          id = {item._id}
           body={item.questionBody}
           tags = {item.questionTags}
-          userName = {item.userPosted}
+          img = {item.userPosted.profilePicUrl}
+          userName = {item.userPosted && item.userPosted.name}
           postedOn = {item.askedOn}
           
           />;
-        })} */}
+        })}
+
+        {clicked === 1 && blogs &&     <div
+      className= 'dashboard1'
+    >
+      {(
+        blogs.map((blog, index) => (
+          <Card
+            key={index}
+            id={blog._id}
+            thumbnail={blog.blogImageUrl}
+            authorImage={blog.userPosted.profilePicUrl}
+            title={blog.blogTitle}
+            author={blog.userPosted && blog.userPosted.name}
+            modified={blog.postedOn}
+            tags={blog.blogTags}
+          />
+        ))
+      )}
+    </div>}
         </div>
       </div>
       <div className="achieve-bar">
