@@ -99,14 +99,12 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
   return (
     <div className="crack-logo" id={theme}>
       <div className="menu-header" onClick={handleMenu}>
-        
         <Logo />
 
         <div className="side-arrow">
           <img src={Arrow} alt="" />
         </div>
       </div>
-
 
       <div className="menu-wrapper">
         <div className="menu-bar">
@@ -117,10 +115,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
                   to={Cookies.get("state")}
                   className="menu-btn"
                   onClick={handleClick}
-                  style={({ isActive }) => ({
-                    color: isActive ? "#8F00FF" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
-                  })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "#8F00FF" : "#000",
+                  //   // background: isActive ? "#FBF5FF" : "",
+                  // })}
                 >
                   <img src={homeIcon} alt="" />
                   <p>Home</p>
@@ -128,10 +126,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
                 <NavLink
                   to="/search"
                   className="menu-btn"
-                  style={({ isActive }) => ({
-                    color: isActive ? "#8F00FF" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
-                  })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "#8F00FF" : "#000",
+                  //   // background: isActive ? "#FBF5FF" : "",
+                  // })}
                 >
                   <img src={Explore} alt="" />
                   <p>Explore</p>
@@ -139,10 +137,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
                 <NavLink
                   to="/gpt"
                   className="menu-btn"
-                  style={({ isActive }) => ({
-                    color: isActive ? "#8F00FF" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
-                  })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "#8F00FF" : "#000",
+                  //   // background: isActive ? "#FBF5FF" : "",
+                  // })}
                 >
                   <img src={Ck} alt="" />
                   <p>CracKube AI</p>
@@ -150,10 +148,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
                 <NavLink
                   to="/"
                   className="menu-btn"
-                  style={({ isActive }) => ({
-                    color: isActive ? "#8F00FF" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
-                  })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "#8F00FF" : "#000",
+                  //   // background: isActive ? "#FBF5FF" : "",
+                  // })}
                 >
                   <img src={Ck} alt="" />
                   <p>CK Experts</p>
@@ -161,10 +159,10 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
                 <NavLink
                   to="/"
                   className="menu-btn"
-                  style={({ isActive }) => ({
-                    color: isActive ? "#8F00FF !important" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
-                  })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "#8F00FF !important" : "#000",
+                  //   // background: isActive ? "#FBF5FF" : "",
+                  // })}
                 >
                   <img src={Den} alt="" />
                   <p>Your Den</p>

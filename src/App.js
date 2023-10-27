@@ -42,52 +42,52 @@ import GPTInterface from "./Component/GPT/GPTInterface";
 import GPT4 from "./Component/GPT/GPT4";
 export const ThemeContext = createContext(null);
 
+
 function App() {
   const [theme, setTheme] = useState("light");
-
   return (
     <div className="body">
-      
+
       <CookiesProvider>
-                <Router>
-                <ThemeContext.Provider >
-                    <Routes>
-                        <Route path='/' element = {<Test />}></Route>
-                        <Route path="/signup" element={<SignUp />}></Route>
-                        <Route path="/login" element={<Signup />}></Route>
-                        <Route path='/forgetpassword' element = {<ForgetPswd/>}></Route>
-                        <Route path="/home" element={<Home />}></Route>
-                        <Route path="/otp" element={<OTP />}> </Route>
-                        <Route path="/search" element={<Search theme = {theme} setTheme = {setTheme}/>} ></Route>
-                        <Route path="/settings" element={<Settings  theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/my-details" element={<MyDetails theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/security" element={<Security theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/email" element={<Email theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path = "/profile" element = {<ProfilePage theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/blog/:id" element={<BlogPage theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>
-                        <Route path= '/answering/:id' element = {<MainAnswer theme = {theme} setTheme = {setTheme} />}></Route>
-                        <Route path= '/upload' element = {<UploadPage/>}></Route>
-                        <Route path = '/search-results' element = {<SearchResults theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path = '/unsplash' element = {<UnSplash/>}></Route>
-                        <Route path = '/track' element = {<UploadFollow/>}></Route>
-                        <Route path='/answer' element = {<Answer/>}></Route>
-                        <Route path = '/code' element = {<Code />}></Route>
-                        <Route path='/uploadBlogs' element = {<UploadBlog/>}></Route>
-                        <Route path='/uploadanswer' element = {<UploadAnswer />}></Route>
-                        <Route path='/uploadSec' element = {<UploadSection/>}></Route>
-                        <Route path = '/cropper' element = {<Cropper/>}></Route>
-                        <Route path = '/third' element = {<ThirdPage />}></Route>
-                        <Route path='/fourth' element = {<FourthPage />}></Route>
-                        <Route path = '/read' element = {<BlogRead  theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path = '/wallet' element = {<Wallet />}></Route>
-                        <Route path = '/gpt' element = {<GPTInterface/>}></Route>
-                        <Route path = '/gpt4' element = {<GPT4 />}></Route>
-                    </Routes> 
-                    </ThemeContext.Provider>
-                </Router>
-                </CookiesProvider>
+        <Router>
+          <ThemeContext.Provider>
+            <Routes>
+              <Route path='/' element={<Test />}></Route>
+              <Route path="/signup" element={<SignUp />}></Route>
+              <Route path="/login" element={<Signup />}></Route>
+              <Route path='/forgetpassword' element={<ForgetPswd />}></Route>
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/otp" element={<OTP />}> </Route>
+              <Route path="/search" element={<Search theme={theme} setTheme={setTheme} />} ></Route>
+              <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/my-details" element={<MyDetails theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/security" element={<Security theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/email" element={<Email theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/profile" element={<ProfilePage theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/password" element={<Password theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/blog/:id" element={<BlogPage theme={theme} setTheme={setTheme} />}></Route>
+              <Route path="/delete-account" element={<DeleteAccount theme={theme} setTheme={setTheme} />}></Route>
+              <Route path='/answering/:id' element={<MainAnswer theme={theme} setTheme={setTheme} />}></Route>
+              <Route path='/upload' element={<UploadPage />}></Route>
+              <Route path='/search-results' element={<SearchResults theme={theme} setTheme={setTheme} />}></Route>
+              <Route path='/unsplash' element={<UnSplash />}></Route>
+              <Route path='/track' element={<UploadFollow />}></Route>
+              <Route path='/answer' element={<Answer />}></Route>
+              <Route path='/code' element={<Code />}></Route>
+              <Route path='/uploadBlogs' element={<UploadBlog />}></Route>
+              <Route path='/uploadanswer' element={<UploadAnswer />}></Route>
+              <Route path='/uploadSec' element={<UploadSection />}></Route>
+              <Route path='/cropper' element={<Cropper />}></Route>
+              <Route path='/third' element={<ThirdPage />}></Route>
+              <Route path='/fourth' element={<FourthPage />}></Route>
+              <Route path='/read' element={<BlogRead theme={theme} setTheme={setTheme} />}></Route>
+              <Route path='/wallet' element={<Wallet />}></Route>
+              <Route path='/gpt' element={<GPTInterface />}></Route>
+              <Route path='/gpt4' element={<GPT4 />}></Route>
+            </Routes>
+          </ThemeContext.Provider>
+        </Router>
+      </CookiesProvider>
     </div>
   );
 }

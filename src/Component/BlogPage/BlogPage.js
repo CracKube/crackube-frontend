@@ -42,7 +42,7 @@ function BlogPage({ theme, setTheme }) {
       <MenuBar theme={theme} setTheme={setTheme} />
       <div className="home-container">
         <TopNavBar theme={theme} />
-        <div className="blog-flex">
+        <div className="blog-flex" id={theme}>
           <div className="blog-min">
             <div className="blog-cover">
               <div
@@ -55,28 +55,31 @@ function BlogPage({ theme, setTheme }) {
                 <h1>{blog && blog.blogTitle} </h1>
               </div>
             </div>
-            <div className="prof">
-              <Profile
-              id = {id}
-              saved = {blog && blog.bookmarks}
-              count = {blog && blog.likes}
-                author={blog && blog.userPosted && blog.userPosted.username}
-                modified={blog && moment(blog.postedOn).fromNow()}
-                url={authorUrl}
-              />
-            </div>
-            <div>
-              <p
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: `${blog.blogBody}` }}
-              ></p>
+            <div className="allContent">
+              <div className="prof">
+                <Profile
+                  id={id}
+                  saved={blog && blog.bookmarks}
+                  count={blog && blog.likes}
+                  author={blog && blog.userPosted && blog.userPosted.username}
+                  modified={blog && moment(blog.postedOn).fromNow()}
+                  url={authorUrl}
+
+                />
+              </div>
+              <div>
+                <p
+                  className="blog-content"
+                  dangerouslySetInnerHTML={{ __html: `${blog.blogBody}` }}
+                ></p>
+              </div>
             </div>
           </div>
           <div className="blog-right-bar">
             <div className="ad-bar">
               <h1>AD</h1>
             </div>
-            { (
+            {(
               blogs.map((blog, index) => (
                 <CardBlog
                   theme={blog.theme}

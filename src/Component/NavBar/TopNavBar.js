@@ -12,6 +12,7 @@ import "./TopNavBar.css";
 import Dropdown from "../DropDown/DropDown";
 import UploadDropdown from "../DropDown/UploadDropDown";
 import { hover } from "@testing-library/user-event/dist/hover";
+import Answer from "../Answer/Answer";
 
 export default function TopNavBar({ theme }) {
   const [hoverMe, setHoverMe] = useState(false);
@@ -19,11 +20,11 @@ export default function TopNavBar({ theme }) {
   const [show, setShow] = useState(false);
   const buttonHandler =
     ("click",
-    () => {
-      setShow(!show);
-    });
+      () => {
+        setShow(!show);
+      });
 
-  const onEnterLeave = () => {};
+  const onEnterLeave = () => { };
   const setCookieBlog = () => {
     setSection("home");
     Cookies.set("state", "/home", {
@@ -69,7 +70,7 @@ export default function TopNavBar({ theme }) {
     <>
       <div className="header" id="cool">
         <div className="mobile-logo">
-        <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className="topnavbar" id={theme}>
           {
@@ -77,21 +78,22 @@ export default function TopNavBar({ theme }) {
               <div onClick={setCookieAnswer} className="button-nav">
                 <NavLink
                   to="/answer"
-                  style={({ isActive }) => ({
-                    color: isActive ? "black" : "white",
-                    background: isActive ? "white" : "black",
-                  })}
+                // style={({ isActive }) => ({
+                //   color: isActive ? "black" : "white",
+                //   background: isActive ? "white" : "black",
+                // })}
                 >
                   Answer
                 </NavLink>
+
               </div>
               <div onClick={setCookieBlog} className="button-nav">
                 <NavLink
                   to="/home"
-                  style={({ isActive }) => ({
-                    color: isActive ? "black" : "white",
-                    background: isActive ? "white" : "black",
-                  })}
+                // style={({ isActive }) => ({
+                //   color: isActive ? "black" : "white",
+                //   background: isActive ? "white" : "black",
+                // })}
                 >
                   Blog
                 </NavLink>
@@ -99,10 +101,10 @@ export default function TopNavBar({ theme }) {
               <div onClick={setCookieCode} className="button-nav">
                 <NavLink
                   to="/code"
-                  style={({ isActive }) => ({
-                    color: isActive ? "black" : "white",
-                    background: isActive ? "white" : "black",
-                  })}
+                // style={({ isActive }) => ({
+                //   color: isActive ? "black" : "white",
+                //   background: isActive ? "white" : "black",
+                // })}
                 >
                   Code
                 </NavLink>

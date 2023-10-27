@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuBar from "../MenuBar";
 import { TopNavBar } from "../Constants";
@@ -17,6 +17,8 @@ import Clock from "./Clock";
 import User from "../../Assets/ans-user.png";
 import Flag from "../../Assets/report.svg";
 import moment from "moment/moment";
+
+export const ThemeContext = createContext();
 
 const CustomModal = ({ isOpen, onRequestClose, children }) => {
   return (
@@ -131,317 +133,324 @@ function AnsweringPage({ theme, setTheme }) {
     window.localStorage.getItem("userId") === answer.data.userPosted._id
   ) {
     return (
-      <div className="questions-flex">
-        <div className="ans-page-cover">
-          <div className="ans-top-flex">
-            <h1>Question</h1>
-            <div className="mobile-back" >
-              <img src={Arrow} alt="" />
-              <div>
-                <button className="time-btn">
-                  <Clock />
-                </button>
-                <button className="points-btn">
-                  +{answer.data && answer.data.points} Points
-                </button>
-                <button className="answer-btn">Increase Points</button>
+      <ThemeContext.Provider value={theme}>
+        <div className="questions-flex" id={theme}>
+          <div className="ans-page-cover" id={theme}>
+            <div className="ans-top-flex" id={theme}>
+              <h1 id={theme}>Question</h1>
+              <div className="mobile-back">
+                <img src={Arrow} alt="" />
+                <div>
+                  <button className="time-btn">
+                    <Clock />
+                  </button>
+                  <button className="points-btn">
+                    +{answer.data && answer.data.points} Points
+                  </button>
+                  <button className="answer-btn">Increase Points</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
-            <div className="modal-head">
-              <button onClick={closeModal}>
-                <img src={Arrow} alt="" />
-              </button>
-              <h2>Answer the question</h2>
-            </div>
-            <div className="question-area">
-              <h3>Question</h3>
-              {answer.data && (
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: `${answer.data.questionBody}`,
+            <CustomModal
+              isOpen={isModalOpen}
+              onRequestClose={closeModal}
+              theme={theme}
+            >
+              <div className="modal-head" id={theme}>
+                <button onClick={closeModal} id={theme}>
+                  <img src={Arrow} alt="" />
+                </button>
+                <h2 id={theme}>Answer the question</h2>
+              </div>
+              <div className="question-area">
+                <h3>Question</h3>
+                {answer.data && (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: `${answer.data.questionBody}`,
+                    }}
+                  ></p>
+                )}
+              </div>
+              <div className="answer-area">
+                <h3>Your Answer</h3>
+                <textarea
+                  name=""
+                  id=""
+                  cols="80"
+                  rows="10"
+                  onChange={(e) => {
+                    handleAnswerBody(e);
                   }}
-                ></p>
-              )}
-            </div>
-            <div className="answer-area">
-              <h3>Your Answer</h3>
-              <textarea
-                name=""
-                id=""
-                cols="80"
-                rows="10"
-                onChange={(e) => {
-                  handleAnswerBody(e);
-                }}
-              ></textarea>
-            </div>
-            <div className="bottom-area">
-              <button onClick={handleAnswerSubmit}>Submit</button>
-            </div>
-          </CustomModal>
-          <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
-            {answer.data &&
-              answer.data.answers.map((ans, index) => {
-                return (
-                  <div key={index}>
-                    {ans._id === ansId &&
-                      ans.comments.map((cmt, index) => {
-                        return (
-                          <div key={index}>
-                            <div className="modal-head">
-                              <button onClick={closeComment}>
-                                <img src={Arrow} alt="" />
-                              </button>
-                              <h2>Comments</h2>
-                            </div>
-                            <div className="comments-area">
-                              <div className="user-cmt-img">
-                                <img src={cmt.userPosted.profilePic} alt="" />
+                ></textarea>
+              </div>
+              <div className="bottom-area" id={theme}>
+                <button onClick={handleAnswerSubmit}>Submit</button>
+              </div>
+            </CustomModal>
+            <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
+              {answer.data &&
+                answer.data.answers.map((ans, index) => {
+                  return (
+                    <div key={index}>
+                      {ans._id === ansId &&
+                        ans.comments.map((cmt, index) => {
+                          return (
+                            <div key={index}>
+                              <div className="modal-head">
+                                <button onClick={closeComment}>
+                                  <img src={Arrow} alt="" />
+                                </button>
+                                <h2>Comments</h2>
                               </div>
-                              <div className="comments">
-                                <h3>{cmt.userCommented}</h3>
-                                <p>{cmt.commentBody}</p>
-                                <span>reply-show 2 replies</span>
+                              <div className="comments-area">
+                                <div className="user-cmt-img">
+                                  <img src={cmt.userPosted.profilePic} alt="" />
+                                </div>
+                                <div className="comments">
+                                  <h3>{cmt.userCommented}</h3>
+                                  <p>{cmt.commentBody}</p>
+                                  <span>reply-show 2 replies</span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
-                  </div>
-                );
-              })}
-          </Comments>
+                          );
+                        })}
+                    </div>
+                  );
+                })}
+            </Comments>
 
-          <div className="ans-line-1" id={theme}>
-            <QuestionUser id={theme} answer={answer.data}></QuestionUser>
-            <h1>{answer && answer.answerCount} Answers</h1>
-            {answer.data &&
-              answer.data.answers &&
-              answer.data.answers.map((ans, index) => {
-                return (
-                  <div className={"ans-holder"} key={index}>
-                    <div
-                      className={`ans-users${
-                        answer.data.verifiedAnsId === ans._id ? "-sp" : ""
-                      }`}
-                    >
-                      <div className="ans-container">
-                        <div className="ans-whole-wrap-1">
-                          <div className="ans-user-cover">
-                          <div className="ans-user">
-                            <div>
-                              <img src={User} />
-                            </div>
-                            <div>
-                              <div>{ans.userPosted.username}</div>
-                              <div className="user-ans-id">
-                                @{moment(ans.answeredOn).fromNow()}
+            <div className="ans-line-1" id={theme}>
+              <QuestionUser id={theme} answer={answer.data}></QuestionUser>
+              <h1>{answer && answer.answerCount} Answers</h1>
+              {answer.data &&
+                answer.data.answers &&
+                answer.data.answers.map((ans, index) => {
+                  return (
+                    <div className={"ans-holder"} key={index}>
+                      <div
+                        className={`ans-users${
+                          answer.data.verifiedAnsId === ans._id ? "-sp" : ""
+                        }`}
+                      >
+                        <div className="ans-container">
+                          <div className="ans-whole-wrap-1">
+                            <div className="ans-user-cover">
+                              <div className="ans-user">
+                                <div>
+                                  <img src={User} />
+                                </div>
+                                <div>
+                                  <div>{ans.userPosted.username}</div>
+                                  <div className="user-ans-id">
+                                    @{moment(ans.answeredOn).fromNow()}
+                                  </div>
+                                </div>
+                                <div>
+                                  <button>Follow</button>
+                                </div>
                               </div>
-                            </div>
-                            <div>
-                              <button>Follow</button>
-                            </div>
-                          </div>
-                          <button className="report-flag-1">
-                              <img src={Flag} alt="" />
-                            </button>
-                          </div>
-                          <div className="answer-comp">
-                            {answer.data.verifiedAnsId === ans._id && (
-                              <div key={index} className="best-ans-sp">
-                                Best Answer
-                              </div>
-                            )}
-                            {!answer.data.isVerified && (
-                              <button
-                                className="best-ans"
-                                onClick={() => {
-                                  handleVerify(ans._id);
-                                }}
-                              >
-                                Choose the best answer
+                              <button className="report-flag-1">
+                                <img src={Flag} alt="" />
                               </button>
-                            )}
-                            <button className="report-flag">
-                              <img src={Flag} alt="" />
-                            </button>
+                            </div>
+                            <div className="answer-comp">
+                              {answer.data.verifiedAnsId === ans._id && (
+                                <div key={index} className="best-ans-sp">
+                                  Best Answer
+                                </div>
+                              )}
+                              {!answer.data.isVerified && (
+                                <button
+                                  className="best-ans"
+                                  onClick={() => {
+                                    handleVerify(ans._id);
+                                  }}
+                                >
+                                  Choose the best answer
+                                </button>
+                              )}
+                              <button className="report-flag">
+                                <img src={Flag} alt="" />
+                              </button>
+                            </div>
                           </div>
+                          <p>{ans.answerBody}</p>
+
+                          <LikeAndReply></LikeAndReply>
+                          <CommentSection
+                            openComment={setIsCommentOpen}
+                            setCommentId={setCommentId}
+                            id={ans._id}
+                          />
                         </div>
-                        <p>{ans.answerBody}</p>
-
-                        <LikeAndReply></LikeAndReply>
-                        <CommentSection
-                          openComment={setIsCommentOpen}
-                          setCommentId={setCommentId}
-                          id={ans._id}
-                        />
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
+          <div className="question-right"></div>
         </div>
-        <div className="question-right"></div>
-      </div>
+      </ThemeContext.Provider>
     );
   } else {
     return (
-      <div className="questions-flex">
-        <div className="ans-page-cover">
-          <div className="ans-top-flex">
-            <h1>Question</h1>
-            
-            <div className = "mobile-back">
-            <img src={Arrow} alt="" />
-              <div>
-              <button className="time-btn">
-                <Clock />
-              </button>
-              <button className="points-btn">
-                +{answer.data && answer.data.points} Points
-              </button>
-              <button className="answer-btn" onClick={openModal}>
-                Answer
-              </button>
+      <ThemeContext.Provider value={theme}>
+        <div className="questions-flex" id={theme}>
+          <div className="ans-page-cover" id={theme}>
+            <div className="ans-top-flex">
+              <h1>Question</h1>
+
+              <div className="mobile-back">
+                <img src={Arrow} alt="" />
+                <div>
+                  <button className="time-btn">
+                    <Clock />
+                  </button>
+                  <button className="points-btn">
+                    +{answer.data && answer.data.points} Points
+                  </button>
+                  <button className="answer-btn" onClick={openModal}>
+                    Answer
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
-            <div className="modal-head">
-              <button onClick={closeModal}>
-                <img src={Arrow} alt="" />
-              </button>
-              <h2>Answer the question</h2>
-            </div>
-            <div className="question-area">
-              <h3>Question</h3>
-              {answer.data && (
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: `${answer.data.questionBody}`,
+            <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
+              <div className="modal-head">
+                <button onClick={closeModal}>
+                  <img src={Arrow} alt="" />
+                </button>
+                <h2>Answer the question</h2>
+              </div>
+              <div className="question-area">
+                <h3>Question</h3>
+                {answer.data && (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: `${answer.data.questionBody}`,
+                    }}
+                  ></p>
+                )}
+              </div>
+              <div className="answer-area">
+                <h3>Your Answer</h3>
+                <textarea
+                  name=""
+                  id=""
+                  cols="80"
+                  rows="10"
+                  onChange={(e) => {
+                    handleAnswerBody(e);
                   }}
-                ></p>
-              )}
-            </div>
-            <div className="answer-area">
-              <h3>Your Answer</h3>
-              <textarea
-                name=""
-                id=""
-                cols="80"
-                rows="10"
-                onChange={(e) => {
-                  handleAnswerBody(e);
-                }}
-              ></textarea>
-            </div>
-            <div className="bottom-area">
-              <button onClick={handleAnswerSubmit}>Submit</button>
-            </div>
-          </CustomModal>
-          <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
-            {answer.data &&
-              answer.data.answers.map((ans, index) => {
-                return (
-                  <div key={index}>
-                    {ans._id === ansId &&
-                      ans.comments.map((cmt, index) => {
-                        return (
-                          <div key={index}>
-                            <div className="modal-head">
-                              <button onClick={closeComment}>
-                                <img src={Arrow} alt="" />
+                ></textarea>
+              </div>
+              <div className="bottom-area">
+                <button onClick={handleAnswerSubmit}>Submit</button>
+              </div>
+            </CustomModal>
+            <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
+              {answer.data &&
+                answer.data.answers.map((ans, index) => {
+                  return (
+                    <div key={index}>
+                      {ans._id === ansId &&
+                        ans.comments.map((cmt, index) => {
+                          return (
+                            <div key={index}>
+                              <div className="modal-head">
+                                <button onClick={closeComment}>
+                                  <img src={Arrow} alt="" />
+                                </button>
+                                <h2>Comments</h2>
+                              </div>
+                              <div className="comments-area">
+                                <div className="user-cmt-img">
+                                  <img src={cmt.userPosted.profilePic} alt="" />
+                                </div>
+                                <div className="comments">
+                                  <h3>{cmt.userCommented}</h3>
+                                  <p>{cmt.commentBody}</p>
+                                  <span>reply-show 2 replies</span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  );
+                })}
+            </Comments>
+            <div className="ans-line-1" id={theme}>
+              <QuestionUser id={theme} answer={answer.data}></QuestionUser>
+              <h1>{answer && answer.answerCount} Answers</h1>
+              {answer.data &&
+                answer.data.answers &&
+                answer.data.answers.map((ans, index) => {
+                  return (
+                    <div className={"ans-holder"} key={index}>
+                      <div
+                        className={`ans-users${
+                          answer.data.verifiedAnsId === ans._id ? "-sp" : ""
+                        }`}
+                      >
+                        <div className="ans-container">
+                          <div className="ans-whole-wrap-1">
+                            <div className="ans-user-cover">
+                              <div className="ans-user">
+                                <div>
+                                  <img src={User} />
+                                </div>
+                                <div>
+                                  <div>{ans.userPosted.username}</div>
+                                  <div className="user-ans-id">
+                                    posted {moment(ans.answeredOn).fromNow()}
+                                  </div>
+                                </div>
+                                <div>
+                                  <button>Follow</button>
+                                </div>
+                              </div>
+                              <button className="report-flag-1">
+                                <img src={Flag} alt="" />
                               </button>
-                              <h2>Comments</h2>
                             </div>
-                            <div className="comments-area">
-                              <div className="user-cmt-img">
-                                <img src={cmt.userPosted.profilePic} alt="" />
-                              </div>
-                              <div className="comments">
-                                <h3>{cmt.userCommented}</h3>
-                                <p>{cmt.commentBody}</p>
-                                <span>reply-show 2 replies</span>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                  </div>
-                );
-              })}
-          </Comments>
-          <div className="ans-line-1" id={theme}>
-            <QuestionUser id={theme} answer={answer.data}></QuestionUser>
-            <h1>{answer && answer.answerCount} Answers</h1>
-            {answer.data &&
-              answer.data.answers &&
-              answer.data.answers.map((ans, index) => {
-                return (
-                  <div className={"ans-holder"} key={index}>
-                    <div
-                      className={`ans-users${
-                        answer.data.verifiedAnsId === ans._id ? "-sp" : ""
-                      }`}
-                    >
-                      <div className="ans-container">
-                        <div className="ans-whole-wrap-1">
-                          <div className="ans-user-cover">
-                          <div className="ans-user">
-                            <div>
-                              <img src={User} />
-                            </div>
-                            <div>
-                              <div>{ans.userPosted.username}</div>
-                              <div className="user-ans-id">
-                                posted {moment(ans.answeredOn).fromNow()}
-                              </div>
-                            </div>
-                            <div>
-                              <button>Follow</button>
-                            </div>
-                            
-                          </div>
-                          <button className="report-flag-1">
-                              <img src={Flag} alt="" />
-                            </button>
+                            <div className="answer-comp">
+                              {answer.data.verifiedAnsId === ans._id && (
+                                <div className="best-ans-sp">
+                                  {" "}
+                                  <p>Best Answer</p>{" "}
+                                </div>
+                              )}
 
+                              <button className="report-flag">
+                                <img src={Flag} alt="" />
+                              </button>
+                            </div>
                           </div>
-                          <div className="answer-comp">
-                            {answer.data.verifiedAnsId === ans._id && (
-                              <div className="best-ans-sp">
-                                {" "}
-                                <p>Best Answer</p>{" "}
-                              </div>
-                            )}
+                          <p>{ans.answerBody}</p>
 
-                            <button className="report-flag">
-                              <img src={Flag} alt="" />
-                            </button>
-                          </div>
+                          <LikeAndReply></LikeAndReply>
+                          <CommentSection
+                            openComment={setIsCommentOpen}
+                            setCommentId={setCommentId}
+                            id={ans._id}
+                            theme={theme}
+                          />
                         </div>
-                        <p>{ans.answerBody}</p>
-
-                        <LikeAndReply></LikeAndReply>
-                        <CommentSection
-                          openComment={setIsCommentOpen}
-                          setCommentId={setCommentId}
-                          id={ans._id}
-                        />
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
+          <div className="question-right"></div>
         </div>
-        <div className="question-right"></div>
-      </div>
+      </ThemeContext.Provider>
     );
   }
 }

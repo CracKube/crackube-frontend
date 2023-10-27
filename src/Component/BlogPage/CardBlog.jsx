@@ -6,7 +6,8 @@ import Skeleton from "react-loading-skeleton";
 function Card(props) {
   return (
     <div
-      className="card__container_blog" id = {props.theme}
+      className="card__container_blog"
+      id={props.theme}
       style={{ cursor: "pointer" }}
       onClick={() => {
         window.location.href = `/blog/${props.id}`;
@@ -20,12 +21,16 @@ function Card(props) {
           <img src={props.thumbnail} alt="" className="thumbnailBlog_blog" />
         )}
       </div>
-      <div>
-        <CardTitle1 className="titleContainer" title={props.title} id = {props.theme} />
+      <div id={props.theme}>
+        <CardTitle1
+          className="titleContainer"
+          title={props.title}
+          id={props.theme}
+        />
       </div>
-      <div className="card__details" id = {props.theme}>
+      <div className="card__details" id={props.theme}>
         <CardAuthor1
-          id = {props.theme} 
+          id={props.theme}
           authorImage={props.authorImage}
           author={props.author}
           modified={moment(props.modified).fromNow()}
