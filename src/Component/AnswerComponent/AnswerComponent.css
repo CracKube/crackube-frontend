@@ -17,6 +17,7 @@
 }
 .answer-section > p {
     color: var(--Black, #000);
+    margin-right: 2rem;
     font-family: Montserrat;
     font-size: 1.25rem;
     font-style: normal;
@@ -24,14 +25,13 @@
     line-height: 120%; /* 1.5rem */
 }
 .editor-text-question {
-    max-width: 72rem;
     height: 12rem;
     color: var(--gray, #737373);
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin: 1.5rem;/* Set the desired height */
+    margin: 1.5rem;/* Set t1he desired height */
     padding-bottom: 4rem;
     border-radius: 2rem; 
     border: 1px solid #ccc;

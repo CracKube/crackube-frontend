@@ -17,8 +17,8 @@ export const fetchAsyncBlogDetail = createAsyncThunk('blogs/fetchAsyncBlogDetail
       return data;
 });
 const initialState = {
-    blogs: {},
-    selectedBlog : {}
+    blogs: [],
+    selectedBlog : []
 };
 
 const blogSlice = createSlice({

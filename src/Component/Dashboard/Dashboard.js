@@ -21,45 +21,43 @@ export default function Dashboard(props) {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchAsyncBlogs(setLoading));
   }, [dispatch]);
 
-
   const blog = useSelector(getAllBlog);
   console.log(blog);
   return (
-    // <InfiniteScroll
-    // dataLength={5}
-    // next={getAllBlogs}
-    // hasMore = {true}
-    // endMessage = {<p>No More Data to Load</p>}>
-
-    <div
-      className={`${
-        styles[props.type == "card1" ? "dashboard1" : "dashboard2"]
-      }`}
+    <InfiniteScroll
+    inverse = {true}
+      dataLength={blog.length}
+      hasMore={true}
+      loader={<h3>Loading...</h3>}
     >
-      {loading ? (
-        <CardSkeleton blogs={blog} />
-      ) : (
-        blog.map((blog, index) => (
-          <Card
-            theme={props.theme}
-            key={index}
-            id={blog._id}
-            thumbnail={blog.blogImageUrl}
-            authorImage={blog.userPosted.profilePicUrl}
-            title={blog.blogTitle}
-            author={blog.userPosted && blog.userPosted.name}
-            modified={blog.postedOn}
-            tags={blog.blogTags}
-            loading={loading}
-          />
-        ))
-      )}
-    </div>
-    // </InfiniteScroll>
+      <div
+        className={`${
+          styles[props.type == "card1" ? "dashboard1" : "dashboard2"]
+        }`}
+      >
+        {loading ? (
+          <CardSkeleton blogs={blog} />
+        ) : (
+          blog.map((blog, index) => (
+            <Card
+              theme={props.theme}
+              key={index}
+              id={blog._id}
+              thumbnail={blog.blogImageUrl}
+              authorImage={blog.userPosted.profilePicUrl}
+              title={blog.blogTitle}
+              author={blog.userPosted && blog.userPosted.name}
+              modified={blog.postedOn}
+              tags={blog.blogTags}
+              loading={loading}
+            />
+          ))
+        )}
+      </div>
+    </InfiniteScroll>
   );
 }

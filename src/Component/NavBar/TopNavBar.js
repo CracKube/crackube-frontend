@@ -136,9 +136,7 @@ export default function TopNavBar({ theme }) {
             onClick={openModal}
             className={`searchButton`}
           >
-            <a href="">
               <img src={searchicon} alt="" />
-            </a>
           </button>
         </div>
         <div className="nav-btn">

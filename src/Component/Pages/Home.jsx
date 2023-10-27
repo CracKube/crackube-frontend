@@ -22,55 +22,35 @@ function Home() {
     setUserId(window.localStorage.getItem("userId"));
   }, []);
 
-  if (menu) {
-    return (
-      <ThemeContext.Provider value={theme}>
-        <div id= {theme} >
-          <div className="home" id={theme}>
-            <MenuBar
-              theme={theme}
-              setTheme={setTheme}
-              menu={menu}
-              setMenu={setMenu}
-            />
-            <div className="center-maker">
-              <div className="home-container">
-                <TopNavBar theme={theme} />
-                <MainBar theme={theme} />
+  return (
+    <ThemeContext.Provider value={theme}>
+      <div id={theme}>
+        <div className={menu ? "home" : "home-full"} id={theme}>
+          <MenuBar
+            theme={theme}
+            setTheme={setTheme}
+            menu={menu}
+            setMenu={setMenu}
+          />
+          {menu === false && (
+            <div className="" >
+              <div className="side-arrow" onClick={setMenu(!menu)}>
+                <img src={Arrow} alt="" />
               </div>
+            </div>
+          )}
+          <div className="center-maker">
+            <div className="home-container">
+              <TopNavBar theme={theme} />
+              <MainBar theme={theme} />
             </div>
           </div>
         </div>
-        <div className="bottom-nav">
-          <HiddenComponent> </HiddenComponent>
-        </div>
-      </ThemeContext.Provider>
-    );
-  } else {
-    return (
-      <ThemeContext.Provider value={theme}>
-        <div id="arrow-no" onClick={handleMenu}>
-          <div className="side-arrow-no">
-            <img src={Arrow} alt="" />
-          </div>
-        </div>
-
-        <div id="wrapper">
-          <div className="home-no" id={theme}>
-            <div className="center-maker">
-              <div className="home-container">
-                <TopNavBar theme={theme} />
-                <MainBar theme={theme} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bottom-nav">
-          <HiddenComponent> </HiddenComponent>
-        </div>
-      </ThemeContext.Provider>
-    );
-  }
+      </div>
+      <div className="bottom-nav">
+        <HiddenComponent> </HiddenComponent>
+      </div>
+    </ThemeContext.Provider>
+  );
 }
-
 export default Home;

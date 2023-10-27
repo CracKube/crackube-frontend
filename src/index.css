@@ -247,6 +247,17 @@ line-height: normal;
   overflow-x: hidden;
   overflow-y: hidden;
 }
+.home-main{
+  position: relative;
+  display: grid;
+  grid-template-columns: 15rem 10fr;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.home-full {
+  width: 100%;
+  display: flex;
+}
 #dark .home {
   position: relative;
   display: grid;
@@ -313,6 +324,10 @@ line-height: normal;
   flex-direction: column;
   max-width: 15rem;
   position: relative;
+}
+
+.ck-no-display {
+  display: none;
 }
 
 .crack-logo-none {

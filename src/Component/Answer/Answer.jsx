@@ -11,7 +11,7 @@ export const ThemeContext = createContext(null)
 function Answer() {
   const [theme, setTheme] = useState("light")
  const [cookies, setCookie] = useCookies(['state']);
-
+  const [menu,setMenu] = useState(true);
   return (
     
     <ThemeContext.Provider value={{theme}}>

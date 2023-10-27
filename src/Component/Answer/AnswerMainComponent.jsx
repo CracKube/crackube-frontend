@@ -41,6 +41,7 @@ const AnswerMainComponent = ({ theme }) => {
   return (
     <div className="home-container">
       <TopNavBar theme={theme} />
+      
       <ReactQuill
                   theme="snow"
                   value={editorText}

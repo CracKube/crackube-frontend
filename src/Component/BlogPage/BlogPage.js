@@ -19,23 +19,24 @@ function BlogPage({ theme, setTheme }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = React.useState(true);
  // const [blog, setBlog] = React.useState({});
-  const [blogs, setBlogs] = React.useState([]);
+  // const [blogs, setBlogs] = React.useState([]);
 
-  const getAllBlogs = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
-    );
-    const data = await response.json();
-    setBlogs(data);
-    console.log(data);
-  };
+  // const getAllBlogs = async () => {
+  //   const response = await fetch(
+  //     "https://crackube-backend-test.onrender.com/blogs/getAll"
+  //   );
+  //   const data = await response.json();
+  //   setBlogs(data);
+  //   console.log(data);
+  // };
   useEffect(() => {
     dispatch(fetchAsyncBlogDetail(id));
-    getAllBlogs();
+    dispatch(fetchAsyncBlogs(setLoading));
+   // getAllBlogs();
   }, [dispatch, id]);
 
   const blog = useSelector(getSelectedBlog)
-//  const blogs = useSelector(getAllBlog)
+  const blogs = useSelector(getAllBlog)
   console.log(blog);
 
   return (
