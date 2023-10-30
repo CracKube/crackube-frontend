@@ -1361,7 +1361,7 @@ a {
   background: var(--Warning-Yellow-Light, #fff9e9);
 }
 .modal {
-  min-width: 57rem;
+  width: 75%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1559,6 +1559,7 @@ a {
   padding-top: 1rem;
 }
 .answer-area > textarea {
+  width: 100%;
   margin-top: 1rem;
   padding: 2rem;
   border-radius: 2rem;
@@ -1783,9 +1784,17 @@ a {
   z-index: 1;
   width: 33.875rem;
   align-items: center;
-  
+  overflow-y: scroll;
+  min-height: 100%;
+  max-height: 30rem;
   justify-content: center;
   animation: fadeIn 0.5s;
+}
+.ans-res {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  height: 100%;
 }
 .results-list-pull > div {
   width: 100%;
@@ -2139,4 +2148,9 @@ a {
   margin-right: 2rem;
   margin-bottom: 4rem;
   gap: 1rem;
+}
+@media screen and (max-width: 800px)  {
+    .modal-head > h2 {
+      font-size: 1rem;
+    }
 }

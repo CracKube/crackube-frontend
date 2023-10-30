@@ -11,14 +11,14 @@ function Code() {
   const [cookies, setCookie] = useCookies(["state"]);
   return (
     <ThemeContext.Provider value={{ theme }}>
-      {/* <div className="home" id = {theme}>
+      <div className="home" id = {theme}>
         <MenuBar theme = {theme} setTheme = {setTheme}/> 
         <CodeMainComponent theme = {theme} setTheme = {setTheme}/>
 
       </div>
       <div className='bottom-nav'>
         <HiddenComponent> </HiddenComponent>
-      </div> */}
+      </div>
       <CodeMainComponent theme={theme} setTheme={setTheme} />
     </ThemeContext.Provider>
   );

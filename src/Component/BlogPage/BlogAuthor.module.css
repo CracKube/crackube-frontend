@@ -23,7 +23,7 @@
   flex-shrink: 0;
   cursor: pointer;
 }
-.blogOp > div > p {
+.blogOp > div  {
   color: var(--Black, #000);
 text-align: center;
 font-family: Montserrat;
@@ -33,6 +33,8 @@ font-weight: 500;
 line-height: normal;
 }
 .blogopalign {
+  
+  overflow: scroll;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -125,8 +127,8 @@ flex-shrink: 0;
   line-height: normal;
   }
   .blogopalign {
+    width: 100%;
     overflow-x: scroll;
-    margin-left: 1.5rem;
   }
 
 }

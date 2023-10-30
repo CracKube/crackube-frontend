@@ -14,6 +14,8 @@ import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
 import { getAllBlog } from "../../redux/Blogs/blogSlice";
 import BlogComponent from "./BlogComponent";
+import CardBlog from "./CardBlog";
+import Profile from "./Profile";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;
   const dispatch = useDispatch();
@@ -65,7 +67,7 @@ function BlogPage({ theme, setTheme }) {
                   count={blog && blog.likes}
                   author={blog && blog.userPosted && blog.userPosted.username}
                   modified={blog && moment(blog.postedOn).fromNow()}
-                  url={authorUrl}
+                  url={blog && blog.userPosted && blog.userPosted.profilePicUrl}
 
                 />
               </div>

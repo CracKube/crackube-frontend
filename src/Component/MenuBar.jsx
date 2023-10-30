@@ -105,7 +105,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
 
   return (
     <div className="crack-logo" id={theme}>
-      <div className="menu-header" onClick={handleMenu}>
+      <div className="menu-header" >
         <Logo />
 
         <div className="side-arrow">

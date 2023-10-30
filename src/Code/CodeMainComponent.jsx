@@ -4,7 +4,7 @@ import { TopNavBar } from "../Component/Constants";
 const CodeMainComponent = ({ theme, setTheme }) => {
   return (
     <div className="home-container">
-      {/* <TopNavBar theme = {theme}/> */}
+      <TopNavBar theme = {theme}/>
       <div>
         <p>Code</p>
       </div>

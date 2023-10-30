@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "../../Assets/search.svg";
-
+import AnswerComponent from "../AnswerComponent/AnswerComponent";
 const SearchBarDiv = ({ handleChange }) => {
   const [input, setInput] = useState("");
 
@@ -21,25 +21,19 @@ const SearchBarDiv = ({ handleChange }) => {
   );
 };
 
-const SearchResultsList = ({ results, prop }) => {
-  const [clicked, setClicked] = useState(0);
-  const list = [
-    {
-      name: "Everything",
-    },
-    {
-      name: "Answers",
-    },
-    {
-      name: "Blogs",
-    },
-    {
-      name: "Code",
-    },
-    {
-      name: "Profile",
-    },
-  ];
+const SearchResultsList = ({
+  clicked,
+  setResults,
+  setClicked,
+  list,
+  results,
+  prop,
+}) => {
+  const handleSwitch = (i) => {
+    setClicked(i);
+    setResults([]);
+  };
+
   return (
     <div className={`results-list-${prop}`}>
       <div>
@@ -47,15 +41,36 @@ const SearchResultsList = ({ results, prop }) => {
           <div
             key={i}
             className={clicked === i ? "search-clicked" : "search-not-clicked"}
-            onClick={() => setClicked(i)}
+            onClick={() => handleSwitch(i)}
           >
             <p>{item.name}</p>
           </div>
         ))}
       </div>
-      {results.map((result, id) => {
-        return <SearchResult result={result} key={id} />;
-      })}
+      {clicked == 0 &&
+        results.map((result, id) => {
+          return <SearchResult result={result} key={id} />;
+        })}
+      <div className="ans-res">
+      {clicked == 1 &&
+        results &&
+        results.map((item, index) => {
+          return (
+            <div className="ans-res">
+              <AnswerComponent
+                key={index}
+                verify={item.isVerified}
+                id={item._id}
+                body={item.questionBody}
+                tags={item.questionTags}
+                img={item.userPosted && item.userPosted.profilePicUrl}
+                userName={item.userPosted && item.userPosted.name}
+                postedOn={item.askedOn}
+              />
+            </div>
+          );
+        })}
+        </div>
     </div>
   );
 };
@@ -75,6 +90,25 @@ function SearchBar({ prop }) {
   const [blogs, setBlogs] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [users, setUsers] = useState([]);
+
+  const [clicked, setClicked] = useState(0);
+  const list = [
+    {
+      name: "Everything",
+    },
+    {
+      name: "Answers",
+    },
+    {
+      name: "Blogs",
+    },
+    {
+      name: "Code",
+    },
+    {
+      name: "Profile",
+    },
+  ];
 
   const getData = async () => {
     const response1 = await fetch(
@@ -106,27 +140,55 @@ function SearchBar({ prop }) {
       setResults([]);
       return;
     }
-
     let newResult = [];
+    if (clicked == 0) {
+      blogs.forEach((blog) => {
+        if (blog.blogTitle.toLowerCase().includes(value.toLowerCase())) {
+          newResult.push(blog.blogTitle);
+        }
+      });
 
-    blogs.forEach((blog) => {
-      if (blog.blogTitle.toLowerCase().includes(value.toLowerCase())) {
-        newResult.push(blog.blogTitle);
-      }
-    });
+      questions.forEach((question) => {
+        if (question.questionBody.toLowerCase().includes(value.toLowerCase())) {
+          newResult.push(question.questionBody);
+        }
+      });
 
-    questions.forEach((question) => {
-      if (question.questionBody.toLowerCase().includes(value.toLowerCase())) {
-        newResult.push(question.questionBody);
-      }
-    });
+      setResults(newResult.sort());
+    } else if (clicked == 1) {
+      //  questions.forEach((question) => {
+      //   if (question.questionBody.toLowerCase().includes(value.toLowerCase())) {
+      //     newResult.push(question.questionBody || question.questionTitle);
+      //   }
+      // });
 
-    setResults(newResult);
+      // full answer
+
+      const newResult = questions.filter((question) =>
+        question.questionBody.includes(value)
+      );
+      setResults(newResult.sort());
+    } else if (clicked == 2) {
+      blogs.forEach((blog) => {
+        if (blog.blogTitle.toLowerCase().includes(value.toLowerCase())) {
+          newResult.push(blog.blogTitle || blog.blogBody);
+        }
+      });
+
+      setResults(newResult.sort());
+    }
   };
   return (
     <div>
       <SearchBarDiv handleChange={handleChange} />
-      <SearchResultsList results={results} prop={prop} />
+      <SearchResultsList
+        clicked={clicked}
+        setClicked={setClicked}
+        list={list}
+        setResults={setResults}
+        results={results}
+        prop={prop}
+      />
     </div>
   );
 }

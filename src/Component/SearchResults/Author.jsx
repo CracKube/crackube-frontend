@@ -4,16 +4,16 @@ import BookMark from '../../Assets/bookmark.png'
 import RedFlag from '../../Assets/red-flag.png';
 
   
-  function Author() {
+  function Author({img, name, user}) {
     return (
         <div className='ans-whole-wrap-1'> 
         <div className='ans-user'>
                     <div>
-                        <img src= {User}/>
+                        <img src= {img}/>
                     </div>
                     <div>
-                        <div>Jennifer Margrete</div>
-                        <div className='user-ans-id'>@jennifermargreed</div>
+                        <div>{name}</div>
+                        <div className='user-ans-id'>@{user}</div>
                     </div>
                     </div>    
                     <div>

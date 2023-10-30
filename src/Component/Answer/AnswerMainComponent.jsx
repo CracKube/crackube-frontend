@@ -4,7 +4,6 @@ import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";

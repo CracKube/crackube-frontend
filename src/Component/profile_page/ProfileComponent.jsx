@@ -39,29 +39,9 @@ function ProfileComponent({ theme }) {
       name: 'Code'
     }
   ];  
-  const getAllBlogs = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
-    );
-    const data = await response.json();
-
-    setBlogs(data);
-    console.log(data);
-  };
-  const [question, setQuestion] = useState([]);
-  const getAllQuestions = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/questions/get"
-    );
-    const data = await response.json();
-    setQuestion(data);
-    console.log(data);
-  };
 
 
   useEffect(() => {
-    getAllBlogs();
-    getAllQuestions();
     getUserDetails();
   }, []);
   return (
@@ -126,8 +106,8 @@ function ProfileComponent({ theme }) {
           </div>
           
           
-         {clicked === 0 && question &&
-        question.map((item, index) => {
+         {clicked === 0 && response.quesAsked &&
+        response.quesAsked.map((item, index) => {
           return <AnswerComponent 
           key = {index}
           theme={theme}
@@ -145,8 +125,8 @@ function ProfileComponent({ theme }) {
         {clicked === 1 && blogs &&     <div
       className= 'dashboard1'
     >
-      {(
-        blogs.map((blog, index) => (
+      {( response.blogsPosted && 
+        response.blogsPosted.map((blog, index) => (
           <Card
             key={index}
             id={blog._id}
