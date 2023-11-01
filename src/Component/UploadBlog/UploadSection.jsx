@@ -3,40 +3,40 @@ import { useState } from "react";
 import DropDownSplash from "../UploadPage/DropDownSplash";
 import UnSplash from "../UnSplash/UnSplash";
 import { createContext } from "react";
-
-import UnSplash1 from '../../Assets/unsplash-logo.png'
+import tagX from "../../Assets/tagX.svg";
+import UnSplash1 from "../../Assets/unsplash-logo.png";
 import axios from "axios";
 export const StateContext = createContext();
 const UploadSection = ({ body, title, setFirst }) => {
-  
   const [response, setResponse] = useState("");
-  
+
   const getUserDetails = async () => {
-    const response = await axios.get(`https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem("userId")}`);
+    const response = await axios.get(
+      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+        "userId"
+      )}`
+    );
     setResponse(response.data);
-      console.log(response.data)
-    
-  }
-  const [category, setCategory] = useState("");
-
-
+    console.log(response.data);
+  };
+  const [category, setCategory] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
 
-    formData.append("blogImage", file);
-    formData.append("userPosted", localStorage.getItem("userId"));
-    formData.append("blogTitle", title);
-    formData.append("blogBody", body);
-    formData.append("blogTags", category);
-    formData.append("blogImageProvider", blogImageProvider);
-    formData.append("blogImageUrl", blogImageUrl);
-    console.log(category)
+  formData.append("blogImage", file);
+  formData.append("userPosted", localStorage.getItem("userId"));
+  formData.append("blogTitle", title);
+  formData.append("blogBody", body);
+  formData.append("blogTags", category);
+  formData.append("blogImageProvider", blogImageProvider);
+  formData.append("blogImageUrl", blogImageUrl);
+  console.log(category);
   const handleImageChange = (e) => {
-
-  console.log(formData);
+    console.log(formData);
 
     const file = e.target.files[0];
     setBlogImageProvider("upload");
@@ -44,14 +44,14 @@ const UploadSection = ({ body, title, setFirst }) => {
     if (file) {
       const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
       setFile(file);
-      
+
       if (allowedTypes.includes(file.type)) {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
           var dataURL = reader.result;
           setImage(dataURL.split(",")[1]); //`data:image/png;base64,${image}`
-          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`)
+          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
           console.log(image);
         };
       } else {
@@ -81,33 +81,41 @@ const UploadSection = ({ body, title, setFirst }) => {
     } catch (error) {
       console.log(error.response);
     }
-
-  }
+  };
   // upload the images, title, body, tags, category, userPosted, userId to the backend url https://crackube-backend-test.onrender.com/blogs/post/
+  const handleInputKeyPress = (e) => {
+    if (e.key === ',' && inputValue.trim() !== '') {
+      setCategory([...category, inputValue.trim()]);
+      setInputValue('');
+    }
+  };
 
+  const handleTagRemove = (tagToRemove) => {
+    const updatedTags = category.filter((tag) => tag !== tagToRemove);
+    setCategory(updatedTags);
+  };
   useEffect(() => {
-      getUserDetails();
-    }, [])
-  
+    getUserDetails();
+  }, []);
+
   const [state, setState] = useState(false);
   const value = {
     state,
-    setState
-  }
+    setState,
+  };
 
-  
   const UploadThumbanil = ({ image, setImage, setFile }) => {
     const options = [{ value: "Upload" }, { value: "UnSplash" }];
     return (
       <div className="thumbnail">
-          <img src= {UnSplash1} alt="" />
+        <img src={UnSplash1} alt="" />
         <DropDownSplash
           options={options}
           image={image}
           setImage={setImage}
           setFile={setFile}
-          setBlogImageUrl = {setBlogImageUrl} 
-          setBlogImageProvider = {setBlogImageProvider}
+          setBlogImageUrl={setBlogImageUrl}
+          setBlogImageProvider={setBlogImageProvider}
         />
       </div>
     );
@@ -115,35 +123,68 @@ const UploadSection = ({ body, title, setFirst }) => {
   const handleImageState = () => {
     setImage("");
   };
-  
+
   return (
     <>
       <div className="container-wrapper">
-      <div className="blog-top">
+        <div className="blog-top">
           <span className="blog-gradient-text">Write Your Thoughts!</span>
           <div className="nxt-btn">
-          <button className="button" onClick={redirect}>Publish</button>
-            
+            <button className="button" onClick={redirect}>
+              Publish
+            </button>
           </div>
         </div>
-        <div className="cat-container">
+        {/* <div className="cat-container">
           <h1>Categories</h1>
-          <input type="text" className="cat-input" onChange={(e) => {setCategory(e.target.value)}} placeholder="Enter your categories" />
-        </div>
+          <input
+            type="text"
+            className="cat-input"
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
+            placeholder="Enter your categories"
+          />
+          
+        </div> */}
+        <div>
+            <div className="cat-input">
+              <div  className="tag-cont">
+            {category.map((tag, index) => (
+                <div key={index} className="tag-disp">
+                  <p>{tag}</p>
+                  <img src= {tagX}  onClick={() => handleTagRemove(tag)}></img>
+                </div>
+              ))}
+              </div>
+            <input
+              type="text"
+              value={inputValue}
+              
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
+              onKeyPress={handleInputKeyPress}
+              placeholder="Add tags"
+            >
+             
+            </input>
+            
+            </div>
+           
+          </div>
         <div className="thumbnailUpload">
           <label htmlFor="file" className="file-upload">
-            
             {image && (
               <div className="upload-image">
-                <img src= {`${image}`} alt="" />
+                <img src={`${image}`} alt="" />
                 <button className="btn-remove" onClick={handleImageState}>
                   X
                 </button>
               </div>
             )}
             {!image && (
-              <div className="upload-box" >
-              
+              <div className="upload-box">
                 <svg
                   width="48"
                   height="48"
@@ -159,32 +200,39 @@ const UploadSection = ({ body, title, setFirst }) => {
                 <h3>Drag & drop an image to upload</h3>
                 <p>only png or jpeg upto 10 MB</p>
                 <div className="file-input">
-                <input
-              type="file"
-              id="file"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-              accept=".jpg, .jpeg, .png"
-            >
-                
-            </input>
-                <div className="upload--btn">Choose File</div>
+                  <input
+                    type="file"
+                    id="file"
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
+                    accept=".jpg, .jpeg, .png"
+                  ></input>
+                  <div className="upload--btn">Choose File</div>
                 </div>
-                
               </div>
             )}
           </label>
-    </div>
-        <UploadThumbanil setImage={setImage} image={image} setFile={setFile} setBlogImageUrl = {setBlogImageUrl} setBlogImageProvider = {setBlogImageProvider} />
+        </div>
+        <UploadThumbanil
+          setImage={setImage}
+          image={image}
+          setFile={setFile}
+          setBlogImageUrl={setBlogImageUrl}
+          setBlogImageProvider={setBlogImageProvider}
+        />
       </div>
       <div className="unsplashContent">
-          <StateContext.Provider value = {value}>
-            {state  && (
-                <UnSplash setFile = {setFile} setState = {setState} setBlogImageUrl = {setBlogImageUrl} setBlogImageProvider = {setBlogImageProvider}/>
-            )}
-            
-          </StateContext.Provider>
-        </div>
+        <StateContext.Provider value={value}>
+          {state && (
+            <UnSplash
+              setFile={setFile}
+              setState={setState}
+              setBlogImageUrl={setBlogImageUrl}
+              setBlogImageProvider={setBlogImageProvider}
+            />
+          )}
+        </StateContext.Provider>
+      </div>
     </>
   );
 };

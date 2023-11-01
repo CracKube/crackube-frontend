@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchAsyncBlogs = createAsyncThunk('blogs/fetchAsyncBlogs', async (setLoading) => {
     const response = await fetch(
-        "https://crackube-backend-test.onrender.com/blogs/getAll"
+        "https://api.crackube.com/blogs/getAll"
       );
       const data = await response.json();
       setLoading(false)
@@ -11,7 +11,7 @@ export const fetchAsyncBlogs = createAsyncThunk('blogs/fetchAsyncBlogs', async (
 
 export const fetchAsyncBlogDetail = createAsyncThunk('blogs/fetchAsyncBlogDetail', async (id) => {
     const response = await fetch(
-        `https://crackube-backend-test.onrender.com/blogs/get/${id}`
+        `https://api.crackube.com/blogs/get/${id}`
       );
       const data = await response.json();
       return data;

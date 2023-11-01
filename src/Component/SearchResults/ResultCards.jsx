@@ -13,32 +13,35 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 import { getAllBlog } from "../../redux/Blogs/blogSlice";
+import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
 function ResultCards(prop) {
   const dispatch = useDispatch();
-  const [question, setQuestion] = useState([]);
-  const [blogs, setBlogs] = useState([]);
-  const getAllQuestions = async () => {
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/questions/get"
-    );
-    const data = await response.json();
-    setQuestion(data);
-    console.log(data);
-  };
-  const getBlogs = async () => {
-    const response1 = await fetch(
-      "https://crackube-backend-test.onrender.com/blogs/getAll"
-    );
-    const data1 = await response1.json();
-    setBlogs(data1);
-  };
+  const [loading, setLoading] = useState(true);
+  //const [question, setQuestion] = useState([]);
+  //const [blogs, setBlogs] = useState([]);
+  // const getAllQuestions = async () => {
+  //   const response = await fetch(
+  //     "https://crackube-backend-test.onrender.com/questions/get"
+  //   );
+  //   const data = await response.json();
+  //   setQuestion(data);
+  //   console.log(data);
+  // };
+  // const getBlogs = async () => {
+  //   const response1 = await fetch(
+  //     "https://crackube-backend-test.onrender.com/blogs/getAll"
+  //   );
+  //   const data1 = await response1.json();
+  //   setBlogs(data1);
+  // };
 
   useEffect(() => {
-    getAllQuestions();
-    // dispatch(fetchAsyncBlogs());
-    getBlogs();
-  }, []);
-  //const blogs = useSelector(getAllBlog);
+    //getAllQuestions();
+    dispatch(fetchAsyncAnswer());
+    dispatch(fetchAsyncBlogs(setLoading));
+  }, [dispatch]);
+  const blogs = useSelector(getAllBlog);
+  const question = useSelector(getAnswer);
   console.log(blogs);
   if (prop.clicked === 2) {
     let newResult = blogs.filter((blog) =>

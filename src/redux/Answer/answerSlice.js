@@ -4,7 +4,7 @@ export const fetchAsyncAnswer = createAsyncThunk(
   "answer/fetchAsyncAnswer",
   async () => {
     const response = await fetch(
-      `https://crackube-backend-test.onrender.com/questions/get/`
+      `https://api.crackube.com/questions/get/`
     );
     const data = await response.json();
     return data;
@@ -14,7 +14,7 @@ export const fetchAsyncAnswerDetail = createAsyncThunk(
   "answer/fetchAsyncAnswerDetail",
   async (id) => {
     const response = await fetch(
-      `https://crackube-backend-test.onrender.com/answers/get/${id}`
+      `https://api.crackube.com/answers/get/${id}`
     );
     const data = await response.json();
     return data;

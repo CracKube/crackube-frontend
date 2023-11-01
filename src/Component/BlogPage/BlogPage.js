@@ -10,12 +10,11 @@ import { useEffect } from "react";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { addBlogs, fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
+import {  fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
 import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
 import { getAllBlog } from "../../redux/Blogs/blogSlice";
 import BlogComponent from "./BlogComponent";
-import CardBlog from "./CardBlog";
 import Profile from "./Profile";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;

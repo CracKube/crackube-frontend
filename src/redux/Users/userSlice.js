@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchAsyncUsers = createAsyncThunk('users/fetchAsyncUsers', async (id) => {
     const response = await axios.get(
-        `https://crackube-backend-test.onrender.com/users/getUser/${id}`
+        `https://api.crackube.com/users/getUser/${id}`
       );
       console.log(response.data);
       return response.data;

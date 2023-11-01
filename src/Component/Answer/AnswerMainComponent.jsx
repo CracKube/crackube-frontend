@@ -3,14 +3,13 @@ import { TopNavBar } from "../Constants";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
-import 'react-quill/dist/quill.snow.css';
+import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
 const AnswerMainComponent = ({ theme }) => {
   //const [question, setQuestion] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const getAllQuestions = async () => {
   //   const response = await fetch(
   //     "https://crackube-backend-test.onrender.com/questions/get"
@@ -42,6 +41,11 @@ const AnswerMainComponent = ({ theme }) => {
   };
   const question = useSelector(getAnswer);
 
+  const handleAns =  () => {
+    console.log(editorText);
+    navigate("/uploadAnswer",  {state: {editorText}});
+  }
+
   return (
     <div className="home-container">
       <TopNavBar theme={theme} />
@@ -53,6 +57,7 @@ const AnswerMainComponent = ({ theme }) => {
         className="editor-text-question"
         modules={modules}
       />
+      <div className="ask-button"><button onClick={handleAns}>Ask</button></div>
       {question &&
         question.map((item, index) => {
           return (

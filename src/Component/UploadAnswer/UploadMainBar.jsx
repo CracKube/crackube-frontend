@@ -6,8 +6,10 @@ import "../UploadBlog/UploadBlog.css";
 import Tesseract from "tesseract.js";
 import Arrow from "../../Assets/ans-back-arrow.svg";
 import { ToastContainer, toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 
 const UploadMainBar = ({ theme }) => {
+  const text = useLocation();
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -27,7 +29,7 @@ const UploadMainBar = ({ theme }) => {
   const [type, setType] = useState("CK");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [editorText, setEditorText] = useState("");
+  const [editorText, setEditorText] = useState(text.state.editorText);
   const [file, setFile] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);
