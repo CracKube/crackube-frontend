@@ -4,6 +4,7 @@ import ProgressPassword from "../Indicators/ProgressPassword";
 import LoginDesign from "../../Assets/LoginDesign.svg";
 import "../../styles/Sheets/Login.css";
 import Navbar from "../Navbar";
+import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
   const [message, setMessage] = useState("");
@@ -183,8 +184,16 @@ function Login() {
     if (data == "User already exists") {
       window.location.href = "/otp";
     } else {
-      window.alert("User created successfully");
-      window.location.href = "/otp";
+      toast.success("Login successful", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        window.location.href = "/otp";
+      }, 500);
     }
   };
   const handleGoogleLogin = async () => {
@@ -197,6 +206,7 @@ function Login() {
   };
   return (
     <div className="Outer">
+      <ToastContainer />
       <div className="out">
         <Helmet>
           <meta name="viewport" content="width=device-width" />

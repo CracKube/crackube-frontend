@@ -5,6 +5,7 @@ import React from "react";
 import "../UnSplash/unsplash.css";
 import useAxios from "../hooks/useAxios";
 import DropDownSplash from "./DropDownSplash";
+import { ToastContainer, toast } from "react-toastify";
 
 const Title = ({ setTitle }) => {
   return (
@@ -74,7 +75,13 @@ const Category = ({ category, setCategory }) => {
         placeholder="Enter category seperated by comma"
         onChange={(e) => {
           if (e.target.value.split(",").length > 3) {
-            alert("You can only choose 3 categories");
+            toast.warning("You can only choose 3 categories", {
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
             setCategory([]);
           }
           if (e.target.value.split(",").length > 0) {
@@ -103,7 +110,7 @@ export default function Upload({ type }) {
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
-  formData.append("blogImageProvider", blogImageProvider )
+  formData.append("blogImageProvider", blogImageProvider);
   console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -134,9 +141,21 @@ export default function Upload({ type }) {
     console.log(await res.json());
 
     if (res.status == 200) {
-      alert("Successfully Posted");
+      toast.success("Successfully Posted", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
-      alert("Something went wrong");
+      toast.error("Something went wrong", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     setBody("");
@@ -147,6 +166,7 @@ export default function Upload({ type }) {
   };
   return (
     <div className="uploadForm">
+      <ToastContainer />
       <div className="banner">
         {type == "Blog" ? (
           <>

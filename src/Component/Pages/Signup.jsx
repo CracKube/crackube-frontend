@@ -8,6 +8,7 @@ import axios from "axios";
 import ck_logo from "../../Assets/CK_LOGO.png";
 
 import { LoginSocialFacebook } from "reactjs-social-login";
+import { ToastContainer, toast } from "react-toastify";
 
 function Signup() {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -45,11 +46,20 @@ function Signup() {
       window.location.href = "/home";
       setLoginStatus(true);
     } else {
-      alert("Invalid email or password");
+      toast.error("Invalid Email or Password", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
     }
   };
   return (
     <div className="main1">
+      <ToastContainer />
+
       <div className="signUp_logo-container">
         <img src={ck_logo} alt="logo" className="signUp_logo" />
         <span className="signUpLogo_text">CracKube</span>

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "../../styles/Sheets/Style.css";
 import LoginDesign from "../../Assets/SignUpImg.svg";
 import { useLocation } from "react-router-dom";
-import Avatar from '../../Assets/Avatar.avif'
+import Avatar from "../../Assets/Avatar.avif";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const FourthPage = () => {
   const navigate = useNavigate();
@@ -13,11 +14,11 @@ const FourthPage = () => {
   const [image, setImage] = useState("https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.1541155057.1694256294&semt=ais");
   const {state} = useLocation();
   const formData = new FormData();
-    formData.append("profilePicUrl", image);
-    formData.append("dob", state.date);
-    formData.append("gender", state.gender);
-    formData.append("username", userName);
-    console.log(formData);
+  formData.append("profilePicUrl", image);
+  formData.append("dob", state.date);
+  formData.append("gender", state.gender);
+  formData.append("username", userName);
+  console.log(formData);
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     console.log(file);
@@ -30,7 +31,7 @@ const FourthPage = () => {
         reader.onload = () => {
           var dataURL = reader.result;
           setImage(dataURL.split(",")[1]); //`data:image/png;base64,${image}`
-          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`)
+          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
           console.log(image);
         };
       } else {
@@ -41,9 +42,6 @@ const FourthPage = () => {
   const handleImageState = () => {
     setImage("");
   };
-
-
-
 
   // send date, gender, image, username to the backend
   // use axios to post the data to the backend
@@ -56,26 +54,39 @@ const FourthPage = () => {
       {
         headers: { "Content-Type": "multipart/form-data" },
       }
-    )
- 
-    console.log(response)
-    if(response.status === 200) {
-      window.alert("Profile Updated");
-      navigate('/home', {state: {userId: state.userId}})
+    );
+
+    console.log(response);
+    if (response.status === 200) {
+      toast.success("", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/home", { state: { userId: state.userId } });
       window.localStorage.setItem("userId", state.userId);
-     
-  }else{
-    window.alert("Something went wrong");
-  }
-}
+    } else {
+      toast.error("Something went wrong!", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+  };
 
   return (
     <div className="main1">
-    <div className="Welcome">
-      <p className="txt">Make yourself Unique</p>
-      <div className="avatar">
-      <label htmlFor="file" className="file-upload">
-            
+      <ToastContainer />
+
+      <div className="Welcome">
+        <p className="txt">Make yourself Unique</p>
+        <div className="avatar">
+          <label htmlFor="file" className="file-upload">
             {image && (
               <div className="upload-image">
                 <button className="btn-remove" onClick={handleImageState}>
@@ -84,8 +95,7 @@ const FourthPage = () => {
               </div>
             )}
             {!image && (
-              <div className="upload-box" >
-              
+              <div className="upload-box">
                 <svg
                   width="48"
                   height="48"
@@ -101,39 +111,38 @@ const FourthPage = () => {
                 <h3>Drag & drop an image to upload</h3>
                 <p>only png or jpeg upto 10 MB</p>
                 <div className="file-input">
-                <input
-              type="file"
-              id="file"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-              accept=".jpg, .jpeg, .png"
-            >
-                
-            </input>
-                <div className="upload--btn">Choose File</div>
+                  <input
+                    type="file"
+                    id="file"
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
+                    accept=".jpg, .jpeg, .png"
+                  ></input>
+                  <div className="upload--btn">Choose File</div>
                 </div>
-                
               </div>
             )}
           </label>
 
-        <img src= {`${image}`} alt="" />
-        <p>Avatar</p>
+          <img src={`${image}`} alt="" />
+          <p>Avatar</p>
+        </div>
+        <form action="">
+          <p className="Patxt">Enter your UserName</p>
+          <input
+            placeholder="Enter your Username"
+            className="Password"
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </form>
+
+        <button className="enter-ck" onClick={() => handleProfile()}>
+          Enter CK WORLD
+        </button>
       </div>
-      <form action="">
-        <p className="Patxt">Enter your UserName</p>
-        <input
-          placeholder="Enter your Username"
-          className="Password"
-          type="text"
-        onChange={(e) => setUserName(e.target.value)}
-        />
-      </form>
-
-      <button className = "enter-ck" onClick={() => handleProfile()}>Enter CK WORLD</button>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default FourthPage
+export default FourthPage;

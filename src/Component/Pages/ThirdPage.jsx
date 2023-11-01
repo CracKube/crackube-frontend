@@ -12,7 +12,7 @@ import "../../styles/Sheets/thirdPage.css";
 const ThirdPage = () => {
   const navigate = useNavigate();
   const [gender, setGender] = useState("");
-  const {state} = useLocation();
+  const { state } = useLocation();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,7 +30,13 @@ const ThirdPage = () => {
     setDate(e.target.value);
   };
   const handleNavigate = () => {
-    navigate("/fourth", {state: { date: Date, gender: gender, country: selectedCountry, userId: state.userId },
+    navigate("/fourth", {
+      state: {
+        date: Date,
+        gender: gender,
+        country: selectedCountry,
+        userId: state.userId,
+      },
     });
   };
 
@@ -69,8 +75,10 @@ const ThirdPage = () => {
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value= 'Male'
-                onChange={() => {setGender("Male")}}
+                value="Male"
+                onChange={() => {
+                  setGender("Male");
+                }}
                 required
               />
               Male
@@ -79,8 +87,10 @@ const ThirdPage = () => {
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value= 'Male'
-                onChange={() => {setGender("Female")}}
+                value="Male"
+                onChange={() => {
+                  setGender("Female");
+                }}
                 required
               />
               Female
@@ -89,17 +99,28 @@ const ThirdPage = () => {
                 placeholder="Enter your email"
                 className="radio_button"
                 name="gender"
-                value= 'Female'
-                onChange={() => {setGender("Other")}}
+                value="Female"
+                onChange={() => {
+                  setGender("Other");
+                }}
                 required
               />
               Other
+              <input
+                type="radio"
+                className="radio_button"
+                name="gender"
+                value="NotPrefer"
+                onChange={() => {
+                  setGender("NotPrefer");
+                }}
+                required
+              />
+              Prefer not to say
             </div>
           </div>
           <div className="dob-third">
             <label className="third_label">Date of Birth</label>
-            <br />
-            <br />
             <input
               type="date"
               value={Date}
@@ -111,8 +132,6 @@ const ThirdPage = () => {
           </div>
           <div className="country-third">
             <label className="third_label">Your Country</label>
-            <br />
-            <br />
             <select
               value={selectedCountry}
               onChange={handleCountryChange}
@@ -130,6 +149,12 @@ const ThirdPage = () => {
         </div>
 
         <button className="forgotPassword_button" onClick={handleNavigate}>
+          Next
+        </button>
+        <button
+          className="forgotPassword_button-mobile"
+          onClick={handleNavigate}
+        >
           Next
         </button>
       </div>
