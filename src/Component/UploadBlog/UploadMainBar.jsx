@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MainBar, TopNavBar } from "../Constants";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -34,6 +34,41 @@ function UploadMainBar({ theme }) {
   };
   const getBack = () => {
     setFirst(true);
+  };
+
+  //popup when users goes to next line
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
+
+  useEffect(() => {
+    const editor = document.querySelector(".ql-editor");
+    if (editor) {
+      editor.addEventListener("keyup", handleKeyUp);
+    }
+    return () => {
+      if (editor) {
+        editor.removeEventListener("keyup", handleKeyUp);
+      }
+    };
+  }, [editorText]);
+
+  const handleKeyUp = (event) => {
+    if (event.key === "Enter") {
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      setPopupPosition({
+        top: rect.bottom,
+        left: rect.left,
+      });
+      setShowPopup(true);
+    }
+  };
+
+  const handleChange = (content) => {
+    setEditorText(content);
+    setShowPopup(false);
   };
 
   return (
@@ -72,10 +107,25 @@ function UploadMainBar({ theme }) {
                 <ReactQuill
                   theme="snow"
                   value={editorText}
-                  onChange={setEditorText}
+                  onChange={handleChange}
                   className="editor-textarea"
                   modules={modules}
                 />
+                {showPopup && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: `${popupPosition.top}px`,
+                      left: `${popupPosition.left}px`,
+                      backgroundColor: "white",
+                      border: "1px solid black",
+                      padding: "10px",
+                      zIndex: 1000,
+                    }}
+                  >
+                    Add something
+                  </div>
+                )}
               </div>
             </div>
           </>

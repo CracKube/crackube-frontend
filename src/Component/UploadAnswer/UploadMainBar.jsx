@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css";
 import "../UploadBlog/UploadBlog.css";
 import Tesseract from "tesseract.js";
 import Arrow from "../../Assets/ans-back-arrow.svg";
+import { ToastContainer, toast } from "react-toastify";
 
 const UploadMainBar = ({ theme }) => {
   const modules = {
@@ -113,9 +114,21 @@ const UploadMainBar = ({ theme }) => {
 
     console.log(response);
     if (res.status == 200) {
-      alert("Successfully Posted");
+      toast.success("Successfully Posted", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
-      alert(response);
+      toast.error(response, {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     setBody("");
@@ -127,6 +140,7 @@ const UploadMainBar = ({ theme }) => {
 
   return (
     <div className="blog-layout" id={theme}>
+      <ToastContainer />
       <div className="blog-top">
         <span className="blog-gradient-text">Ask a Question</span>
         <div className="upload-flex-top">

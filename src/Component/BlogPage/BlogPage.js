@@ -2,6 +2,7 @@ import React from "react";
 import Search from "../../Assets/search.svg";
 import { Link, useParams } from "react-router-dom";
 import MenuBar from "../MenuBar";
+import CardBlog from "./CardBlog"
 import { MainBar, TopNavBar } from "../Constants";
 import homeIcon from "../../Assets/homeIcon.svg";
 import blogPic from "../../Assets/blogPic.svg";
@@ -14,11 +15,12 @@ import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
 import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
 import { getAllBlog } from "../../redux/Blogs/blogSlice";
 import BlogComponent from "./BlogComponent";
+import Profile from "./Profile";
 function BlogPage({ theme, setTheme }) {
   const id = useParams().id;
   const dispatch = useDispatch();
   const [loading, setLoading] = React.useState(true);
- // const [blog, setBlog] = React.useState({});
+  // const [blog, setBlog] = React.useState({});
   // const [blogs, setBlogs] = React.useState([]);
 
   // const getAllBlogs = async () => {
@@ -32,7 +34,7 @@ function BlogPage({ theme, setTheme }) {
   useEffect(() => {
     dispatch(fetchAsyncBlogDetail(id));
     dispatch(fetchAsyncBlogs(setLoading));
-   // getAllBlogs();
+    // getAllBlogs();
   }, [dispatch, id]);
 
   const blog = useSelector(getSelectedBlog)
@@ -65,7 +67,7 @@ function BlogPage({ theme, setTheme }) {
                   count={blog && blog.likes}
                   author={blog && blog.userPosted && blog.userPosted.username}
                   modified={blog && moment(blog.postedOn).fromNow()}
-                  url={authorUrl}
+                  url={'authorUrl'}
 
                 />
               </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './SignUp.css'
+import "./SignUp.css";
 // components
 
 // Assets
@@ -9,6 +9,7 @@ import apple from "../../Assets/Apple.svg";
 import facebook from "../../Assets/Facebook.svg";
 import twitter from "../../Assets/Twitter.svg";
 import google from "../../Assets/Google.svg";
+import { ToastContainer, toast } from "react-toastify";
 
 //css
 import "./SignUp.css";
@@ -21,8 +22,22 @@ const SignUp = () => {
   const [userId, setUserId] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
   const handleSignUP = async (e) => {
+    if (!email && !password && !name) {
+      toast.warning("All Fields are Required", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
     console.log(email, password, name);
     // https://crackube-backend-test.onrender.com/users/createUser
     // http://localhost:5000/users/createUser
@@ -46,13 +61,30 @@ const SignUp = () => {
     console.log(userId);
     console.log(email);
     if (data.message === "User already exists") {
-      window.alert("User already exists");
-    } else {
-      window.alert("User created successfully");
-      localStorage.setItem("token", data.token);
-      navigate("/otp", {
-        state: { email: `${email}`, userId: `${data.result._id}` },
+      toast.warning("User already exists", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
+      setIsLoading(false);
+    } else {
+      toast.success("OTP Sent Successfully", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        setIsLoading(false);
+        localStorage.setItem("token", data.token);
+        navigate("/otp", {
+          state: { email: `${email}`, userId: `${data.result._id}` },
+        });
+      }, 2000);
+      setIsLoading(false);
     }
   };
 
@@ -136,8 +168,9 @@ const SignUp = () => {
 
   return (
     <div className="signup_container">
-
       <div className="signUp_form-container">
+        <ToastContainer />
+
         <div className="signUp_logo-container">
           <img src={ck_logo} alt="logo" className="signUp_logo" />
           <span className="signUpLogo_text">CracKube</span>
@@ -213,14 +246,21 @@ const SignUp = () => {
           <span className="span">Payment terms of service</span>&{" "}
           <span className="span">privacy Policy </span>
         </p>
+        {isLoading === false ? (
+          <button className="signUp_button" onClick={(e) => handleSignUP(e)}>
+            Signup
+          </button>
+        ) : (
+          // <button className="signUp_button">
+          // </button>
+          <span id="loader"></span>
+        )}
 
-        <button className="signUp_button" onClick={(e) => handleSignUP(e)}>
-          Signup
-        </button>
         <button className="signUp_button-mobile">Agree and Continue</button>
 
         <p className="signUp_para2 mobile">
-          Already have an account ? <a href="/login">Login</a>   </p>
+          Already have an account ? <a href="/login">Login</a>{" "}
+        </p>
         <p className="signUp_para2 mobile">or</p>
 
         <div className="signUp_socials">

@@ -3,10 +3,7 @@ import { TopNavBar } from "../Constants";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
 const AnswerMainComponent = ({ theme }) => {
   //const [question, setQuestion] = useState([]);
@@ -19,12 +16,12 @@ const AnswerMainComponent = ({ theme }) => {
   //   setQuestion(data);
   //   console.log(data);
   // };
-  
+
   useEffect(() => {
     // getAllQuestions();
     dispatch(fetchAsyncAnswer());
   }, [dispatch]);
-  const [editorText, setEditorText] = useState('');
+  const [editorText, setEditorText] = useState("");
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -39,13 +36,13 @@ const AnswerMainComponent = ({ theme }) => {
       ],
       ["link", "image", "video"],
     ],
- }
- const question = useSelector(getAnswer);
+  };
+  const question = useSelector(getAnswer);
 
   return (
     <div className="home-container">
       <TopNavBar theme={theme} />
-      
+
       <ReactQuill
         theme="snow"
         value={editorText}
@@ -55,18 +52,19 @@ const AnswerMainComponent = ({ theme }) => {
       />
       {question &&
         question.map((item, index) => {
-          return <AnswerComponent 
-          key = {index}
-          theme={theme}
-          verify = {item.isVerified}
-          id = {item._id}
-          body={item.questionBody}
-          tags = {item.questionTags}
-          img = {item.userPosted.profilePicUrl}
-          userName = {item.userPosted && item.userPosted.name}
-          postedOn = {item.askedOn}
-          
-          />;
+          return (
+            <AnswerComponent
+              key={index}
+              theme={theme}
+              verify={item.isVerified}
+              id={item._id}
+              body={item.questionBody}
+              tags={item.questionTags}
+              img={item.userPosted.profilePicUrl}
+              userName={item.userPosted && item.userPosted.name}
+              postedOn={item.askedOn}
+            />
+          );
         })}
     </div>
   );

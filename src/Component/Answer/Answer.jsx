@@ -17,7 +17,7 @@ function Answer() {
       {/* <div className="home" id={theme}>
         <MenuBar theme={theme} setTheme={setTheme} />
         <AnswerMainComponent theme={theme} setTheme={setTheme} />
-  const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState("light")
  const [cookies, setCookie] = useCookies(['state']);
   const [menu,setMenu] = useState(true);
   return (

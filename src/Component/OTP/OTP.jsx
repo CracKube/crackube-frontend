@@ -7,17 +7,18 @@ import OTPInput from "react-otp-input";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ck_logo from "../../Assets/CK_LOGO.png";
+import { ToastContainer, toast } from "react-toastify";
 const OTP = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
-  const {state} = useLocation();
-  const {email, userId} = state;
+  const { state } = useLocation();
+  const { email, userId } = state;
   // send otp to backend
   // verify otp from backend
   // if otp is verified then redirect to login page
   // else show error message
   console.log(email);
-  console.log(userId)
+  console.log(userId);
   const handleOtp = async () => {
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/users/sendEmail",
@@ -26,14 +27,13 @@ const OTP = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `email=${email}&_id=${userId}`
+        body: `email=${email}&_id=${userId}`,
       }
     );
-      console.log(response)
-    
+    console.log(response);
   };
   const handleVerifyOtp = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/users/verify",
       {
@@ -41,32 +41,47 @@ const OTP = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `_id=${userId}&otp=${otp}`
+        body: `_id=${userId}&otp=${otp}`,
       }
     );
     console.log(response);
 
-    if(response.status === 202) {
-      navigate('/third', {state: {userId: userId}})
-    }else {
-      window.alert("Wrong Otp");
+    if (response.status === 202) {
+      toast.success("OTP Verified", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        navigate("/third", { state: { userId: userId } });
+      }, 500);
+    } else {
+      toast.error("Incorrect OTP", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
     }
-
   };
-
- 
 
   useEffect(() => {
     handleOtp();
   }, []);
   return (
     <div className="container">
+      <ToastContainer />
+
       <div className="right-container">
         <div className="signup-logo">
-        <div className="signUp_logo-container">
-          <img src={ck_logo} alt="logo" className="signUp_logo" />
-          <span className="signUpLogo_text">CracKube</span>
-        </div>
+          <div className="signUp_logo-container">
+            <img src={ck_logo} alt="logo" className="signUp_logo" />
+            <span className="signUpLogo_text">CracKube</span>
+          </div>
         </div>
         <div className="signupotp-content">
           <div className="signupotp-heading">
@@ -83,16 +98,35 @@ const OTP = () => {
               renderSeparator={<span></span>}
               renderInput={(props) => <input {...props} />}
               containerStyle={"otp-container"}
-              shouldAutoFocus = {true}
+              shouldAutoFocus={true}
               inputStyle={"input-box"}
               inputType="integer"
             />
           </div>
           <div className="signupotp-bottom">
             <p className="resend">
-              Didn’t you receive the OTP? <a className="span">Resend</a>
+              Didn’t you receive the OTP?{" "}
+              <a
+                className="span"
+                onClick={() => {
+                  toast.success("OTP is resent successfully", {
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                }}
+              >
+                Resend
+              </a>
             </p>
-            <button className="verifyotp-button" onClick={(e) => handleVerifyOtp(e)}>Verify OTP</button>
+            <button
+              className="verifyotp-button"
+              onClick={(e) => handleVerifyOtp(e)}
+            >
+              Verify OTP
+            </button>
           </div>
         </div>
       </div>
