@@ -5,25 +5,24 @@ import MenuBar from "../MenuBar";
 import { MainBar, TopNavBar } from "../Constants";
 import ResultCards from "./ResultCards";
 import SearchBarResults from "./SearchBarResults";
-function SearchResults({ theme, setTheme }) {
-  
-  const [press, setPress] = useState("Blog");
+import { useLocation } from "react-router-dom";
 
-  const [input, setInput] = useState("");
+function SearchResults({ theme, setTheme }) {
+  const location = useLocation();
+  const [clicked, setClicked] = useState(1);
+  const [input, setInput] = useState(location.state.input);
 
   return (
     <div className="home" id={theme}>
       <MenuBar theme={theme} setTheme={setTheme} />
       <div className="home-container">
         <TopNavBar theme={theme} />
-        <SearchBarResults press={press} setInput = {setInput}  setPress={setPress} />
+        <SearchBarResults  clicked = {clicked} setClicked = {setClicked} input = {input} setInput = {setInput}/>
         <div className={style.resultCover}>
           <div className={style.resultbox}>
             <ResultCards
               value = {input}
-              press={press}
-              title="What is Dropshipping for Beginners? How to Make Money Online in 2021"
-              content="What is Dropshipping for Beginners? How to Make Money Online in 2021 What is Dropshipping for Beginners? How to Make Money Online in 2021 What is Drop...."
+              clicked = {clicked}
             />
           </div>
         </div>

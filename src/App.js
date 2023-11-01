@@ -46,7 +46,7 @@ import Refund from "./Component/Refund";
 import Ship from "./Component/Ship";
 import TAndC from "./Component/TAndC";
 import StoreComponent from "./Component/Store/StoreComponent";
-
+import PasswordReset from "./Component/Pages/PasswordReset";
 export const ThemeContext = createContext(null);
 
 
@@ -97,6 +97,7 @@ function App() {
                         <Route path = '/shipanddelivery' element = {<Ship/>}></Route>
                         <Route path="/termsandconditions" element = {<TAndC/>}></Route>
                         <Route path = '/store' element = {<StoreComponent />}></Route>
+                        <Route path= '/passwordReset' element = {<PasswordReset />}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

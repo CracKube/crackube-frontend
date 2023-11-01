@@ -40,7 +40,7 @@ function ResultCards(prop) {
   }, []);
   //const blogs = useSelector(getAllBlog);
   console.log(blogs);
-  if (prop.press === "Blogs") {
+  if (prop.clicked === 2) {
     let newResult = blogs.filter((blog) =>
       blog.blogTitle.toLowerCase().includes(prop.value.toLowerCase())
     );
@@ -86,7 +86,7 @@ function ResultCards(prop) {
           })}
       </div>
     );
-  } else if (prop.press === "Answer") {
+  } else if (prop.clicked === 1) {
     const newResult = question.filter((question) =>
       question.questionBody.toLowerCase().includes(prop.value.toLowerCase())
     );
@@ -115,9 +115,9 @@ function ResultCards(prop) {
           })}
       </div>
     );
-  } else if (prop.press === "Code") {
+  } else if (prop.clicked === 3) {
     return <div>Code</div>;
-  } else if (prop.press === "People") {
+  } else if (prop.clicked ===  4) {
     return <div>People</div>;
   }
 }

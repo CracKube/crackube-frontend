@@ -11,7 +11,10 @@ import category from "../../Assets/category.svg";
 import follow from "../../Assets/follow-prof.svg";
 import camera from "../../Assets/camera.svg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const SearchBar = ({ handleChange }) => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
 
   // const fecthData = (value) => {
@@ -24,10 +27,14 @@ const SearchBar = ({ handleChange }) => {
 
   //   } )
   // }
+  const handleSearch = () => {
+    navigate('/search-results', { state: { input } })
+  }
 
   return (
     <div className="Search">
       <div className="search-container">
+        <form action="submit" onSubmit = {() => {handleSearch()}}>
         <input
           className="search-bar"
           type="text"
@@ -38,6 +45,7 @@ const SearchBar = ({ handleChange }) => {
           }}
           placeholder="Search for anything"
         />
+        </form>
         <div className="search-attr">
           <img src={camera} className="camera-ocr" alt="" />
           <svg
@@ -53,7 +61,7 @@ const SearchBar = ({ handleChange }) => {
           <img src={arrow} alt="" />
         </div>
       </div>
-      <div className="search-icon">
+      <div className="search-icon" onClick={() => {handleSearch()}}>
         <svg
           width="24"
           height="24"

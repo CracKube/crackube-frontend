@@ -76,6 +76,7 @@ const OTP = () => {
             </p>
           </div>
           <div className="signup-otp">
+            
             <OTPInput
               value={otp}
               onChange={setOtp}

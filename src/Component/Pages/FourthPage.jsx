@@ -12,8 +12,6 @@ const FourthPage = () => {
   const [userName, setUserName] = useState("");
   const [image, setImage] = useState("https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.1541155057.1694256294&semt=ais");
   const {state} = useLocation();
-  console.log(state.date);
-  console.log(state.gender);
   const formData = new FormData();
     formData.append("profilePicUrl", image);
     formData.append("dob", state.date);

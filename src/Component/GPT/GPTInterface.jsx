@@ -8,9 +8,10 @@ import ChatMessage from "./ChatMessage";
 const GPTInterface = () => {
     const [input, setInput] = useState("");
     const [chatLog, setChatLog] = useState([]);
-
+    const [text, setText] = useState("");
     async function handleSubmit (e) {
         e.preventDefault();
+        setText("Texting...")
         if(input === "") return;
          let chatLogNew = [...chatLog, {user: "user", message: `${input}`}]
          setInput("");
@@ -29,6 +30,7 @@ const GPTInterface = () => {
         });
         const data = await response.json(); 
         setChatLog([...chatLogNew, {user: "gpt", message: `${data.result}`}])
+        setText("");
     }
   return (
     <div className="gpt-cover">
@@ -84,10 +86,15 @@ const GPTInterface = () => {
         <div className="conversation">
         {chatLog && chatLog.map((message, index) => {
             return(
+              <div>
                 <ChatMessage key = {index} message = {message} />
+              </div>
+                
             )
              
           })}
+                <p>{text}</p>
+
         </div>
 
         <div className="gpt-bottom">

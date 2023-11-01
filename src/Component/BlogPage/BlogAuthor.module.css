@@ -40,6 +40,9 @@ line-height: normal;
   gap: 0.5rem;
   padding-right: 1.5rem;
 }
+.blogopalign::-webkit-scrollbar {
+  display: none;
+}
 .blogopalign img {
   display: flex;
 }

@@ -42,7 +42,6 @@
   line-height: 120%; /* 1.5rem */
 }
 .editor-text-question {
-  max-width: 72rem;
   height: 12rem;
   color: var(--gray, #737373);
   font-size: 16px;

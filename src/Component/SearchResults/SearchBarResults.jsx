@@ -2,12 +2,8 @@ import React, { useEffect } from "react";
 import style from "./results.module.css";
 import Search from "../../Assets/search.svg";
 import { useState } from "react";
-function SearchBarResults({ press, setPress, setInput }) {
+function SearchBarResults({ setInput, input, clicked, setClicked }) {
 
-  const [clicked, setClicked] = useState(1);
-  const [blogs, setBlogs] = useState([]);
-  const [questions, setQuestions] = useState([]);
-  const [users, setUsers] = useState([]);
   const list = [
     {
       name: "All",
@@ -27,7 +23,6 @@ function SearchBarResults({ press, setPress, setInput }) {
   ];
   const handleClick = (index, value) => {
     setClicked(index);
-    setPress(value);
   };
 
 
@@ -41,6 +36,7 @@ function SearchBarResults({ press, setPress, setInput }) {
               type="text"
               className={style.input}
               placeholder="search anything"
+              value={input}
               onChange={(e) => {
                 setInput(e.target.value);
               }}
@@ -73,7 +69,7 @@ function SearchBarResults({ press, setPress, setInput }) {
                 className={
                   clicked === index ? `${style.buttonclick}` : `${style.button}`
                 }
-                onClick={() => handleClick(index, item.name)}
+                onClick={() => {handleClick(index, item.name)}}
               >
                 {item.name}
               </button>

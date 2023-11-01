@@ -39,7 +39,7 @@ function Signup() {
     );
     const data = await response.json();
     console.log(data);
-    if (data.message === "Successfully logged in...") {
+    if (data.message === "successfully logged in...") {
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.result._id);
       window.location.href = "/home";

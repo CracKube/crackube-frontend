@@ -2149,6 +2149,137 @@ a {
   margin-bottom: 4rem;
   gap: 1rem;
 }
+.modal-update {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.modal-update > div > h1 {
+  color: var(--CracKube-Purple, #8F00FF);
+text-align: center;
+font-family: Montserrat;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-bottom: 1rem;
+}
+.set-top{ 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email-settings {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.email-settings p {
+  color: var(--CracKube-Purple, #8F00FF);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.email-settings > div > p {
+  color: var(--Gray, #737373);
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.email-settings > div > h3 {
+  color: var(--Black, #000);
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.dob-third-set {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.dob-third-set input {
+  width: 100%;
+}
+.modal-update > p {
+  color: var(--Black, #000);
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-bottom: 0.5rem;
+}
+.change-input-mdl {
+  width: 100%;
+  padding-left: 1.5rem;
+  height: 3rem;
+  border-radius: 2rem;
+  border: 1px solid var(--Med-Gray, #C8C8C8);
+  background: var(--Light-Gray-Border, #E6E6E6);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.modal-settings {
+  display: block;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+}
+.modal-setting {
+  display: none;
+}
+.upd-btn {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+
+}
+.upd-btn > button {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2rem;
+  background: var(--CracKube-Purple, #8F00FF);
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.modal-update > h6 {
+  color: var(--Gray, #737373);
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
 @media screen and (max-width: 800px)  {
     .modal-head > h2 {
       font-size: 1rem;
