@@ -25,7 +25,7 @@ function Card(props) {
       </div>
       <div id={props.theme}>
         <CardTitle1
-          className="titleContainer"
+          className="titleContainer-s"
           title={props.title}
           id={props.theme}
         />

@@ -43,6 +43,7 @@ function ResultCards(prop) {
   const blogs = useSelector(getAllBlog);
   const question = useSelector(getAnswer);
   console.log(blogs);
+  const all = [...blogs, ...question];
   if (prop.clicked === 2) {
     let newResult = blogs.filter((blog) =>
       blog.blogTitle.toLowerCase().includes(prop.value.toLowerCase())

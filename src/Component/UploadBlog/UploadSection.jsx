@@ -26,35 +26,33 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
-
-  formData.append("blogImage", file);
   formData.append("userPosted", localStorage.getItem("userId"));
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
   formData.append("blogImageProvider", blogImageProvider);
   formData.append("blogImageUrl", blogImageUrl);
-  console.log(category);
+  console.log(formData);
   const handleImageChange = (e) => {
     console.log(formData);
-
     const file = e.target.files[0];
-    setBlogImageProvider("upload");
     console.log(file);
     if (file) {
       const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
       setFile(file);
 
       if (allowedTypes.includes(file.type)) {
+        setBlogImageProvider("upload");
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
           var dataURL = reader.result;
-          setImage(dataURL.split(",")[1]); //`data:image/png;base64,${image}`
+          setBlogImageUrl(`data:image/png;base64,${dataURL.split(",")[1]}`);
           setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
           console.log(image);
         };
       } else {
+        setBlogImageProvider("");
         setImage("");
       }
     }

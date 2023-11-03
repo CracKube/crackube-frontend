@@ -50,7 +50,7 @@ function Home() {
             setMenu={setMenu}
           />
           {menu === false && (
-            <div className="" >
+            <div className="">
               <div className="side-arrow" onClick={setMenu(!menu)}>
                 <img src={Arrow} alt="" />
               </div>

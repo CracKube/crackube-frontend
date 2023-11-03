@@ -29,7 +29,7 @@ const UploadMainBar = ({ theme }) => {
   const [type, setType] = useState("CK");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [editorText, setEditorText] = useState(text.state.editorText);
+  const [editorText, setEditorText] = useState(text.state ? text.state.editorText: ' ');
   const [file, setFile] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState(null);

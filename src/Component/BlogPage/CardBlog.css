@@ -81,7 +81,7 @@
   line-height: normal;
 }
 
-#light .titleContainer {
+#light .titleContainer > div {
   margin-left: 0.5rem;
   height: 2rem;
   display: flex;

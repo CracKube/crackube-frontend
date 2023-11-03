@@ -19,7 +19,7 @@ const BlogLike = ({ img, note, count }) => {
 
      await axios
       .patch(
-        `https://crackube-backend-test.onrender.com/blogs/like/${id}`, {
+        `https://api.crackube.com/blogs/like/${id}`, {
             userId: window.localStorage.getItem("userId")
         }
       )

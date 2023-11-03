@@ -3,6 +3,7 @@
   margin: 0px;
 }
 
+
 @font-face {
   font-family: "VisbyCF";
   src: url("../../../src/styles/Fonts/VisbyCF-Bold.otf");
@@ -433,7 +434,7 @@ line-height: normal;
 }
 @media only screen and (max-width: 606px) {
   .Discover {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .Dbox {
     min-width: 11.6875rem;
@@ -467,8 +468,10 @@ line-height: normal;
     line-height: normal;
   }
   .profile-nav-btn {
-    display: inline-flex;
-    gap: 0.75rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media only screen and (max-width: 480px) {

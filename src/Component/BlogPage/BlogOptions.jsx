@@ -8,8 +8,8 @@ const BlogOptions = ({ img, note, options }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown-container">
-      <div className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
+    <div >
+      <div  onClick={() => setIsOpen(!isOpen)}>
         <div className={styles.blogOp}>
           <div>
             <img src={img} alt="" />
@@ -18,12 +18,6 @@ const BlogOptions = ({ img, note, options }) => {
             <p>{note}</p>
           </div>
         </div>
-
-        {isOpen && (
-          <div className="horizontal-dropdown-list">
-           
-          </div>
-        )}
       </div>
     </div>
   );

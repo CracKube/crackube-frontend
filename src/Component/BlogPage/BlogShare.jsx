@@ -7,8 +7,8 @@ const BlogShare = ({img, note}) => {
     const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown-container">
-      <div className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
+    <div className="dropdown-container-s">
+      <div className="dropdown-button-s" onClick={() => setIsOpen(!isOpen)}>
         <div className={styles.blogOp}>
           <div>
             <img src={img} alt="" />

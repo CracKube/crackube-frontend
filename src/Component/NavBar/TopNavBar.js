@@ -52,6 +52,8 @@ export default function TopNavBar({ theme }) {
     { value: "option1", label: "Settings", route: "/settings" },
     { value: "option2", label: "Help" },
     { value: "option3", label: "Logout" },
+    {value: "option4", label: "Refund Policy", route: "/refundandcancellation"}, 
+    {value: "option5", label: "© Crackube"}
   ];
   const uploadOption = [
     { value: "option1", label: "Ask a question", route: "/uploadanswer" },
@@ -149,7 +151,7 @@ export default function TopNavBar({ theme }) {
           <img src={Noti} className="notification-img" alt="" />
           <img src={Settings} alt="" />
           <div className="drop-flex"></div>
-          <div>
+          <div className="drop-nav">
             <Dropdown options={options} />
           </div>
         </div>

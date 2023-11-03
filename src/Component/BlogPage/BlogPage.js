@@ -90,9 +90,9 @@ function BlogPage({ theme, setTheme }) {
                   key={index}
                   id={blog._id}
                   thumbnail={blog.blogImageUrl}
-                  authorImage={blog.blogImageUrl}
+                  authorImage={blog.userPosted && blog.userPosted.profilePicUrl}
                   title={blog.blogTitle}
-                  author={blog.userPosted}
+                  author={blog.userPosted && blog.userPosted.name}
                   modified={blog.postedOn}
                   tags={blog.blogTags}
                 />

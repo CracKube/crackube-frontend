@@ -1,40 +1,39 @@
-import React from 'react'
+import React from "react";
 
 const Refund = () => {
   return (
-    <div className='refund'>
-        <h2>Refund and Cancellation Policy</h2>
-        <p>CracKube reserves the right to refuse/cancel any order. CracKube at its sole discretion may <br />
-cancel any <br />
-order(s): <br />
-i. If it suspects a fraudulent transaction, or <br />
-ii. If it suspects a customer has undertaken a transaction which is not in accordance with the <br />
-Terms of Use or<br />
-iii. For any reason outside the control of the CracKube including causes for delivery related<br />
-logistical difficulties.<br />
-Refund/cancellation policies applicable in the following conditions:<br />
-a) In case, the buyer cancels the order online before the product has been shipped, the<br />
-entire<br />
-order amount will be refunded.<br />
-b) In case the item ordered has been shipped but has not yet been delivered to the buyer,<br />
-the<br />
-order can still be cancelled online. Total order amount after deduction of shipment and<br />
-handling charges will be refunded. The refund will be processed, once NDR receives the<br />
-originally ordered item back intact from the courier.<br />
-c) However, the order once delivered cannot be cancelled in any case.<br />
-d) In case there is an option for online download of data than cancellation will not be<br />
-possible<br />
-e) In case of failed transactions or double realization of account for the same order, the total<br />
-deducted amount will be refunded.<br />
-f) In case of cancelled order/failed transactions, the bank/card transaction charges of the<br />
-buyer, if any, is likely to be forfeited<br />
-g) CracKube offers no guarantees whatsoever for the accuracy or timeliness of the refunds<br />
-in the
-buyers card/account<br />
-h) In case of part cancellations, the amount refunded will be corresponding to the part<br />
-cancellation</p>
+    <div className="refund">
+      <h2>Crackube No Refund Policy</h2>
+      <p>
+        <h3>Introduction</h3>  <br /><br /> Thank you for choosing Crackube
+        for your needs. We appreciate your business and are committed to
+        delivering high-quality to our valued customers. This No Refund Policy
+        outlines the terms and conditions under which refunds are not applicable
+        for purchases made from Crackube. <br /><br /> 1. Acceptance of Terms <br /><br /> By making a
+        purchase from Crackube, you acknowledge and agree to abide by this No
+        Refund Policy. It is your responsibility to read and understand this
+        policy before making a purchase. If you do not agree with the terms <br /> <br />
+        outlined herein, please refrain from making any purchases from Crackube.
+        2. No Refund Policy <br /> <br /> At Crackube, we do not offer refunds for any
+        services once the purchase is complete. This policy applies to all
+        purchases. <br /> <br /> 3. Exceptional Circumstances <br /> <br /> Crackube may consider refund
+        requests in exceptional circumstances, such as in cases of technical
+        issues or billing errors. However, any consideration of such requests is
+        entirely at the discretion of Crackube and must be made in writing to
+        support@crackube.com. Crackube reserves the right to determine the
+        eligibility of such requests on a case-by-case basis. <br /> <br /> 4. Unauthorized
+        Charges <br /> <br /> If you believe that there has been an unauthorized or fraudulent
+        charge on your account for a Crackube product or service, please contact
+        our support team immediately at support@crackube.com. We will
+        investigate and address the matter as necessary. <br /><br /> 5. Contact Information <br /> <br />
+        If you have any questions or concerns regarding this No Refund Policy or
+        require clarification on any matters related to refunds, please contact
+        our customer support team at support@crackube.com. <br /> <br /> By making a purchase
+        from Crackube, you acknowledge that you have read, understood, and
+        agreed to the terms and conditions of this No Refund Policy.
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default Refund
+export default Refund;

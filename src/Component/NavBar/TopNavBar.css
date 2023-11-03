@@ -136,6 +136,9 @@
 .upload-nav-btn {
   padding-right: 0.5rem;
 }
+.drop-nav {
+  width: 4rem;
+}
 
 .searchButton img {
   width: 1rem;
