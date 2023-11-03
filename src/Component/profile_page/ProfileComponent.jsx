@@ -10,22 +10,27 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import Card from "../BlogPage/CardBlog";
+import {  fetchAsyncUsers } from "../../redux/Users/userSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getUser } from "../../redux/Users/userSlice";
+
 function ProfileComponent({ theme }) {
-  
-  const [response, setResponse] = useState("");
+  const dispatch = useDispatch();
+ // const [response, setResponse] = useState("");
   const [blogLength, setBlogLength] = useState(0);
   const [ansLength, setAnsLength] = useState(0);
   const [blogs, setBlogs] = useState([]);
-  const getUserDetails = async () => {
-    const response = await axios.get(
-      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
-        "userId"
-      )}`
-    );
-    setResponse(response.data);
-    setBlogLength(response.data.blogsPosted.length);
-    setAnsLength(response.data.quesAnswered.length);
-  };
+  // const getUserDetails = async () => {
+  //   const response = await axios.get(
+  //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+  //       "userId"
+  //     )}`
+  //   );
+  //   setResponse(response.data);
+  //   setBlogLength(response.data.blogsPosted.length);
+  //   setAnsLength(response.data.quesAnswered.length);
+  // };
 
   const [clicked, setClicked] = useState(1);
   const list = [
@@ -42,8 +47,10 @@ function ProfileComponent({ theme }) {
 
 
   useEffect(() => {
-    getUserDetails();
-  }, []);
+    dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
+  }, [dispatch]);
+  const response = useSelector(getUser);
+  console.log(response);
   return (
     <div className="flex-prof" id={theme}>
       <div className="imgs">
@@ -122,7 +129,7 @@ function ProfileComponent({ theme }) {
           />;
         })}
 
-        {clicked === 1 && blogs &&     <div
+        {/* {clicked === 1 && blogs &&     <div
       className= 'dashboard1'
     >
       {( response.blogsPosted && 
@@ -131,7 +138,7 @@ function ProfileComponent({ theme }) {
             key={index}
             id={blog._id}
             thumbnail={blog.blogImageUrl}
-            authorImage={blog.userPosted.profilePicUrl}
+            authorImage={blog.userPosted && blog.userPosted.profilePicUrl}
             title={blog.blogTitle}
             author={blog.userPosted && blog.userPosted.name}
             modified={blog.postedOn}
@@ -139,7 +146,7 @@ function ProfileComponent({ theme }) {
           />
         ))
       )}
-    </div>}
+    </div>} */}
         </div>
       </div>
       <div className="achieve-bar">

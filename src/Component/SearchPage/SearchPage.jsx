@@ -102,7 +102,7 @@ function SearchNavbar() {
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
           >
-            <img src={follow} alt="" /> <p>follow</p>
+            <img src={follow} alt="" /> <p>who to follow</p>
           </NavLink>
         </div>
       </div>

@@ -79,11 +79,14 @@ const Test = () => {
           <h1 className="hero-h1">
             Learn with the Power of Answering — with Earning money doing it
           </h1>
+          <a href="/refundandcancellation">Refund Policy</a>
+
           <p className="hero-paragraph">
             CracKube is a EduSocial Company which is targeting on helping
             students solve their problems and also serve as an Educational
-            Social Media to share blogs and Earn Money.
+            Social Media to share blogs and Earn Money. 
           </p>
+
           <a href="/signup" className="hero-button w-button">
             Get Started
           </a>
