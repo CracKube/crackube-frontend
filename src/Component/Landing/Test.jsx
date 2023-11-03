@@ -80,7 +80,7 @@ const Test = () => {
             Learn with the Power of Answering — with Earning money doing it
           </h1>
           <a href="/refundandcancellation">Refund Policy</a>
-
+          <p>© 2023, CracKube Private Limited </p>
           <p className="hero-paragraph">
             CracKube is a EduSocial Company which is targeting on helping
             students solve their problems and also serve as an Educational

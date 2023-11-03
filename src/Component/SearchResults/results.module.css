@@ -200,3 +200,27 @@
     font-weight: 600;
     line-height: normal;
 }
+@media only screen and (max-width: 596px) {
+
+    .searchcontainer {
+        display: flex;
+        justify-content: center;
+        border-radius: 2rem;
+        background: #FFF;
+        width: 100%;
+        padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+        border: 1px solid var(--Med-Gray, #C8C8C8); 
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .filters {
+        width: 500px;
+        overflow-x: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  }
