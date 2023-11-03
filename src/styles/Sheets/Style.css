@@ -113,12 +113,25 @@ a {
 
 #dark .allContent {
   margin-top: 0.2rem;
-  background-color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 .blog-content > p {
   width: 100%;
   color: #000;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.06rem;
+  text-align: justify;
+}
+
+#dark .blog-content > p {
+  width: 100%;
+  color: #fff;
   font-family: Montserrat;
   font-size: 1.5rem;
   font-style: normal;

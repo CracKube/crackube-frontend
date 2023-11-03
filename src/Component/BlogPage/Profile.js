@@ -16,22 +16,22 @@ export default function Profile(props) {
     { value: "option3", label: "Instagram", route: "/uploadcode" },
   ];
   return (
-    <div className={styles.authorContainer}>
+    <div className={styles.authorContainer} theme={props.theme} >
       <div className={styles.authorInside}>
-        <div className= {styles.infocover}>
-        <div className={styles.image}>
-          <a href="">
-            <img className={styles.img} src={props.authImg} alt="" />
-          </a>
-        </div>
-        <div className={styles.cover}>
-          <div className={styles.title}>
-            <a href="">{props.author}</a>
+        <div className={styles.infocover}>
+          <div className={styles.image}>
+            <a href="">
+              <img className={styles.img} src={props.authImg} alt="" />
+            </a>
           </div>
-          <div className={styles.modified} style={{ fontWeight: "100" }}>
-            {props.modified}
+          <div className={styles.cover}>
+            <div className={styles.title}>
+              <a href="">{props.author}</a>
+            </div>
+            <div className={styles.modified} style={{ fontWeight: "100" }}>
+              {props.modified}
+            </div>
           </div>
-        </div>
         </div>
         <div className={styles.followbtn}>
           <button className={styles.follow}>Follow</button>
@@ -39,12 +39,12 @@ export default function Profile(props) {
       </div>
 
       <div className={styles.blogopalign}>
-        
-        <div><BlogLike count={props.count} img={Like} note="Like" /></div>
-        <div><BlogShare img={Share} note="Share" options={share} /></div>
-        <div><BlogSave count = {props.saved} img={Save} note="Save" /></div>
-        <div><BlogOptions img={Flag} note="Report" /></div>
-        <div><BlogOptions img={Options} note="" /></div>
+
+        <div><BlogLike theme={props.theme} count={props.count} img={Like} note="Like" /></div>
+        <div><BlogShare theme={props.theme} img={Share} note="Share" options={share} /></div>
+        <div><BlogSave theme={props.theme} count={props.saved} img={Save} note="Save" /></div>
+        <div><BlogOptions theme={props.theme} img={Flag} note="Report" /></div>
+        <div><BlogOptions theme={props.theme} img={Options} note="" /></div>
       </div>
     </div>
   );

@@ -1,15 +1,22 @@
 import React from "react";
 import styles from "./BlogAuthor.module.css";
 import { useState } from "react";
-import { FacebookShareButton, FacebookIcon, WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon } from "react-share";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 
-const BlogShare = ({img, note}) => {
-    const [isOpen, setIsOpen] = useState(false);
+const BlogShare = ({ img, note, theme }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown-container">
+    <div className="dropdown-container" id={theme}>
       <div className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-        <div className={styles.blogOp}>
+        <div className={styles.blogOp} id={theme}>
           <div>
             <img src={img} alt="" />
           </div>
@@ -20,13 +27,13 @@ const BlogShare = ({img, note}) => {
 
         {isOpen && (
           <div className="horizontal-dropdown-list">
-            <FacebookShareButton url= {window.location.href}>
+            <FacebookShareButton url={window.location.href}>
               <FacebookIcon size={32} round={true} />
             </FacebookShareButton>
-            <WhatsappShareButton url = {window.location.href}>
+            <WhatsappShareButton url={window.location.href}>
               <WhatsappIcon size={32} round={true} />
             </WhatsappShareButton>
-            <TwitterShareButton url = {window.location.href}>
+            <TwitterShareButton url={window.location.href}>
               <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
           </div>
@@ -34,6 +41,6 @@ const BlogShare = ({img, note}) => {
       </div>
     </div>
   );
-}
+};
 
-export default BlogShare
+export default BlogShare;

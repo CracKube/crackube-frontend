@@ -37,10 +37,8 @@ function UploadMainBar({ theme }) {
   };
 
   //popup when users goes to next line
-
   const [showPopup, setShowPopup] = useState(false);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
-
   useEffect(() => {
     const editor = document.querySelector(".ql-editor");
     if (editor) {
@@ -55,13 +53,6 @@ function UploadMainBar({ theme }) {
 
   const handleKeyUp = (event) => {
     if (event.key === "Enter") {
-      const selection = window.getSelection();
-      const range = selection.getRangeAt(0);
-      const rect = range.getBoundingClientRect();
-      setPopupPosition({
-        top: rect.bottom,
-        left: rect.left,
-      });
       setShowPopup(true);
     }
   };
@@ -104,6 +95,19 @@ function UploadMainBar({ theme }) {
                 onChange={(e) => setTitle(e.target.value)}
               />
               <div className="blog-description">
+                {showPopup && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "40px",
+                      left: "-40px",
+                      zIndex: 1000,
+                    }}
+                    className="popUp"
+                  >
+                    +
+                  </div>
+                )}
                 <ReactQuill
                   theme="snow"
                   value={editorText}
@@ -111,21 +115,6 @@ function UploadMainBar({ theme }) {
                   className="editor-textarea"
                   modules={modules}
                 />
-                {showPopup && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: `${popupPosition.top}px`,
-                      left: `${popupPosition.left}px`,
-                      backgroundColor: "white",
-                      border: "1px solid black",
-                      padding: "10px",
-                      zIndex: 1000,
-                    }}
-                  >
-                    Add something
-                  </div>
-                )}
               </div>
             </div>
           </>

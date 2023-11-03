@@ -5,18 +5,16 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const BlogLike = ({ img, note, count }) => {
-    const id = useParams().id;
+  const id = useParams().id;
   const handleLike = () => {
     // use axios to connect backend in body put userId
 
     // axios.post(`https://crackube-backend-test.onrender.com/like/${id}`)
 
     axios
-      .patch(
-        `https://crackube-backend-test.onrender.com/blogs/like/${id}`, {
-            userId: window.localStorage.getItem("userId")
-        }
-      )
+      .patch(`https://crackube-backend-test.onrender.com/blogs/like/${id}`, {
+        userId: window.localStorage.getItem("userId"),
+      })
       .then((res) => {
         console.log(res);
       })
@@ -30,7 +28,7 @@ const BlogLike = ({ img, note, count }) => {
         <img src={img} alt="" />
       </div>
       <div>
-        <p>{count == null ? <p>0</p> :  count.length}</p>
+        <p>{count == null ? <p>0</p> : count.length}</p>
       </div>
       <div>
         <p>{note}</p>

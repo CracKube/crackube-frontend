@@ -25,8 +25,46 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
   const handleSignUP = async (e) => {
-    if (!email && !password && !name) {
+    if (!email || !password || !name || !confirmPassword) {
       toast.warning("All Fields are Required", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    if (strength !== "strong") {
+      toast.warning("Please enter a stronger password", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Confirm password and password are not matching", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    if (
+      !validateName(name) ||
+      !validateEmail(email) ||
+      strength !== "strong" ||
+      password !== confirmPassword
+    ) {
+      toast.warning("Please fix the input errors before signing up", {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -107,25 +145,6 @@ const SignUp = () => {
     return nameRegex.test(name);
   };
 
-  const validatePassword = (password) => {
-    let strength = "";
-    const hasMinLength = password.length >= 5;
-    const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-    const hasUpper = /[A-Z]/.test(password);
-    const hasLower = /[a-z]/.test(password);
-
-    if (hasMinLength && hasNumber && hasSpecialChar && hasUpper && hasLower)
-      strength = "strong";
-    else if ((hasNumber || hasSpecialChar) && (hasUpper || hasLower))
-      strength = "good";
-    else if (hasMinLength && !hasNumber && !hasSpecialChar) strength = "weak";
-    else if (!hasMinLength && (hasNumber || hasSpecialChar)) strength = "okay";
-    else strength = "very weak";
-
-    setPasswordStrength(strength);
-  };
-
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -152,19 +171,82 @@ const SignUp = () => {
     }
   };
 
-  const handlePasswordChange = (e) => {
-    const value = e.target.value;
-    setPassword(value); // Allow user to enter value
-    validatePassword(value);
-    if (
-      value &&
-      (passwordStrength === "very weak" || passwordStrength === "weak")
+  const [textStrength, setTextStrength] = useState({
+    hasMinLength: false,
+    hasLowercase: false,
+    hasUppercase: false,
+    hasNumber: false,
+    hasSpecialChar: false,
+  });
+  const handlePasswordChange = (event) => {
+    const newPassword = event.target.value;
+    validatePassword(newPassword);
+    setPassword(newPassword);
+
+    setTextStrength({
+      hasMinLength: newPassword.length >= 8,
+      hasLowercase: /[a-z]/.test(newPassword),
+      hasUppercase: /[A-Z]/.test(newPassword),
+      hasNumber: /\d/.test(newPassword),
+      hasSpecialChar: /[!@#$%^&*]/.test(newPassword),
+    });
+  };
+
+  const [strength, setStrength] = useState("");
+
+  const validatePassword = (password) => {
+    let strength = "";
+    const hasMinLength = password.length >= 8;
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+
+    if (hasMinLength && hasNumber && hasSpecialChar && hasUpper && hasLower)
+      strength = "strong";
+    else if ((hasNumber || hasSpecialChar) && (hasUpper || hasLower))
+      strength = "good";
+    else if (hasMinLength && !hasNumber && !hasSpecialChar) strength = "weak";
+    else if (!hasMinLength && (hasNumber || hasSpecialChar)) strength = "okay";
+    else strength = "very weak";
+
+    setStrength(strength);
+  };
+
+  const getPasswordStrengthClass = (strength) => {
+    if (strength === "") {
+      return "transparent";
+    } else if (strength === "strong") {
+      return "strong";
+    } else if (strength === "good") {
+      return "good";
+    } else if (
+      strength === "weak" ||
+      strength === "okay" ||
+      strength === "very weak"
     ) {
-      setPasswordError("Password is too weak");
-    } else {
-      setPasswordError("");
+      return "weak";
+    }
+    return "";
+  };
+
+  const getPasswordStrengthWidth = (strength) => {
+    switch (strength) {
+      case "strong":
+        return "100%";
+      case "good":
+        return "60%";
+      case "weak":
+      case "okay":
+      case "very weak":
+        return "40%";
+      default:
+        return "0%";
     }
   };
+
+  const progressBarClass = getPasswordStrengthClass(strength);
+  const progressBarWidth = getPasswordStrengthWidth(strength);
 
   return (
     <div className="signup_container">
@@ -217,6 +299,93 @@ const SignUp = () => {
               onChange={handlePasswordChange}
               required
             />
+            {/* <div>
+              {strength === "strong" && (
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "100%" }}
+                >
+                  Strong
+                </div>
+              )}
+              {strength === "good" && (
+                <div
+                  className="progress-bar bg-warning"
+                  style={{ width: "60%" }}
+                >
+                  Good
+                </div>
+              )}
+              {strength === "weak" && (
+                <div
+                  className="progress-bar bg-danger"
+                  style={{ width: "40%" }}
+                >
+                  Weak
+                </div>
+              )}
+              {strength === "okay" && (
+                <div
+                  className="progress-bar bg-danger"
+                  style={{ width: "40%" }}
+                >
+                  Okay
+                </div>
+              )}
+              {strength === "very weak" && (
+                <div
+                  className="progress-bar bg-danger"
+                  style={{ width: "40%" }}
+                >
+                  Very Weak
+                </div>
+              )}
+            </div> */}
+            <div className="progress-bar-container">
+              <div
+                className={`progress-bar ${progressBarClass}`}
+                style={{ width: progressBarWidth }}
+              ></div>
+            </div>
+            <div className="strength_container-texts">
+              <div className="strength-texts">
+                <div
+                  className={`strength-text ${
+                    textStrength.hasMinLength ? "green" : ""
+                  }`}
+                >
+                  At least 8 characters
+                </div>
+                <div
+                  className={`strength-text ${
+                    textStrength.hasLowercase ? "green" : ""
+                  }`}
+                >
+                  Lower-case letters (a-z)
+                </div>
+                <div
+                  className={`strength-text ${
+                    textStrength.hasUppercase ? "green" : ""
+                  }`}
+                >
+                  Upper-case letters (A-Z)
+                </div>
+                <div
+                  className={`strength-text ${
+                    textStrength.hasNumber ? "green" : ""
+                  }`}
+                >
+                  Numbers (0-9)
+                </div>
+                <div
+                  className={`strength-text ${
+                    textStrength.hasSpecialChar ? "green" : ""
+                  }`}
+                >
+                  Special character (eg. !@#$%^&*)
+                </div>
+              </div>
+            </div>
             {/* {passwordError && <div className="error">{passwordError}</div>} */}
             <div className={`error passwordStrength ${passwordStrength}`}>
               {passwordStrength}
@@ -251,9 +420,10 @@ const SignUp = () => {
             Signup
           </button>
         ) : (
-          // <button className="signUp_button">
-          // </button>
-          <span id="loader"></span>
+          <button className="signUp_button">
+            {/* <i class="fa fa-spinner fa-spin"></i> */}
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+          </button>
         )}
 
         <button className="signUp_button-mobile">Agree and Continue</button>

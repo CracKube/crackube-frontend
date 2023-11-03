@@ -62,13 +62,13 @@ function BlogPage({ theme, setTheme }) {
             <div className="allContent">
               <div className="prof">
                 <Profile
+                  theme={theme}
                   id={id}
                   saved={blog && blog.bookmarks}
                   count={blog && blog.likes}
                   author={blog && blog.userPosted && blog.userPosted.username}
                   modified={blog && moment(blog.postedOn).fromNow()}
                   url={'authorUrl'}
-
                 />
               </div>
               <div>

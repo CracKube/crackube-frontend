@@ -237,7 +237,7 @@ a {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.home-main{
+.home-main {
   position: relative;
   display: grid;
   grid-template-columns: 15rem 10fr;
@@ -1056,7 +1056,7 @@ a {
   border-radius: 2rem;
   height: 2.25rem;
   width: 2.25rem;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 #dark .msg-arrow {
@@ -1783,7 +1783,7 @@ a {
   z-index: 1;
   width: 33.875rem;
   align-items: center;
-  
+
   justify-content: center;
   animation: fadeIn 0.5s;
 }
@@ -1792,10 +1792,10 @@ a {
   justify-content: start;
   gap: 1rem;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid #C8C8C8;
+  border-bottom: 1px solid #c8c8c8;
   display: flex;
 }
-.results-list-pull > div >div {
+.results-list-pull > div > div {
   padding-bottom: 0.5rem;
 }
 
@@ -1886,6 +1886,27 @@ a {
   align-items: center;
   padding: 0.5rem 0.12rem 0.5rem 0.12rem;
   z-index: 99999999999;
+}
+
+/* POPUP */
+
+.popUp {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: rgba(244, 34, 113, 0.2);
+  color: var(--CracKube-Red, #f42271);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 1.2rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-height: 600px) {
@@ -2126,7 +2147,6 @@ a {
   margin-right: 2rem;
   margin-bottom: 4rem;
   gap: 1rem;
-
 }
 .tc {
   overflow-y: scroll;

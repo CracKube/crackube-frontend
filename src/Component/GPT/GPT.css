@@ -210,8 +210,71 @@
   font-weight: 600;
   line-height: normal;
 }
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.1rem;
+}
+
+.blink {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  background-color: #c3c3c3;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.blink2 {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  background-color: #c3c3c3;
+  animation: blink2-animation 1.2s steps(7, start) infinite;
+  -webkit-animation: blink2-animation 1.2s steps(7, start) infinite;
+}
+@keyframes blink2-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink2-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.blink3 {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  background-color: #c3c3c3;
+  animation: blink3-animation 1.4s steps(9, start) infinite;
+  -webkit-animation: blink3-animation 1.4s steps(9, start) infinite;
+}
+@keyframes blink3-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink3-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
 .conversation {
-  height: 100%;
+  height: 90%;
   padding: 2rem 4rem 2rem 4rem;
 }
 .user-chat {
@@ -232,7 +295,6 @@
   overflow-x: auto;
   margin-left: 1rem;
   margin-right: 1rem;
-
   padding: 1.5rem 2rem 1.5rem 2rem;
   border-radius: 2rem;
   background: var(--Light-Gray-for-Division, #f2f2f2);

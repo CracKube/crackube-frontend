@@ -67,7 +67,6 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
     despatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
   }, [despatch]);
 
-
   const [lightBtn, setLightBtn] = useState("#000");
   const [darkBtn, setDarkBtn] = useState("#ffffff");
   const [toggle, setToggle] = useState(false);
@@ -182,10 +181,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
         <div className="menu-bar-half-2">
           <div className="profile">
             <Link to="/profile">
-              {
-                <Profile details={response} time={timeOfDay} />
-              }
-              
+              {<Profile details={response} time={timeOfDay} />}
             </Link>
           </div>
           <div className="modes" id={theme}>
