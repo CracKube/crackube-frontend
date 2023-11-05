@@ -18,8 +18,6 @@ import { getUser } from "../../redux/Users/userSlice";
 function ProfileComponent({ theme }) {
   const dispatch = useDispatch();
  // const [response, setResponse] = useState("");
-  const [blogLength, setBlogLength] = useState(0);
-  const [ansLength, setAnsLength] = useState(0);
   const [blogs, setBlogs] = useState([]);
   // const getUserDetails = async () => {
   //   const response = await axios.get(
@@ -73,22 +71,22 @@ function ProfileComponent({ theme }) {
 
             <div className="user-data">
               <div className="fit">
-                <p>{ansLength}</p>
+                <p>{response.answersPosted && response.answersPosted.length}</p>
                 <p>Answers</p>
               </div>
               <div className="user-sep-bar"></div>
               <div className="fit">
-                <p>{blogLength}</p>
+                <p>{response.blogsPosted && response.blogsPosted.length }</p>
                 <p>Blogs</p>
               </div>
               <div className="user-sep-bar"></div>
               <div className="fit">
-                <p>1.7m</p>
+                <p>{response.followers && response.followers.length}</p>
                 <p>Followers</p>
               </div>
               <div className="user-sep-bar"></div>
               <div className="fit">
-                <p>701</p>
+                <p>{response.following && response.following.length}</p>
                 <p>following</p>
               </div>
             </div>

@@ -68,6 +68,7 @@ function BlogPage({ theme, setTheme }) {
                   author={blog && blog.userPosted && blog.userPosted.username}
                   modified={blog && moment(blog.postedOn).fromNow()}
                   url={blog && blog.userPosted && blog.userPosted.profilePicUrl}
+                  userId = {blog && blog.userPosted && blog.userPosted._id}
 
                 />
               </div>

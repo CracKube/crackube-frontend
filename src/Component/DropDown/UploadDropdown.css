@@ -32,9 +32,8 @@ line-height: normal;
   z-index: 1;
 }
 .horizontal-dropdown-list {
-  position: absolute;
   width: fit-content;
-  top: 100%;
+  top: 2rem;
   right: 1rem;
   display: flex; /* Display items horizontally */
   flex-direction: row; /* Align items in a row */
@@ -42,7 +41,7 @@ line-height: normal;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 10000000000000000000;
 }
 
 .horizontal-dropdown-option {

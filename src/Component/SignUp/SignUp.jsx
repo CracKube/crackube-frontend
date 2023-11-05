@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 //css
 import "./SignUp.css";
+import axios from "axios";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -44,7 +45,7 @@ const SignUp = () => {
     //url encoded
     e.preventDefault();
 
-    const response = await fetch(
+    const response = await axios(
       "https://crackube-backend-test.onrender.com/auth/createUser",
       {
         method: "POST",

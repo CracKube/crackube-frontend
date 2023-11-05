@@ -48,6 +48,7 @@ import TAndC from "./Component/TAndC";
 import StoreComponent from "./Component/Store/StoreComponent";
 import PasswordReset from "./Component/Pages/PasswordReset";
 import YourDen from "./Component/YourDen/YourDen";
+import Categories from "./Component/Categories";
 export const ThemeContext = createContext(null);
 
 
@@ -100,6 +101,7 @@ function App() {
                         <Route path = '/store' element = {<StoreComponent />}></Route>
                         <Route path= '/passwordReset' element = {<PasswordReset />}></Route>
                         <Route path = '/yourden' element = {<YourDen />}></Route>
+                        <Route path = '/test' element = {<Categories />}></Route>
                     </Routes> 
                     </ThemeContext.Provider>
                 </Router>

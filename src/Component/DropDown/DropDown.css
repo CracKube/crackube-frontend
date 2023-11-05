@@ -5,10 +5,25 @@
     align-items: center;
     width: 200px;
   }
+  .dropdown-container-s {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .dropdown-button {
     color: #ffffff;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .dropdown-button-s {
+    color: #ffffff;
+    border: none;
+    border-radius: 1rem;
     cursor: pointer;
     display: flex;
     justify-content: end;

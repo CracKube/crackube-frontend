@@ -26,12 +26,12 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
+  formData.append("image", file);
   formData.append("userPosted", localStorage.getItem("userId"));
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
   formData.append("blogImageProvider", blogImageProvider);
-  formData.append("blogImageUrl", blogImageUrl);
   console.log(formData);
   const handleImageChange = (e) => {
     console.log(formData);
@@ -39,9 +39,10 @@ const UploadSection = ({ body, title, setFirst }) => {
     console.log(file);
     if (file) {
       const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
-      setFile(file);
 
       if (allowedTypes.includes(file.type)) {
+      setFile(file);
+
         setBlogImageProvider("upload");
         let reader = new FileReader();
         reader.readAsDataURL(file);

@@ -19,12 +19,12 @@ export default function Profile({details, time}) {
                     </div>
                     <div className={styles.peoplecount}>
                         <div className={styles.following}>
-                            <div className={styles.followingcount}>55,000</div>
+                            <div className={styles.followingcount}>{details.following && details.following.length}</div>
                             <div>FOLLOWING</div>
                         </div>
                         <div className='prof-card-line'></div>
                         <div className={styles.followers}>
-                            <div className={styles.followerscount}>55,000</div>
+                            <div className={styles.followerscount}>{details.followers && details.followers.length}</div>
                             <div>FOLLOWERS</div>
                         </div>
                     </div>

@@ -3,8 +3,10 @@ import Modal from "react-modal";
 import { useState } from "react";
 import OTPInput from "react-otp-input";
 import { useRef } from "react";
-import axios from "axios";
+import Popup from "../Popup";
 function Email({ theme, setTheme, user }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [openPass, setOpenPass] = useState(false);
   const [otp, setOtp] = useState("");
   const [value, setValue] = useState("");
   const [email, setEmail] = useState("");
@@ -24,24 +26,7 @@ function Email({ theme, setTheme, user }) {
       </Modal>
     );
   };
-  const OTPModal = ({ isOpen, onRequestClose, children }) => {
-  const rootRef = useRef<HTMLDivElement>(null);
-    return (
-      <div ref={useRef(rootRef)}>
-      <Modal
-        root ={rootRef.current ?? undefined}
-        isOpen={isOpen}
-        onRequestClose={onRequestClose}
-        className="modal-settings"
-        overlayClassName="modal-overlay"
-        ariaHideApp={false}
-        autoFocus={true}
-      >
-        {children}
-      </Modal>
-      </div>
-    );
-  };
+
   const openModal = (val) => {
     setValue(val);
     setIsModalOpen(true);
@@ -56,24 +41,14 @@ function Email({ theme, setTheme, user }) {
   const closeOtp = () => {
     setIsOpt(false);
   };
-  const handleNext = async () => {
-    openOtp();
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/auth/requestResetPassword",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `userId=${window.localStorage.getItem("userId")}`
-      }
-    );
-      console.log(response)
+  const handleNext =  () => {
+    setOpenPass(false);
+    setIsOpen(true)
 
   }
   return (
     <div className="about-sep">
-      <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
+      {/* <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
         <div className="modal-update">
           <div className="set-top">
             <h1>Change {value}</h1>
@@ -103,11 +78,45 @@ function Email({ theme, setTheme, user }) {
             signin again to use our website.
           </h6>
           <div className="upd-btn">
-            <button onClick={() => {handleNext()}}>next</button>
+            <button onClick={() => {handleNext()} }>next</button>
           </div>
         </div>
-      </CustomModal>
-      <OTPModal isOpen={isOpt} onRequestClose={closeOtp}>
+      </CustomModal> */}
+      <Popup trigger = {openPass}>
+      <div className="modal-update">
+          <div className="set-top">
+            <h1>Change {value}</h1>
+          </div>
+          <h6>
+            For your security we will send a verification link to
+            yogesh@gmail.com. This update will not take place until you follow
+            the instructions listed in that email.
+          </h6>
+          <p>Current {value}</p>
+          <div className="change-input-mdl">
+            <p>{value == "Email" && user.email}</p>
+          </div>
+          <p>Change your {value}</p>
+          {value == "Email" && (
+            <input
+              id="ded"
+              className="change-input-mdl"
+              type="text"
+              value={email}
+              autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          )}
+          <h6>
+            We will signout all the other sessions from website. You need to
+            signin again to use our website.
+          </h6>
+          <div className="upd-btn">
+            <button onClick={() => {handleNext()} }>next</button>
+          </div>
+        </div>
+      </Popup>
+      {/* <OTPModal isOpen={isOpt} onRequestClose={closeOtp}>
         <h1>OTP PAGE</h1>
         <button onClick={() => closeOtp()}>close</button>
         <div className="signup-otp">
@@ -123,7 +132,21 @@ function Email({ theme, setTheme, user }) {
               shouldAutoFocus={true}
             />
         </div>
-      </OTPModal>
+      </OTPModal> */}
+      <Popup trigger = {isOpen} otp = {true}>
+      <h1>OTP PAGE</h1>
+        <button onClick={() => setIsOpen(false)}>close</button>
+            <OTPInput
+              value={otp}
+              onChange={setOtp}
+              numInputs={4}
+              renderSeparator={<span></span>}
+              renderInput={(props) => <input {...props} />}
+              containerStyle={"otp-container"}
+              inputStyle={"input-box"}
+              inputMode = "numeric"
+            />
+      </Popup>
       <div className="my-details">
         <p>Email</p>
       </div>
@@ -142,6 +165,7 @@ function Email({ theme, setTheme, user }) {
         <p
           onClick={() => {
             openModal("Email");
+            setOpenPass(true);
           }}
         >
           Edit

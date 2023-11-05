@@ -4,10 +4,11 @@ import write from "../../Assets/write.svg";
 import axios from "axios";
 import { useState } from "react";
 import Modal from "react-modal";
+import Popup from "../Popup";
 function MyDetails({ theme, setTheme, user }) {
   const [value, setValue] = useState("");
 
-
+  const [isOpen, setIsOpen] = useState(false);
   const formData = new FormData();
   const [image, setImage] = useState(null);
   const [username, setUsername] = useState(user.username);
@@ -74,10 +75,19 @@ function MyDetails({ theme, setTheme, user }) {
 
   return (
     <div className="about-sep">
-      <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
+      <Popup trigger={isOpen}>
         <div className="modal-update">
           <div className="set-top">
             <h1>Change {value}</h1>
+            <div className="top-btn-close">
+              <button
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                x
+              </button>
+            </div>
           </div>
           <p>Current {value}</p>
           <div className="change-input-mdl">
@@ -154,19 +164,25 @@ function MyDetails({ theme, setTheme, user }) {
           )}
 
           {value == "Dob" && (
-            <div >
-            <div
-              className="dob-third"
-              onChange={(e) => {
-                setDob(e.target.value);
-              }}
-              autoFocus
-            >
-              <label className="third_label">Date of Birth</label>
-              <br />
-              <br />
-              <input type="date" className="signUpForm_input" value={dob} autoFocus required />
-            </div>
+            <div>
+              <div
+                className="dob-third"
+                onChange={(e) => {
+                  setDob(e.target.value);
+                }}
+                autoFocus
+              >
+                <label className="third_label">Date of Birth</label>
+                <br />
+                <br />
+                <input
+                  type="date"
+                  className="signUpForm_input"
+                  value={dob}
+                  autoFocus
+                  required
+                />
+              </div>
             </div>
           )}
 
@@ -200,7 +216,8 @@ function MyDetails({ theme, setTheme, user }) {
             <button onClick={handleProfile}>Change {value}</button>
           </div>
         </div>
-      </CustomModal>
+      </Popup>
+
       <div className="my-details">
         <p>Edit Profile</p>
         <p>PROFILE PHOTO</p>
@@ -221,7 +238,8 @@ function MyDetails({ theme, setTheme, user }) {
         </div>
         <p
           onClick={() => {
-            openModal("Username");
+            setIsOpen(true);
+            setValue("Username");
           }}
         >
           Edit
@@ -235,6 +253,7 @@ function MyDetails({ theme, setTheme, user }) {
         </div>
         <p
           onClick={() => {
+            setIsOpen(true);
             openModal("Name");
           }}
         >
@@ -249,6 +268,7 @@ function MyDetails({ theme, setTheme, user }) {
         </div>
         <p
           onClick={() => {
+            setIsOpen(true);
             openModal("Gender");
           }}
         >
@@ -263,6 +283,7 @@ function MyDetails({ theme, setTheme, user }) {
         </div>
         <p
           onClick={() => {
+            setIsOpen(true);
             openModal("Dob");
           }}
         >
@@ -277,6 +298,7 @@ function MyDetails({ theme, setTheme, user }) {
         </div>
         <p
           onClick={() => {
+            setIsOpen(true);
             openModal("Country");
           }}
         >

@@ -9,12 +9,42 @@ import { FacebookIcon, WhatsappIcon } from "react-share";
 import BlogShare from "./BlogShare";
 import BlogLike from "./BlogLike";
 import BlogSave from "./BlogSave";
+import { addUser, fetchAsyncUsers } from "../../redux/Users/userSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getUser } from "../../redux/Users/userSlice";
+
+import axios from "axios";
+
 export default function Profile(props) {
+  const dispatch = useDispatch();
   const share = [
     { value: "option1", label: "Facebook", route: "/uploadblogs" },
     { value: "option2", label: "Whatsapp", route: "/uploadanswer" },
     { value: "option3", label: "Instagram", route: "/uploadcode" },
   ];
+  const handleFollow = async () => {
+
+   const response =  await axios
+      .patch(
+        `https://api.crackube.com/users/follow/${props.userId}`, {
+            userId: window.localStorage.getItem("userId")
+        }
+      )
+    console.log(response);
+    dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
+  }
+  const handleUnFollow = async () => {
+      const response =  await axios
+        .post(
+          `https://api.crackube.com/users/removeFollower/${props.userId}`, {
+              userId: window.localStorage.getItem("userId")
+          }
+        )
+      console.log(response);
+      dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
+    }
+  const user = useSelector(getUser);
   return (
     <div className={styles.authorContainer}>
       <div className={styles.authorInside}>
@@ -34,7 +64,11 @@ export default function Profile(props) {
         </div>
         </div>
         <div className={styles.followbtn}>
-          <button className={styles.follow}>Follow</button>
+          {user.following && user.following.includes(props.userId) ? (
+            <button className={styles.unfollow} onClick={handleFollow}>Following</button>
+          ) : (
+            <button className={styles.follow} onClick={handleFollow}>Follow</button>
+          )}
         </div>
       </div>
 

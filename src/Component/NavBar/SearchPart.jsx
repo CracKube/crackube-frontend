@@ -47,30 +47,9 @@ const SearchResultsList = ({
           </div>
         ))}
       </div>
-      {clicked == 0 &&
-        results.map((result, id) => {
-          return <SearchResult result={result} key={id} />;
-        })}
-      <div className="ans-res">
-      {clicked == 1 &&
-        results &&
-        results.map((item, index) => {
-          return (
-            <div className="ans-res">
-              <AnswerComponent
-                key={index}
-                verify={item.isVerified}
-                id={item._id}
-                body={item.questionBody}
-                tags={item.questionTags}
-                img={item.userPosted && item.userPosted.profilePicUrl}
-                userName={item.userPosted && item.userPosted.name}
-                postedOn={item.askedOn}
-              />
-            </div>
-          );
-        })}
-        </div>
+      {results.map((result, id) => {
+        return <SearchResult result={result} key={id} />;
+      })}
     </div>
   );
 };

@@ -33,12 +33,12 @@ font-weight: 500;
 line-height: normal;
 }
 .blogopalign {
-  
   overflow: scroll;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding-right: 1.5rem;
+  padding-bottom: 0.5rem;
 }
 .blogopalign::-webkit-scrollbar {
   display: none;
@@ -80,6 +80,25 @@ line-height: normal;
 }
 
 .follow {
+  display: inline-flex;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  background: var(--Black, #000);
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 0.5rem;
+}
+.unfollow {
   display: inline-flex;
   height: 2rem;
   padding: 0.5rem 1rem;
