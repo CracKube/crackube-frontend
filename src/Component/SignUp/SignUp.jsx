@@ -82,16 +82,13 @@ const SignUp = () => {
     //url encoded
     e.preventDefault();
 
-    const response = await fetch(
-      "https://crackube-backend-test.onrender.com/auth/createUser",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `email=${email}&password=${password}&name=${name}`,
-      }
-    );
+    const response = await fetch("https://api.crackube.com/auth/createUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `email=${email}&password=${password}&name=${name}`,
+    });
 
     const data = await response.json();
     console.log(data);
@@ -121,7 +118,7 @@ const SignUp = () => {
         navigate("/otp", {
           state: { email: `${email}`, userId: `${data.result._id}` },
         });
-      }, 2000);
+      }, 1000);
       setIsLoading(false);
     }
   };
@@ -426,7 +423,12 @@ const SignUp = () => {
           </button>
         )}
 
-        <button className="signUp_button-mobile">Agree and Continue</button>
+        <button
+          className="signUp_button-mobile"
+          onClick={(e) => handleSignUP(e)}
+        >
+          Agree and Continue
+        </button>
 
         <p className="signUp_para2 mobile">
           Already have an account ? <a href="/login">Login</a>{" "}

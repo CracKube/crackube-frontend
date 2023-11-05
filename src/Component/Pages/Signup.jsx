@@ -12,6 +12,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 function Signup() {
   const [loginStatus, setLoginStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     loginWithPopup,
     loginWithRedirect,
@@ -22,11 +24,25 @@ function Signup() {
   } = useAuth0();
 
   const handleLogin = async () => {
+    setIsLoading(true);
     //https://crackube-backend-test.onrender.com/users/signIn
     //url encoded
     console.log("Login clicked:");
+
     const email = document.querySelector(".Email").value;
     const password = document.querySelector(".Password").value;
+
+    if (!email || !password) {
+      setIsLoading(false);
+      toast.warning("All Fields are Required", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
 
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/auth/signIn",
@@ -41,11 +57,23 @@ function Signup() {
     const data = await response.json();
     console.log(data);
     if (data.message === "Successfully logged in...") {
+      toast.error("Login successful", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.result._id);
+      setIsLoading(false);
+
       window.location.href = "/home";
       setLoginStatus(true);
     } else {
+      setIsLoading(false);
+
       toast.error("Invalid Email or Password", {
         closeOnClick: true,
         pauseOnHover: true,
@@ -55,6 +83,7 @@ function Signup() {
       });
       return;
     }
+    setIsLoading(false);
   };
   return (
     <div className="main1">
@@ -83,7 +112,7 @@ function Signup() {
           <input
             placeholder="Enter your password"
             className="Password"
-            type="text"
+            type="password"
           />
         </form>
         <div className="sep">
@@ -95,7 +124,14 @@ function Signup() {
           </NavLink>
         </div>
         <div className="Button">
-          <button onClick={() => handleLogin()}>Login</button>
+          {isLoading === false ? (
+            <button onClick={() => handleLogin()}>Login</button>
+          ) : (
+            <button onClick={() => handleLogin()}>
+              {" "}
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+            </button>
+          )}
         </div>
         <div className="separator">
           <div className="left"></div>

@@ -13,12 +13,14 @@ const OTP = () => {
   const [otp, setOtp] = useState("");
   const { state } = useLocation();
   const { email, userId } = state;
+
+  const [isResendDisabled, setIsResendDisabled] = useState(false);
+  const [resendCountdown, setResendCountdown] = useState(30); // Initial countdown time in seconds
+
   // send otp to backend
   // verify otp from backend
   // if otp is verified then redirect to login page
   // else show error message
-  console.log(email);
-  console.log(userId);
   const handleOtp = async () => {
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/users/sendEmail",
@@ -31,9 +33,52 @@ const OTP = () => {
       }
     );
     console.log(response);
+
+    if (response.status === 200) {
+      toast.success("OTP sent successfully", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setIsResendDisabled(true);
+
+      // Start the countdown timer
+      let countdown = 30;
+      const countdownInterval = setInterval(() => {
+        countdown--;
+        setResendCountdown(countdown);
+        if (countdown <= 0) {
+          clearInterval(countdownInterval);
+          setIsResendDisabled(false);
+        }
+      }, 1000);
+    } else {
+      toast.error("Failed to send OTP", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
+
+  // Function to handle OTP verification
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
+    if (!otp) {
+      toast.error("Please enter OTP", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
     const response = await fetch(
       "https://crackube-backend-test.onrender.com/users/verify",
       {
@@ -44,7 +89,6 @@ const OTP = () => {
         body: `_id=${userId}&otp=${otp}`,
       }
     );
-    console.log(response);
 
     if (response.status === 202) {
       toast.success("OTP Verified", {
@@ -65,13 +109,13 @@ const OTP = () => {
         progress: undefined,
         theme: "light",
       });
-      return;
     }
   };
 
   useEffect(() => {
     handleOtp();
   }, []);
+
   return (
     <div className="container">
       <ToastContainer />
@@ -105,21 +149,13 @@ const OTP = () => {
           </div>
           <div className="signupotp-bottom">
             <p className="resend">
-              Didn’t you receive the OTP?{" "}
-              <a
-                className="span"
-                onClick={() => {
-                  toast.success("OTP is resent successfully", {
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
-                }}
-              >
-                Resend
-              </a>
+              {isResendDisabled ? (
+                `Resend OTP in ${resendCountdown} seconds`
+              ) : (
+                <button className="resend-otp-button" onClick={handleOtp}>
+                  Resend OTP
+                </button>
+              )}
             </p>
             <button
               className="verifyotp-button"

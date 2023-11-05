@@ -8,6 +8,7 @@ import ck_logo from "../../Assets/CK_LOGO.png";
 
 //css
 import "../../styles/Sheets/thirdPage.css";
+import { toast } from "react-toastify";
 
 const ThirdPage = () => {
   const navigate = useNavigate();

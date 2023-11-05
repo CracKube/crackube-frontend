@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const FourthPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [file, setFile] = useState("");
   const [userName, setUserName] = useState("");
@@ -43,6 +44,7 @@ const FourthPage = () => {
       }
     }
   };
+
   const handleImageState = () => {
     setImage("");
   };
@@ -52,35 +54,54 @@ const FourthPage = () => {
   // use formData to append the data
   // use headers to set the content type to multipart/form-data
   const handleProfile = async () => {
-    const response = await axios.post(
-      `https://crackube-backend-test.onrender.com/users/editProfile/${state.userId}`,
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
+    setIsLoading(true);
+    try {
+      const response = await axios.post(
+        `https://crackube-backend-test.onrender.com/users/editProfile/${state.userId}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      if (response.status === 200) {
+        // toast.success("", {
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "light",
+        // });
+        setIsLoading(false);
+        navigate("/home", { state: { userId: state.userId } });
+        window.localStorage.setItem("userId", state.userId);
+      } else {
+        setIsLoading(false);
+        toast.error("Something went wrong!", {
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return;
       }
-    );
-
-    console.log(response);
-    if (response.status === 200) {
-      toast.success("", {
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      navigate("/home", { state: { userId: state.userId } });
-      window.localStorage.setItem("userId", state.userId);
-    } else {
-      toast.error("Something went wrong!", {
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      return;
+    } catch (error) {
+      if (error.response && error.response.status === 500) {
+        setIsLoading(false);
+        toast.error("Something went wrong!", {
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return;
+      } else {
+        setIsLoading(false);
+        console.error("An error occurred:", error);
+      }
     }
+    setIsLoading(false);
   };
 
   return (
@@ -140,10 +161,15 @@ const FourthPage = () => {
             onChange={(e) => setUserName(e.target.value)}
           />
         </form>
-
-        <button className="enter-ck" onClick={() => handleProfile()}>
-          Enter CK WORLD
-        </button>
+        {isLoading === false ? (
+          <button className="enter-ck" onClick={() => handleProfile()}>
+            Enter CK WORLD
+          </button>
+        ) : (
+          <button className="enter-ck" onClick={() => handleProfile()}>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+          </button>
+        )}
       </div>
     </div>
   );
