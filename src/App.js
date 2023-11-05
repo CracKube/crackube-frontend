@@ -46,7 +46,7 @@ import Refund from "./Component/Refund";
 import Ship from "./Component/Ship";
 import TAndC from "./Component/TAndC";
 import StoreComponent from "./Component/Store/StoreComponent";
-
+import UnderConstruction from "./Component/underConstruction/UnderConstruction.jsx"
 export const ThemeContext = createContext(null);
 
 
@@ -97,6 +97,9 @@ function App() {
               <Route path='/shipanddelivery' element={<Ship />}></Route>
               <Route path="/termsandconditions" element={<TAndC />}></Route>
               <Route path='/store' element={<StoreComponent />}></Route>
+              <Route path="/underConstruction" element={<UnderConstruction />}></Route>
+
+
             </Routes>
           </ThemeContext.Provider>
         </Router>
