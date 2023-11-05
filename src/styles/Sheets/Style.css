@@ -1224,6 +1224,7 @@ img {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  margin-bottom: 1rem;
 }
 .profile-nav-btn > a > img {
   height: 1rem;
@@ -1430,5 +1431,19 @@ img {
   .Button button {
     border: none;
     min-width: 248px;
+  }
+  .profile-nav-btn > a {
+    color: #000000;
+    display: flex;
+    background-color: #fff;
+    padding: 0.2rem 0.6rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 1rem;
   }
 }

@@ -101,3 +101,18 @@
 #dark .ql-toolbar.ql-snow .ql-picker-label {
   color: #fff;
 }
+
+@media only screen and (max-width: 600px) {
+  .answer-wrapper {
+    margin: 0rem;
+    height: fit-content;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 1rem;
+  }
+  .answer-cover {
+    width: 20rem;
+    padding: 0.5rem;
+  }
+}
