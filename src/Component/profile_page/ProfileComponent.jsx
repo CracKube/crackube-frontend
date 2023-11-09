@@ -10,15 +10,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import Card from "../BlogPage/CardBlog";
-import {  fetchAsyncUsers } from "../../redux/Users/userSlice";
+import { fetchAsyncUsers, getUserElse } from "../../redux/Users/userElseSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUser } from "../../redux/Users/userSlice";
+import { useParams } from "react-router-dom";
 
 function ProfileComponent({ theme }) {
   const dispatch = useDispatch();
- // const [response, setResponse] = useState("");
-  const [blogs, setBlogs] = useState([]);
+  // const [response, setResponse] = useState("");
+  const id = useParams().id;
   // const getUserDetails = async () => {
   //   const response = await axios.get(
   //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
@@ -33,36 +34,31 @@ function ProfileComponent({ theme }) {
   const [clicked, setClicked] = useState(1);
   const list = [
     {
-      name: 'Answer'
+      name: "Answer",
     },
     {
-      name: 'Blog'
+      name: "Blog",
     },
     {
-      name: 'Code'
-    }
-  ];  
-
+      name: "Code",
+    },
+  ];
 
   useEffect(() => {
-    dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
-  }, [dispatch]);
-  const response = useSelector(getUser);
+    dispatch(fetchAsyncUsers(id));
+  }, [dispatch, id]);
+  const response = useSelector((state) => state.userElse.userElse);
   console.log(response);
   return (
     <div className="flex-prof" id={theme}>
       <div className="imgs">
         <div>
-          
-          
           <div className="dp">
             <div className="showcase-cover">
-            <img className="img-wrap" src={Profile} />
-            <img className="dp-img" src={response.profilePicUrl} />
-            
+              <img className="img-wrap" src={Profile} />
+              <img className="dp-img" src={response.profilePicUrl} />
             </div>
-          
-          
+
             <p className="user-prof-cover">{response.name}</p>
             <p className="user-name">@{response.username}</p>
             <div className="user-flw-btn">
@@ -76,7 +72,7 @@ function ProfileComponent({ theme }) {
               </div>
               <div className="user-sep-bar"></div>
               <div className="fit">
-                <p>{response.blogsPosted && response.blogsPosted.length }</p>
+                <p>{response.blogsPosted && response.blogsPosted.length}</p>
                 <p>Blogs</p>
               </div>
               <div className="user-sep-bar"></div>
@@ -101,33 +97,42 @@ function ProfileComponent({ theme }) {
               <div className="profile-nav-btn">
                 {list.map((item, index) => {
                   return (
-                    <button key={index}  className= {clicked === index ? 'profile-click-btn' : 'profile-btn'} onClick={() => {setClicked(index)}}>
+                    <button
+                      key={index}
+                      className={
+                        clicked === index ? "profile-click-btn" : "profile-btn"
+                      }
+                      onClick={() => {
+                        setClicked(index);
+                      }}
+                    >
                       {item.name}
                     </button>
                   );
                 })}
-                </div>
+              </div>
             </div>
           </div>
-          
-          
-         {clicked === 0 && response.quesAsked &&
-        response.quesAsked.map((item, index) => {
-          return <AnswerComponent 
-          key = {index}
-          theme={theme}
-          verify = {item.isVerified}
-          id = {item._id}
-          body={item.questionBody}
-          tags = {item.questionTags}
-          img = {item.userPosted.profilePicUrl}
-          userName = {item.userPosted && item.userPosted.name}
-          postedOn = {item.askedOn}
-          
-          />;
-        })}
 
-        {/* {clicked === 1 && blogs &&     <div
+          {clicked === 0 &&
+            response.quesAsked &&
+            response.quesAsked.map((item, index) => {
+              return (
+                <AnswerComponent
+                  key={index}
+                  theme={theme}
+                  verify={item.isVerified}
+                  id={item._id}
+                  body={item.questionBody}
+                  tags={item.questionTags}
+                  img={item.userPosted.profilePicUrl}
+                  userName={item.userPosted && item.userPosted.name}
+                  postedOn={item.askedOn}
+                />
+              );
+            })}
+
+          {/* {clicked === 1 && blogs &&     <div
       className= 'dashboard1'
     >
       {( response.blogsPosted && 

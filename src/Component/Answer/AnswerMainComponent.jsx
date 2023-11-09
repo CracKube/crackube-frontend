@@ -6,6 +6,7 @@ import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
+import Categories from "../Category/Categories";
 const AnswerMainComponent = ({ theme }) => {
   //const [question, setQuestion] = useState([]);
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const AnswerMainComponent = ({ theme }) => {
   return (
     <div className="home-container">
       <TopNavBar theme={theme} />
-
+      <Categories />
       <ReactQuill
         theme="snow"
         value={editorText}

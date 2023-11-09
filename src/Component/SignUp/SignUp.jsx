@@ -37,16 +37,14 @@ const SignUp = () => {
       return;
     }
 
-    setIsLoading(true);
 
     console.log(email, password, name);
     // https://crackube-backend-test.onrender.com/users/createUser
     // http://localhost:5000/users/createUser
     //url encoded
-    e.preventDefault();
 
-    const response = await axios(
-      "https://crackube-backend-test.onrender.com/auth/createUser",
+    const response = await fetch(
+      "https://api.crackube.com/auth/createUser",
       {
         method: "POST",
         headers: {
@@ -58,34 +56,15 @@ const SignUp = () => {
 
     const data = await response.json();
     console.log(data);
-    setUserId(data._id);
-    console.log(userId);
-    console.log(email);
     if (data.message === "User already exists") {
-      toast.warning("User already exists", {
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setIsLoading(false);
+
     } else {
-      toast.success("OTP Sent Successfully", {
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setTimeout(() => {
-        setIsLoading(false);
+
         localStorage.setItem("token", data.token);
+        localStorage.setItem("currentUser", data.result);
         navigate("/otp", {
-          state: { email: `${email}`, userId: `${data.result._id}` },
+          state: { email: `${email}`, userId: `${data.result._id}`},
         });
-      }, 2000);
-      setIsLoading(false);
     }
   };
 

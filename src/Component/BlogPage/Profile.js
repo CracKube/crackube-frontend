@@ -9,7 +9,7 @@ import { FacebookIcon, WhatsappIcon } from "react-share";
 import BlogShare from "./BlogShare";
 import BlogLike from "./BlogLike";
 import BlogSave from "./BlogSave";
-import { addUser, fetchAsyncUsers } from "../../redux/Users/userSlice";
+import { addUser, fetchAsyncUsers } from "../../redux/Users/userElseSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUser } from "../../redux/Users/userSlice";
@@ -34,27 +34,18 @@ export default function Profile(props) {
     console.log(response);
     dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
   }
-  const handleUnFollow = async () => {
-      const response =  await axios
-        .post(
-          `https://api.crackube.com/users/removeFollower/${props.userId}`, {
-              userId: window.localStorage.getItem("userId")
-          }
-        )
-      console.log(response);
-      dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
-    }
+
   const user = useSelector(getUser);
   return (
-    <div className={styles.authorContainer}>
+    <div className={styles.authorContainer} >
       <div className={styles.authorInside}>
-        <div className= {styles.infocover}>
+        <div className= {styles.infocover} onClick={() => {window.location.href = `/profile/${props.userId}`}}>
         <div className={styles.image}>
-          <a href="">
+          <a >
             <img className={styles.img} src={props.url} alt="" />
           </a>
         </div>
-        <div className={styles.cover}>
+        <div className={styles.cover} >
           <div className={styles.title}>
             <a href="">{props.author}</a>
           </div>

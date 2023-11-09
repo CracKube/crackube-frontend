@@ -35,11 +35,11 @@ function BlogPage({ theme, setTheme }) {
     dispatch(fetchAsyncBlogDetail(id));
     dispatch(fetchAsyncBlogs(setLoading));
     // getAllBlogs();
-  }, [dispatch, id]);
+  }, [dispatch]);
 
   const blog = useSelector(getSelectedBlog)
   const blogs = useSelector(getAllBlog)
-  console.log(blog);
+  console.log(blog.blogImageColor);
 
   return (
     <div className="home" id={theme}>
@@ -51,7 +51,7 @@ function BlogPage({ theme, setTheme }) {
             <div className="blog-cover">
               <div
                 className="blog-container"
-                style={{ backgroundColor: `${blog.blogImageColor}` }}
+                style={{ boxShadow: `0px 19px 43px 0px ${blog.blogImageColor}` }}
               >
                 <img src={blog.blogImageUrl} alt="" />
               </div>
@@ -60,7 +60,7 @@ function BlogPage({ theme, setTheme }) {
               </div>
             </div>
             <div className="allContent">
-              <div className="prof">
+               <div className="prof" >
                 <Profile
                   id={id}
                   saved={blog && blog.bookmarks}

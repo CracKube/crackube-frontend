@@ -2,7 +2,15 @@ import React from "react";
 import User from "../../Assets/ans-user.png";
 import Msg from "../../Assets/msg.svg";
 import { useState } from "react";
-const CommentSection = ({ theme, openComment, setCommentId, id }) => {
+import axios from "axios";
+const CommentSection = ({
+  theme,
+  openComment,
+  setCommentId,
+  id,
+  userId,
+  userCommented,
+}) => {
   const [commentBody, setCommentBody] = useState("");
   const handleModal = () => {
     openComment(true);
@@ -10,19 +18,28 @@ const CommentSection = ({ theme, openComment, setCommentId, id }) => {
   };
   const postComments = async () => {
     let value;
-    value = `commentBody=${commentBody}&userCommented=${window.localStorage.getItem(
+    value = `commentBody=${commentBody}&userCommented=${userCommented}&userPosted=${window.localStorage.getItem(
       "userId"
     )}`;
-    const response = await fetch(
-      `https://crackube-backend-test.onrender.com/answers/postComment/${id}`,
+    console.log(commentBody);
+    console.log(userId);
+    console.log(window.localStorage.getItem("userId"));
+    const response = await axios.patch(
+      `https://api.crackube.com/answers/postComment/${id}`,
       {
-        method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: value,
+        body: value
       }
     );
+    const body = {
+      commentBody: commentBody,
+      userCommented: userCommented,
+      userPosted: window.localStorage.getItem("userId"),
+    };
+    console.log(body);
+    setCommentBody("");
     console.log(response);
   };
   const handleComments = (e) => {
@@ -41,6 +58,7 @@ const CommentSection = ({ theme, openComment, setCommentId, id }) => {
           <input
             type="text"
             placeholder="Add a comment, @ to mention"
+            value={commentBody}
             onChange={(e) => {
               handleComments(e);
             }}

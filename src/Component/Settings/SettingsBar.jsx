@@ -6,7 +6,7 @@ import MyDetails from "./MyDetails";
 import Email from "./Email";
 import Password from "./Password";
 import DeleteAccount from "./DeleteAccount";
-import { addUser, fetchAsyncUsers } from "../../redux/Users/userSlice";
+import { addUser, fetchAsyncUsersSelf } from "../../redux/Users/userSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUser } from "../../redux/Users/userSlice";
@@ -24,7 +24,7 @@ const SettingsBar = ({ clicked }) => {
   //   //setUser(response.data);
   // };
   useEffect(() => {
-    dispatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
+    dispatch(fetchAsyncUsersSelf(window.localStorage.getItem("userId")));
   }, [dispatch]);
   const user = useSelector(getUser);
   console.log(clicked);

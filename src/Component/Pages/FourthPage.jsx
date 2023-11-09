@@ -67,6 +67,8 @@ const FourthPage = () => {
       });
       navigate("/home", { state: { userId: state.userId } });
       window.localStorage.setItem("userId", state.userId);
+
+
     } else {
       toast.error("Something went wrong!", {
         closeOnClick: true,

@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Arrow from "../Assets/SideArrow.svg";
-import { addUser, fetchAsyncUsers } from "../redux/Users/userSlice";
+import { addUser, fetchAsyncUsers, fetchAsyncUsersSelf } from "../redux/Users/userSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUser } from "../redux/Users/userSlice";
@@ -24,7 +24,7 @@ import { getUser } from "../redux/Users/userSlice";
 function MenuBar({ theme, setTheme, menu, setMenu }) {
   //const [response, setResponse] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("");
-  const despatch = useDispatch();
+  const dispatch = useDispatch();
   // const getUserDetails = async () => {
   //   const response = await axios.get(
   //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
@@ -64,8 +64,9 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
   }
   useEffect(() => {
     getUserIP();
-    despatch(fetchAsyncUsers(window.localStorage.getItem("userId")));
-  }, [despatch]);
+    //getUserDetails();
+    dispatch(fetchAsyncUsersSelf(window.localStorage.getItem("userId")));
+  }, []);
 
 
   const [lightBtn, setLightBtn] = useState("#000");
@@ -181,7 +182,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
 
         <div className="menu-bar-half-2">
           <div className="profile">
-            <Link to="/profile">
+            <Link onClick={() => {window.location.href = `/profile/${window.localStorage.getItem("userId")}`}} >
               {
                 <Profile details={response} time={timeOfDay} />
               }

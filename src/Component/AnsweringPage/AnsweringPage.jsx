@@ -18,7 +18,10 @@ import User from "../../Assets/ans-user.png";
 import Flag from "../../Assets/report.svg";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswer, fetchAsyncAnswerDetail } from "../../redux/Answer/answerSlice";
+import {
+  addAnswer,
+  fetchAsyncAnswerDetail,
+} from "../../redux/Answer/answerSlice";
 
 export const ThemeContext = createContext();
 
@@ -127,11 +130,12 @@ function AnsweringPage({ theme, setTheme }) {
   };
 
   useEffect(() => {
-    dispatch(addAnswer)
+    dispatch(addAnswer);
     dispatch(fetchAsyncAnswerDetail(id));
     //getAnswer();
   }, [dispatch]);
   const answer = useSelector((state) => state.answers.selectedAnswer);
+  console.log(answer);
   if (
     answer.data &&
     window.localStorage.getItem("userId") === answer.data.userPosted._id
@@ -210,7 +214,13 @@ function AnsweringPage({ theme, setTheme }) {
                               </div>
                               <div className="comments-area">
                                 <div className="user-cmt-img">
-                                  <img src={cmt.userPosted.profilePic} alt="" />
+                                  <img
+                                    src={
+                                      cmt.userPosted &&
+                                      cmt.userPosted.profilePicUrl
+                                    }
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="comments">
                                   <h3>{cmt.userCommented}</h3>
@@ -288,6 +298,8 @@ function AnsweringPage({ theme, setTheme }) {
                             openComment={setIsCommentOpen}
                             setCommentId={setCommentId}
                             id={ans._id}
+                            userId={ans.userPosted && ans.userPosted._id}
+                            userCommented = {ans.userPosted && ans.userPosted.username}
                           />
                         </div>
                       </div>
@@ -358,36 +370,44 @@ function AnsweringPage({ theme, setTheme }) {
               </div>
             </CustomModal>
             <Comments isOpen={isCommentOpen} onRequestClose={closeComment}>
-              {answer.data &&
-                answer.data.answers.map((ans, index) => {
-                  return (
-                    <div key={index}>
-                      {ans._id === ansId &&
-                        ans.comments.map((cmt, index) => {
-                          return (
-                            <div key={index}>
-                              <div className="modal-head">
-                                <button onClick={closeComment}>
-                                  <img src={Arrow} alt="" />
-                                </button>
-                                <h2>Comments</h2>
-                              </div>
-                              <div className="comments-area">
-                                <div className="user-cmt-img">
-                                  <img src={cmt.userPosted.profilePic} alt="" />
+              <>
+                <div className="modal-head">
+                  <button onClick={closeComment}>
+                    <img src={Arrow} alt="" />
+                  </button>
+                  <h2>Comments</h2>
+                </div>
+                {answer.data &&
+                  answer.data.answers.map((ans, index) => {
+                    return (
+                      <div key={index}>
+                        {ans._id === ansId &&
+                          ans.comments.map((cmt, index) => {
+                            return (
+                              <div key={index}>
+                                <div className="comments-area">
+                                  <div className="user-cmt-img">
+                                    <img
+                                      src={
+                                        cmt.userPosted &&
+                                        cmt.userPosted.profilePicUrl
+                                      }
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div className="comments">
+                                    <h3>{cmt.userCommented}</h3>
+                                    <p>{cmt.commentBody}</p>
+                                    <span>reply-show 2 replies</span>
+                                  </div>
                                 </div>
-                                <div className="comments">
-                                  <h3>{cmt.userCommented}</h3>
-                                  <p>{cmt.commentBody}</p>
-                                  <span>reply-show 2 replies</span>
-                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
-                    </div>
-                  );
-                })}
+                            );
+                          })}
+                      </div>
+                    );
+                  })}
+              </>
             </Comments>
             <div className="ans-line-1" id={theme}>
               <QuestionUser id={theme} answer={answer.data}></QuestionUser>
@@ -443,6 +463,8 @@ function AnsweringPage({ theme, setTheme }) {
                             openComment={setIsCommentOpen}
                             setCommentId={setCommentId}
                             id={ans._id}
+                            userId={ans.userPosted && ans.userPosted._id}
+                            userCommented = {ans.userPosted && ans.userPosted.username}
                             theme={theme}
                           />
                         </div>

@@ -48,7 +48,7 @@ import TAndC from "./Component/TAndC";
 import StoreComponent from "./Component/Store/StoreComponent";
 import PasswordReset from "./Component/Pages/PasswordReset";
 import YourDen from "./Component/YourDen/YourDen";
-import Categories from "./Component/Categories";
+import Categories from "./Component/Category/Categories";
 export const ThemeContext = createContext(null);
 
 
@@ -72,7 +72,7 @@ function App() {
                         <Route path="/my-details" element={<MyDetails theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/security" element={<Security theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/email" element={<Email theme = {theme} setTheme = {setTheme}/>}></Route>
-                        <Route path = "/profile" element = {<ProfilePage theme = {theme} setTheme = {setTheme}/>}></Route>
+                        <Route path = "/profile/:id" element = {<ProfilePage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/password" element={<Password theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/blog/:id" element={<BlogPage theme = {theme} setTheme = {setTheme}/>}></Route>
                         <Route path="/delete-account" element={<DeleteAccount theme = {theme} setTheme = {setTheme} />}></Route>

@@ -1,16 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAsyncUsers = createAsyncThunk('users/fetchAsyncUsers', async (id) => {
+
+export const fetchAsyncUsersSelf = createAsyncThunk('users/fetchAsyncUsers', async () => {
     const response = await axios.get(
-        `https://api.crackube.com/users/getUser/${id}`
+        `https://api.crackube.com/users/getUser/${window.localStorage.getItem("userId")}`
       );
       console.log(response.data);
       return response.data;
 });
 
 const initialState = {
-    users : {}
+    users : {},
 }
 
 const userSlice = createSlice({
@@ -19,17 +20,18 @@ const userSlice = createSlice({
     reducers: {
         addUser: (state, {payload}) => {
             state.users = payload;
-        }
+        },
     }, 
     extraReducers: {
-        [fetchAsyncUsers.pending]: () => {
+
+        [fetchAsyncUsersSelf.pending]: () => {
             console.log("pending");
         }, 
-        [fetchAsyncUsers.fulfilled]: (state, {payload}) => {
-            console.log("fetched successfully");
+        [fetchAsyncUsersSelf.fulfilled]: (state, {payload}) => {
+            console.log("fetched successfully user");
             return {...state, users: payload};
         },
-        [fetchAsyncUsers.rejected]: () => {
+        [fetchAsyncUsersSelf.rejected]: () => {
             console.log("rejected");
         },
     }
@@ -37,4 +39,5 @@ const userSlice = createSlice({
 
 export const { addUser } = userSlice.actions;
 export const getUser = (state) => state.users.users;
+
 export default userSlice.reducer;
