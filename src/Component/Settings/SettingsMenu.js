@@ -8,79 +8,71 @@ import homeIcon from "../../Assets/homeIcon.svg";
 import MyDetails from "../../Assets/my-details.png";
 import { useState } from "react";
 import SettingsBar from "./SettingsBar";
+import SharedComponents from "../SharedComponents";
 function SettingsMenu({ theme, setTheme }) {
   const [clicked, setClicked] = useState(0);
 
   const list = [
     {
       name: "Edit Profile",
-      to : "/my-details",
+      to: "/my-details",
     },
     {
       name: "Email",
-      to : "/email",
+      to: "/email",
     },
     {
       name: "Password",
-      to : "/password",
+      to: "/password",
     },
     {
       name: "Notification",
-      to : "/notification",
+      to: "/notification",
     },
     {
       name: "Language",
-      to : "/language",
+      to: "/language",
     },
     {
       name: "Payment Method",
-      to : "/payment",
+      to: "/payment",
     },
     {
       name: "Delete Account",
-      to : "/delete-account",
-    }
+      to: "/delete-account",
+    },
   ];
   const handleBtn = (index, value) => {
     setClicked(index);
   };
   return (
-    <div>
-      <div className="home" id={theme}>
-        <MenuBar theme={theme} setTheme={setTheme} />
-
-        <div className="home-container">
-          <TopNavBar theme={theme} />
-          <div className="set-cover">
-            <div className="settings-cover">
-              <p>Settings</p>
-              <div className="list" id={theme}>
-                <ul>
-                {list.map((item, index) => {
-                  return (
-                    <button
-                      className={
-                        clicked === index
-                          ? 'list-btn'
-                          : 'list-not-clicked'
-                      }
-                      key={index}
-                      onClick={() => {handleBtn(index, item.to)}}
-                    >
-                      {item.name}
-                    </button>
-                  );
-                })}
-                </ul>
-              </div>
-            </div>
-            <SettingsBar clicked = {clicked} />
+    <SharedComponents>
+      <div className="set-cover">
+        <div className="settings-cover">
+          <p>Settings</p>
+          <div className="list" id={theme}>
+            <ul>
+              {list.map((item, index) => {
+                return (
+                  <button
+                    className={
+                      clicked === index ? "list-btn" : "list-not-clicked"
+                    }
+                    key={index}
+                    onClick={() => {
+                      handleBtn(index, item.to);
+                    }}
+                  >
+                    {item.name}
+                  </button>
+                );
+              })}
+            </ul>
           </div>
-
-          
         </div>
+        <SettingsBar clicked={clicked} />
       </div>
-    </div>
+    </SharedComponents>
   );
 }
 

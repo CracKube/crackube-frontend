@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import MenuBar from "../MenuBar";
 
-import { MainBar, TopNavBar } from "../Constants";
+import React, {useState } from "react";
+import MenuBar from "./MenuBar";
+
+import { TopNavBar } from "./Constants";
 import { createContext } from "react";
-import { useCookies } from "react-cookie";
-import HiddenComponent from "../Pages/HiddenComponent";
-import Arrow from "../../Assets/SideArrow.svg";
-import DenComponent from "./DenComponent";
+import HiddenComponent from "./Pages/HiddenComponent";
+import Arrow from "../Assets/SideArrow.svg";
+
 export const ThemeContext = createContext();
 
-const YourDen = () => {
-  const [menu, setMenu] = useState(true);
+const SharedComponents = ({children}) => {
+    const [menu, setMenu] = useState(true);
   const [theme, setTheme] = useState("light");
   return (
     <ThemeContext.Provider value={theme}>
@@ -32,7 +32,7 @@ const YourDen = () => {
           <div className="center-maker">
             <div className="home-container">
               <TopNavBar theme={theme} />
-              <DenComponent />
+              {children}
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const YourDen = () => {
         <HiddenComponent> </HiddenComponent>
       </div>
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
-export default YourDen;
+export default SharedComponents

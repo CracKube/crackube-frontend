@@ -6,6 +6,7 @@ import { createContext } from "react";
 import { useCookies } from "react-cookie";
 import HiddenComponent from "../Pages/HiddenComponent";
 import AnswerMainComponent from "./AnswerMainComponent";
+import SharedComponents from "../SharedComponents";
 
 export const ThemeContext = createContext(null);
 function Answer() {
@@ -13,15 +14,9 @@ function Answer() {
   const [cookies, setCookie] = useCookies(["state"]);
 
   return (
-    <ThemeContext.Provider value={{ theme }}>
-      <div className="home" id={theme}>
-        <MenuBar theme={theme} setTheme={setTheme} />
+    <SharedComponents>
         <AnswerMainComponent theme={theme} setTheme={setTheme} />
-      </div>
-      <div className="bottom-nav">
-        <HiddenComponent> </HiddenComponent>
-      </div>
-    </ThemeContext.Provider>
+    </SharedComponents>
   );
 }
 

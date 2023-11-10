@@ -84,14 +84,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
     () => {
       setTheme("dark");
     });
-  const clickHandler = () => {
-    const toggle = document.getElementById("toggle");
-    const sidebar = document.getElementById("crack-logo");
-    toggle.onClick = function () {
-      toggle.classList.toggle("active");
-      sidebar.classList.toggle("active");
-    };
-  };
+
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {

@@ -6,6 +6,7 @@ import { MainBar, TopNavBar } from "../Constants";
 import ResultCards from "./ResultCards";
 import SearchBarResults from "./SearchBarResults";
 import { useLocation } from "react-router-dom";
+import SharedComponents from "../SharedComponents";
 
 function SearchResults({ theme, setTheme }) {
   const location = useLocation();
@@ -13,21 +14,19 @@ function SearchResults({ theme, setTheme }) {
   const [input, setInput] = useState(location.state.input);
 
   return (
-    <div className="home" id={theme}>
-      <MenuBar theme={theme} setTheme={setTheme} />
-      <div className="home-container">
-        <TopNavBar theme={theme} />
-        <SearchBarResults  clicked = {clicked} setClicked = {setClicked} input = {input} setInput = {setInput}/>
-        <div className={style.resultCover}>
-          <div className={style.resultbox}>
-            <ResultCards
-              value = {input}
-              clicked = {clicked}
-            />
-          </div>
+    <SharedComponents>
+      <SearchBarResults
+        clicked={clicked}
+        setClicked={setClicked}
+        input={input}
+        setInput={setInput}
+      />
+      <div className={style.resultCover}>
+        <div className={style.resultbox}>
+          <ResultCards value={input} clicked={clicked} />
         </div>
       </div>
-    </div>
+    </SharedComponents>
   );
 }
 

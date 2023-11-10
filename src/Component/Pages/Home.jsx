@@ -22,6 +22,7 @@ import UploadDropdown from "../DropDown/UploadDropDown";
 import { hover } from "@testing-library/user-event/dist/hover";
 import Answer from "../Answer/Answer";
 import Code from "../../Code/Code";
+import SharedComponents from "../SharedComponents";
 
 /******************* */
 export const ThemeContext = createContext();
@@ -35,39 +36,10 @@ function Home() {
     setMenu(!menu);
   };
 
-  useEffect(() => {
-    setUserId(window.localStorage.getItem("userId"));
-  }, []);
-
   return (
-    <ThemeContext.Provider value={theme}>
-      <div id={theme}>
-        <div className={menu ? "home" : "home-full"} id={theme}>
-          <MenuBar
-            theme={theme}
-            setTheme={setTheme}
-            menu={menu}
-            setMenu={setMenu}
-          />
-          {menu === false && (
-            <div className="">
-              <div className="side-arrow" onClick={setMenu(!menu)}>
-                <img src={Arrow} alt="" />
-              </div>
-            </div>
-          )}
-          <div className="center-maker">
-            <div className="home-container">
-              <TopNavBar theme={theme} />
-              <MainBar theme={theme} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bottom-nav">
-        <HiddenComponent> </HiddenComponent>
-      </div>
-    </ThemeContext.Provider>
+    <SharedComponents>
+      <MainBar></MainBar>
+    </SharedComponents>
   );
 }
 export default Home;

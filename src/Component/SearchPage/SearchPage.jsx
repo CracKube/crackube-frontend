@@ -12,6 +12,7 @@ import follow from "../../Assets/follow-prof.svg";
 import camera from "../../Assets/camera.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SharedComponents from "../SharedComponents";
 
 const SearchBar = ({ handleChange }) => {
   const navigate = useNavigate();
@@ -28,23 +29,28 @@ const SearchBar = ({ handleChange }) => {
   //   } )
   // }
   const handleSearch = () => {
-    navigate('/search-results', { state: { input } })
-  }
+    navigate("/search-results", { state: { input } });
+  };
 
   return (
     <div className="Search">
       <div className="search-container">
-        <form action="submit" onSubmit = {() => {handleSearch()}}>
-        <input
-          className="search-bar"
-          type="text"
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-            handleChange(e.target.value);
+        <form
+          action="submit"
+          onSubmit={() => {
+            handleSearch();
           }}
-          placeholder="Search for anything"
-        />
+        >
+          <input
+            className="search-bar"
+            type="text"
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              handleChange(e.target.value);
+            }}
+            placeholder="Search for anything"
+          />
         </form>
         <div className="search-attr">
           <img src={camera} className="camera-ocr" alt="" />
@@ -61,7 +67,12 @@ const SearchBar = ({ handleChange }) => {
           <img src={arrow} alt="" />
         </div>
       </div>
-      <div className="search-icon" onClick={() => {handleSearch()}}>
+      <div
+        className="search-icon"
+        onClick={() => {
+          handleSearch();
+        }}
+      >
         <svg
           width="24"
           height="24"
@@ -83,21 +94,24 @@ function SearchNavbar() {
     <div className="search-nav-bar-eff">
       <div className="profile-show">
         <div className="profile-nav-btn">
-          <NavLink className='profile-nav-btn-active'
+          <NavLink
+            className="profile-nav-btn-active"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
           >
             <img src={vector} alt="" /> <p>Trending</p>
           </NavLink>
-          <NavLink className='profile-nav-btn-active'
+          <NavLink
+            className="profile-nav-btn-active"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
           >
             <img src={category} alt="" /> <p>Categories</p>
           </NavLink>
-          <NavLink className='profile-nav-btn-active'
+          <NavLink
+            className="profile-nav-btn-active"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
@@ -171,31 +185,26 @@ function SearchPage({ theme, setTheme }) {
   };
 
   return (
-    <div className="home" id={theme}>
-      <MenuBar theme={theme} setTheme={setTheme} />
-      <div className="home-container">
-        <TopNavBar theme={theme} />
-        <div className="SearchPage">
-          {/* SearchBar */}
-          <SearchBar handleChange={handleChange} />
+    <SharedComponents>
+      <div className="SearchPage">
+        <SearchBar handleChange={handleChange} />
 
-          <div className="list-wrap overlay">
-            <SearchResultsList results={results} />
-          </div>
-          <SearchNavbar />
-          <div className="coverUp">
-            <div className="Discover">
-              <div className="Dbox"></div>
-              <div className="Dbox"></div>
-              <div className="Dbox"></div>
-              <div className="Dbox"></div>
-              <div className="Dbox"></div>
-              <div className="Dbox"></div>
-            </div>
+        <div className="list-wrap overlay">
+          <SearchResultsList results={results} />
+        </div>
+        <SearchNavbar />
+        <div className="coverUp">
+          <div className="Discover">
+            <div className="Dbox"></div>
+            <div className="Dbox"></div>
+            <div className="Dbox"></div>
+            <div className="Dbox"></div>
+            <div className="Dbox"></div>
+            <div className="Dbox"></div>
           </div>
         </div>
       </div>
-    </div>
+    </SharedComponents>
   );
 }
 

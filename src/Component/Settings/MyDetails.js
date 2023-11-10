@@ -5,7 +5,11 @@ import axios from "axios";
 import { useState } from "react";
 import Modal from "react-modal";
 import Popup from "../Popup";
+import { fetchAsyncUsersSelf } from "../../redux/Users/userSlice";
+import { useDispatch } from "react-redux";
+
 function MyDetails({ theme, setTheme, user }) {
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +21,7 @@ function MyDetails({ theme, setTheme, user }) {
   const [dob, setDob] = useState(user.dob);
   const [country, setCountry] = useState(user.country);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
   console.log(name);
   value == "Username" && formData.append("username", username);
   value == "Name" && formData.append("name", name);
@@ -64,6 +69,7 @@ function MyDetails({ theme, setTheme, user }) {
         headers: { "Content-Type": "multipart/form-data" },
       }
     );
+    dispatch(fetchAsyncUsersSelf());
 
     console.log(response);
     if (response.status === 200) {
