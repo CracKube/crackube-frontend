@@ -1,27 +1,20 @@
-import React, { createContext, useState } from "react";
-import { Link } from "react-router-dom";
-import MenuBar from "../MenuBar";
-import { TopNavBar } from "../Constants";
-import homeIcon from "../../Assets/homeIcon.svg";
-import AnsUser from "./AnsUser";
-import LikeAndReply from "./LikeAndReply";
-import Answer from "../../Assets/Answer.png";
-import QuestionUser from "./QuestionUser";
-import QuesUser from "./QuesUser";
-import CommentSection from "./CommentSection";
+import moment from "moment/moment";
+import React, { createContext, useEffect, useState } from "react";
+import Modal from "react-modal";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Arrow from "../../Assets/ans-back-arrow.svg";
-import Modal from "react-modal";
-import { useEffect } from "react";
-import Clock from "./Clock";
 import User from "../../Assets/ans-user.png";
 import Flag from "../../Assets/report.svg";
-import moment from "moment/moment";
-import { useDispatch, useSelector } from "react-redux";
 import {
   addAnswer,
   fetchAsyncAnswerDetail,
 } from "../../redux/Answer/answerSlice";
+import Clock from "./Clock";
+import CommentSection from "./CommentSection";
+import LikeAndReply from "./LikeAndReply";
+import QuestionUser from "./QuestionUser";
+import { useTheme } from "../../Context/ThemeContext";
 
 export const ThemeContext = createContext();
 
@@ -51,7 +44,8 @@ const Comments = ({ isOpen, onRequestClose, children }) => {
   );
 };
 
-function AnsweringPage({ theme, setTheme }) {
+function AnsweringPage() {
+  const theme = useTheme();
   const id = useParams().id;
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,6 +98,7 @@ function AnsweringPage({ theme, setTheme }) {
     const data = await response.json();
     console.log(data);
     closeModal();
+    dispatch(fetchAsyncAnswerDetail(id));
   };
   const handleVerify = async (answerId) => {
     setVerify("Verified");
@@ -123,6 +118,8 @@ function AnsweringPage({ theme, setTheme }) {
         }
       );
       const data = await response.json();
+      dispatch(fetchAsyncAnswerDetail(id));
+
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -141,11 +138,11 @@ function AnsweringPage({ theme, setTheme }) {
     window.localStorage.getItem("userId") === answer.data.userPosted._id
   ) {
     return (
-      <ThemeContext.Provider value={theme}>
-        <div className="questions-flex" id={theme}>
-          <div className="ans-page-cover" id={theme}>
-            <div className="ans-top-flex" id={theme}>
-              <h1 id={theme}>Question</h1>
+      <ThemeContext.Provider value={theme.mode}>
+        <div className="questions-flex" id={theme.mode}>
+          <div className="ans-page-cover" id={theme.mode}>
+            <div className="ans-top-flex" id={theme.mode}>
+              <h1 id={theme.mode}>Question</h1>
               <div className="mobile-back">
                 <img src={Arrow} alt="" />
                 <div>
@@ -163,7 +160,7 @@ function AnsweringPage({ theme, setTheme }) {
             <CustomModal
               isOpen={isModalOpen}
               onRequestClose={closeModal}
-              theme={theme}
+              theme={theme.mode}
             >
               <div className="modal-head" id={theme}>
                 <button onClick={closeModal} id={theme}>
@@ -193,7 +190,7 @@ function AnsweringPage({ theme, setTheme }) {
                   }}
                 ></textarea>
               </div>
-              <div className="bottom-area" id={theme}>
+              <div className="bottom-area" id={theme.mode}>
                 <button onClick={handleAnswerSubmit}>Submit</button>
               </div>
             </CustomModal>
@@ -236,8 +233,8 @@ function AnsweringPage({ theme, setTheme }) {
                 })}
             </Comments>
 
-            <div className="ans-line-1" id={theme}>
-              <QuestionUser id={theme} answer={answer.data}></QuestionUser>
+            <div className="ans-line-1" id={theme.mode}>
+              <QuestionUser id={theme.mode} answer={answer.data}></QuestionUser>
               <h1>{answer && answer.answerCount} Answers</h1>
               {answer.data &&
                 answer.data.answers &&
@@ -314,9 +311,9 @@ function AnsweringPage({ theme, setTheme }) {
     );
   } else {
     return (
-      <ThemeContext.Provider value={theme}>
-        <div className="questions-flex" id={theme}>
-          <div className="ans-page-cover" id={theme}>
+      <ThemeContext.Provider value={theme.mode}>
+        <div className="questions-flex" id={theme.mode}>
+          <div className="ans-page-cover" id={theme.mode}>
             <div className="ans-top-flex">
               <h1>Question</h1>
 
@@ -409,8 +406,8 @@ function AnsweringPage({ theme, setTheme }) {
                   })}
               </>
             </Comments>
-            <div className="ans-line-1" id={theme}>
-              <QuestionUser id={theme} answer={answer.data}></QuestionUser>
+            <div className="ans-line-1" id={theme.mode}>
+              <QuestionUser id={theme.mode} answer={answer.data}></QuestionUser>
               <h1>{answer && answer.answerCount} Answers</h1>
               {answer.data &&
                 answer.data.answers &&
@@ -465,7 +462,7 @@ function AnsweringPage({ theme, setTheme }) {
                             id={ans._id}
                             userId={ans.userPosted && ans.userPosted._id}
                             userCommented = {ans.userPosted && ans.userPosted.username}
-                            theme={theme}
+                            theme={theme.mode}
                           />
                         </div>
                       </div>

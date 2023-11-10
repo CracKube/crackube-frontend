@@ -1,33 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Search from "../../Assets/search.svg";
-import { Link } from "react-router-dom";
-import MenuBar from "../MenuBar";
-import { MainBar, TopNavBar } from "../Constants";
-import homeIcon from "../../Assets/homeIcon.svg";
+import { NavLink, useNavigate } from "react-router-dom";
 import arrow from "../../Assets/arrowUp.svg";
-import SearchResultsList from "./SearchResultsList";
-import vector from "../../Assets/vector.svg";
+import camera from "../../Assets/camera.svg";
 import category from "../../Assets/category.svg";
 import follow from "../../Assets/follow-prof.svg";
-import camera from "../../Assets/camera.svg";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import vector from "../../Assets/vector.svg";
+import { useTheme } from "../../Context/ThemeContext";
 import SharedComponents from "../SharedComponents";
-
+import SearchResultsList from "./SearchResultsList";
 const SearchBar = ({ handleChange }) => {
   const navigate = useNavigate();
   const [input, setInput] = useState("");
-
-  // const fecthData = (value) => {
-  //   fetch("https://crackube-backend-test.onrender.com/questions/get").then((response) => response.json()).then(json =>{
-  //     // console.log(json);
-  //     const results = json.filter((user) => {
-  //       return value && user && user.questionBody && user.questionBody.toLowerCase().includes(value)
-  //     });
-  //     setResults(results);
-
-  //   } )
-  // }
   const handleSearch = () => {
     navigate("/search-results", { state: { input } });
   };
@@ -123,7 +106,8 @@ function SearchNavbar() {
     </div>
   );
 }
-function SearchPage({ theme, setTheme }) {
+function SearchPage() {
+  const theme = useTheme();
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
   const [blogs, setBlogs] = useState([]);

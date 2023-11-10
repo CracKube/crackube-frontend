@@ -1,4 +1,5 @@
 .answer-wrapper {
+  width: 100%;
   margin: 1.5rem;
   height: fit-content;
   border-radius: 2rem;
@@ -16,6 +17,7 @@
 }
 
 .answer-cover {
+  width: 100%;
   padding: 1.5rem 1rem 1.5rem 1.5rem;
 }
 .tag-section > div {
@@ -47,12 +49,19 @@
   font-weight: 600;
   line-height: normal;
   margin: 1.5rem; 
-  border-top: 1px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 2rem;
 
 }
-
-
+.editor-text-question > .ql-container{
+  border-radius: 2rem;
+}
+.editor-text-question > .ql-toolbar{
+  border-radius: 2rem;
+}
+.editor-text-question > .ql-container{
+  border: none;
+}
 .ask-button {
   display: flex;
   justify-content: end;

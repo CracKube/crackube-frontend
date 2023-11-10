@@ -208,9 +208,9 @@
 .blog-description {
   position: relative;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
-  border: 1px solid #f2f2f2;
 }
 
 .editor-textarea {
@@ -227,6 +227,26 @@
   padding-bottom: 4rem;
   color: #333;
   border-radius: 5px;
+}
+.editor-textarea {
+  position: relative;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 1.5rem; 
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+
+}
+.editor-textarea > .ql-container{
+  border-radius: 2rem;
+}
+.editor-textarea > .ql-toolbar{
+  border-radius: 2rem;
+}
+.editor-textarea > .ql-container{
+  border: none;
 }
 
 #dark .editor-textarea {

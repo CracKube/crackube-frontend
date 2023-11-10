@@ -6,21 +6,16 @@ import { createContext } from 'react'
 import { useCookies } from 'react-cookie';
 import HiddenComponent from '../Pages/HiddenComponent';
 import UploadMainBar from './UploadMainBar';
+import SharedComponents from '../SharedComponents';
 export const ThemeContext = createContext(null)
 function UploadBlog() {
   const [theme, setTheme] = useState("light")
  const [cookies, setCookie] = useCookies(['state']);
   return (
     
-    <ThemeContext.Provider value={{theme}}>
-      <div className="home" id = {theme}>
-        <MenuBar theme = {theme} setTheme = {setTheme}/> 
-        <UploadMainBar theme = {theme} setTheme = {setTheme}/>
-      </div>
-      <div className='bottom-nav'>
-        <HiddenComponent> </HiddenComponent>
-      </div>
-      </ThemeContext.Provider>
+    <SharedComponents>
+        <UploadMainBar />
+    </SharedComponents>
   )
 }
 

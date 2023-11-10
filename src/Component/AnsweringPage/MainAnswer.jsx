@@ -5,20 +5,12 @@ import MenuBar from "../MenuBar";
 import { MainBar, TopNavBar } from "../Constants";
 import HiddenComponent from "../Pages/HiddenComponent";
 import AnsweringPage from "./AnsweringPage";
-function MainAnswer({ theme, setTheme }) {
+import SharedComponents from "../SharedComponents";
+function MainAnswer() {
   return (
-    <>
-      <div className="home" id={theme}>
-        <MenuBar theme={theme} setTheme={setTheme} />
-        <div className="home-container">
-          <TopNavBar theme={theme} />
+    <SharedComponents>
           <AnsweringPage />
-        </div>
-      </div>
-      <div className="bottom-nav">
-        <HiddenComponent> </HiddenComponent>
-      </div>
-    </>
+    </SharedComponents>
   );
 }
 

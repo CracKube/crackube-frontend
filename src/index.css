@@ -489,7 +489,7 @@ a {
   cursor: pointer;
 }
 
-#light .menu-bar-link {
+ .menu-bar-link {
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
@@ -539,8 +539,7 @@ a {
   border-radius: 4rem;
   /* background: var(--white, #fff); */
 }
-
-#light .menu-btn {
+ .menu-btn {
   display: inline-flex;
   width: 12rem;
   height: 2.5rem;
@@ -1762,7 +1761,12 @@ a {
   padding-right: 0.25rem;
 }
 /* have list-wrap over all elements in css*/
-
+#light .whole-page {
+  color: #fff;
+}
+#dark .whole-page {
+  color: #000;
+}
 .list-wrap {
   position: relative;
   display: flex;

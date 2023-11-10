@@ -13,8 +13,9 @@ import UploadDropdown from "../DropDown/UploadDropDown";
 import { hover } from "@testing-library/user-event/dist/hover";
 import Answer from "../Answer/Answer";
 import SearchBar from "./SearchPart";
-
-export default function TopNavBar({ theme }) {
+import { useTheme } from "../../Context/ThemeContext";
+export default function TopNavBar() {
+  const theme = useTheme();
   const [hoverMe, setHoverMe] = useState(false);
   const [section, setSection] = useState("blogs");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -97,9 +98,9 @@ export default function TopNavBar({ theme }) {
         <div className="mobile-logo">
           <img src={logo} alt="logo" />
         </div>
-        <div className="topnavbar" id={theme}>
+        <div className="topnavbar" id={theme.mode}>
           {
-            <div className="topmenuBar" id={theme}>
+            <div className="topmenuBar" id={theme.mode}>
               <div onClick={setCookieAnswer} className="button-nav">
                 <NavLink
                   to="/answer"

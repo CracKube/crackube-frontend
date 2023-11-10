@@ -6,19 +6,17 @@ import { TopNavBar } from "./Constants";
 import { createContext } from "react";
 import HiddenComponent from "./Pages/HiddenComponent";
 import Arrow from "../Assets/SideArrow.svg";
-
+import { useTheme } from "../Context/ThemeContext";
 export const ThemeContext = createContext();
 
 const SharedComponents = ({children}) => {
     const [menu, setMenu] = useState(true);
-  const [theme, setTheme] = useState("light");
+    const theme = useTheme();
   return (
-    <ThemeContext.Provider value={theme}>
-      <div id={theme}>
-        <div className={menu ? "home" : "home-full"} id={theme}>
+    <ThemeContext.Provider value={theme.mode}>
+      <div className="whole-page" id={theme.mode}>
+        <div className={menu ? "home" : "home-full"} id={theme.mode}>
           <MenuBar
-            theme={theme}
-            setTheme={setTheme}
             menu={menu}
             setMenu={setMenu}
           />
@@ -31,7 +29,7 @@ const SharedComponents = ({children}) => {
           )}
           <div className="center-maker">
             <div className="home-container">
-              <TopNavBar theme={theme} />
+              <TopNavBar theme={theme.mode} />
               {children}
             </div>
           </div>

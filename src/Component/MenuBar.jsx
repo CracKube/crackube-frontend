@@ -1,27 +1,23 @@
-import { NavLink, Link } from "react-router-dom";
-import homeIcon from "../Assets/homeIcon.svg";
-import Explore from "../Assets/Explore.svg";
-import Ck from "../Assets/CK.svg";
-import Den from "../Assets/Den.svg";
-import React, { useContext } from "react";
-import Logo from "./Logo";
-import logoutIcon from "../Assets/Logout icon.svg";
-import lightIcon from "../Assets/lightIcon.svg";
-import DarkIcon from "../Assets/moon.svg";
-import Profile from "./Profile/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from "react";
-import { ThemeContext } from "../App";
-import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
+import Ck from "../Assets/CK.svg";
+import Den from "../Assets/Den.svg";
+import Explore from "../Assets/Explore.svg";
 import Arrow from "../Assets/SideArrow.svg";
-import { addUser, fetchAsyncUsers, fetchAsyncUsersSelf } from "../redux/Users/userSlice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { getUser } from "../redux/Users/userSlice";
+import homeIcon from "../Assets/homeIcon.svg";
+import lightIcon from "../Assets/lightIcon.svg";
+import DarkIcon from "../Assets/moon.svg";
+import { useTheme } from "../Context/ThemeContext";
+import { fetchAsyncUsersSelf, getUser } from "../redux/Users/userSlice";
+import Logo from "./Logo";
+import Profile from "./Profile/Profile";
 
-function MenuBar({ theme, setTheme, menu, setMenu }) {
+function MenuBar({ menu, setMenu }) {
+  const theme = useTheme();
   //const [response, setResponse] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("");
   const dispatch = useDispatch();
@@ -73,18 +69,15 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
   const [darkBtn, setDarkBtn] = useState("#ffffff");
   const [toggle, setToggle] = useState(false);
   const { logout, isAuthenticated } = useAuth0();
-  const buttonHandler =
-    ("click",
-    () => {
-      setTheme("light");
-    });
 
-  const buttonHandlerDark =
-    ("click",
-    () => {
-      setTheme("dark");
-    });
-
+  const clickHandler = () => {
+    const toggle = document.getElementById("toggle");
+    const sidebar = document.getElementById("crack-logo");
+    toggle.onClick = function () {
+      toggle.classList.toggle("active");
+      sidebar.classList.toggle("active");
+    };
+  };
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -98,7 +91,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
   console.log(response);
 
   return (
-    <div className="crack-logo" id={theme}>
+    <div className="crack-logo" id={theme.mode}>
       <div className="menu-header" >
         <Logo />
 
@@ -111,7 +104,7 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
         <div className="menu-bar">
           <div className="menu-bar-half-1">
             <div className="cover-link">
-              <div className="menu-bar-link" id={theme}>
+              <div className="menu-bar-link" id={theme.mode}>
                 <NavLink
                   to={Cookies.get("state")}
                   className="menu-btn"
@@ -175,26 +168,23 @@ function MenuBar({ theme, setTheme, menu, setMenu }) {
 
         <div className="menu-bar-half-2">
           <div className="profile">
-            <Link onClick={() => {window.location.href = `/profile/${window.localStorage.getItem("userId")}`}} >
+            <Link to = {`/profile/${window.localStorage.getItem("userId")}`} >
               {
                 <Profile details={response} time={timeOfDay} />
               }
               
             </Link>
           </div>
-          <div className="modes" id={theme}>
-            <button className="light-mode" onClick={() => buttonHandler()}>
-              <div>
+          <div className="modes" id={theme.mode}>
+            <button className="light-mode" onClick={theme.toggleLight}>
                 <img src={lightIcon} alt="" />
-              </div>
-              <div>
                 <p>Light</p>
-              </div>
             </button>
-            <button className="dark-mode" onClick={() => buttonHandlerDark()}>
+            <button className="dark-mode" onClick={theme.toggleDark}>
               <img src={DarkIcon} alt="" />
               <p>Dark</p>
             </button>
+            
           </div>
         </div>
       </div>

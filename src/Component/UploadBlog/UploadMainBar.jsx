@@ -6,6 +6,7 @@ import "./UploadBlog.css";
 import { useNavigate } from "react-router-dom";
 import UploadSection from "./UploadSection";
 import Arrow from "../../Assets/ans-back-arrow.svg";
+import { useTheme } from "../../Context/ThemeContext";
 
 const modules = {
   toolbar: [
@@ -23,7 +24,8 @@ const modules = {
   ],
 };
 
-function UploadMainBar({ theme }) {
+function UploadMainBar({  }) {
+  const theme = useTheme();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [editorText, setEditorText] = useState("");
@@ -73,7 +75,6 @@ function UploadMainBar({ theme }) {
 
   return (
     <div className="home-container">
-      <TopNavBar theme={theme} />
       <div className="blog-layout">
         {first && (
           <>

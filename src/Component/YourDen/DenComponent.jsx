@@ -5,8 +5,10 @@ import DenBar from "./DenBar";
 import DenHistory from "./DenHistory";
 import DenLike from "./DenLike";
 import DenSaved from "./DenSaved";
+import { useTheme } from "../../Context/ThemeContext";
 const DenComponent = () => {
   const [clicked, setClicked] = useState(1);
+  const theme = useTheme();
   return (
     <div className="den-cover">
       <div>

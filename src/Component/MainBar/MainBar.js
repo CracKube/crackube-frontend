@@ -1,13 +1,8 @@
-import styles from '../MainBar/MainBar.module.css'
-import TopNavBar from '../NavBar/TopNavBar';
-import Dashboard from '../Dashboard/Dashboard';
-import Heading from './Heading/Heading';
-import Infinite from '../InfinitePart/Infinite';
-import { Card1 } from '../Constants';
+import { useState } from 'react';
 import Wand from '../../Assets/magicWand.svg';
 import Follow from '../../Assets/userFollower.svg';
-import { ThemeContext } from '../Pages/Home';
-import { useState } from 'react';
+import Dashboard from '../Dashboard/Dashboard';
+import styles from '../MainBar/MainBar.module.css';
 
 export default function MainBar({theme}) {
     const [clicked, setClicked] = useState(0);
@@ -22,7 +17,6 @@ export default function MainBar({theme}) {
         },
       ];
     return (
-        <ThemeContext.Provider >
         <div className={styles.mainbar}>
         <div className="home-options">
                 {list.map((item, i) => (
@@ -34,6 +28,5 @@ export default function MainBar({theme}) {
                 </div>
             <Dashboard type='card1' theme = {theme} />
         </div>
-        </ThemeContext.Provider>
     );
 }

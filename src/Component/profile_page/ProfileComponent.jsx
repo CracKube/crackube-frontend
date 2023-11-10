@@ -15,8 +15,10 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUser } from "../../redux/Users/userSlice";
 import { useParams } from "react-router-dom";
+import { useTheme } from "../../Context/ThemeContext";
 
-function ProfileComponent({ theme }) {
+function ProfileComponent({ }) {
+  const theme = useTheme();
   const dispatch = useDispatch();
   // const [response, setResponse] = useState("");
   const id = useParams().id;
@@ -50,7 +52,7 @@ function ProfileComponent({ theme }) {
   const response = useSelector((state) => state.userElse.userElse);
   console.log(response);
   return (
-    <div className="flex-prof" id={theme}>
+    <div className="flex-prof" id={theme.mode}>
       <div className="imgs">
         <div>
           <div className="dp">
@@ -120,7 +122,7 @@ function ProfileComponent({ theme }) {
               return (
                 <AnswerComponent
                   key={index}
-                  theme={theme}
+                  theme={theme.mode}
                   verify={item.isVerified}
                   id={item._id}
                   body={item.questionBody}
@@ -153,14 +155,14 @@ function ProfileComponent({ theme }) {
         </div>
       </div>
       <div className="achieve-bar">
-        <div className="sub-prof" id={theme}>
+        <div className="sub-prof" id={theme.mode}>
           <div className="cup-cover">
             <img className="img-wrap1" src={Gold} />
             <h1>1600XP</h1>
             <p>Reputation</p>
           </div>
         </div>
-        <div className="sub-prof" id={theme}>
+        <div className="sub-prof" id={theme.mode}>
           <div className="cup-cover">
             <img className="img-wrap1" src={Cup} />
             <h1>Novice</h1>
@@ -176,7 +178,7 @@ function ProfileComponent({ theme }) {
             <button>View more</button>
           </div>
         </div>
-        <div className="sub-prof" id={theme}>
+        <div className="sub-prof" id={theme.mode}>
           <div className="cup-cover">
             <img className="img-wrap1" src={Views} />
             <h1>1900</h1>

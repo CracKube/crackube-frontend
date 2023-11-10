@@ -3,7 +3,7 @@ import { TopNavBar } from "../Constants";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchAsyncAnswer, getAnswer } from "../../redux/Answer/answerSlice";
 import Categories from "../Category/Categories";
@@ -61,6 +61,7 @@ const AnswerMainComponent = ({ theme }) => {
       {question &&
         question.map((item, index) => {
           return (
+            <Link to={`/answering/${item._id}`}>
             <AnswerComponent
               key={index}
               theme={theme}
@@ -72,6 +73,7 @@ const AnswerMainComponent = ({ theme }) => {
               userName={item.userPosted && item.userPosted.name}
               postedOn={item.askedOn}
             />
+            </Link>
           );
         })}
     </div>

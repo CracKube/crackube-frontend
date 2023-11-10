@@ -7,8 +7,10 @@ import Tesseract from "tesseract.js";
 import Arrow from "../../Assets/ans-back-arrow.svg";
 import { ToastContainer, toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "../../Context/ThemeContext";
 
-const UploadMainBar = ({ theme }) => {
+const UploadMainBar = ({  }) => {
+  const theme = useTheme();
   const text = useLocation();
   const modules = {
     toolbar: [
@@ -141,7 +143,7 @@ const UploadMainBar = ({ theme }) => {
   };
 
   return (
-    <div className="blog-layout" id={theme}>
+    <div className="blog-layout" id={theme.mode}>
       <ToastContainer />
       <div className="blog-top">
         <span className="blog-gradient-text">Ask a Question</span>

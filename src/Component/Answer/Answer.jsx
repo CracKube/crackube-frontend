@@ -7,15 +7,16 @@ import { useCookies } from "react-cookie";
 import HiddenComponent from "../Pages/HiddenComponent";
 import AnswerMainComponent from "./AnswerMainComponent";
 import SharedComponents from "../SharedComponents";
+import { useTheme } from "../../Context/ThemeContext";
 
 export const ThemeContext = createContext(null);
 function Answer() {
-  const [theme, setTheme] = useState("light");
+  const theme = useTheme();
   const [cookies, setCookie] = useCookies(["state"]);
 
   return (
     <SharedComponents>
-        <AnswerMainComponent theme={theme} setTheme={setTheme} />
+        <AnswerMainComponent theme={theme.mode} />
     </SharedComponents>
   );
 }

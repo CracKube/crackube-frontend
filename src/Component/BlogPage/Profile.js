@@ -39,6 +39,7 @@ export default function Profile(props) {
   return (
     <div className={styles.authorContainer} >
       <div className={styles.authorInside}>
+        
         <div className= {styles.infocover} onClick={() => {window.location.href = `/profile/${props.userId}`}}>
         <div className={styles.image}>
           <a >

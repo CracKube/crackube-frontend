@@ -1,42 +1,21 @@
-import React from "react";
-import Search from "../../Assets/search.svg";
-import { Link, useParams } from "react-router-dom";
-import MenuBar from "../MenuBar";
-import CardBlog from "./CardBlog";
-import { MainBar, TopNavBar } from "../Constants";
-import homeIcon from "../../Assets/homeIcon.svg";
-import blogPic from "../../Assets/blogPic.svg";
-import { useEffect } from "react";
 import moment from "moment";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { fetchAsyncBlogDetail } from "../../redux/Blogs/blogSlice";
-import { fetchAsyncBlogs } from "../../redux/Blogs/blogSlice";
-import { getSelectedBlog } from "../../redux/Blogs/blogSlice";
-import { getAllBlog } from "../../redux/Blogs/blogSlice";
-import BlogComponent from "./BlogComponent";
-import Profile from "./Profile";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useTheme } from "../../Context/ThemeContext";
+import { fetchAsyncBlogDetail, fetchAsyncBlogs, getAllBlog, getSelectedBlog } from "../../redux/Blogs/blogSlice";
 import SharedComponents from "../SharedComponents";
-function BlogPage({ theme, setTheme }) {
+import CardBlog from "./CardBlog";
+import Profile from "./Profile";
+function BlogPage() {
+  const theme = useTheme();
   const id = useParams().id;
   const dispatch = useDispatch();
   const [loading, setLoading] = React.useState(true);
-  // const [blog, setBlog] = React.useState({});
-  // const [blogs, setBlogs] = React.useState([]);
-
-  // const getAllBlogs = async () => {
-  //   const response = await fetch(
-  //     "https://crackube-backend-test.onrender.com/blogs/getAll"
-  //   );
-  //   const data = await response.json();
-  //   setBlogs(data);
-  //   console.log(data);
-  // };
   useEffect(() => {
     dispatch(fetchAsyncBlogDetail(id));
     dispatch(fetchAsyncBlogs(setLoading));
-    // getAllBlogs();
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const blog = useSelector(getSelectedBlog);
   const blogs = useSelector(getAllBlog);
@@ -44,7 +23,7 @@ function BlogPage({ theme, setTheme }) {
 
   return (
     <SharedComponents>
-      <div className="blog-flex" id={theme}>
+      <div className="blog-flex" id={theme.mode}>
         <div className="blog-min">
           <div className="blog-cover">
             <div
@@ -83,7 +62,7 @@ function BlogPage({ theme, setTheme }) {
           </div>
           {blogs.map((blog, index) => (
             <CardBlog
-              theme={blog.theme}
+              theme={theme.mode}
               key={index}
               id={blog._id}
               thumbnail={blog.blogImageUrl}
