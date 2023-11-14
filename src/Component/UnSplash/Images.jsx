@@ -34,6 +34,7 @@ const Images = ({ setFile, setState, setImage, setBlogImageUrl , setBlogImagePro
         {response.map((data, key) => (
           <Image
             key={key}
+            setFile={setFile}
             data={data}
             setState={setState}
             setImage={setImage}

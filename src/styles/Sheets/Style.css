@@ -4,7 +4,9 @@
   font-family: "Montserrat";
   font-weight: 500;
 }
-
+input:focus {
+  border: none;
+}
 button {
   cursor: pointer;
 }

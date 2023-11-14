@@ -6,11 +6,12 @@ import { useState } from "react";
 import { createContext } from "react";
 import { StateContext } from "../UploadPage/DropDownSplash";
 
-const Image = ({ data, setState, setImage, setBlogImageUrl, setBlogImageProvider }) => {
+const Image = ({ data, setFile, setState, setImage, setBlogImageUrl, setBlogImageProvider }) => {
   const handleUnSplash = (e) => {
     console.log("Hello from handler");
     setBlogImageProvider("unsplash");
     setBlogImageUrl(data.urls.regular);
+    setFile(data.urls.regular);
     setImage(data.urls.regular);
     setState(true);
     

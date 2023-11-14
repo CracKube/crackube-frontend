@@ -108,6 +108,7 @@ function MenuBar({ menu, setMenu }) {
                 <NavLink
                   to={Cookies.get("state")}
                   className="menu-btn"
+                  id={theme.mode}
                   onClick={handleClick}
                   style={({ isActive }) => ({
                     color: isActive ? "#8F00FF" : "#000",
@@ -120,6 +121,7 @@ function MenuBar({ menu, setMenu }) {
                 <NavLink
                   to="/search"
                   className="menu-btn"
+                  id={theme.mode}
                   style={({ isActive }) => ({
                     color: isActive ? "#8F00FF" : "#000",
                     background: isActive ? "#FBF5FF" : "",
@@ -130,6 +132,7 @@ function MenuBar({ menu, setMenu }) {
                 </NavLink>
                 <NavLink
                   to="/gpt"
+                  id={theme.mode}
                   className="menu-btn"
                   style={({ isActive }) => ({
                     color: isActive ? "#8F00FF" : "#000",
@@ -142,6 +145,7 @@ function MenuBar({ menu, setMenu }) {
                 <NavLink
                   to="/"
                   className="menu-btn"
+                  id={theme.mode}
                   style={({ isActive }) => ({
                     color: isActive ? "#8F00FF" : "#000",
                     background: isActive ? "#FBF5FF" : "",
@@ -153,9 +157,9 @@ function MenuBar({ menu, setMenu }) {
                 <NavLink
                   to="/yourden"
                   className="menu-btn"
+                  id={theme.mode}
                   style={({ isActive }) => ({
                     color: isActive ? "#8F00FF !important" : "#000",
-                    background: isActive ? "#FBF5FF" : "",
                   })}
                 >
                   <img src={Den} alt="" />

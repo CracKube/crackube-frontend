@@ -973,7 +973,7 @@ const Test = () => {
           </a>
         </div>
       </div> */}
-      {/* <div id="Footer" className="section_footer">
+      <div id="Footer" className="section_footer">
         <div className="footer-07">
           <div className="container">
             <div className="footer-centre">
@@ -1010,14 +1010,21 @@ const Test = () => {
                 </a>
               </div>
               <div className="footer-wrapper">
+                <div >
+                <a href="/refundandcancellation" className="text-rights">Refund Policy</a>
+                </div>
+                <div>
+                <a href="/privacypolicy" className="text-rights">Privacy Policy</a>
+                </div>
                 <div className="text-rights">
                   © 2023, CracKube Private Limited. All rights reserved.
                 </div>
+
               </div>
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
