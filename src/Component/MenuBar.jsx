@@ -2,7 +2,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import Ck from "../Assets/CK.svg";
 import Den from "../Assets/Den.svg";
@@ -13,6 +12,8 @@ import lightIcon from "../Assets/lightIcon.svg";
 import DarkIcon from "../Assets/moon.svg";
 import { useTheme } from "../Context/ThemeContext";
 import { fetchAsyncUsersSelf, getUser } from "../redux/Users/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import Logo from "./Logo";
 import Profile from "./Profile/Profile";
 

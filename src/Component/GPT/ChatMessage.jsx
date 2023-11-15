@@ -1,6 +1,6 @@
 import React from "react";
 import User from "../../Assets/ans-user.png";
-const ChatMessage = ({ key, message }) => {
+const ChatMessage = ({ res, key, message }) => {
   return (
     <div
       className={`${message.user === "gpt" ? "ai-chat" : "user-chat"}`}
@@ -17,7 +17,7 @@ const ChatMessage = ({ key, message }) => {
         <>
           <div className="user-text"><p>{message.message}</p></div>
           <div className="pfp">
-            <img src={User} alt="" />
+            <img src={res.profilePicUrl} alt="" />
           </div>
         </>
       )}

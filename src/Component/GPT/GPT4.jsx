@@ -3,10 +3,13 @@ import "./GPT.css";
 
 import { NavLink } from "react-router-dom";
 import Arrow from "../../Assets/SideArrow.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import Logo from "../Logo";
 const GPTInterface = () => {
+  const [text, setText] = useState("");
+  const containerRef = useRef();
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([
     {
@@ -21,10 +24,14 @@ const GPTInterface = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setText("Texting...");
     if (input === "") return;
     setChatLog([...chatLog, { user: "user", message: `${input}` }]);
     setInput("");
   }
+  useEffect(() => {
+    containerRef.current.scrollTop = containerRef.current.scrollHeight;
+  }, [chatLog]);
   return (
     <div className="gpt-cover">
       <div className="gpt-menubar">
@@ -79,11 +86,12 @@ const GPTInterface = () => {
 
       <div className="gpt-mainbar">
         <GPTNavBar />
-        <div className="conversation">
+        <div className="conversation" ref={containerRef}>
           {chatLog &&
             chatLog.map((message, index) => {
               return <ChatMessage key={index} message={message} />;
             })}
+              <p>{text}</p>
         </div>
 
         <div className="gpt-bottom">
