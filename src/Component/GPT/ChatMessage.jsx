@@ -1,5 +1,7 @@
 import React from "react";
 import User from "../../Assets/ans-user.png";
+import { Link } from "react-router-dom";
+import "./GPT.css";
 const ChatMessage = ({ res, key, message }) => {
   return (
     <div
@@ -9,7 +11,10 @@ const ChatMessage = ({ res, key, message }) => {
       {message.user === "gpt" ? (
         <>
           <div className="pfp">
-            <img src={User} alt="" />
+          <div className='prof-circle'>
+        <Link><img className='prof-pic-nav-gpt'  src= {User} alt="" /></Link>
+        </div>
+            
           </div>
           <div className="user-text"><p>{message.message}</p></div>{" "}
         </>

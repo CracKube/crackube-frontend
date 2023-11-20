@@ -6,6 +6,7 @@ export const fetchAsyncUsersSelf = createAsyncThunk('users/fetchAsyncUsers', asy
     const response = await axios.get(
         `https://api.crackube.com/users/getUser/${window.localStorage.getItem("userId")}`
       );
+      // 
       console.log(response.data);
       return response.data;
 });

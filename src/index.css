@@ -446,12 +446,6 @@ a {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-.profile {
-  /* position: relative; */
-  /* top: 120px; */
-  height: 12.45rem;
-}
-
 .modes button {
   display: flex;
   flex-direction: row;
@@ -1359,6 +1353,18 @@ a {
   background: var(--Warning-Yellow-Light, #fff9e9);
 }
 .modal {
+  width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+.modal-ai {
   width: 75%;
   position: absolute;
   top: 50%;

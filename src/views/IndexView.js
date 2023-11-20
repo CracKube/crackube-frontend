@@ -58,11 +58,6 @@ class IndexView extends React.Component {
 
     return (
       <span>
-        <style dangerouslySetInnerHTML={{ __html: `
-          @import url(C:\\css\\normalize.css);
-          @import url(C:\\css\\webflow.css);
-          @import url(C:\\css\\crackubeofficial.webflow.css);
-        ` }} />
         <span className="af-view">
           <div className="af-class-body">
             <div data-collapse="medium" data-animation="default" data-duration={400} data-easing="ease" data-easing2="ease" role="banner" className="af-class-nav-bar w-nav">

@@ -132,7 +132,7 @@ function MenuBar({ menu, setMenu }) {
                   <p>Explore</p>
                 </NavLink>
                 <NavLink
-                  to="/gpt"
+                  to="/gpt4"
                   id={theme.mode}
                   className="menu-btn"
                   style={({ isActive }) => ({

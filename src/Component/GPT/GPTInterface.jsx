@@ -12,12 +12,17 @@ const GPTInterface = () => {
   const containerRef = useRef();
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([]);
+  const [chatData, setChatData] = useState({
+    topic: "Chat topic",
+    chat: [...chatLog],
+    userId: window.localStorage.getItem("userId"),
+  });
   const [text, setText] = useState("");
   async function handleSubmit(e) {
     e.preventDefault();
     setText("Texting...");
     if (input === "") return;
-    let chatLogNew = [...chatLog, { user: "user", message: `${input}` }];
+    let chatLogNew = [...chatLog, { user: "user", message: `${input}`, timeStamps: new Date() }];
     setInput("");
     setChatLog(chatLogNew);
     // fetch response to the
@@ -42,7 +47,6 @@ const GPTInterface = () => {
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
     dispatch(fetchAsyncUsersSelf(window.localStorage.getItem("userId")));
-
   }, [chatLog]);
   const res = useSelector(getUser);
   return (
