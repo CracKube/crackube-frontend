@@ -43,6 +43,8 @@ import Wallet from "./Component/Wallet/Wallet";
 import YourDen from "./Component/YourDen/YourDen";
 import ProfilePage from "./Component/profile_page/ProfilePage";
 import { ThemeProvider } from "./Context/ThemeContext.js";
+import Success from "./Payment/Success.jsx";
+import Failure from "./Payment/Failure.jsx";
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -66,6 +68,8 @@ function App() {
                 <Route path="/otp" exact Component={OTP}>
                   {" "}
                 </Route>
+                <Route path="/success" element = {<Success/>}></Route>
+                <Route path = "/failure" element = {<Failure/>}></Route>
                 <Route path="/search" exact Component={Search}></Route>
                 <Route path="/settings" exact element={<Settings />}></Route>
                 <Route path="/my-details" element={<MyDetails />}></Route>
