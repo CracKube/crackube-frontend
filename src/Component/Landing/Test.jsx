@@ -1,8 +1,6 @@
-import React from "react";
-import './css/webflow.css';
-import './css/crackubeofficial.webflow.css';
-import './css/normalize.css';
+import React, { useEffect } from "react";
 const Test = () => {
+
   return (
     <>
       {/*  Last Published: Sat Sep 09 2023 17:27:52 GMT+0000 (Coordinated Universal Time)  */}
@@ -62,10 +60,10 @@ const Test = () => {
             <div className="text-block">CracKube</div>
           </a>
           <nav role="navigation" className="nav-menu w-nav-menu">
-            <a href="/signup" className="nav-button border w-button">
+            <a href="" className="nav-button border w-button">
               Sign Up
             </a>
-            <a href="/login" className="nav-button w-button">
+            <a href="" className="nav-button w-button">
               Login
             </a>
           </nav>
@@ -78,21 +76,26 @@ const Test = () => {
         <div className="main-wrapper">
           <div className="hero_container">
             <div className="container-flex">
-              <h1 className="hero-h1">
-                Learn with the Power of Answering — with Earning money doing it
-              </h1>
-              <a href="/">Refund Policy</a>
+              <h1 className="hero-h1">Announcement coming soon</h1>
+              <a href="/refundandcancellation">Refund Policy</a>
+              <p>© 2023, CracKube Private Limited </p>
               <p className="hero-paragraph">
-                CracKube is a EduSocial Company which is targeting on helping
-                students solve their problems and also serve as an Educational
-                Social Media to share blogs and Earn Money.
+                CracKube is a EduSocial Media Company. Announcement soon.
               </p>
-              <a href="/signup" className="hero-button w-button">
+
+              <a href="" className="hero-button w-button">
                 Get Started
               </a>
             </div>
             <div className="hero-image-wrapper">
-              
+              <img
+                src="images/Earn-while-you-study-1.png"
+                width={1280}
+                sizes="(max-width: 1439px) 94vw, 1280px"
+                srcSet="images/Earn-while-you-study-1-p-500.png 500w, images/Earn-while-you-study-1-p-800.png 800w, images/Earn-while-you-study-1-p-1080.png 1080w, images/Earn-while-you-study-1-p-1600.png 1600w, images/Earn-while-you-study-1-p-2000.png 2000w, images/Earn-while-you-study-1.png 2560w"
+                alt=""
+                className="hero-image-placeholder"
+              />
               <div className="profile-images-wrapper">
                 <img
                   src="images/people-white-bord.png"
@@ -1008,9 +1011,16 @@ const Test = () => {
                 </a>
               </div>
               <div className="footer-wrapper">
+                <div >
+                <a href="/refundandcancellation" className="text-rights">Refund Policy</a>
+                </div>
+                <div>
+                <a href="/privacypolicy" className="text-rights">Privacy Policy</a>
+                </div>
                 <div className="text-rights">
                   © 2023, CracKube Private Limited. All rights reserved.
                 </div>
+
               </div>
             </div>
           </div>

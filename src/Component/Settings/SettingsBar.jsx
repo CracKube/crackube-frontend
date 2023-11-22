@@ -14,7 +14,15 @@ import { getUser } from "../../redux/Users/userSlice";
 const SettingsBar = ({ clicked }) => {
   //const [user, setUser] = useState([]);
   const dispatch = useDispatch();
-
+  // const getUserDetails = async () => {
+  //   const response = await axios.get(
+  //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
+  //       "userId"
+  //     )}`
+  //   );
+  //   // console.log(response.data);
+  //   //setUser(response.data);
+  // };
   useEffect(() => {
     dispatch(fetchAsyncUsersSelf(window.localStorage.getItem("userId")));
   }, [dispatch]);

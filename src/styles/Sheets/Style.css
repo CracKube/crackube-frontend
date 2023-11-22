@@ -167,42 +167,13 @@ form > p {
   line-height: normal;
 }
 
-
-.search-bar {
-  background: var(--Light-Gray-for-Division, #F2F2F2);
+form > input {
+  color: var(--Gray, #737373);
   font-family: Montserrat;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  outline: none;
-  border: none;
-}
-.search-container {
-  max-width: 100%;
-  min-width: 37.5rem;
-  height: 4rem;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 4rem;
-  background: var(--Light-Gray-for-Division, #F2F2F2);
-  padding-left: 2rem;
-  margin-top: 10rem;
-}
-.profile-show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.search-attr {
-  display: flex;
-  gap: 1rem;
-  margin-right: 2rem;
-}
-.search-attr > img {
-  display: flex;
 }
 .req a {
   color: #ea4335;
@@ -1013,10 +984,6 @@ align-items: center;
   }
   .search {
       display: none;
-  }
-  .search-container {
-    width: 100%;
-    min-width: none;
   }
   
 }

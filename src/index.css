@@ -1888,11 +1888,6 @@ a {
   width: 100%;
   /* border: solid 2px blue; */
 }
-.Search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .arrow-no {
   position: absolute;
   display: flex;
