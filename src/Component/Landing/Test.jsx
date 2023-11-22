@@ -172,8 +172,9 @@ const Test = () => {
               <h3 className="h3">Blog and Earn</h3>
               <p className="paragraph">
                 Within the blog section, individuals have the opportunity to
-                compose articles, and their earnings are contingent on the
-                volume of views garnered.
+                compose articles. These blogs are then published on the
+                platform, and the author is compensated based on the number of
+                views their content receives.
               </p>
             </div>
             <div
