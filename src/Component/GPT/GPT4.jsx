@@ -10,6 +10,7 @@ import GPTMenuBar from "./GPTMenuBar";
 import Logo from "../Logo";
 import { fetchAsyncUsersSelf, getUser } from "../../redux/Users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 const CustomModal = ({ isOpen, onRequestClose, children }) => {
   return (
     <Modal
@@ -23,7 +24,8 @@ const CustomModal = ({ isOpen, onRequestClose, children }) => {
   );
 };
 const GPTInterface = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [text, setText] = useState("");
   const containerRef = useRef();
   const [input, setInput] = useState("");
@@ -40,6 +42,7 @@ const GPTInterface = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setDisabled(true);
     setText("Texting...");
     if (input === "") return;
     let chatLogNew = [
@@ -66,13 +69,44 @@ const GPTInterface = () => {
     const data = await response.json();
     setChatLog([...chatLogNew, { user: "gpt", message: `${data.result}` }]);
     setText("");
+    setDisabled(false);
   }
   const openModal = () => {
-    console.log("open");
+    console.log("open");  
     setIsModalOpen(true);
   };
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+  const handlePayA = (e) => {
+    e.preventDefault();
+    console.log("pay");
+    axios.post("https://api.crackube.com/payment/pay", {
+      transactionId: "123",
+      crackubeUserId: window.localStorage.getItem("userId"),
+      amount: 10,
+      name : "Yogesh1",
+    }).then((res) => {
+      console.log(res);
+      window.location.href = res.data;
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+  const handlePayB = (e) => {
+    e.preventDefault();
+    console.log("pay");
+    axios.post("https://api.crackube.com/payment/pay", {
+      transactionId: "123",
+      crackubeUserId: window.localStorage.getItem("userId"),
+      amount: 100,
+      name : "Yogesh1",
+    }).then((res) => {
+      console.log(res);
+      window.location.href = res.data;
+    }).catch((err) => {
+      console.log(err);
+    });
   };
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -81,19 +115,19 @@ const GPTInterface = () => {
   return (
     <div className="gpt-cover">
       <div className="gpt-menubar">
-        <GPTMenuBar />
+        <GPTMenuBar setIsModalOpen = {setIsModalOpen} />
       </div>
       <CustomModal isOpen={isModalOpen}>
         <div className="payment">
           <div className="plan-1">
             <h1>Plan-1</h1>
             <p>10rs</p>
-            <button>Buy Now</button>
+            <button onClick={handlePayA}>Buy Now</button>
           </div>
           <div className="plan-2">
             <h1>Plan-2</h1>
-            <p>20rs</p>
-            <button>Buy Now</button>
+            <p>100rs</p>
+            <button onClick={handlePayB}>Buy Now</button>
           </div>
         </div>
       </CustomModal>
@@ -116,6 +150,7 @@ const GPTInterface = () => {
                   type="text"
                   placeholder="Enter your text here..."
                   className="input-gpt"
+                  disabled={disabled}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                 />

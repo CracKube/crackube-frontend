@@ -13,7 +13,7 @@ import Logo from "./../Logo";
 import Profile from "./../Profile/Profile";
 import GPTProfile from "./GPTProfile";
 
-function MenuBar({ menu, setMenu }) {
+function MenuBar({ menu, setMenu, setIsModalOpen }) {
   const theme = useTheme();
   //const [response, setResponse] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("");
@@ -140,7 +140,7 @@ function MenuBar({ menu, setMenu }) {
 
         <div className="menu-bar-half-2">
           <div className="profile">
-            {<GPTProfile details={response} time={timeOfDay} />}
+            {<GPTProfile details={response} time={timeOfDay} setIsModalOpen = {setIsModalOpen} />}
           </div>
           <div className="modes" id={theme.mode}>
             <button className="light-mode" onClick={theme.toggleLight}>
