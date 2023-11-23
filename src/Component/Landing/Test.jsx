@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
+import './css/webflow.css';
+import './css/crackubeofficial.webflow.css';
 const Test = () => {
 
   return (
@@ -175,8 +177,9 @@ const Test = () => {
               <h3 className="h3">Blog and Earn</h3>
               <p className="paragraph">
                 Within the blog section, individuals have the opportunity to
-                compose articles, and their earnings are contingent on the
-                volume of views garnered.
+                compose articles, which are then published on the platform.
+                These blogs are accessible to all users, and the author is
+                rewarded based on the number of views their content receives.
               </p>
             </div>
             <div
@@ -1011,16 +1014,9 @@ const Test = () => {
                 </a>
               </div>
               <div className="footer-wrapper">
-                <div >
-                <a href="/refundandcancellation" className="text-rights">Refund Policy</a>
-                </div>
-                <div>
-                <a href="/privacypolicy" className="text-rights">Privacy Policy</a>
-                </div>
                 <div className="text-rights">
                   © 2023, CracKube Private Limited. All rights reserved.
                 </div>
-
               </div>
             </div>
           </div>
