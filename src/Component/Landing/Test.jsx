@@ -1014,6 +1014,12 @@ const Test = () => {
                 </a>
               </div>
               <div className="footer-wrapper">
+                <div>
+                  <a className="text-rights" href="/privacypolicy">Privacy Policy</a>
+                </div>
+                <div >
+                <a className="text-rights" href="/refundandcancellation">Refund Policy</a>
+                </div>
                 <div className="text-rights">
                   © 2023, CracKube Private Limited. All rights reserved.
                 </div>
