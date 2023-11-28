@@ -1018,7 +1018,7 @@ const Test = () => {
                   <a className="text-rights" href="/privacypolicy">Privacy Policy</a>
                 </div>
                 <div >
-                <a className="text-rights" href="/refundandcancellation">Refund Policy</a>
+                <a className="text-rights" href="/termsandconditions">Terms and Conditions</a>
                 </div>
                 <div className="text-rights">
                   © 2023, CracKube Private Limited. All rights reserved.
