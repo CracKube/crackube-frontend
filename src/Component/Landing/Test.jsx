@@ -994,7 +994,7 @@ const Test = () => {
                 <br />
                 students solve their problems and also serve as a Educational
                 Social Media <br />
-                to share blogs and Earn Money.
+                to share blogs.
               </p>
               <div className="footer-link-wrap">
                 <a href="#CKFeatures" className="footer-link-white">
