@@ -90,14 +90,6 @@ const Test = () => {
               </a>
             </div>
             <div className="hero-image-wrapper">
-              <img
-                src="images/Earn-while-you-study-1.png"
-                width={1280}
-                sizes="(max-width: 1439px) 94vw, 1280px"
-                srcSet="images/Earn-while-you-study-1-p-500.png 500w, images/Earn-while-you-study-1-p-800.png 800w, images/Earn-while-you-study-1-p-1080.png 1080w, images/Earn-while-you-study-1-p-1600.png 1600w, images/Earn-while-you-study-1-p-2000.png 2000w, images/Earn-while-you-study-1.png 2560w"
-                alt=""
-                className="hero-image-placeholder"
-              />
               <div className="profile-images-wrapper">
                 <img
                   src="images/people-white-bord.png"
