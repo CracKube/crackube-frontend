@@ -268,8 +268,8 @@
   top: 1rem;
   display: flex;
   width: 2rem;
-height: 2rem;
-flex-shrink: 0;
+  height: 2rem;
+  flex-shrink: 0;
 
 }
 .Search-cent {

@@ -13,7 +13,7 @@ const Test = () => {
         name="description"
       />
       <meta content="CracKube | Ask, Answer, Earn" property="og:title" />
-      <meta
+      <metaF
         content="CracKube is a EduSocial Company targeting helping students solve their problems and also serves as an Educational Social Media to share blogs and Earn Money."
         property="og:description"
       />
@@ -105,100 +105,7 @@ const Test = () => {
           </div>
         </div>
       </div>
-      <div id="CKUnique" className="section_ckunique">
-        <div className="main-container centre">
-          <div className="header-wrap-centre">
-            <h2
-              data-w-id="54047699-74e5-b801-8940-cf392a68ca33"
-              style={{ opacity: 0 }}
-              className="h2"
-            >
-              What makes <span className="text-span">CracKube</span> unique? 😉
-            </h2>
-            <p
-              data-w-id="54047699-74e5-b801-8940-cf392a68ca38"
-              style={{ opacity: 0 }}
-              className="paragraph"
-            >
-              Crackube, an innovative EdTech platform, uniquely combines
-              Q&amp;A, blogging, coding support, and adaptive learning,
-              fostering collaboration, and offering diverse earning
-              opportunities, making it a dynamic and comprehensive choice in
-              online education.
-            </p>
-          </div>
-          <div className="spacer-50px" />
-          <div className="w-layout-grid _1-3-grid">
-            <div
-              id="w-node-_54047699-74e5-b801-8940-cf392a68ca3c-c97805d2"
-              className="content-wrap-icons"
-            >
-              <img
-                src="images/Answer-Intro.jpg"
-                loading="lazy"
-                alt=""
-                height={180}
-                width={320}
-                srcSet="images/Answer-Intro-p-500.jpg 500w, images/Answer-Intro.jpg 640w"
-                sizes="(max-width: 479px) 73vw, 320px"
-                className="image"
-              />
-              <div className="spacer-blank" />
-              <h3 className="h3">Answer and Earn</h3>
-              <p className="paragraph">
-                The answer section offers students two distinct options. They
-                can either ask questions or engage in earning opportunities by
-                providing answers to these queries.
-              </p>
-            </div>
-            <div
-              id="w-node-_54047699-74e5-b801-8940-cf392a68ca43-c97805d2"
-              className="content-wrap-icons"
-            >
-              <img
-                src="images/Blog-Intro.jpg"
-                loading="lazy"
-                width={320}
-                height={180}
-                alt=""
-                srcSet="images/Blog-Intro-p-500.jpg 500w, images/Blog-Intro.jpg 640w"
-                sizes="(max-width: 479px) 73vw, 320px"
-                className="image"
-              />
-              <div className="spacer-blank" />
-              <h3 className="h3">Blog and Earn</h3>
-              <p className="paragraph">
-                Within the blog section, individuals have the opportunity to
-                compose articles, which are then published on the platform.
-                These blogs are accessible to all users, and the author is
-                rewarded based on the number of views their content receives.
-              </p>
-            </div>
-            <div
-              id="w-node-_54047699-74e5-b801-8940-cf392a68ca4a-c97805d2"
-              className="content-wrap-icons"
-            >
-              <img
-                src="images/Code-Intro.jpg"
-                loading="lazy"
-                width={320}
-                height={180}
-                alt=""
-                srcSet="images/Code-Intro-p-500.jpg 500w, images/Code-Intro.jpg 640w"
-                sizes="(max-width: 479px) 73vw, 320px"
-                className="image"
-              />
-              <div className="spacer-blank" />
-              <h3 className="h3">Code and Earn</h3>
-              <p className="paragraph">
-                Individuals proficient in coding are welcome to step forward and
-                assist students by resolving paid coding queries, thus enabling
-                them to earn a financial reward.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div id="Tablet" className="section_tablet">
         <div className="container-w3 gutter-outside">
           <div className="p-xl-start p-xl-end">
