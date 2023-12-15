@@ -78,7 +78,7 @@ const Test = () => {
         <div className="main-wrapper">
           <div className="hero_container">
             <div className="container-flex">
-              <h1 className="hero-h1">Announcement coming soon</h1>
+              {/* <h1 className="hero-h1">Announcement coming soon</h1> */}
               <a href="/refundandcancellation">Refund Policy</a>
               <p>© 2023, CracKube Private Limited </p>
               <p className="hero-paragraph">
