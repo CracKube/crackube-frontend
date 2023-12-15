@@ -82,7 +82,7 @@ const Test = () => {
               <a href="/refundandcancellation">Refund Policy</a>
               <p>© 2023, CracKube Private Limited </p>
               <p className="hero-paragraph">
-                CracKube is a EduSocial Media Company. Announcement soon.
+                CracKube is a EduSocial Media Company. 
               </p>
 
               <a href="" className="hero-button w-button">
