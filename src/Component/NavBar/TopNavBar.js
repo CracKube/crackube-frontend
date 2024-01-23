@@ -49,7 +49,7 @@ export default function TopNavBar() {
   const getCookie = () => {
     alert(Cookies.get("state"));
   };
-  const options = [
+  const options  = [
     { value: "option1", label: "Settings", route: "/settings" },
     { value: "option2", label: "Help" },
     { value: "option3", label: "Logout" },
@@ -88,6 +88,7 @@ export default function TopNavBar() {
     console.log("open");
     setIsModalOpen(true);
   };
+
   // do not blur the input
   return (
     <>

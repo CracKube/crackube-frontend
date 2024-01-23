@@ -6,6 +6,7 @@
 .den-right {
     display: flex;
     flex-direction: column;
+    margin-top: 2.5rem;
 }
 .den-right > div {
     display: flex;
