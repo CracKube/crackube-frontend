@@ -84,13 +84,12 @@ const GPTInterface = () => {
     // backend call
 
     axios.post("https://crackube-backend-test.onrender.com/payment/pay", {
-      transactionId: "MT7850590068188104",
       crackubeUserId: window.localStorage.getItem("userId"),
       amount: 10,
       name : "Yogesh1",
     }).then((res) => {
       console.log(res);
-      window.location.href = res.data;
+      window.location.href = res.data.url;
     }).catch((err) => {
       console.log(err);
     });
@@ -109,7 +108,7 @@ const GPTInterface = () => {
     }).catch((err) => {
       console.log(err);
     });
-  };
+  }
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   }, [chatLog]);

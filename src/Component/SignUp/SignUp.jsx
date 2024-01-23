@@ -44,7 +44,7 @@ const SignUp = () => {
     //url encoded
 
     const response = await fetch(
-      "https://api.crackube.com/auth/createUser",
+      "https://crackube-backend-test.onrender.com/auth/createUser",
       {
         method: "POST",
         headers: {

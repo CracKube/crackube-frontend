@@ -22,11 +22,11 @@ export default function TopNavBar() {
   const [show, setShow] = useState(false);
   const buttonHandler =
     ("click",
-      () => {
-        setShow(!show);
-      });
+    () => {
+      setShow(!show);
+    });
 
-  const onEnterLeave = () => { };
+  const onEnterLeave = () => {};
   const setCookieBlog = () => {
     setSection("home");
     Cookies.set("state", "/home", {
@@ -53,8 +53,12 @@ export default function TopNavBar() {
     { value: "option1", label: "Settings", route: "/settings" },
     { value: "option2", label: "Help" },
     { value: "option3", label: "Logout" },
-    {value: "option4", label: "Refund Policy", route: "/refundandcancellation"}, 
-    {value: "option5", label: "© Crackube"}
+    {
+      value: "option4",
+      label: "Refund Policy",
+      route: "/refundandcancellation",
+    },
+    { value: "option5", label: "© Crackube" },
   ];
   const uploadOption = [
     { value: "option1", label: "Ask a question", route: "/uploadanswer" },
@@ -93,7 +97,7 @@ export default function TopNavBar() {
     <>
       <div className="header" id="cool">
         <CustomModal isOpen={isModalOpen} onRequestClose={closeModal}>
-        <SearchBar prop="pull" />
+          <SearchBar prop="pull" />
         </CustomModal>
         <div className="mobile-logo">
           <img src={logo} alt="logo" />
@@ -104,22 +108,21 @@ export default function TopNavBar() {
               <div onClick={setCookieAnswer} className="button-nav">
                 <NavLink
                   to="/answer"
-                // style={({ isActive }) => ({
-                //   color: isActive ? "black" : "white",
-                //   background: isActive ? "white" : "black",
-                // })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "black" : "white",
+                  //   background: isActive ? "white" : "black",
+                  // })}
                 >
                   Answer
                 </NavLink>
-
               </div>
               <div onClick={setCookieBlog} className="button-nav">
                 <NavLink
                   to="/home"
-                // style={({ isActive }) => ({
-                //   color: isActive ? "black" : "white",
-                //   background: isActive ? "white" : "black",
-                // })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "black" : "white",
+                  //   background: isActive ? "white" : "black",
+                  // })}
                 >
                   Blog
                 </NavLink>
@@ -127,21 +130,18 @@ export default function TopNavBar() {
               <div onClick={setCookieCode} className="button-nav">
                 <NavLink
                   to="/code"
-                // style={({ isActive }) => ({
-                //   color: isActive ? "black" : "white",
-                //   background: isActive ? "white" : "black",
-                // })}
+                  // style={({ isActive }) => ({
+                  //   color: isActive ? "black" : "white",
+                  //   background: isActive ? "white" : "black",
+                  // })}
                 >
                   Code
                 </NavLink>
               </div>
             </div>
           }
-          <button
-            onClick={openModal}
-            className={`searchButton`}
-          >
-              <img src={searchicon} alt="" />
+          <button onClick={openModal} className={`searchButton`}>
+            <img src={searchicon} alt="" />
           </button>
         </div>
         <div className="nav-btn">

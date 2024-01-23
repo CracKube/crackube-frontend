@@ -16,21 +16,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Logo from "./Logo";
 import Profile from "./Profile/Profile";
+import MenuBarSmall from "./MenuBarSmall";
 
-function MenuBar({ menu, setMenu }) {
+function MenuBar() {
+  console.log("MenuBar");
   const theme = useTheme();
-  //const [response, setResponse] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("");
   const dispatch = useDispatch();
-  // const getUserDetails = async () => {
-  //   const response = await axios.get(
-  //     `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
-  //       "userId"
-  //     )}`
-  //   );
-  //   setResponse(response.data);
-  //   console.log(response.data);
-  // };
+  const [menu, setMenu] = useState(true);
   async function getUserIP() {
     try {
       // Get user's approximate location and timezone using ipinfo.io
@@ -66,10 +59,7 @@ function MenuBar({ menu, setMenu }) {
   }, []);
 
 
-  const [lightBtn, setLightBtn] = useState("#000");
-  const [darkBtn, setDarkBtn] = useState("#ffffff");
-  const [toggle, setToggle] = useState(false);
-  const { logout, isAuthenticated } = useAuth0();
+
 
   const clickHandler = () => {
     const toggle = document.getElementById("toggle");
@@ -84,19 +74,25 @@ function MenuBar({ menu, setMenu }) {
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
-  const handleMenu = () => {
+  const handleMenu = (e) => {
+    e.preventDefault();
     console.log("clicked");
-    setMenu(!menu);
+    setMenu(false);
   };
+
   const response = useSelector(getUser);
   console.log(response);
 
   return (
+    
+    <>
+    {menu ? 
+    <>
     <div className="crack-logo" id={theme.mode}>
       <div className="menu-header" >
         <Logo />
 
-        <div className="side-arrow">
+        <div className="side-arrow" onClick={handleMenu}>
           <img src={Arrow} alt="" />
         </div>
       </div>
@@ -194,6 +190,14 @@ function MenuBar({ menu, setMenu }) {
         </div>
       </div>
     </div>
+    </> 
+    : 
+    <>
+    <MenuBarSmall setMenu={setMenu} />
+    </>
+    }   
+    
+    </>
   );
 }
 

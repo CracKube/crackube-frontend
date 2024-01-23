@@ -21,13 +21,14 @@ const UploadSection = ({ body, title, setFirst }) => {
   };
   const [category, setCategory] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [image, setImage] = useState("");
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
-  formData.append("image", file);
-  formData.append("userPosted", localStorage.getItem("userId"));
+  formData.append("file", file);
+  // formData.append("userPosted", localStorage.getItem("userId"));
+  formData.append("userPosted", "65ae0299c6295d35b5b8fb57")
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
@@ -35,28 +36,22 @@ const UploadSection = ({ body, title, setFirst }) => {
   formData.append("blogImageProvider", blogImageProvider);
   console.log(formData);
   const handleImageChange = (e) => {
-    console.log(formData);
+    
     const file = e.target.files[0];
-    console.log(file);
+    
     if (file) {
-      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
-
-      if (allowedTypes.includes(file.type)) {
-      setFile(file);
-
+        setFile(file);
+        console.log(file);
         setBlogImageProvider("upload");
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
           var dataURL = reader.result;
-          setBlogImageUrl(`data:image/png;base64,${dataURL.split(",")[1]}`);
+          // setBlogImageUrl(`data:image/png;base64,${dataURL.split(",")[1]}`);
           setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
-          console.log(image);
         };
-      } else {
-        setBlogImageProvider("");
-        setImage("");
-      }
+        console.log(formData);
+
     }
   };
 

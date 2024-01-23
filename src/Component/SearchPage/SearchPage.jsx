@@ -8,6 +8,7 @@ import vector from "../../Assets/vector.svg";
 import { useTheme } from "../../Context/ThemeContext";
 import SharedComponents from "../SharedComponents";
 import SearchResultsList from "./SearchResultsList";
+import '../../styles/Sheets/Login.css'
 const SearchBar = ({ handleChange }) => {
   const navigate = useNavigate();
   const [input, setInput] = useState("");

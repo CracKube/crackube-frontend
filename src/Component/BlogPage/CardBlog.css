@@ -58,8 +58,8 @@
 .tags-container {
   float: left;
   z-index: 3;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  margin-top: 0.75rem;
+  margin-left: 0.75rem;
   position: absolute;
 }
 
@@ -80,7 +80,11 @@
   font-weight: 700;
   line-height: normal;
 }
-
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
 #light .titleContainer > div {
   margin-left: 0.5rem;
   height: 2rem;

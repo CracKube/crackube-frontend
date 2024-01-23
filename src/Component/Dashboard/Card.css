@@ -17,7 +17,7 @@
     padding: 0.25rem;
     min-width: 16.095rem;
     min-height: 9.3125rem;
-    border-radius: 1.125rem;
+    border-radius: 1.5rem;
     aspect-ratio: 16/9;
 }
 .thumbnailBlogSk {
@@ -40,6 +40,11 @@
     width: 100%;
     height: 100%;
     border-radius: 1.125rem;
+}
+.card__container > a {
+    display: flex;
+    flex-direction: column;
+    
 }
 .card__container:hover {
     transition: ease-in-out 0.2s;

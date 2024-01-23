@@ -232,7 +232,7 @@ a {
 .home {
   position: relative;
   display: grid;
-  grid-template-columns: 15rem 10fr;
+  grid-template-columns: 0fr 10fr;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -340,6 +340,17 @@ a {
   max-width: 15rem;
   position: relative;
 }
+.crack-logo-s {
+  height: 100vh;
+  padding-top: 1rem;
+  border-right: 1px solid #f2f2f2;
+  display: flex;
+  max-width: 4rem;
+  flex-direction: column;
+
+  position: relative;
+}
+
 
 .ck-no-display {
   display: none;
@@ -355,6 +366,13 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.profile-s {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu-bar {
   display: flex;
   flex-direction: column;
@@ -386,7 +404,31 @@ a {
   position: absolute;
   bottom: 2rem;
 }
+.menu-bar-half-2-s {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 4rem;
+}
+.hover-container {
+  position: relative;
+  display: inline-block;
+}
 
+.hidden-component {
+  display: none;
+  position: absolute;
+  left: 4rem;
+  bottom: -2rem;
+  background-color: #ffffff;
+}
+
+.visible {
+  display: block;
+}
 .menu-header {
   display: flex;
   justify-content: space-between;
@@ -495,6 +537,18 @@ a {
   font-weight: 500;
   line-height: normal;
 }
+.menu-bar-link-s {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  align-items: center;
+  color: var(--crac-kube-purple, #8f00ff);
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
 #dark .menu-bar-link {
   display: flex;
@@ -519,6 +573,9 @@ a {
   min-width: 15rem;
   display: flex;
   align-items: start;
+}.cover-link-s {
+  min-width: 15rem;
+  align-items: center;
 }
 
 #dark .menu-btn {
@@ -545,6 +602,18 @@ a {
   border-radius: 4rem;
   background: var(--white, #fff);
 }
+.menu-btn-s {
+  display: inline-flex;
+  width: fit-content;
+  height: 2.5rem;
+  align-items: center;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 4rem;
+  background: var(--white, #fff);
+} 
 
 .stay {
   background-color: #fbf5ff !important;
@@ -1799,6 +1868,9 @@ a {
   justify-content: center;
   animation: fadeIn 0.5s;
 }
+.results-list-pull p {
+  cursor: pointer;
+}
 .ans-res {
   display: flex;
   flex-direction: column;
@@ -1978,6 +2050,9 @@ a {
     padding-bottom: 0.25rem;
   }
   .crack-logo {
+    display: none;
+  }
+  .crack-logo-s {
     display: none;
   }
   .home {

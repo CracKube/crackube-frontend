@@ -17,7 +17,6 @@ import ContactUs from "./Component/ContactUs";
 import ForgetPswd from "./Component/ForgetPassword/ForgetPassword";
 import GPT4 from "./Component/GPT/GPT4";
 import GPTInterface from "./Component/GPT/GPTInterface";
-import Test from "./Component/Landing/Test";
 import OTP from "./Component/OTP/OTP.jsx";
 import FourthPage from "./Component/Pages/FourthPage";
 import Home from "./Component/Pages/Home";
@@ -56,7 +55,6 @@ function App() {
           <ThemeContext.Provider>
             <ThemeProvider>
               <Routes basename = '/'>
-                <Route path="/" exact Component={Test}></Route>
                 <Route path="/signup" Component={SignUp}></Route>
                 <Route path="/login" exact Component={Signup}></Route>
                 <Route

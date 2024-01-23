@@ -6,13 +6,13 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 function Card(props) {
   return (
-    <Link to = {`/blog/${props.id}`} >
+    
     <div
       className="card__container"
       id={props.theme}
       style={{ cursor: "pointer" }}
     >
-      
+        <Link to = {`/blog/${props.id}`} >
         <div className="img__container">
           <div className="tags-container">
             <div className="blog-tag">
@@ -26,23 +26,23 @@ function Card(props) {
             <img src={props.thumbnail} alt="" className="thumbnailBlog" />
           )}
         </div>
-        <div>
+        <div className="titleContainer">
           <CardTitle1
             className="titleContainer"
             title={props.title}
             id={props.theme}
           />
         </div>
+        </Link>
         <div className="card__details" id={props.theme}>
           <CardAuthor1
-            id={props.theme}
+            id={props.authorId}
             authorImage={props.authorImage}
             author={props.author}
             modified={moment(props.modified).fromNow()}
           />
         </div>
     </div>
-    </Link>
 
   );
 }

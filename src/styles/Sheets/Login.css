@@ -250,6 +250,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 6.25rem;
+  cursor: pointer;
 }
 .search-bar {
   background: var(--Light-Gray-for-Division, #f2f2f2);
