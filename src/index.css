@@ -32,7 +32,8 @@ a {
 }
 
 /* Start - Logo's CSS */
-.logo {
+.logo-s {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -45,13 +46,13 @@ a {
   border-radius: 0.75rem;
 }
 
-.logo img {
+.logo-s img {
   width: 1.35rem;
   height: 1.35rem;
   border-radius: 0.75rem;
 }
 
-#dark .logo h1 {
+#dark .logo-s h1 {
   font-size: 1.5rem;
   font-weight: 900;
   color: #960ffa;
@@ -62,7 +63,7 @@ a {
   font-weight: 800;
   line-height: normal;
 }
-#light .logo h1 {
+#light .logo-s h1 {
   font-size: 1.5rem;
   font-weight: 900;
   color: #960ffa;
@@ -331,8 +332,14 @@ a {
 .home-logo {
   background-color: #8e00ff;
 }
-.crack-logo {
+.whole-page {
   height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.crack-logo {
+  height: calc(100vh - 4rem);
   padding-top: 1rem;
   border-right: 1px solid #f2f2f2;
   display: flex;
@@ -341,17 +348,19 @@ a {
   position: relative;
 }
 .crack-logo-s {
-  height: 100vh;
+  height: 90vh;
   padding-top: 1rem;
   border-right: 1px solid #f2f2f2;
   display: flex;
   max-width: 4rem;
   flex-direction: column;
-
   position: relative;
 }
 
-
+.home-top {
+  display: flex;
+  justify-content: space-between;
+}
 .ck-no-display {
   display: none;
 }
@@ -361,7 +370,6 @@ a {
 }
 .menu-wrapper {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -378,7 +386,7 @@ a {
   flex-direction: column;
   align-items: center;
   max-width: 15rem;
-  min-height: 30vh;
+  height: calc(100vh - 3.8rem);
   position: relative;
   justify-content: space-between;
   overflow-x: hidden;
@@ -401,8 +409,8 @@ a {
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  position: absolute;
-  bottom: 2rem;
+  position: relative;
+  bottom: 3rem;
 }
 .menu-bar-half-2-s {
   display: flex;
@@ -430,10 +438,10 @@ a {
   display: block;
 }
 .menu-header {
+  min-width: 15rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
   color: #960ffa;
   text-align: center;
   font-family: Montserrat;
@@ -467,7 +475,7 @@ a {
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
-  max-height: 100vh;
+  max-height: 91vh;
 }
 .center-maker {
   width: 100%;
@@ -737,7 +745,11 @@ a {
 .news {
   border: 2px solid #000000;
 }
-
+@media only screen and (max-width: 788px) {
+  .menu-header {
+    display: none;
+  }
+}
 @media only screen and (max-width: 717px) {
   .out {
     display: flex;
@@ -1921,10 +1933,20 @@ a {
   animation: fadeIn 0.5s;
 }
 
-.search-result {
+.search-result- {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  padding: 5px;
+  width: 100%;
+  border-radius: 2rem;
+}
+.search-result-active {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 2rem;
   padding: 5px;
   width: 100%;
 }
@@ -1980,30 +2002,17 @@ a {
 
 @media only screen and (max-height: 600px) {
   /*Big smartphones [426px -> 600px]*/
-  .menu-bar-half-1 {
-    height: 25vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
+
 }
 @media only screen and (max-height: 505px) {
   /*Small smartphones [325px -> 425px]*/
   .menu-bar-half-1 {
-    height: 15vh;
+    height: 10vh;
     overflow-x: hidden;
     overflow-y: scroll;
   }
 
-  .menu-bar-half-2 {
-    margin-top: 7rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    height: 65vh;
-    position: relative;
-    bottom: 10rem;
-  }
+
 }
 @media (min-width: 826px) {
   .bottom-nav {
@@ -2335,7 +2344,7 @@ margin-bottom: 0.5rem;
 .modal-settings {
   display: block;
   width: 50%;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

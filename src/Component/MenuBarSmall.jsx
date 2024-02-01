@@ -84,16 +84,6 @@ function MenuBarSmall({ setMenu }) {
   return (
     <>
       <div className="crack-logo-s " id={theme.mode}>
-        <div className="menu-header">
-          <div className="logo">
-            <img src={logo} alt="logo" />
-          </div>
-
-          <div className="side-arrow" onClick={handleMenu}>
-            <img src={Arrow} alt="" />
-          </div>
-        </div>
-
         <div className="menu-wrapper-s">
           <div className="menu-bar">
             <div className="menu-bar-half-1">
@@ -165,7 +155,7 @@ function MenuBarSmall({ setMenu }) {
                 <Profile details={response} time={timeOfDay} />
               </div>
               <Link to={`/profile/${window.localStorage.getItem("userId")}`}>
-              <Link><img className='prof-pic-nav'  src= {PropTop} alt="" /></Link>
+              <Link><img className='prof-pic-nav-s'  src= {PropTop} alt="" /></Link>
               </Link>
 
               

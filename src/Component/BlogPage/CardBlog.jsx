@@ -9,13 +9,16 @@ function Card(props) {
       className="card__container_blog"
       id={props.theme}
       style={{ cursor: "pointer" }}
-      onClick={() => {
-        window.location.href = `/blog/${props.id}`;
-      }}
     >
       <div className="img__container">
-      <div className="tags-container">
-             <div className="blog-tag"> <p>{props.tags[0]}</p> </div>
+        <div
+          className="tags-container"
+        
+        >
+          <div className="blog-tag">
+            {" "}
+            <p>{props.tags[0]}</p>{" "}
+          </div>
         </div>
         {props.loading ? (
           <Skeleton className="h-40" />

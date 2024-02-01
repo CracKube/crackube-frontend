@@ -11,6 +11,7 @@ const DenComponent = () => {
   const theme = useTheme();
   return (
     <div className="den-cover">
+
       <div>
         {clicked === 2 && (
           <>

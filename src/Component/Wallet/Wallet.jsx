@@ -7,16 +7,11 @@ import { useCookies } from "react-cookie";
 import HiddenComponent from "../../Component/Pages/HiddenComponent";
 import SearchBar from "../LandingPage/searchBarcomp/SearchBar";
 import WalletComponent from "./WalletComponent";
+import SharedComponents from "../SharedComponents";
 
 export const ThemeContext = createContext();
 
 const Wallet = () => {
-  const [theme, setTheme] = useState("light");
-  const handleSearchBar = () => {
-    document.getElementById("wrapper").style.filter = "blur(0px)";
-    document.getElementById("unblur").style.display = "none";
-    document.getElementById("unblur").style.position = "absolute";
-  };
   const [response, setResponse] = useState("");
   const getUserDetails = async () => {
     const response = await fetch(
@@ -27,38 +22,17 @@ const Wallet = () => {
     let data = await response.json();
     setResponse(data);
     console.log(data);
-    
   };
 
   useEffect(() => {
     console.log(response);
     getUserDetails();
-    document.getElementById("unblur").style.display = "none";
   }, []);
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <div id="unblur" onBlur={handleSearchBar}>
-        <div className="list-wrap">
-          <SearchBar prop="pull" />
-        </div>
-      </div>
-
-      <div id="wrapper">
-        <div className="home" id={theme}>
-          <MenuBar theme={theme} setTheme={setTheme} />
-          <div className="center-maker">
-            <div className="home-container">
-              <TopNavBar theme={theme} />
-              <WalletComponent response = {response} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bottom-nav">
-        <HiddenComponent> </HiddenComponent>
-      </div>
-    </ThemeContext.Provider>
+      <SharedComponents>
+          <WalletComponent response={response} />
+      </SharedComponents>
   );
 };
 

@@ -1,23 +1,30 @@
 import React from "react";
+import { useState } from "react";
 import SearchResult from "./SearchResult";
-const SearchResultsList =({results}) => {
-
-    if (results.length !== 0) {
-      console.log("Hello");
-      return(
-        <div className="list-wrap ">
-        <div className='results-list hold'>
-          {
-            results.map((result,id)=>{
-              return <SearchResult result={result} key={id}/>
-            })
-          }
-        </div>
-        </div>
-      )
-    }
+const SearchResultsList = ({ input, setInput, results, activeSuggestion, setActiveSuggestion }) => {
   
+  if (results.length !== 0) {
+    return (
+      <div className="list-wrap ">
+        <div className="results-list hold">
+          {results.map((result, id) => {
+            return (
+              <SearchResult
+                input = {input}
+                setInput={setInput}
+                result={result}
+                results={results}
+                key={id}
+                isActive={id === activeSuggestion}
+                setActiveSuggestion={setActiveSuggestion}
+                activeSuggestion={activeSuggestion}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
   }
+};
 
-  export default SearchResultsList
-
+export default SearchResultsList;

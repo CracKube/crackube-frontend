@@ -8,10 +8,9 @@ import vector from "../../Assets/vector.svg";
 import { useTheme } from "../../Context/ThemeContext";
 import SharedComponents from "../SharedComponents";
 import SearchResultsList from "./SearchResultsList";
-import '../../styles/Sheets/Login.css'
-const SearchBar = ({ handleChange }) => {
+import "../../styles/Sheets/Login.css";
+const SearchBar = ({ setInput, input, handleChange }) => {
   const navigate = useNavigate();
-  const [input, setInput] = useState("");
   const handleSearch = () => {
     navigate("/search-results", { state: { input } });
   };
@@ -78,14 +77,14 @@ function SearchNavbar() {
     <div className="search-nav-bar-eff">
       <div className="profile-show">
         <div className="profile-nav-btn">
-          <NavLink
+          {/* <NavLink
             className="profile-nav-btn-active"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
           >
             <img src={vector} alt="" /> <p>Trending</p>
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className="profile-nav-btn-active"
             style={({ isActive }) => ({
@@ -94,14 +93,14 @@ function SearchNavbar() {
           >
             <img src={category} alt="" /> <p>Categories</p>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className="profile-nav-btn-active"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#F2F2F2" : "",
             })}
           >
             <img src={follow} alt="" /> <p>who to follow</p>
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </div>
@@ -114,6 +113,8 @@ function SearchPage() {
   const [blogs, setBlogs] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [users, setUsers] = useState([]);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
+
 
   const getData = async () => {
     const response1 = await fetch(
@@ -135,16 +136,13 @@ function SearchPage() {
     setUsers(data3);
   };
 
+
   useEffect(() => {
     getData();
   }, []);
 
   const handleChange = (value) => {
     setInput(value);
-    if (value == "") {
-      setResults([]);
-      return;
-    }
 
     let newResult = [];
 
@@ -172,10 +170,20 @@ function SearchPage() {
   return (
     <SharedComponents>
       <div className="SearchPage">
-        <SearchBar handleChange={handleChange} />
+        <SearchBar
+          setInput={setInput}
+          input={input}
+          handleChange={handleChange}
+        />
 
         <div className="list-wrap overlay">
-          <SearchResultsList results={results} />
+          <SearchResultsList
+            input={input}
+            setInput={setInput}
+            results={results}
+            activeSuggestion={activeSuggestion}
+            setActiveSuggestion={setActiveSuggestion}
+          />
         </div>
         <SearchNavbar />
         <div className="coverUp">

@@ -350,7 +350,6 @@ flex-shrink: 0;
 
   @media only screen and (max-width: 1200px) {
     .system-flex {
-        min-width: 320px;
         display: flex;
         flex-direction: column;
     }

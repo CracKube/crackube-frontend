@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.14.6",
     "@reduxjs/toolkit": "^1.9.5",
     "@rpldy/mock-sender": "^1.4.1",

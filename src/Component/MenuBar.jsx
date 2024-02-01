@@ -18,12 +18,13 @@ import Logo from "./Logo";
 import Profile from "./Profile/Profile";
 import MenuBarSmall from "./MenuBarSmall";
 
-function MenuBar() {
-  console.log("MenuBar");
+function MenuBar({menu}) {
   const theme = useTheme();
+  const [menuBar, setMenuBar] = useState(localStorage.getItem("menu"));
+  
+  console.log(menuBar);
   const [timeOfDay, setTimeOfDay] = useState("");
   const dispatch = useDispatch();
-  const [menu, setMenu] = useState(true);
   async function getUserIP() {
     try {
       // Get user's approximate location and timezone using ipinfo.io
@@ -61,23 +62,10 @@ function MenuBar() {
 
 
 
-  const clickHandler = () => {
-    const toggle = document.getElementById("toggle");
-    const sidebar = document.getElementById("crack-logo");
-    toggle.onClick = function () {
-      toggle.classList.toggle("active");
-      sidebar.classList.toggle("active");
-    };
-  };
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
-  };
-  const handleMenu = (e) => {
-    e.preventDefault();
-    console.log("clicked");
-    setMenu(false);
   };
 
   const response = useSelector(getUser);
@@ -86,17 +74,9 @@ function MenuBar() {
   return (
     
     <>
-    {menu ? 
+    {localStorage.getItem("menu") === "true" ? 
     <>
     <div className="crack-logo" id={theme.mode}>
-      <div className="menu-header" >
-        <Logo />
-
-        <div className="side-arrow" onClick={handleMenu}>
-          <img src={Arrow} alt="" />
-        </div>
-      </div>
-
       <div className="menu-wrapper">
         <div className="menu-bar">
           <div className="menu-bar-half-1">
@@ -165,9 +145,7 @@ function MenuBar() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="menu-bar-half-2">
+          <div className="menu-bar-half-2">
           <div className="profile">
             <Link to = {`/profile/${window.localStorage.getItem("userId")}`} >
               {
@@ -188,12 +166,15 @@ function MenuBar() {
             
           </div>
         </div>
+        </div>
+
+        
       </div>
     </div>
     </> 
     : 
     <>
-    <MenuBarSmall setMenu={setMenu} />
+    <MenuBarSmall/>
     </>
     }   
     

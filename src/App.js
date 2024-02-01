@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { CookiesProvider } from "react-cookie";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Search from "../src/Component/SearchPage/SearchPage.jsx";
@@ -44,89 +44,142 @@ import ProfilePage from "./Component/profile_page/ProfilePage";
 import { ThemeProvider } from "./Context/ThemeContext.js";
 import Success from "./Payment/Success.jsx";
 import Failure from "./Payment/Failure.jsx";
+import NotFound from "./Component/NotFound/NotFound.jsx";
+import SharedComponents from "./Component/SharedComponents.jsx";
+
+// NotFound
 export const ThemeContext = createContext(null);
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [isDisconnected, setIsDisconnected] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("online", () => setIsDisconnected(false));
+    window.addEventListener("offline", () => setIsDisconnected(true));
+    return () => {
+      window.removeEventListener("online", () => setIsDisconnected(false));
+      window.removeEventListener("offline", () => setIsDisconnected(true));
+    };
+  }, []);
+
+  useEffect(() => {
+    if (navigator.onLine) {
+      const checkingPing = setInterval(() => {
+        console.log("checkingPing");
+        fetch("//google.com", { mode: "no-cors" })
+          .then(() => setIsDisconnected(false))
+          .catch(() => setIsDisconnected(true));
+      }, 1000);
+      return () => clearInterval(checkingPing);
+    }
+  }, [isDisconnected]);
+
   return (
     <div className="body">
-      <CookiesProvider>
-        <Router>
-          <ThemeContext.Provider>
-            <ThemeProvider>
-              <Routes basename = '/'>
-                <Route path="/signup" Component={SignUp}></Route>
-                <Route path="/login" exact Component={Signup}></Route>
-                <Route
-                  path="/forgetpassword"
-                  exact
-                  Component={ForgetPswd}
-                ></Route>
-                <Route path="/home" exact Component={Home}></Route>
-                <Route path="/otp" exact Component={OTP}>
-                  {" "}
-                </Route>
-                <Route path="/success" element = {<Success/>}></Route>
-                <Route path = "/failure" element = {<Failure/>}></Route>
-                <Route path="/search" exact Component={Search}></Route>
-                <Route path="/settings" exact element={<Settings />}></Route>
-                <Route path="/my-details" element={<MyDetails />}></Route>
-                <Route path="/security" element={<Security />}></Route>
-                <Route path="/email" element={<Email />}></Route>
-                <Route path="/profile/:id" element={<ProfilePage />}></Route>
-                <Route path="/password" element={<Password />}></Route>
-                <Route path="/blog/:id" Component={BlogPage} />
-                <Route
-                  path="/delete-account"
-                  element={<DeleteAccount />}
-                ></Route>
-                <Route path="/answering/:id" element={<MainAnswer />}></Route>
-                <Route path="/upload" element={<UploadPage />}></Route>
-                <Route
-                  path="/search-results"
-                  element={<SearchResults />}
-                ></Route>
-                <Route path="/unsplash" element={<UnSplash />}></Route>
-                <Route path="/track" element={<UploadFollow />}></Route>
-                <Route path="/answer" element={<Answer />}></Route>
-                <Route path="/code" element={<Code />}></Route>
-                <Route path="/uploadBlogs" element={<UploadBlog />}></Route>
-                <Route path="/uploadanswer" element={<UploadAnswer />}></Route>
-                <Route path="/uploadSec" element={<UploadSection />}></Route>
-                <Route path="/cropper" element={<Cropper />}></Route>
-                <Route path="/third" element={<ThirdPage />}></Route>
-                <Route path="/fourth" element={<FourthPage />}></Route>
-                <Route path="/read" element={<BlogRead />}></Route>
-                <Route path="/wallet" element={<Wallet />}></Route>
-                <Route path="/gpt" element={<GPTInterface />}></Route>
-                <Route path="/gpt4" element={<GPT4 />}></Route>
-                <Route path="/contactUs" element={<ContactUs />}></Route>
-                <Route
-                  path="/privacypolicy"
-                  element={<PrivacyPolicy />}
-                ></Route>
-                <Route
-                  path="/refundandcancellation"
-                  element={<Refund />}
-                ></Route>
-                <Route path="/shipanddelivery" element={<Ship />}></Route>
-                <Route path="/termsandconditions" element={<TAndC />}></Route>
-                <Route path="/store" element={<StoreComponent />}></Route>
-                <Route
-                  path="/passwordReset"
-                  element={<PasswordReset />}
-                ></Route>
-                <Route path="/yourden" element={<YourDen />}></Route>
-                <Route path="/test" element={<Categories />}></Route>
-              </Routes>
-            </ThemeProvider>
-          </ThemeContext.Provider>
-        </Router>
-        <Router basename="/chat">
-          <Route path="/gpt" element={<GPTInterface />}></Route>
-          <Route path="/gpt4" element={<GPT4 />}></Route>
-        </Router>
-      </CookiesProvider>
+      {" "}
+      {!isDisconnected ? (
+        <CookiesProvider>
+          <Router>
+            <ThemeContext.Provider>
+              <ThemeProvider>
+                <Routes basename="/">
+                  <Route path="*" Component={NotFound}></Route>
+
+                  <Route path="/" exact Component={Home}></Route>
+                  <Route path="/signup" Component={SignUp}></Route>
+                  <Route path="/login" exact Component={Signup}></Route>
+                  <Route
+                    path="/forgetpassword"
+                    exact
+                    Component={ForgetPswd}
+                  ></Route>
+                  <Route path="/home" exact Component={Home}></Route>
+                  <Route path="/otp" exact Component={OTP}>
+                    {" "}
+                  </Route>
+                  <Route path="/success" element={<Success />}></Route>
+                  <Route path="/failure" element={<Failure />}></Route>
+                  <Route path="/search" exact Component={Search}></Route>
+                  <Route path="/settings" exact element={<Settings />}></Route>
+                  <Route path="/my-details" element={<MyDetails />}></Route>
+                  <Route path="/security" element={<Security />}></Route>
+                  <Route path="/email" element={<Email />}></Route>
+                  <Route path="/profile/:id" element={<ProfilePage />}></Route>
+                  <Route path="/password" element={<Password />}></Route>
+                  <Route path="/blog/:id" Component={BlogPage} />
+                  <Route
+                    path="/delete-account"
+                    element={<DeleteAccount />}
+                  ></Route>
+                  <Route path="/answering/:id" element={<MainAnswer />}></Route>
+                  <Route path="/upload" element={<UploadPage />}></Route>
+                  <Route
+                    path="/search-results"
+                    element={<SearchResults />}
+                  ></Route>
+                  <Route path="/unsplash" element={<UnSplash />}></Route>
+                  <Route path="/track" element={<UploadFollow />}></Route>
+                  <Route path="/answer" element={<Answer />}></Route>
+                  <Route path="/code" element={<Code />}></Route>
+                  <Route path="/uploadBlogs" element={<UploadBlog />}></Route>
+                  <Route
+                    path="/uploadanswer"
+                    element={<UploadAnswer />}
+                  ></Route>
+                  <Route path="/uploadSec" element={<UploadSection />}></Route>
+                  <Route path="/cropper" element={<Cropper />}></Route>
+                  <Route path="/third" element={<ThirdPage />}></Route>
+                  <Route path="/fourth" element={<FourthPage />}></Route>
+                  <Route path="/read" element={<BlogRead />}></Route>
+                  <Route path="/wallet" element={<Wallet />}></Route>
+                  <Route path="/gpt" element={<GPTInterface />}></Route>
+                  <Route path="/gpt4" element={<GPT4 />}></Route>
+                  <Route path="/contactUs" element={<ContactUs />}></Route>
+                  <Route
+                    path="/privacypolicy"
+                    element={<PrivacyPolicy />}
+                  ></Route>
+                  <Route
+                    path="/refundandcancellation"
+                    element={<Refund />}
+                  ></Route>
+                  <Route path="/shipanddelivery" element={<Ship />}></Route>
+                  <Route path="/termsandconditions" element={<TAndC />}></Route>
+                  <Route path="/store" element={<StoreComponent />}></Route>
+                  <Route
+                    path="/passwordReset"
+                    element={<PasswordReset />}
+                  ></Route>
+                  <Route path="/yourden" element={<YourDen />}></Route>
+                  <Route path="/test" element={<Categories />}></Route>
+                </Routes>
+              </ThemeProvider>
+            </ThemeContext.Provider>
+          </Router>
+          <Router basename="/chat">
+            <Route path="/gpt" element={<GPTInterface />}></Route>
+            <Route path="/gpt4" element={<GPT4 />}></Route>
+          </Router>
+        </CookiesProvider>
+      ) : (
+        <div>
+        
+          <h1
+            style={{
+              width: "100vw",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "3rem",
+              color: "red",
+            }}
+          >
+            Check your internet connection, You are offline.
+          </h1>
+        </div>
+      )}
     </div>
   );
 }

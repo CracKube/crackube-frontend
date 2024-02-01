@@ -42,8 +42,9 @@ function ResultCards(prop) {
   }, [dispatch]);
   const blogs = useSelector(getAllBlog);
   const question = useSelector(getAnswer);
-  console.log(blogs);
-  const all = [...blogs, ...question];
+  const blogsWithType = blogs.map((blog) => ({...blog, type: "blog"}));
+  const questionWithType = question.map((question) => ({...question, type: "question"}));
+  const allData = [...blogsWithType, ...questionWithType];
   if (prop.clicked === 2) {
     let newResult = blogs.filter((blog) =>
       blog.blogTitle.toLowerCase().includes(prop.value.toLowerCase())
@@ -121,8 +122,61 @@ function ResultCards(prop) {
     );
   } else if (prop.clicked === 3) {
     return <div>Code</div>;
-  } else if (prop.clicked ===  4) {
+  } else if (prop.clicked === 4) {
     return <div>People</div>;
+  } else if (prop.clicked === 0) {
+    // display both answer and blog from allData
+    const newResult = allData.filter((item) =>
+      item.type === "blog"
+        ? item.blogTitle.toLowerCase().includes(prop.value.toLowerCase())
+        : item.questionBody.toLowerCase().includes(prop.value.toLowerCase())
+    );
+    if (prop.value === " ") {
+      newResult = [];
+      return;
+    }
+    return (
+      <div>
+        {prop.value &&
+          newResult &&
+          newResult.sort().map((item, index) => {
+            return (
+              <div className={style.cardsCover} key={index}>
+                <div className={style.blogPic}>
+                  <img src={item.blogImageUrl} alt="" />
+                </div>
+                <div className={style.blogDetails}>
+                  <div className={style.title}>
+                    <div>
+                      <p>{item.blogTitle}</p>
+                    </div>
+                  </div>
+                  <div className={style.content}>
+                    <p>{item.blogBody.slice(0, 20)}</p>
+                  </div>
+                  <div className={style.Author}>
+                    <div>
+                      <Author
+                        img={item.userPosted && item.userPosted.profilePicUrl}
+                        name={item.userPosted && item.userPosted.name}
+                        user={item.userPosted && item.userPosted.username}
+                      />
+                    </div>
+
+                    <div className={style.menu}>
+                      <img src={Heart} alt="" />
+                      <img src={Share} alt="" />
+                      <img src={Options} alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    );
+
+
   }
 }
 

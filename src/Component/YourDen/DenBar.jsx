@@ -10,7 +10,7 @@ const DenBar = ({clicked , setClicked}) => {
   return (
     <div className="den-right">
       <div >
-        <img src="" alt="" />
+        <img src="" alt="profile photo" />
         <p>User Name</p>
       </div>
       <div onClick={() => setClicked(1)} className= {clicked === 1 ? 'den-click': 'den-p'}>

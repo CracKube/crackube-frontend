@@ -1,4 +1,5 @@
 import React from "react";
+import SharedComponents from "../SharedComponents";
 
 const Store = () => {
   return (
