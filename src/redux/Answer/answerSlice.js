@@ -10,6 +10,7 @@ export const fetchAsyncAnswer = createAsyncThunk(
     return data;
   }
 );
+
 export const fetchAsyncAnswerDetail = createAsyncThunk(
   "answer/fetchAsyncAnswerDetail",
   async (id) => {
@@ -34,20 +35,21 @@ const answerSlice = createSlice({
       state.answers = payload;
     },
   },
-  extraReducers: {
-    [fetchAsyncAnswer.pending]: () => {
-      console.log("pending");
-    },
-    [fetchAsyncAnswer.fulfilled]: (state, { payload }) => {
-      return { ...state, answers: payload };
-    },
-    [fetchAsyncAnswer.rejected]: () => {
-      console.log("rejected");
-    },
-    [fetchAsyncAnswerDetail.fulfilled]: (state, { payload }) => {
-      console.log("fetched successfully answer detail")
-      return { ...state, selectedAnswer: payload };
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAsyncAnswer.pending, (state) => {
+        console.log("pending");
+      })
+      .addCase(fetchAsyncAnswer.fulfilled, (state, { payload }) => {
+        return { ...state, answers: payload };
+      })
+      .addCase(fetchAsyncAnswer.rejected, (state) => {
+        console.log("rejected");
+      })
+      .addCase(fetchAsyncAnswerDetail.fulfilled, (state, { payload }) => {
+        console.log("fetched successfully answer detail");
+        return { ...state, selectedAnswer: payload };
+      });
   },
 });
 

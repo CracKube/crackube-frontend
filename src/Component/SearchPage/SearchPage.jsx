@@ -115,7 +115,6 @@ function SearchPage() {
   const [users, setUsers] = useState([]);
   const [activeSuggestion, setActiveSuggestion] = useState(-1);
 
-
   const getData = async () => {
     const response1 = await fetch(
       "https://crackube-backend-test.onrender.com/blogs/getAll"
@@ -135,7 +134,6 @@ function SearchPage() {
     const data3 = await response3.json();
     setUsers(data3);
   };
-
 
   useEffect(() => {
     getData();

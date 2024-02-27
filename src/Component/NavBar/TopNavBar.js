@@ -1,32 +1,21 @@
-import React from "react";
-import searchicon from "../../styles/Icons/Search 1.svg";
-import Noti from "../../Assets/Noti.svg";
-import Settings from "../../Assets/Settings.svg";
+import Cookies from "js-cookie";
+import React, { useState } from "react";
 import Modal from "react-modal";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Assets/CK_LOGO.svg";
-import Cookies from "js-cookie";
-import "./TopNavBar.css";
+import Noti from "../../Assets/Noti.svg";
+import Settings from "../../Assets/Settings.svg";
+import { useTheme } from "../../Context/ThemeContext";
+import searchicon from "../../styles/Icons/Search 1.svg";
 import Dropdown from "../DropDown/DropDown";
 import UploadDropdown from "../DropDown/UploadDropDown";
-import { hover } from "@testing-library/user-event/dist/hover";
-import Answer from "../Answer/Answer";
 import SearchBar from "./SearchPart";
-import { useTheme } from "../../Context/ThemeContext";
+import "./TopNavBar.css";
 export default function TopNavBar() {
   const theme = useTheme();
-  const [hoverMe, setHoverMe] = useState(false);
   const [section, setSection] = useState("blogs");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [show, setShow] = useState(false);
-  const buttonHandler =
-    ("click",
-    () => {
-      setShow(!show);
-    });
 
-  const onEnterLeave = () => {};
   const setCookieBlog = () => {
     setSection("home");
     Cookies.set("state", "/home", {
@@ -46,9 +35,7 @@ export default function TopNavBar() {
     });
   };
 
-  const getCookie = () => {
-    alert(Cookies.get("state"));
-  };
+
   const options  = [
     { value: "option1", label: "Settings", route: "/settings" },
     { value: "option2", label: "Help" },
@@ -66,13 +53,7 @@ export default function TopNavBar() {
     { value: "option3", label: "Code", route: "/uploadcode" },
   ];
   // blur the whole page except the searchnav input
-  const blur = (e) => {
-    e.preventDefault();
-    document.getElementById("wrapper").style.filter = "blur(10px)";
-    document.getElementById("wrapper").style.background = "rgba(0, 0, 0, 0.5)";
-    document.getElementById("unblur").style.display = "block";
-    document.getElementById("unblur").focus();
-  };
+
   const CustomModal = ({ isOpen, onRequestClose, children }) => {
     return (
       <Modal

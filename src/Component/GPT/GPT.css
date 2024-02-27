@@ -235,7 +235,7 @@ input:focus {
 .conversation {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   min-height: 100%;
   width: 100%;
   overflow-y: auto;
@@ -247,14 +247,14 @@ input:focus {
 }
 .user-chat {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-bottom: 1rem;
   gap: 1rem;
 }
 .ai-chat {
   margin-bottom: 1rem;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 1rem;
 }
 .bottom-cover {

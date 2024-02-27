@@ -39,7 +39,7 @@
 
 .skel-flex {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .skel-flex .left-col {
@@ -83,7 +83,7 @@
 .titleContainer {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 #light .titleContainer > div {
   margin-left: 0.5rem;

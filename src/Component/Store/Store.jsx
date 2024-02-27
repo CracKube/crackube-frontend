@@ -24,7 +24,10 @@ const Store = () => {
           <p>Fashion</p>
         </div>
       </div>
-      <h1>Gift Card. <span className="span-s"> Get someone something special</span></h1>
+      <h1>
+        Gift Card.{" "}
+        <span className="span-s"> Get someone something special</span>
+      </h1>
 
       <div className="gift-card">
         <div>
@@ -52,7 +55,9 @@ const Store = () => {
           </div>
         </div>
       </div>
-      <h1>Gaming. <span className="span-s">Level Up in style</span> </h1>
+      <h1>
+        Gaming. <span className="span-s">Level Up in style</span>{" "}
+      </h1>
       <div className="gift-card">
         <div>
           <div className="gift-card-container-b"></div>
@@ -79,7 +84,9 @@ const Store = () => {
           </div>
         </div>
       </div>
-    <h1>PayPal. <span className="span-s"> Cash out right now </span></h1>
+      <h1>
+        PayPal. <span className="span-s"> Cash out right now </span>
+      </h1>
       <div className="gift-card">
         <div>
           <div className="gift-card-container-b"></div>
@@ -95,7 +102,9 @@ const Store = () => {
         </div>
       </div>
 
-      <h1>Fashion. <span className="span-s">Reinvent your wardrobe</span> </h1>
+      <h1>
+        Fashion. <span className="span-s">Reinvent your wardrobe</span>{" "}
+      </h1>
 
       <div className="gift-card">
         <div>
@@ -111,7 +120,6 @@ const Store = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

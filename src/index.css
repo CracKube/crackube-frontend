@@ -36,7 +36,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   margin-left: 1rem;
   gap: 0.95rem;
   width: 2.25rem;
@@ -407,7 +407,7 @@ a {
 .menu-bar-half-2 {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
   bottom: 3rem;
@@ -537,7 +537,7 @@ a {
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
-  align-items: start;
+  align-items: flex-start;
   color: var(--crac-kube-purple, #8f00ff);
   font-family: Montserrat;
   font-size: 1rem;
@@ -562,7 +562,7 @@ a {
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
-  align-items: start;
+  align-items: flex-start;
   color: var(--crac-kube-purple, #8f00ff);
   font-family: Montserrat;
   font-size: 1rem;
@@ -580,7 +580,7 @@ a {
 .cover-link {
   min-width: 15rem;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }.cover-link-s {
   min-width: 15rem;
   align-items: center;
@@ -754,7 +754,7 @@ a {
   .out {
     display: flex;
     justify-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .name {
@@ -1640,7 +1640,7 @@ a {
 
 .bottom-area {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding-top: 1rem;
 }
 .answer-area > textarea {
@@ -1891,7 +1891,7 @@ a {
 }
 .results-list-pull > div {
   width: 100%;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #C8C8C8;
@@ -2191,7 +2191,7 @@ a {
   margin-left: 2rem;
   margin-right: 2rem;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 .privacy-policy {
@@ -2199,7 +2199,7 @@ a {
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 4rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -2211,7 +2211,7 @@ a {
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 4rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -2223,7 +2223,7 @@ a {
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 4rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -2236,7 +2236,7 @@ a {
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 4rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -2248,7 +2248,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .modal-update > div > h1 {
   color: var(--CracKube-Purple, #8F00FF);
@@ -2273,7 +2273,7 @@ margin-bottom: 1rem;
   width: 100%;
   cursor: pointer;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .top-btn-close > button {
   padding: 0.5rem;
@@ -2373,7 +2373,7 @@ margin-bottom: 0.5rem;
 .upd-btn {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 
 }
 .upd-btn > button {

@@ -8,8 +8,6 @@ import Calendar from "../../Assets/calendar.svg";
 import Arrow from "../../Assets/arrowTrans.svg";
 import Data from "../../Data.json";
 const WalletComponent = ({response}) => {
- 
-  
   const [currentPage, setCurrentPage] = React.useState(1);
   const recordsPerPage = 10;
   const lastIndex = currentPage * recordsPerPage;

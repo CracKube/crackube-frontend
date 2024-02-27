@@ -164,7 +164,6 @@ function App() {
         </CookiesProvider>
       ) : (
         <div>
-        
           <h1
             style={{
               width: "100vw",

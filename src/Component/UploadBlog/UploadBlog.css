@@ -27,7 +27,7 @@
 }
 .upload-flex-top {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .upload--btn svg {
 }
@@ -169,7 +169,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .blog-content > p > img {
   width: 50%;
@@ -547,7 +547,7 @@ line-height: normal;
   .nxt-btn {
     width: 100%;
     display: inline-flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 0.5rem;
   }
   .upload-cont {

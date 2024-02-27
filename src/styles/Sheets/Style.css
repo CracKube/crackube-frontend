@@ -80,9 +80,9 @@ a {
 }
 .blog-title > h1 {
   width: 100%;
-  align-items: start;
+  align-items: flex-start;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   color: #000;
   font-family: Montserrat;
   font-size: 4rem;
@@ -422,7 +422,7 @@ form > input {
   font-weight: 600;
   line-height: normal;
   line-height: 1.563rem;
-  align-items: start;
+  align-items: flex-start;
   padding-bottom: 1.5rem;
   padding-left: 4rem;
   padding-right: 1rem;
@@ -442,13 +442,13 @@ form > input {
   font-weight: 600;
   line-height: normal;
   line-height: 1.563rem;
-  align-items: start;
+  align-items: flex-start;
   padding-bottom: 1.5rem;
   padding-left: 4rem;
   padding-right: 1rem;
   display: flex;
   padding: 0.5rem 1rem;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 0.25rem;
   background-color: #fff;
 }

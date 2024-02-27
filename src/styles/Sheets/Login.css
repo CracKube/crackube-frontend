@@ -480,7 +480,7 @@ line-height: normal;
     margin-right: 100px;
     display: flex;
     justify-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .name {
@@ -625,7 +625,7 @@ line-height: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     font-size: 6.375rem;
     line-height: 7.75rem;
     background: linear-gradient(99.09deg, #8e00ff 0%, #ff008a 100%);
@@ -687,7 +687,7 @@ line-height: normal;
     margin-right: 100px;
     display: flex;
     justify-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
   .coverUp {
     display: flex;
