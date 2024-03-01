@@ -85,8 +85,6 @@ function App() {
               <ThemeProvider>
                 <Routes basename="/">
                   <Route path="*" Component={NotFound}></Route>
-
-                  <Route path="/" exact Component={Home}></Route>
                   <Route path="/signup" Component={SignUp}></Route>
                   <Route path="/login" exact Component={Signup}></Route>
                   <Route

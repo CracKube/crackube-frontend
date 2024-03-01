@@ -4,7 +4,7 @@ export const fetchAsyncAnswer = createAsyncThunk(
   "answer/fetchAsyncAnswer",
   async () => {
     const response = await fetch(
-      `https://api.crackube.com/questions/get/`
+      `https://crackube-backend-test.onrender.com/questions/get`
     );
     const data = await response.json();
     return data;

@@ -19,37 +19,51 @@ const SharedComponents = ({ children }) => {
   const handleMenu = (e) => {
     e.preventDefault();
     console.log("clicked");
-    if(menu === true) {
+    if (menu === true) {
       setMenu(false);
       localStorage.setItem("menu", "false");
     } else {
       setMenu(true);
       localStorage.setItem("menu", "true");
-
     }
     setMenu(!menu);
-    
-
   };
 
   return (
     <ThemeContext.Provider value={theme.mode}>
       <div className="whole-page" id={theme.mode}>
         <div className="home-top">
-          <div className="menu-header">
-            <div className="logo-s">
-              <img src={logo} alt="logo" />
-              <h1>CracKube</h1>
-            </div>
+          {localStorage.getItem("menu") === "true" ? (
+            <>
+              <div className="menu-header">
+                <div className="logo-s">
+                  <img src={logo} alt="logo" />
+                  <h1>CracKube</h1>
+                </div>
 
-            <div className="side-arrow" onClick={handleMenu}>
-              <img src={Arrow} alt="" />
-            </div>
-          </div>
+                <div className="side-arrow" onClick={handleMenu}>
+                  <img src={Arrow} alt="" />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+            <div className="menu-header-s">
+                <div className="logo-s">
+                  <img src={logo} alt="logo" />
+                </div>
+
+                <div className="side-arrow" onClick={handleMenu}>
+                  <img src={Arrow} alt="" />
+                </div>
+              </div>
+            </>
+          )}
+
           <TopNavBar theme={theme.mode} />
         </div>
         <div className="home" id={theme.mode}>
-          <MenuBar menu={menu}/>
+          <MenuBar menu={menu} />
           <div className="center-maker">
             <div className="home-container">{children}</div>
           </div>

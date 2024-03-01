@@ -15,7 +15,7 @@ export default function TopNavBar() {
   const theme = useTheme();
   const [section, setSection] = useState("blogs");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
   const setCookieBlog = () => {
     setSection("home");
     Cookies.set("state", "/home", {

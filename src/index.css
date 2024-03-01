@@ -451,6 +451,20 @@ a {
   line-height: normal;
   cursor: pointer;
 }
+.menu-header-s {
+  min-width: 15rem;
+  display: flex;
+  align-items: center;
+  color: #960ffa;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  cursor: pointer;
+}
+
 .side-arrow {
   cursor: pointer;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
