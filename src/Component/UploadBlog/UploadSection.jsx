@@ -8,7 +8,6 @@ import UnSplash1 from "../../Assets/unsplash-logo.png";
 import axios from "axios";
 export const StateContext = createContext();
 const UploadSection = ({ body, title, setFirst }) => {
-
   const [category, setCategory] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [file, setFile] = useState(null);
@@ -16,31 +15,28 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageProvider, setBlogImageProvider] = useState("");
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
-  formData.append("file", file);
+  formData.append("image", file);
   formData.append("userPosted", localStorage.getItem("userId"));
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
-  formData.append("blogImageUrl", blogImageUrl);
   formData.append("blogImageProvider", blogImageProvider);
   console.log(formData);
   const handleImageChange = (e) => {
-    
     const file = e.target.files[0];
-    
-    if (file) {
-        setFile(file);
-        console.log(file);
-        setBlogImageProvider("upload");
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          var dataURL = reader.result;
-          // setBlogImageUrl(`data:image/png;base64,${dataURL.split(",")[1]}`);
-          setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
-        };
-        console.log(formData);
 
+    if (file) {
+      setFile(file);
+      console.log(file);
+      setBlogImageProvider("upload");
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        var dataURL = reader.result;
+        // setBlogImageUrl(`data:image/png;base64,${dataURL.split(",")[1]}`);
+        setImage(`data:image/png;base64,${dataURL.split(",")[1]}`);
+      };
+      console.log(formData);
     }
   };
 
@@ -60,6 +56,7 @@ const UploadSection = ({ body, title, setFirst }) => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
+      //data.header("Access-Control-Allow-Origin", "*");
       console.log(data.response);
       setFirst(false);
     } catch (error) {
@@ -68,9 +65,9 @@ const UploadSection = ({ body, title, setFirst }) => {
   };
   // upload the images, title, body, tags, category, userPosted, userId to the backend url https://crackube-backend-test.onrender.com/blogs/post/
   const handleInputKeyPress = (e) => {
-    if (e.key === ',' && inputValue.trim() !== '') {
+    if (e.key === "," && inputValue.trim() !== "") {
       setCategory([...category, inputValue.trim()]);
-      setInputValue('');
+      setInputValue("");
     }
   };
 
@@ -78,9 +75,7 @@ const UploadSection = ({ body, title, setFirst }) => {
     const updatedTags = category.filter((tag) => tag !== tagToRemove);
     setCategory(updatedTags);
   };
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
 
   const [state, setState] = useState(false);
   const value = {
@@ -132,31 +127,26 @@ const UploadSection = ({ body, title, setFirst }) => {
           
         </div> */}
         <div>
-            <div className="cat-input">
-              <div  className="tag-cont">
-            {category.map((tag, index) => (
+          <div className="cat-input">
+            <div className="tag-cont">
+              {category.map((tag, index) => (
                 <div key={index} className="tag-disp">
                   <p>{tag}</p>
-                  <img src= {tagX}  onClick={() => handleTagRemove(tag)}></img>
+                  <img src={tagX} onClick={() => handleTagRemove(tag)}></img>
                 </div>
               ))}
-              </div>
+            </div>
             <input
               type="text"
               value={inputValue}
-              
               onChange={(e) => {
                 setInputValue(e.target.value);
               }}
               onKeyPress={handleInputKeyPress}
               placeholder="Add tags"
-            >
-             
-            </input>
-            
-            </div>
-           
+            ></input>
           </div>
+        </div>
         <div className="thumbnailUpload">
           <label htmlFor="file" className="file-upload">
             {image && (

@@ -66,7 +66,6 @@ function App() {
   useEffect(() => {
     if (navigator.onLine) {
       const checkingPing = setInterval(() => {
-        console.log("checkingPing");
         fetch("//google.com", { mode: "no-cors" })
           .then(() => setIsDisconnected(false))
           .catch(() => setIsDisconnected(true));
