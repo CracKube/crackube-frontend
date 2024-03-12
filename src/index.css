@@ -451,6 +451,15 @@ a {
   line-height: normal;
   cursor: pointer;
 }
+.wrapperClassName {
+  border-radius: 2rem;
+  border: 2px solid var(--Light-Gray-for-Division, #F2F2F2);
+  padding: 1rem;
+}
+.toolbarClassName {
+  border-radius: 2rem;
+  border: 2px solid var(--Light-Gray-for-Division, #F2F2F2);
+}
 .menu-header-s {
   min-width: 15rem;
   display: flex;

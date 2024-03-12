@@ -11,5 +11,6 @@ export const store = configureStore({
         userElse : userElseReducer,
         likes : blogOptionsReducer,
         answers : answerReducer
+        
     }
 });

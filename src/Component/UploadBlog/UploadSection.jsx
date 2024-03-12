@@ -8,17 +8,7 @@ import UnSplash1 from "../../Assets/unsplash-logo.png";
 import axios from "axios";
 export const StateContext = createContext();
 const UploadSection = ({ body, title, setFirst }) => {
-  const [response, setResponse] = useState("");
 
-  const getUserDetails = async () => {
-    const response = await axios.get(
-      `https://crackube-backend-test.onrender.com/users/getUser/${window.localStorage.getItem(
-        "userId"
-      )}`
-    );
-    setResponse(response.data);
-    console.log(response.data);
-  };
   const [category, setCategory] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [file, setFile] = useState(null);
@@ -27,8 +17,7 @@ const UploadSection = ({ body, title, setFirst }) => {
   const [blogImageUrl, setBlogImageUrl] = useState("");
   const formData = new FormData();
   formData.append("file", file);
-  // formData.append("userPosted", localStorage.getItem("userId"));
-  formData.append("userPosted", "65ae0299c6295d35b5b8fb57")
+  formData.append("userPosted", localStorage.getItem("userId"));
   formData.append("blogTitle", title);
   formData.append("blogBody", body);
   formData.append("blogTags", category);
@@ -90,7 +79,7 @@ const UploadSection = ({ body, title, setFirst }) => {
     setCategory(updatedTags);
   };
   useEffect(() => {
-    getUserDetails();
+    
   }, []);
 
   const [state, setState] = useState(false);

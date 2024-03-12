@@ -22,9 +22,7 @@ function Card(props) {
             <p>{props.tags[0]}</p>{" "}
           </div>
         </div>
-        {props.loading ? (
-          <Skeleton className="h-40" />
-        ) : (
+        
           <img
             src={props.thumbnail}
             alt=""
@@ -33,7 +31,7 @@ function Card(props) {
               window.location.href = `/blog/${props.id}`;
             }}
           />
-        )}
+        
       </div>
       <div
         onClick={() => {

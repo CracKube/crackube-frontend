@@ -1,30 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { MainBar, TopNavBar } from "../Constants";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./UploadBlog.css";
-import { useNavigate } from "react-router-dom";
-import UploadSection from "./UploadSection";
 import Arrow from "../../Assets/ans-back-arrow.svg";
 import { useTheme } from "../../Context/ThemeContext";
+import "./UploadBlog.css";
+import UploadSection from "./UploadSection";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{ font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blackquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-  ],
-};
-
-function UploadMainBar({  }) {
+function UploadMainBar({}) {
   const theme = useTheme();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -105,13 +89,21 @@ function UploadMainBar({  }) {
                 onChange={(e) => setTitle(e.target.value)}
               />
               <div className="blog-description">
-                <ReactQuill
+                {/* <ReactQuill
                   theme="snow"
                   value={editorText}
                   onChange={handleChange}
                   className="editor-textarea"
                   modules={modules}
+                /> */}
+                <Editor
+                  editorState={editorText}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={handleChange}
                 />
+
                 {showPopup && (
                   <div
                     style={{
