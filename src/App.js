@@ -12,7 +12,7 @@ import Answer from "./Component/Answer/Answer";
 import MainAnswer from "./Component/AnsweringPage/MainAnswer";
 import BlogPage from "./Component/BlogPage/BlogPage.js";
 import BlogRead from "./Component/BlogRead/BlogRead";
-import Categories from "./Component/Category/Categories";
+import HelpCenter  from "./Component/Category/Categories";
 import ContactUs from "./Component/ContactUs";
 import ForgetPswd from "./Component/ForgetPassword/ForgetPassword";
 import GPT4 from "./Component/GPT/GPT4";
@@ -46,6 +46,8 @@ import Success from "./Payment/Success.jsx";
 import Failure from "./Payment/Failure.jsx";
 import NotFound from "./Component/NotFound/NotFound.jsx";
 import SharedComponents from "./Component/SharedComponents.jsx";
+import Help from "./Component/helpcenter/HelpCenter.js";
+import Categories from "./Component/Category/Categories";
 
 // NotFound
 export const ThemeContext = createContext(null);
@@ -150,7 +152,11 @@ function App() {
                   ></Route>
                   <Route path="/yourden" element={<YourDen />}></Route>
                   <Route path="/test" element={<Categories />}></Route>
+                {/* help center page */}
+                <Route path="/helpcenter" element={<Help />}></Route>
                 </Routes>
+
+                
               </ThemeProvider>
             </ThemeContext.Provider>
           </Router>
