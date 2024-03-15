@@ -5,7 +5,7 @@ import DP from "../../Assets/dp.png";
 import Gold from "../../Assets/goldLeague.svg";
 import Cup from "../../Assets/cup.svg";
 import Views from "../../Assets/views.svg";
-import { MainBar } from "../Constants";
+import { Dashboard, MainBar } from "../Constants";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AnswerComponent from "../AnswerComponent/AnswerComponent";
@@ -17,7 +17,7 @@ import { getUser } from "../../redux/Users/userSlice";
 import { useParams } from "react-router-dom";
 import { useTheme } from "../../Context/ThemeContext";
 
-function ProfileComponent({ }) {
+function ProfileComponent({}) {
   const theme = useTheme();
   const dispatch = useDispatch();
   // const [response, setResponse] = useState("");
@@ -52,139 +52,77 @@ function ProfileComponent({ }) {
   const response = useSelector((state) => state.userElse.userElse);
   console.log(response);
   return (
-    <div className="flex-prof" id={theme.mode}>
-      <div className="imgs">
-        <div>
-          <div className="dp">
-            <div className="showcase-cover">
-              <img className="img-wrap" src={Profile} />
-              <img className="dp-img" src={response.profilePicUrl} />
-            </div>
+    <div className="profile_container">
+      <div className="profile_info">
+        <div className="profile_images">
+          <img className="banner_image" src={Profile} alt="banner" />
+          <img
+            className="profile_image"
+            src={response.profilePicUrl}
+            alt="profile"
+          />
+        </div>
+        <div className="all_info">
+          <p className="info_name">{response.name}</p>
+          <p className="info_username">@{response.username}</p>
+          <button className="info_follow_btn">Follow</button>
+        </div>
 
-            <p className="user-prof-cover">{response.name}</p>
-            <p className="user-name">@{response.username}</p>
-            <div className="user-flw-btn">
-              <button>Follow</button>
-            </div>
-
-            <div className="user-data">
-              <div className="fit">
-                <p>{response.answersPosted && response.answersPosted.length}</p>
-                <p>Answers</p>
-              </div>
-              <div className="user-sep-bar"></div>
-              <div className="fit">
-                <p>{response.blogsPosted && response.blogsPosted.length}</p>
-                <p>Blogs</p>
-              </div>
-              <div className="user-sep-bar"></div>
-              <div className="fit">
-                <p>{response.followers && response.followers.length}</p>
-                <p>Followers</p>
-              </div>
-              <div className="user-sep-bar"></div>
-              <div className="fit">
-                <p>{response.following && response.following.length}</p>
-                <p>following</p>
-              </div>
-            </div>
-            <p className="user-desc">
-              Writer. #MarieTV. Fancy Dancer. <br />
-              🎧 Learn to get anything you want. <br />
-              Free download <br />
-              marieforleo.com/blog <br />
-              <strong>New Jersey, USA</strong>
-            </p>
-            <div className="profile-show">
-              <div className="profile-nav-btn">
-                {list.map((item, index) => {
-                  return (
-                    <button
-                      key={index}
-                      className={
-                        clicked === index ? "profile-click-btn" : "profile-btn"
-                      }
-                      onClick={() => {
-                        setClicked(index);
-                      }}
-                    >
-                      {item.name}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+        <div className="user_infoData">
+          <div className="user_fit">
+            <p className="p">{response.answersPosted && response.answersPosted.length}</p>
+            <p>Answers</p>
           </div>
+          <div className="user-sep-bar"></div>
+          <div className="user_fit">
+            <p className="p">{response.blogsPosted && response.blogsPosted.length}</p>
+            <p>Blogs</p>
+          </div>
+          <div className="user-sep-bar"></div>
+          <div className="user_fit">
+            <p className="p">{response.followers && response.followers.length}</p>
+            <p>Followers</p>
+          </div>
+          <div className="user-sep-bar"></div>
+          <div className="user_fit">
+            <p className="p">{response.following && response.following.length}</p>
+            <p>following</p>
+          </div>
+        </div>
 
-          {clicked === 0 &&
-            response.quesAsked &&
-            response.quesAsked.map((item, index) => {
+        <div>
+          <p className="user-desc">
+            Writer. #MarieTV. Fancy Dancer. <br />
+            🎧 Learn to get anything you want. <br />
+            Free download <br />
+            marieforleo.com/blog <br />
+            <strong>New Jersey, USA</strong>
+          </p>
+        </div>
+
+        <div className="info_profile-show">
+          <div className="profile-nav-btn">
+            {list.map((item, index) => {
               return (
-                <AnswerComponent
+                <button
                   key={index}
-                  theme={theme.mode}
-                  verify={item.isVerified}
-                  id={item._id}
-                  body={item.questionBody}
-                  tags={item.questionTags}
-                  img={item.userPosted.profilePicUrl}
-                  userName={item.userPosted && item.userPosted.name}
-                  postedOn={item.askedOn}
-                />
+                  className={
+                    clicked === index ? "profile-click-btn" : "profile-btn"
+                  }
+                  onClick={() => {
+                    setClicked(index);
+                  }}
+                >
+                  {item.name}
+                </button>
               );
             })}
-
-          {/* {clicked === 1 && blogs &&     <div
-      className= 'dashboard1'
-    >
-      {( response.blogsPosted && 
-        response.blogsPosted.map((blog, index) => (
-          <Card
-            key={index}
-            id={blog._id}
-            thumbnail={blog.blogImageUrl}
-            authorImage={blog.userPosted && blog.userPosted.profilePicUrl}
-            title={blog.blogTitle}
-            author={blog.userPosted && blog.userPosted.name}
-            modified={blog.postedOn}
-            tags={blog.blogTags}
-          />
-        ))
-      )}
-    </div>} */}
+          </div>
         </div>
       </div>
-      <div className="achieve-bar">
-        <div className="sub-prof" id={theme.mode}>
-          <div className="cup-cover">
-            <img className="img-wrap1" src={Gold} />
-            <h1>1600XP</h1>
-            <p>Reputation</p>
-          </div>
-        </div>
-        <div className="sub-prof" id={theme.mode}>
-          <div className="cup-cover">
-            <img className="img-wrap1" src={Cup} />
-            <h1>Novice</h1>
-            <p>Current League</p>
-          </div>
-        </div>
-        <div className="bar-mid">
-          <div className="views-cover">
-            <h1>Stats</h1>
-            <p>Private for you</p>
-          </div>
-          <div className="view-btn">
-            <button>View more</button>
-          </div>
-        </div>
-        <div className="sub-prof" id={theme.mode}>
-          <div className="cup-cover">
-            <img className="img-wrap1" src={Views} />
-            <h1>1900</h1>
-            <p>Views in the last 30 days</p>
-          </div>
-        </div>
+
+      <div className="profile_blogs">
+        <Dashboard type="card1" theme={theme} />
       </div>
     </div>
   );

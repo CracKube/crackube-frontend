@@ -7,6 +7,7 @@ import homeIcon from '../../Assets/homeIcon.svg'
 import ProfileComponent from './ProfileComponent'
 import HiddenComponent from '../Pages/HiddenComponent'
 import SharedComponents from '../SharedComponents'
+import './profilePage.css'
 function ProfilePage() {
   return (
     <SharedComponents>

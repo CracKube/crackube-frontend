@@ -1,0 +1,316 @@
+.profile_container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_images {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+}
+
+.banner_image {
+  width: 100%;
+  height: 186px;
+  flex-shrink: 0;
+  border-radius: 32px;
+}
+
+.profile_image {
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: 128px;
+  position: absolute;
+  left: 45.5%;
+  bottom: -10%;
+}
+
+.all_info {
+    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.2rem;
+}
+
+.info_name {
+  color: var(--Black, #000);
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.info_username {
+  color: var(--CracKube-Red, #f42271);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.info_follow_btn {
+  display: inline-flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  color: #fff;
+  background: var(--CracKube-Purple, #8f00ff);
+}
+
+.user_infoData {
+  padding: 2rem;
+  padding-top: 10px;
+  padding-bottom: 1rem;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user_fit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.user_fit .p {
+    color: #000;
+text-align: center;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.user_fit p {
+  color: #000;
+  color: var(--Gray, #737373);
+text-align: center;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.user-desc {
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.info_profile-show {
+  margin-top: -1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.profile_blogs {
+  margin-top: 0.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile_images {
+    padding: 0.5rem;
+  }
+
+  .banner_image {
+    height: 156px;
+  }
+
+  .profile_image {
+    width: 100px;
+    height: 100px;
+    left: 38%;
+    bottom: -20%;
+  }
+
+  .all_info {
+    margin-top: 1.5rem;
+  }
+
+  .user_infoData {
+    padding: 0rem;
+    padding-top: 10px;
+    padding-bottom: 1rem;
+    gap: 0.2rem;
+  }
+
+  .user_fit p {
+    font-size: 1rem;
+  }
+
+  .info_profile-show {
+    width: 100%;
+    margin-top: -1.7rem;
+    text-align: left;
+  }
+
+  .profile-nav-btn{
+    width: 100%;    
+  }
+  .profile_blogs {
+    margin-top: 0.1rem;
+  }
+}
+
+
+
+
+/*
+
+
+  <div className="flex-prof" id={theme.mode}>
+      <div className="imgs">
+        <div>
+          <div className="dp">
+            <div className="showcase-cover">
+              <img className="img-wrap" src={Profile} />
+              <img className="dp-img" src={response.profilePicUrl} />
+            </div>
+
+            <p className="user-prof-cover">{response.name}</p>
+            <p className="user-name">@{response.username}</p>
+            <div className="user-flw-btn">
+              <button>Follow</button>
+            </div>
+
+            <div className="user-data">
+              <div className="fit">
+                <p>{response.answersPosted && response.answersPosted.length}</p>
+                <p>Answers</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>{response.blogsPosted && response.blogsPosted.length}</p>
+                <p>Blogs</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>{response.followers && response.followers.length}</p>
+                <p>Followers</p>
+              </div>
+              <div className="user-sep-bar"></div>
+              <div className="fit">
+                <p>{response.following && response.following.length}</p>
+                <p>following</p>
+              </div>
+            </div>
+            <p className="user-desc">
+              Writer. #MarieTV. Fancy Dancer. <br />
+              🎧 Learn to get anything you want. <br />
+              Free download <br />
+              marieforleo.com/blog <br />
+              <strong>New Jersey, USA</strong>
+            </p>
+            <div className="profile-show">
+              <div className="profile-nav-btn">
+                {list.map((item, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={
+                        clicked === index ? "profile-click-btn" : "profile-btn"
+                      }
+                      onClick={() => {
+                        setClicked(index);
+                      }}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {clicked === 0 &&
+            response.quesAsked &&
+            response.quesAsked.map((item, index) => {
+              return (
+                <AnswerComponent
+                  key={index}
+                  theme={theme.mode}
+                  verify={item.isVerified}
+                  id={item._id}
+                  body={item.questionBody}
+                  tags={item.questionTags}
+                  img={item.userPosted.profilePicUrl}
+                  userName={item.userPosted && item.userPosted.name}
+                  postedOn={item.askedOn}
+                />
+              );
+            })}
+
+          {/* {clicked === 1 && blogs &&     <div
+      className= 'dashboard1'
+    >
+      {( response.blogsPosted && 
+        response.blogsPosted.map((blog, index) => (
+          <Card
+            key={index}
+            id={blog._id}
+            thumbnail={blog.blogImageUrl}
+            authorImage={blog.userPosted && blog.userPosted.profilePicUrl}
+            title={blog.blogTitle}
+            author={blog.userPosted && blog.userPosted.name}
+            modified={blog.postedOn}
+            tags={blog.blogTags}
+          />
+        ))
+      )}
+    </div>} */
+    /* </div> */
+    /* </div> */
+    {/* <div className="achieve-bar">
+      <div className="sub-prof" id={theme.mode}>
+        <div className="cup-cover">
+          <img className="img-wrap1" src={Gold} />
+          <h1>1600XP</h1>
+          <p>Reputation</p>
+        </div>
+      </div>
+      <div className="sub-prof" id={theme.mode}>
+        <div className="cup-cover">
+          <img className="img-wrap1" src={Cup} />
+          <h1>Novice</h1>
+          <p>Current League</p>
+        </div>
+      </div>
+      <div className="bar-mid">
+        <div className="views-cover">
+          <h1>Stats</h1>
+          <p>Private for you</p>
+        </div>
+        <div className="view-btn">
+          <button>View more</button>
+        </div>
+      </div>
+      <div className="sub-prof" id={theme.mode}>
+        <div className="cup-cover">
+          <img className="img-wrap1" src={Views} />
+          <h1>1900</h1>
+          <p>Views in the last 30 days</p>
+        </div>
+      </div>
+    </div> */}
+  /* </div> */

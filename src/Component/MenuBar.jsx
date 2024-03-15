@@ -28,7 +28,7 @@ function MenuBar({menu}) {
   async function getUserIP() {
     try {
       // Get user's approximate location and timezone using ipinfo.io
-      const response = await axios.get("http://ip-api.com/json");
+      const response = await axios.get("h   /json");
       const { lat, lon, timezone } = response.data;
 
       // Calculate current time in the user's timezone

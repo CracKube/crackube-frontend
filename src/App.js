@@ -93,6 +93,7 @@ function App() {
                     exact
                     Component={ForgetPswd}
                   ></Route>
+                  <Route path="/" exact Component={Home}></Route>
                   <Route path="/home" exact Component={Home}></Route>
                   <Route path="/otp" exact Component={OTP}>
                     {" "}
